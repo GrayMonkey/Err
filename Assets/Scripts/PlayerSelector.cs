@@ -12,13 +12,14 @@ using Menus = MenuHandler.MenuOverlay;
 public class PlayerSelector : MonoBehaviour
 {
     public static PlayerSelector playerSelector;
-    public PlayerButton editPlayerButton;
+    public PlayerObject editPlayerObject;
     public List<Player> playersActive;
+    public GameObject playerDragged;
     public int newPlayerCount = 0;
     public bool loadPlayerActive = false;
 
     [SerializeField] GameObject playersPanel;
-    [SerializeField] GameObject playerButton;
+    [SerializeField] GameObject playerObject;
     [SerializeField] Text playerCountLabel;
     [SerializeField] Button loadPlayers;
     [SerializeField] Button addPlayer;
@@ -95,8 +96,8 @@ public class PlayerSelector : MonoBehaviour
     public void ActivatePlayerButton(Player player)
     {
         playerController.activePlayer = player;
-        GameObject newPlayerButton = Instantiate(playerButton, playersPanel.transform);
-        newPlayerButton.GetComponent<PlayerButton>().refPlayer = player;
+        GameObject newPlayerButton = Instantiate(playerObject, playersPanel.transform);
+        newPlayerButton.GetComponent<PlayerObject>().refPlayer = player;
         if (!playersActive.Contains(player)) { playersActive.Add(player); }
 
         //for (int i = 0; i < playersPanel.transform.childCount; i++)
@@ -118,7 +119,7 @@ public class PlayerSelector : MonoBehaviour
 
         for (int i = 0; i < playersPanel.transform.childCount; i++)
         {
-            PlayerButton playerButton = playersPanel.transform.GetChild(i).gameObject.GetComponent<PlayerButton>();
+            PlayerObject playerButton = playersPanel.transform.GetChild(i).gameObject.GetComponent<PlayerObject>();
             if (playerButton != null)
             {
                 playerButton.AddToPlayerList();

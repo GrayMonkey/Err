@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Menu = MenuHandler.MenuOverlay;
 
-public class PlayerButton : MonoBehaviour
+public class PlayerObject : MonoBehaviour
 {
     public Player refPlayer;
     //public int turn;
@@ -13,12 +13,11 @@ public class PlayerButton : MonoBehaviour
     [SerializeField] Text playerName;
     [SerializeField] InputField nameInputField;
     [SerializeField] Image buttonImage;
-    //[SerializeField] Text inputText;
 
+    PlayerRosterSelect playerRosterSelect;
     PlayerSelector playerSelector;
     PlayerController playerController;
     MenuHandler uiMenus;
-    LoadPlayerContent loadPlayerDropdown;
     bool uniqueName;
     Color darkGreen = new Color(0.0f, 0.9f, 0.0f);
     Color lightRed = new Color(1.0f, 0.35f, 0.35f);
@@ -28,7 +27,7 @@ public class PlayerButton : MonoBehaviour
         uiMenus = MenuHandler.uiMenus;
         playerSelector = PlayerSelector.playerSelector;
         playerController = PlayerController.playerController;
-        loadPlayerDropdown = LoadPlayerContent.loadPlayer;
+        playerRosterSelect = PlayerRosterSelect.playerRosterSelect;
     }
 
     private void Start()
@@ -48,7 +47,7 @@ public class PlayerButton : MonoBehaviour
 
     public void RemovePlayer()
     {
-        playerSelector.editPlayerButton = this;
+        playerSelector.editPlayerObject = this;
         uiMenus.ShowMenu(Menu.RemovePlayer);
     }
 
@@ -73,5 +72,14 @@ public class PlayerButton : MonoBehaviour
         nameInputField.text = newName;
         nameInputField.gameObject.SetActive(false);
         buttonImage.color = Color.white;
+    }
+
+    public void ShowPlayerRoster()
+    {
+        int index;
+        index = transform.GetSiblingIndex()+1;
+        playerRosterSelect.transform.parent = transform.parent;
+        playerRosterSelect.transform.SetSiblingIndex(index);
+        playerRosterSelect.gameObject.SetActive(true);
     }
 }

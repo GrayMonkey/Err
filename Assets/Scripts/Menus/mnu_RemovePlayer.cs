@@ -25,7 +25,7 @@ public class mnu_RemovePlayer : MonoBehaviour
     private void OnEnable()
     {
         uiMenus = MenuHandler.uiMenus;
-        editPlayer = playerSelector.editPlayerButton.refPlayer;
+        editPlayer = playerSelector.editPlayerObject.refPlayer;
         playerRoster = playerController.playerRoster;
         activePlayers = playerSelector.playersActive;
 
@@ -58,7 +58,7 @@ public class mnu_RemovePlayer : MonoBehaviour
         //    playerRemoved = true;
         //    CloseMenu();
         //}
-        playerSelector.editPlayerButton.gameObject.SetActive(false);
+        playerSelector.editPlayerObject.gameObject.SetActive(false);
         playerController.playersActive.Remove(editPlayer);
         CloseMenu();
     }

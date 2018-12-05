@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Clue
   - DummyPlayer
+  - PlayerRosterSelect
   layers:
   - Default
   - TransparentFX

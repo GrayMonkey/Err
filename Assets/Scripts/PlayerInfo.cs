@@ -8,7 +8,7 @@ using Menu = MenuHandler.MenuOverlay;
 
 public class PlayerInfo : MonoBehaviour
 {
-    public PlayerButton editPlayerButton;
+    public PlayerObject editPlayerButton;
 
     [SerializeField] InputField playerName;
     [SerializeField] Text playerTurn;
@@ -32,7 +32,7 @@ public class PlayerInfo : MonoBehaviour
     {
         uiMenu = MenuHandler.uiMenus;
         playerSelect = PlayerSelector.playerSelector;
-        editPlayerButton = playerSelect.editPlayerButton;
+        editPlayerButton = playerSelect.editPlayerObject;
         editPlayer = editPlayerButton.refPlayer;
         currentName = editPlayer.playerName;
         currentTurn = editPlayerButton.transform.GetSiblingIndex() + 1;

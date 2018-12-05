@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114410518149670452}
   - component: {fileID: 114824330659229474}
   m_Layer: 5
-  m_Name: LoadPlayerButton
+  m_Name: PlayerRosterObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1455113488390630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9c4876c304874d958d7cf00c677915b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a3782167e9fe4130ae5ebbbd0785923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: {fileID: 114680237511905726}

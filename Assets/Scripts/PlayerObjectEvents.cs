@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PlayerButtonEvents : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler 
+public class PlayerObjectEvents : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler 
 {
-    public static GameObject playerDragged;
+    //public static GameObject playerDragged;
 
     [SerializeField] InputField nameInputField;
     [SerializeField] Text playerName;
@@ -16,7 +16,8 @@ public class PlayerButtonEvents : MonoBehaviour, IBeginDragHandler, IDragHandler
     GameObject dummyPlayer; // to mimic the playerDragged object
     PlayerSelector playerSelector;
     PlayerController playerController;
-    PlayerButton playerButton;
+    PlayerObject playerButton;
+    PlayerRosterSelect playerRosterSelect;
     Text inputText;
     Text inputPlaceholder;
     Vector3 newPos;
@@ -26,10 +27,11 @@ public class PlayerButtonEvents : MonoBehaviour, IBeginDragHandler, IDragHandler
     float clickDelay = 0.25f;
     bool singleClickCheck = false;
 
-    private void Start()
+    private void Awake()
     {
         playerSelector = PlayerSelector.playerSelector;
         playerController = PlayerController.playerController;
+        playerRosterSelect = PlayerRosterSelect.playerRosterSelect;
         dummyPlayer = GameObject.FindWithTag("DummyPlayer");
     }
 
@@ -49,7 +51,9 @@ public class PlayerButtonEvents : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     private void OnEnable()
     {
-        playerButton = GetComponent<PlayerButton>();
+        ResetPlayerRoster();
+
+        playerButton = GetComponent<PlayerObject>();
         inputText = nameInputField.textComponent.GetComponent<Text>();
         inputPlaceholder = nameInputField.placeholder.GetComponent<Text>();
         ShowRemovePlayer();
@@ -63,7 +67,9 @@ public class PlayerButtonEvents : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        playerDragged = gameObject;
+        ResetPlayerRoster();
+
+        playerSelector.playerDragged = gameObject;
         GetComponent<BoxCollider2D>().size = dragSize;
 
         // Set up the dummy player as this will draw over the
@@ -98,6 +104,8 @@ public class PlayerButtonEvents : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        ResetPlayerRoster();
+
         singleClickCheck = true;
 
         if (eventData.clickCount == 1)
@@ -124,13 +132,20 @@ public class PlayerButtonEvents : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
-        if (playerDragged != gameObject)
+        if (playerSelector.playerDragged != gameObject)
         {
             // Change the SiblingIndex in the heirarchy to make space
             // immediately visible for playerDragged
             //            int dragSibling = playerDragged.transform.GetSiblingIndex();
             int colSibling = transform.GetSiblingIndex();
-            playerDragged.transform.SetSiblingIndex(colSibling);
+            playerSelector.playerDragged.transform.SetSiblingIndex(colSibling);
         }
+    }
+
+    public void ResetPlayerRoster()
+    {
+        playerRosterSelect.transform.SetParent(playerSelector.transform);
+        //playerRosterSelect.transform.parent = playerSelector.transform;
+        playerRosterSelect.transform.localPosition = new Vector3(700.0f, 0f, 0f);
     }
 }
