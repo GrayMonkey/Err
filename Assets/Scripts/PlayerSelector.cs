@@ -18,7 +18,7 @@ public class PlayerSelector : MonoBehaviour
     public int newPlayerCount = 0;
     public bool loadPlayerActive = false;
 
-    [SerializeField] GameObject playersPanel;
+    [SerializeField] GameObject playersPanelContent;
     [SerializeField] GameObject playerObject;
     [SerializeField] Text playerCountLabel;
     [SerializeField] Button loadPlayers;
@@ -96,7 +96,7 @@ public class PlayerSelector : MonoBehaviour
     public void ActivatePlayerButton(Player player)
     {
         playerController.activePlayer = player;
-        GameObject newPlayerButton = Instantiate(playerObject, playersPanel.transform);
+        GameObject newPlayerButton = Instantiate(playerObject, playersPanelContent.transform);
         newPlayerButton.GetComponent<PlayerObject>().refPlayer = player;
         if (!playersActive.Contains(player)) { playersActive.Add(player); }
 
@@ -117,9 +117,9 @@ public class PlayerSelector : MonoBehaviour
     {
         playersActive.Clear();
 
-        for (int i = 0; i < playersPanel.transform.childCount; i++)
+        for (int i = 0; i < playersPanelContent.transform.childCount; i++)
         {
-            PlayerObject playerButton = playersPanel.transform.GetChild(i).gameObject.GetComponent<PlayerObject>();
+            PlayerObject playerButton = playersPanelContent.transform.GetChild(i).gameObject.GetComponent<PlayerObject>();
             if (playerButton != null)
             {
                 playerButton.AddToPlayerList();
@@ -129,7 +129,7 @@ public class PlayerSelector : MonoBehaviour
  
         // Deactivate the add player button if playersActive.count is 10
         addPlayer.interactable = true;
-        if (playersActive.Count == playersPanel.transform.childCount)
+        if (playersActive.Count == playersPanelContent.transform.childCount)
         {
             addPlayer.interactable = false;
         }

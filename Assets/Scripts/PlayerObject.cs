@@ -55,7 +55,10 @@ public class PlayerObject : MonoBehaviour
     {
         buttonImage.color = lightRed;
         text = nameInputField.text;
-        if (playerController.UniqueNameCheck(text, refPlayer)){ buttonImage.color = darkGreen; }
+        if (playerController.UniqueNameCheck(text, refPlayer))
+        { 
+            buttonImage.color = darkGreen; 
+        }
     }
 
     public void UpdatePlayerName()
@@ -78,8 +81,9 @@ public class PlayerObject : MonoBehaviour
     {
         int index;
         index = transform.GetSiblingIndex()+1;
-        playerRosterSelect.transform.parent = transform.parent;
-        playerRosterSelect.transform.SetSiblingIndex(index);
+        playerRosterSelect.transform.SetParent(transform);
+        //playerRosterSelect.transform.SetSiblingIndex(index);
+        playerRosterSelect.transform.localPosition = new Vector3 (0.0f, 110f, 0f);
         playerRosterSelect.gameObject.SetActive(true);
     }
 }

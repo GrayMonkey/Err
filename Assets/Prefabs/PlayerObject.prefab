@@ -367,7 +367,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114823141765725306}
+      - m_Target: {fileID: 114513215492353400}
         m_MethodName: RemovePlayer
         m_Mode: 1
         m_Arguments:
@@ -482,7 +482,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114823141765725306}
+      - m_Target: {fileID: 114513215492353400}
         m_MethodName: UpdatePlayerName
         m_Mode: 1
         m_Arguments:
@@ -498,7 +498,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114823141765725306}
+      - m_Target: {fileID: 114513215492353400}
         m_MethodName: NameCheck
         m_Mode: 0
         m_Arguments:
