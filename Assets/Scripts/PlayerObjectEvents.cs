@@ -18,6 +18,7 @@ public class PlayerObjectEvents : MonoBehaviour, IBeginDragHandler, IDragHandler
     PlayerController playerController;
     PlayerObject playerButton;
     PlayerRosterSelect playerRosterSelect;
+    RectTransform rectTransform;
     Text inputText;
     Text inputPlaceholder;
     Vector3 newPos;
@@ -27,12 +28,13 @@ public class PlayerObjectEvents : MonoBehaviour, IBeginDragHandler, IDragHandler
     float clickDelay = 0.25f;
     bool singleClickCheck = false;
 
-    private void Awake()
+    private void Start()
     {
         playerSelector = PlayerSelector.playerSelector;
         playerController = PlayerController.playerController;
         playerRosterSelect = PlayerRosterSelect.playerRosterSelect;
         dummyPlayer = GameObject.FindWithTag("DummyPlayer");
+        rectTransform = GetComponent<RectTransform>();
     }
 
     private void Update()
@@ -51,7 +53,7 @@ public class PlayerObjectEvents : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     private void OnEnable()
     {
-        ResetPlayerRoster();
+        //playerRosterSelect.Reset();
 
         playerButton = GetComponent<PlayerObject>();
         inputText = nameInputField.textComponent.GetComponent<Text>();
@@ -67,7 +69,7 @@ public class PlayerObjectEvents : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        ResetPlayerRoster();
+        //playerRosterSelect.Reset();
 
         playerSelector.playerDragged = gameObject;
         GetComponent<BoxCollider2D>().size = dragSize;
@@ -104,7 +106,12 @@ public class PlayerObjectEvents : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        ResetPlayerRoster();
+        // reset the button in case it has the playerRoster
+        if (playerRosterSelect.inUse)
+        {
+            ResetButton();
+            return;
+        }
 
         singleClickCheck = true;
 
@@ -142,10 +149,9 @@ public class PlayerObjectEvents : MonoBehaviour, IBeginDragHandler, IDragHandler
         }
     }
 
-    public void ResetPlayerRoster()
+    public void ResetButton()
     {
-        playerRosterSelect.transform.SetParent(playerSelector.transform);
-        //playerRosterSelect.transform.parent = playerSelector.transform;
-        playerRosterSelect.transform.localPosition = new Vector3(700.0f, 0f, 0f);
+        rectTransform.sizeDelta = new Vector2(350.0f, 60.0f);
+        playerRosterSelect.Hide();
     }
 }

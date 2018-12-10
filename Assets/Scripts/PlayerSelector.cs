@@ -30,10 +30,14 @@ public class PlayerSelector : MonoBehaviour
     MenuHandler uiMenus;
     List<Player> playerData = new List<Player>();
 
+    private void Awake()
+    {
+        playerSelector = this;
+    }
+
     // Use this for initialization
     private void Start()
     {
-        playerSelector = this;
         playerController = PlayerController.playerController;
         playersActive = playerController.playersActive;
         gameOptions = GameOptions.gameOptions;

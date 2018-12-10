@@ -8,6 +8,9 @@ public class mnu_RemovePlayer : MonoBehaviour
 {
  
     [SerializeField] Button trash;
+    [SerializeField] PlayerRosterSelect playerRosterSelect;
+    [SerializeField] GameObject playerTrashConfirm;
+
     MenuHandler uiMenus;
     PlayerSelector playerSelector;
     PlayerController playerController;
@@ -19,6 +22,7 @@ public class mnu_RemovePlayer : MonoBehaviour
     {
         playerController = PlayerController.playerController;
         playerSelector = PlayerSelector.playerSelector;
+        playerRosterSelect = PlayerRosterSelect.playerRosterSelect;
         uiMenus = MenuHandler.uiMenus;
     }
 
@@ -36,16 +40,6 @@ public class mnu_RemovePlayer : MonoBehaviour
         }
 	}
 
-    // Trash the player data from the player roster
-    public void RemoveFromRoster()
-    {
-       if (playerRoster.Contains(editPlayer))
-        {
-            playerRoster.Remove(editPlayer);
-            RemoveFromGame();
-        }
-    }
-
     // Remove the player from the current game and reset
     // the player data
     public void RemoveFromGame()
@@ -58,10 +52,35 @@ public class mnu_RemovePlayer : MonoBehaviour
         //    playerRemoved = true;
         //    CloseMenu();
         //}
-        playerSelector.editPlayerObject.gameObject.SetActive(false);
         playerController.playersActive.Remove(editPlayer);
+        Destroy(playerSelector.editPlayerObject.gameObject);
+        //playerSelector.editPlayerObject.gameObject.SetActive(false);
+        playerRosterSelect.Hide();
         CloseMenu();
     }
+
+    public void ConfirmTrash()
+    {
+        playerTrashConfirm.SetActive(true);
+    }
+
+    // Trash the player data from the player roster
+    // TODO Remove the player from the PlayerRosterSelector
+    public void RemoveFromRoster(bool trashPlayer)
+    {
+       if (playerRoster.Contains(editPlayer))
+        {
+            if (trashPlayer)
+            {
+                playerRosterSelect.TrashPlayer(editPlayer);
+                RemoveFromGame();
+            }
+        }
+        playerTrashConfirm.SetActive(false);
+
+        if (trashPlayer) { CloseMenu(); }
+    }
+
 
     // Close the menu
     public void CloseMenu ()

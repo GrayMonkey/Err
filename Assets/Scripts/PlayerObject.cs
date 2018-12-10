@@ -37,7 +37,12 @@ public class PlayerObject : MonoBehaviour
         playerName.text = refPlayer.playerName;
     }
 
-   public void AddToPlayerList()
+    private void Update()
+    {
+        playerName.text = refPlayer.playerName;
+    }
+
+    public void AddToPlayerList()
     {
         if (this.gameObject.activeSelf)
         {
@@ -79,11 +84,24 @@ public class PlayerObject : MonoBehaviour
 
     public void ShowPlayerRoster()
     {
-        int index;
-        index = transform.GetSiblingIndex()+1;
+        // Check if the roster is being used elsewhere
+        if (playerRosterSelect.inUse)
+        {
+            PlayerObjectEvents _po = playerRosterSelect.transform.GetComponentInParent<PlayerObjectEvents>();
+            _po.ResetButton();
+        }
+
+        // Resize the button
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        rectTransform.sizeDelta = new Vector2(350.0f, 280.0f);
+
+        // Move the playerRosterSelect to the button
         playerRosterSelect.transform.SetParent(transform);
-        //playerRosterSelect.transform.SetSiblingIndex(index);
-        playerRosterSelect.transform.localPosition = new Vector3 (0.0f, 110f, 0f);
         playerRosterSelect.gameObject.SetActive(true);
+        rectTransform = playerRosterSelect.GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = new Vector2(0.0f, -165.0f);
+        playerRosterSelect.inUse = true;
+
+        Debug.Log("PlayerRoster pos: " + rectTransform.localPosition.ToString());
     }
 }
