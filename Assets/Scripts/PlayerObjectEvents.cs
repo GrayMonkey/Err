@@ -24,9 +24,9 @@ public class PlayerObjectEvents : MonoBehaviour, IBeginDragHandler, IDragHandler
     Vector3 newPos;
     Vector2 normSize = new Vector2(350.0f, 2.0f);
     Vector2 dragSize = new Vector2(350.0f, 20.0f);
-    float lastClick = 0f;
-    float clickDelay = 0.25f;
-    bool singleClickCheck = false;
+    float lastTap = 0f;
+    float delayTap = 0.25f;
+    bool singleTap = false;
 
     private void Start()
     {
@@ -39,12 +39,12 @@ public class PlayerObjectEvents : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     private void Update()
     {
-        if (singleClickCheck)
+        if (lastTap > 0.0f)
         {
-            if (lastClick + clickDelay < Time.time)
+            if (lastTap + delayTap < Time.time)
             {
-                //Debug.Log("Execute single click");
-                singleClickCheck = false;
+                Debug.Log("Execute single click");
+                lastTap = 0.0f;
                 loadPlayer.gameObject.SetActive(!loadPlayer.gameObject.activeInHierarchy);
                 removePlayer.gameObject.SetActive(!removePlayer.gameObject.activeInHierarchy);
             }
@@ -61,7 +61,7 @@ public class PlayerObjectEvents : MonoBehaviour, IBeginDragHandler, IDragHandler
         ShowRemovePlayer();
     }
 
-    private void ShowRemovePlayer ()
+    private void ShowRemovePlayer()
     {
         loadPlayer.gameObject.SetActive(true);
         removePlayer.gameObject.SetActive(false);
@@ -106,6 +106,29 @@ public class PlayerObjectEvents : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        //Debug.Log("Double Tap Intv: " + (lastTap + delayTap).ToString());
+        //Debug.Log("Time.time: " + Time.time.ToString());
+
+        if (lastTap + delayTap > Time.time)
+        {
+            // TODO Edit player details
+            playerName.gameObject.SetActive(false);
+            nameInputField.gameObject.SetActive(true);
+            nameInputField.image.gameObject.SetActive(true);
+            nameInputField.Select();
+            inputText.text = playerName.text;
+            inputPlaceholder.text = playerName.text;
+            lastTap = 0f;
+            //singleTap = false;
+            ShowRemovePlayer();
+            //Debug.Log("Execute double click!");
+            //Debug.Log(playerName.text + ": Double tap");
+            lastTap = 0.0f;
+        } else {
+            //Debug.Log(playerName.text + ": Single tap");
+            lastTap = Time.time;
+        }
+
         // reset the button in case it has the playerRoster
         if (playerRosterSelect.inUse)
         {
@@ -113,11 +136,14 @@ public class PlayerObjectEvents : MonoBehaviour, IBeginDragHandler, IDragHandler
             return;
         }
 
-        singleClickCheck = true;
+
+
+
+        //singleTap = true;
 
         if (eventData.clickCount == 1)
         {
-            lastClick = Time.time;
+            lastTap = Time.time;
         }
 
         if (eventData.clickCount == 2)
@@ -129,9 +155,8 @@ public class PlayerObjectEvents : MonoBehaviour, IBeginDragHandler, IDragHandler
             nameInputField.Select();
             inputText.text = playerName.text;
             inputPlaceholder.text = playerName.text;
-            singleClickCheck = false;
-            lastClick = 0f;
-            singleClickCheck = false;
+            lastTap = 0f;
+            //singleTap = false;
             ShowRemovePlayer();
             //Debug.Log("Execute double click!");
         }
