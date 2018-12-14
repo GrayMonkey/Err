@@ -9,6 +9,7 @@ public class CardSet : MonoBehaviour
 {
     [SerializeField] string jsonFile;			// JSON file for reading data
     [SerializeField] string cardSetName;    	// Card set name
+    [SerializeField] string cardSetDesc;        // Card set description
     [SerializeField] string cardSetLang;		// Card set language
     [SerializeField] Sprite CardSetIcon;        // Image used for card set
 
@@ -65,4 +66,15 @@ public class CardSet : MonoBehaviour
         activeQuestion.maxPoints = 4;
         GameManager.gameManager.activeQuestion = activeQuestion;
     }
-} 
+}
+
+[System.Serializable]
+public class Question
+{
+    public string word;
+    public string clue4;
+    public string clue3;
+    public string clue2;
+    public string clue1;
+    public int maxPoints;
+}
