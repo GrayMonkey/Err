@@ -28,18 +28,16 @@ public class PlayerRosterSelect : MonoBehaviour
         PopulateList();
     }
 
-    private void PopulateList()
+    public void PopulateList()
     {
         playersActive = playerController.playersActive;
 
         foreach (Player player in playerRoster)
         {
-            if (!playersActive.Contains(player))
-            {
-                GameObject newPlayer = Instantiate(playerRosterObject, transform);
-                newPlayer.transform.SetParent(PlayerRosterContent);
-                newPlayer.GetComponent<PlayerRosterObject>().AttachPlayer(player);
-            }
+            GameObject newPlayer = Instantiate(playerRosterObject, transform);
+            newPlayer.transform.SetParent(PlayerRosterContent);
+            newPlayer.GetComponent<PlayerRosterObject>().AttachPlayer(player);
+            newPlayer.GetComponent<Button>().interactable = !playersActive.Contains(player);
         }
     }
 
@@ -76,17 +74,9 @@ public class PlayerRosterSelect : MonoBehaviour
             }
         }
 
-
         transform.SetParent(playerSelector.transform);
         RectTransform rectTransform = GetComponent<RectTransform>();
         rectTransform.localPosition = new Vector3(700.0f, 0.0f, 0.0f);
         inUse = false;
     }
-
-    //public void Reset()
-    //{
-    //    playerRosterSelect.transform.SetParent(playerSelector.transform);
-    //    //playerRosterSelect.transform.parent = playerSelector.transform;
-    //    playerRosterSelect.transform.localPosition = new Vector3(700.0f, 0f, 0f);
-    //}
 }

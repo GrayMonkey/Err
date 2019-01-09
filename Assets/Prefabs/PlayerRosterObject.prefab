@@ -170,6 +170,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3782167e9fe4130ae5ebbbd0785923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  refPlayer:
+    playerName: 
+    language: 
+    questionsThisGame: 0
+    answersThisGame: 0
+    pointsThisGame: 0
+    gamesTotal: 0
+    gamesWon: 0
+    questionsTotal: 0
+    answersTotal: 0
+    pointsTotal: 0
   playerName: {fileID: 114680237511905726}
 --- !u!222 &222581888566151090
 CanvasRenderer:
@@ -202,7 +213,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 270, y: 40}
+  m_SizeDelta: {x: 240, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224641489722103276
 RectTransform:

@@ -41,6 +41,10 @@ public class PlayerController : MonoBehaviour
         gameManager = GameManager.gameManager;
         gameOptions = GameOptions.gameOptions;
         uiMenu = MenuHandler.uiMenus;
+    }
+
+    private void OnEnable()
+    {
         playerDataExists = LoadPlayerData();
     }
 
@@ -140,16 +144,6 @@ public class PlayerController : MonoBehaviour
     {
         // set the default CardSet as chosen
         CardSet cardSet = gameManager.defaultCardSet;
-
-        //// if the player has preferred cardsets then chose one of those
-        //int playerSets = activePlayer.cardSets.Count;
-        //if (playerSets > 0)
-        //{
-        //    int x = UnityEngine.Random.Range(1, playerSets) - 1;
-        //    cardSet = activePlayer.cardSets[x];
-        //}
-
-        // use the cardset to specify the next question
         cardSet.setQuestion();
 
         // set the gamestatemanager
@@ -162,7 +156,6 @@ public class PlayerController : MonoBehaviour
         // Update stats for all the players
         foreach (Player player in playersActive)
         {
-            //player.gamesTotal++;
             player.answersThisGame = 0;
             player.questionsThisGame = 0;
             player.pointsThisGame = 0;
@@ -180,44 +173,16 @@ public class PlayerController : MonoBehaviour
             player.answersTotal += player.answersThisGame;
             player.questionsTotal += player.questionsThisGame;
             player.pointsTotal += player.pointsThisGame;
-
-            //PlayerData.
-        }
+                    }
     }
 
     public void SavePlayerData()
     {
-        // Merge playersActive with playerRoster
-        if (playerDataExists)
+        foreach (Player player in playersActive)
         {
-            foreach (Player player in playersActive)
-            {
-                //// This runs off the ListID but can be wrong as players are
-                //// from the playerRoster
-                //int listID = player.listID;
-                //if (listID == -1)
-                //{
-                //    player.listID = playerRoster.Count - 1;
-                //    playerRoster.Add(player);
-                //} else {
-                //    playerRoster[listID] = player;
-                //}
-
-                // Increase the number of games the player has completed
-                player.gamesTotal++;
-
-                // Run it similar using the player's name as the unique identifier
-                Player rPlayer = playerRoster.Find((Player obj) => obj.playerName == player.playerName);
-                                             
-                if (rPlayer == null)
-                {
-                    playerRoster.Add(player);
-                }
-                else
-                {
-                    rPlayer = player;
-                }
-            }
+            player.gamesTotal++;
+            Player newPlayer = playerRoster.Find((Player obj) => obj.playerName == player.playerName);
+            if (newPlayer == null) { playerRoster.Add(player); }
         }
 
         playerRoster.Sort(delegate (Player x, Player y)
@@ -233,6 +198,8 @@ public class PlayerController : MonoBehaviour
         FileStream saveFile = File.OpenWrite(Application.persistentDataPath + "/PlayerData.dat");
         bf.Serialize(saveFile, playerRoster);
         saveFile.Close();
+        playerDataExists = LoadPlayerData();
+        PlayerRosterSelect.playerRosterSelect.PopulateList();
     }
 
     public bool LoadPlayerData()

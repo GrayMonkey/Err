@@ -12,11 +12,11 @@ using Menus = MenuHandler.MenuOverlay;
 public class PlayerSelector : MonoBehaviour
 {
     public static PlayerSelector playerSelector;
-    public PlayerObject editPlayerObject;
     public List<Player> playersActive;
     public GameObject playerDragged;
     public int newPlayerCount = 0;
     public bool loadPlayerActive = false;
+    public PlayerObject hasFocus;
 
     [SerializeField] GameObject playersPanelContent;
     [SerializeField] GameObject playerObject;
@@ -44,27 +44,6 @@ public class PlayerSelector : MonoBehaviour
         uiMenus = MenuHandler.uiMenus;
         loadPlayers.interactable = false;
     }
-
-    //private void OnEnable()
-    //{
-    //    // Clear out exist playerButton objects
-    //    PlayerButton[] activePlayerButtons = playersPanel.GetComponentsInChildren<PlayerButton>();
-    //    foreach (PlayerButton activePlayerButton in activePlayerButtons) 
-    //    { 
-    //        Destroy(activePlayerButton.gameObject); 
-    //    }
-
-    //    // Check if there are activePlayers (from a previous game)
-    //    // and populate accordingly
-    //    if (playersActive.Count > 0)
-    //    {
-    //        foreach (Player player in playersActive) 
-    //        {
-    //            //playersActive.Remove(player); // player gets readded as part of ActivatePlayerButton
-    //            ActivatePlayerButton(player); 
-    //        }
-    //    }
-    //}
 
     private void Update()
     {
@@ -103,18 +82,6 @@ public class PlayerSelector : MonoBehaviour
         GameObject newPlayerButton = Instantiate(playerObject, playersPanelContent.transform);
         newPlayerButton.GetComponent<PlayerObject>().refPlayer = player;
         if (!playersActive.Contains(player)) { playersActive.Add(player); }
-
-        //for (int i = 0; i < playersPanel.transform.childCount; i++)
-        //{
-        //    GameObject playerButtonObject = playersPanel.transform.GetChild(i).gameObject;
-        //    if (!playerButtonObject.activeInHierarchy)
-        //    {
-        //        playerButtonObject.SetActive(true);
-        //        playerButtonObject.GetComponent<PlayerButton>().refPlayer = player;
-        //        playersActive.Add(player);
-        //        return;
-        //    }
-        //}
     }
 
     public void UpdatePlayerList()
@@ -138,19 +105,4 @@ public class PlayerSelector : MonoBehaviour
             addPlayer.interactable = false;
         }
     }
-
-    //public void StartButton()
-    //{
-    //    // Update stats for all the players
-    //    foreach (Player player in playersActive)
-    //    {
-    //        //player.gamesTotal++;
-    //        player.answersThisGame = 0;
-    //        player.questionsThisGame = 0;
-    //        player.pointsThisGame = 0;
-    //    }
-
-    //    playerSelector.gameObject.SetActive(false);
-    //    playerController.NextPlayer();
-    //}
 }

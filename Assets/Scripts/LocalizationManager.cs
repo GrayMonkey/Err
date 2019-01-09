@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardSetObject : MonoBehaviour {
+public class LocalizationManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

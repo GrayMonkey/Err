@@ -32,7 +32,6 @@ public class mnu_FailAnswer : MonoBehaviour
     {
         CloseMenu();
         activePlayer.questionsThisGame++;
-        //activePlayer.answersThisGame++;
         playerController.NextPlayer();
     }
 }
