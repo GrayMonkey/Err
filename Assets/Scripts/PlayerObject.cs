@@ -32,12 +32,14 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     float delayTap = 0.25f;
     bool uniqueName;
     Color darkGreen = new Color(0.0f, 0.9f, 0.0f);
+    Color hilightGreen = new Color(0.7f, 1.0f,0.4f);
     Color lightRed = new Color(1.0f, 0.35f, 0.35f);
+    Color hilightRed = new Color(1.0f, 0.6f, 0.6f);
     Color normal = new Color(1.0f, 1.0f, 1.0f);
 
     // SubMenus variables
     [SerializeField] Animator animator;
-    [SerializeField] GameObject subMenu;
+    [SerializeField] ScrollRect subMenuRect;
     [SerializeField] GameObject[] mnu_SubMenus;
     [SerializeField] Button[] btn_SubMenuButtons;
     [SerializeField] Text subMenuInfoText;
@@ -87,11 +89,11 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void NameCheck(string text)
     {
-        buttonImage.color = lightRed;
+        buttonImage.color = hilightRed;
         text = nameInputField.text;
         if (playerController.UniqueNameCheck(text, refPlayer))
         { 
-            buttonImage.color = darkGreen; 
+            buttonImage.color = hilightGreen; 
         }
     }
 
@@ -159,11 +161,15 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        // Check if another button has the sub menu open and close it
+        playerSelector.hasFocus = this;
+
         // Double tap detected. Can't use tapcount as not supported by Android
         // Change players name
         if (lastTap + delayTap > Time.time)
         {
             // TODO Edit player details
+            Debug.Log("Obj Pressed: " + this.gameObject.name);
             playerName.gameObject.SetActive(false);
             nameInputField.gameObject.SetActive(true);
             nameInputField.image.gameObject.SetActive(true);
@@ -203,10 +209,11 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             this.animator.enabled = true;
             playerSelector.hasFocus = this;
             OpenMenu(true);
+            SubMenuActivate(999);
         }
 
         // Select the active button
-        SubMenuActivate((int)SubMenu.PlayerRoster);
+        //SubMenuActivate((int)SubMenu.PlayerRoster);
     }
 
     // Open the collapsed menu
@@ -216,8 +223,8 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     }
 
     // Set the active submenu
-    private void SubMenuActivate (int subMenuID)
-    {       
+    public void SubMenuActivate (int subMenuID)
+    {
         foreach (Button button in btn_SubMenuButtons)
         {
             button.GetComponent<Image>().color = normal;
@@ -232,33 +239,81 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         {
             case (int) SubMenu.CardSets:
                 mnu_SubMenus[0].SetActive(true);
-                btn_SubMenuButtons[0].GetComponent<Image>().color = darkGreen;
+                subMenuRect.content = mnu_SubMenus[0].GetComponent<RectTransform>();
+                btn_SubMenuButtons[0].GetComponent<Image>().color = hilightGreen;
+                subMenuInfoText.text = "Select card set...";
                 break;
                 
             case (int) SubMenu.Language:
                 mnu_SubMenus[1].SetActive(true);
-                btn_SubMenuButtons[1].GetComponent<Image>().color = darkGreen;
+                rectTransform = mnu_SubMenus[1].GetComponent<RectTransform>();
+                subMenuRect.content = rectTransform;
+                btn_SubMenuButtons[1].GetComponent<Image>().color = hilightGreen;
+
+                int playerLang = (int)refPlayer.language;
+                Toggle[] languages = GetComponentsInChildren<Toggle>();
+                for (int i = 0; i < languages.Length; i++)
+                {
+                    languages[i].isOn = false;
+                }
+                languages[playerLang].isOn = true;
+                subMenuInfoText.text = "Select language... (" + refPlayer.language.ToString() + ")"; 
+
+                // set the scrollrect so that the selected language is shown
+                float maxPos = languages.Length - 1;
+                float vPos = playerLang / maxPos;
+                vPos = 1.0f - vPos;
+                subMenuRect.verticalNormalizedPosition = vPos;
+ 
                 break;
                 
             case (int) SubMenu.PlayerRoster:
                 mnu_SubMenus[2].SetActive(true);
-                btn_SubMenuButtons[2].GetComponent<Image>().color = darkGreen;
+                rectTransform = subMenuRect.content;
+                rectTransform = mnu_SubMenus[2].GetComponent<RectTransform>();
+                subMenuRect.content = rectTransform;
+                btn_SubMenuButtons[2].GetComponent<Image>().color = hilightGreen;
                 subMenuInfoText.text = "Select player...";
                 if (!playerController.playerDataExists)
                 {
-                    subMenuInfoText.text = "No data is available!";
+                    subMenuInfoText.text = "No player data is available!";
                 }
                 break;
                 
             case (int) SubMenu.RemovePlayer:
                 mnu_SubMenus[3].SetActive(true);
-                btn_SubMenuButtons[3].GetComponent<Image>().color = darkGreen;
+                subMenuRect.content = mnu_SubMenus[3].GetComponent<RectTransform>();
+                btn_SubMenuButtons[3].GetComponent<Image>().color = hilightGreen;
+                subMenuInfoText.text = "Remove player...?...";
                 break;
 
             default:
-                Debug.Log("SubMenu not found!");
+                subMenuInfoText.text = "Select option...";
                 break;
         }
+    }
+
+    public void SetLanguage(int sysLang)
+    {
+        refPlayer.language = (GameLanguage)sysLang;
+        subMenuInfoText.text = "Select language... (" + refPlayer.language.ToString() + ")";
+    }
+
+    public void SetCardSets()
+    {
+        
+    }
+
+    public void RemovePlayer(string removal)
+    {
+        
+    }
+
+    IEnumerator SetScrollVPos (float vPos)
+    {
+        yield return null;
+        subMenuRect.verticalNormalizedPosition = vPos;
+
     }
     #endregion
 }

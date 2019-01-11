@@ -6,11 +6,12 @@ using UnityEngine;
 
 public class CardSet : MonoBehaviour 
 {
+    public string cardSetName;
+    public string cardSetDesc;
+    public Sprite cardSetIcon;
+    public List<string> cardSetLangs = new List<string>();
+
     [SerializeField] string jsonFile;			// JSON file for reading data
-    [SerializeField] string cardSetName;    	// Card set name
-    [SerializeField] string cardSetDesc;        // Card set description
-    [SerializeField] string cardSetLang;		// Card set language
-    [SerializeField] Sprite CardSetIcon;        // Image used for card set
 
     List<Question> questionList;
     Question activeQuestion;

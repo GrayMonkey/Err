@@ -2,7 +2,7 @@
 using System;
 using UnityEngine.UI;
 
-public class LocalizeText : MonoBehaviour
+public class LocText : MonoBehaviour
 {
     [SerializeField] Text transText;
 

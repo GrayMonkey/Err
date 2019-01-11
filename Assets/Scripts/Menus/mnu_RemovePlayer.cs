@@ -53,7 +53,7 @@ public class mnu_RemovePlayer : MonoBehaviour
         //    CloseMenu();
         //}
         playerController.playersActive.Remove(editPlayer);
-        playerRosterSelect.Hide();
+        //playerRosterSelect.Hide();
         CloseMenu();
     }
 

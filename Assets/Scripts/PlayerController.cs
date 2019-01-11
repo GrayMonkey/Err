@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     GameManager gameManager;
     GameObject playerObject;
     GameOptions gameOptions;
+    LocManager locManager;
     MenuHandler uiMenu;
     int randomPlayersCount = 0;
 
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log (Application.persistentDataPath + "/PlayerData.dat");
         gameManager = GameManager.gameManager;
         gameOptions = GameOptions.gameOptions;
+        locManager = LocManager.locManager;
         uiMenu = MenuHandler.uiMenus;
     }
 
@@ -61,29 +63,8 @@ public class PlayerController : MonoBehaviour
         }
 
         newPlayer.playerName = newPlayerName;
-
-        switch (Application.systemLanguage)
-        {
-            case SystemLanguage.French:
-                newPlayer.language = "fr";
-                break;
-
-            case SystemLanguage.German:
-                newPlayer.language = "ge";
-                break;
-
-            case SystemLanguage.Italian:
-                newPlayer.language = "it";
-                break;
-
-            case SystemLanguage.Spanish:
-                newPlayer.language = "sp";
-                break;
-
-            default:
-                newPlayer.language = "en";
-                break;
-        }
+        newPlayer.language = locManager.gameLanguage;
+        newPlayer.cardSets.Add(gameManager.defaultCardSet);
 
         //playersActive.Add(newPlayer);
         activePlayer = newPlayer;

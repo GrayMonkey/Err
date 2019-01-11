@@ -10,7 +10,8 @@ using UnityEngine;
 public class Player //: MonoBehaviour
 {
     public string playerName;
-    public string language;
+    public List<CardSet> cardSets = new List<CardSet>();
+    public GameLanguage language;
     public int questionsThisGame = 0;
     public int answersThisGame = 0;
     public int pointsThisGame = 0;
@@ -19,11 +20,6 @@ public class Player //: MonoBehaviour
     public int questionsTotal = 0;
     public int answersTotal = 0;
     public int pointsTotal = 0;
-
-    public void UpdateInfo(string newName, bool logData)
-    {
-        playerName = newName;
-    }
 
     public void ResetData()
     {    
