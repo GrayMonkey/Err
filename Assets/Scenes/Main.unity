@@ -5374,7 +5374,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0.000030517578}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &452634554
@@ -7531,10 +7531,10 @@ MonoBehaviour:
     clue2: 
     clue1: 
     maxPoints: 0
-  defaultCardSet: {fileID: 0}
+  defaultCardSet: {fileID: 1594725462}
   defaultLanguage: 0
   cardSets:
-  - {fileID: 0}
+  - {fileID: 1594725462}
   - {fileID: 1622005756}
   - {fileID: 187509262}
   - {fileID: 245185444}

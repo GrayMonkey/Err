@@ -7,19 +7,25 @@ public class CardSetSelect : MonoBehaviour
     [SerializeField] GameObject cardSetObject;
     [SerializeField] Transform cardSetContent;
 
-    public CardSet[] cardSets;
+    public List<CardSet> cardSets = new List<CardSet>();
 
-    private void Start()
+    private void Awake()
     {
         PopulateList();
     }
 
+    //private void Start()
+    //{
+    //    PopulateList();
+    //}
+
     private void PopulateList () 
     {
-        cardSets = FindObjectsOfType<CardSet>();
-        foreach (CardSet cardSet in cardSets)
+        CardSet[] objs = Object.FindObjectsOfType<CardSet>();
+        foreach (CardSet cardSet in objs)
         {
             GameObject newCardSet = Instantiate(cardSetObject, cardSetContent);
+            newCardSet.GetComponent<CardSetObject>().SetUp(cardSet);
         }
 	}
 }

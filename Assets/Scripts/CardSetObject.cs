@@ -9,10 +9,56 @@ public class CardSetObject : MonoBehaviour
     [SerializeField] Text label;
     [SerializeField] Text desc;
 
-    public void SetUp (CardSet cardSet)
+    Text subMenuInfoText;
+    Player refPlayer;
+    CardSet cardSet;
+    Toggle toggle;
+
+    private void Awake()
     {
-        icon.sprite = cardSet.cardSetIcon;
-        label.text = cardSet.cardSetName;
-        desc.text = cardSet.cardSetDesc;
+        PlayerObject playerObject = this.GetComponentInParent<PlayerObject>();
+        refPlayer = playerObject.refPlayer;
+        toggle = this.GetComponentInParent<Toggle>();
+        subMenuInfoText = playerObject.subMenuInfoText;
     }
+
+    public void SetUp (CardSet cSet)
+    {
+        cardSet = cSet;
+        icon.sprite = cSet.cardSetIcon;
+        label.text = cSet.cardSetName;
+        desc.text = cSet.cardSetDesc;
+        toggle.isOn = false;
+        subMenuInfoText.text = "Select CardSet(s)... (" + refPlayer.cardSets.Count.ToString() + ")";
+
+        if(refPlayer.cardSets.Contains(cardSet))
+        {
+            toggle.isOn = true;
+        }
+    }
+
+    public void AddCardSet ()
+    {
+        bool add = this.GetComponentInParent<Toggle>().isOn;
+        if(add)
+        {
+            if(!refPlayer.cardSets.Contains(cardSet))
+            {
+                refPlayer.cardSets.Add(cardSet);
+            }
+        } else {
+            if(refPlayer.cardSets.Contains(cardSet))
+            {
+                refPlayer.cardSets.Remove(cardSet);
+            }
+        }
+        ShowDescription(add);
+        subMenuInfoText.text = "Select CardSet(s)... (" + refPlayer.cardSets.Count.ToString() + ")";
+    }
+
+    void ShowDescription(bool show)
+    {
+        desc.transform.parent.gameObject.SetActive(show);
+    }
+
 }

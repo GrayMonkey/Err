@@ -38,11 +38,12 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     Color normal = new Color(1.0f, 1.0f, 1.0f);
 
     // SubMenus variables
+    public Text subMenuInfoText;
+
     [SerializeField] Animator animator;
     [SerializeField] ScrollRect subMenuRect;
     [SerializeField] GameObject[] mnu_SubMenus;
     [SerializeField] Button[] btn_SubMenuButtons;
-    [SerializeField] Text subMenuInfoText;
 
     enum SubMenu { PlayerRoster, CardSets, Language, RemovePlayer };
 
@@ -241,7 +242,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 mnu_SubMenus[0].SetActive(true);
                 subMenuRect.content = mnu_SubMenus[0].GetComponent<RectTransform>();
                 btn_SubMenuButtons[0].GetComponent<Image>().color = hilightGreen;
-                subMenuInfoText.text = "Select card set...";
+                subMenuInfoText.text = "Select CardSet(s)... (" + refPlayer.cardSets.Count.ToString() + ")";
                 break;
                 
             case (int) SubMenu.Language:
