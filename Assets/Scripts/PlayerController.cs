@@ -134,6 +134,10 @@ public class PlayerController : MonoBehaviour
     public void StartGame()
     {
         gameManager.gameInProgress = true;
+        PlayerObject playerObject = PlayerSelector.playerSelector.hasFocus;
+        if (playerObject)
+            playerObject.ShowMenu(false);
+
         // Update stats for all the players
         foreach (Player player in playersActive)
         {
@@ -159,6 +163,8 @@ public class PlayerController : MonoBehaviour
 
     public void SavePlayerData()
     {
+        List<PlayerData> playersData = new List<PlayerData>();
+
         foreach (Player player in playersActive)
         {
             player.gamesTotal++;
@@ -174,13 +180,52 @@ public class PlayerController : MonoBehaviour
             else return x.playerName.CompareTo(y.playerName);
         });
 
+        foreach (Player player in playerRoster)
+        {
+            PlayerData data = new PlayerData();
+            data.playerName = player.playerName;
+            data.language = player.language;
+            data.gamesTotal = player.gamesTotal;
+            data.gamesWon = player.gamesWon;
+            data.questionsTotal = player.questionsTotal;
+            data.answersTotal = player.answersTotal;
+            data.pointsTotal = player.pointsTotal;
+
+            foreach (CardSet cardSet in player.cardSets)
+            {
+                data.cardSets.Add(cardSet.gameObject.name);
+            }
+
+            playersData.Add(data);
+
+            //String debugData;
+            //debugData = "Player Name: " + data.playerName + "\n" +
+            //    "Language: " + data.language.ToString() + "\n" +
+            //    "Total Games: " + data.gamesTotal.ToString() + "\n" +
+            //    "Total Wins: " + data.gamesWon.ToString() + "\n" +
+            //    "Total Questions: " + data.questionsTotal.ToString() + "\n" +
+            //    "Total Answers: " + data.answersTotal.ToString() + "\n" +
+            //    "Total Points: " + data.pointsTotal.ToString() + "\n";
+
+            //String cardSetsData = "CardSets: ";
+            //foreach (string str in data.cardSets)
+            //{
+            //    cardSetsData += str + ", ";
+            //}
+            //cardSetsData = cardSetsData.Substring(0, cardSetsData.Length - 2);
+
+            //debugData += cardSetsData;
+
+            //Debug.Log(debugData);
+        }
+
         // Create/write playerRoster to the save file
         BinaryFormatter bf = new BinaryFormatter();
         FileStream saveFile = File.OpenWrite(Application.persistentDataPath + "/PlayerData.dat");
-        bf.Serialize(saveFile, playerRoster);
+        bf.Serialize(saveFile, playersData);
         saveFile.Close();
         playerDataExists = LoadPlayerData();
-        PlayerRosterSelect.playerRosterSelect.PopulateList();
+        //PlayerRosterSelect.playerRosterSelect.PopulateList();
     }
 
     public bool LoadPlayerData()
@@ -190,7 +235,46 @@ public class PlayerController : MonoBehaviour
             //Debug.Log(Application.persistentDataPath + "/PlayerData.dat");
             BinaryFormatter bf = new BinaryFormatter();
             FileStream loadFile = File.Open(Application.persistentDataPath + "/PlayerData.dat", FileMode.Open);
-            playerRoster = (List<Player>)bf.Deserialize(loadFile);
+            List<PlayerData> playersData = (List<PlayerData>)bf.Deserialize(loadFile);
+
+            playerRoster.Clear();
+
+            foreach (PlayerData data in playersData)
+            {
+                // Read in each player
+                Player player = new Player(); ;
+                player.playerName = data.playerName;
+                player.language = data.language;
+                player.gamesTotal = data.gamesTotal;
+                player.gamesWon = data.gamesWon;
+                player.questionsTotal = data.questionsTotal;
+                player.answersTotal = data.answersTotal;
+                player.pointsTotal = data.pointsTotal;
+
+                foreach (string cardSetName in data.cardSets)
+                {
+                    GameObject obj = GameObject.Find(cardSetName);
+                    if (obj != null)
+                    {
+                        CardSet cardSet = obj.GetComponent<CardSet>();
+                        if (cardSet != null)
+                        {
+                            player.cardSets.Add(cardSet);
+                        }
+                    }
+                }
+
+                // Add player to the playerRoster
+                playerRoster.Add(player);
+
+                playerRoster.Sort(delegate (Player x, Player y)
+                {
+                    if (x.playerName == null && y.playerName == null) return 0;     // The null values should never
+                    else if (x.playerName == null) return -1;                       // be evaluated as the playerName
+                    else if (y.playerName == null) return 1;                        // will always have a value
+                    else return x.playerName.CompareTo(y.playerName);
+                });
+            }
             return true;
         }
         return false;
@@ -198,7 +282,7 @@ public class PlayerController : MonoBehaviour
 
     public void RemovePlayerData(Player deletePlayer)
     {
-        if (playerDataExists)
+        if (playerRoster.Count>0)
         {
             int index = playerRoster.FindIndex((Player obj) => obj.playerName.Equals(deletePlayer.playerName));
             if (index > 0)
@@ -207,4 +291,17 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+}
+
+[System.Serializable]
+class PlayerData
+{
+    public string playerName;
+    public GameLanguage language;
+    public int gamesTotal;
+    public int gamesWon;
+    public int questionsTotal;
+    public int answersTotal;
+    public int pointsTotal;
+    public List<string> cardSets = new List<string>();
 }

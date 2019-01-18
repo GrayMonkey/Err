@@ -8,7 +8,7 @@ public class PlayerRosterObject : MonoBehaviour
 {
     public Player refPlayer;
 
-    [SerializeField] Text playerName;
+    [SerializeField] private Text playerName;
 
     PlayerController playerController;
     PlayerRosterSelect playerRosterSelect;
@@ -33,5 +33,6 @@ public class PlayerRosterObject : MonoBehaviour
 
         playerObject.UpdateToRosterPlayer(refPlayer);
         animator.SetBool("openMenu", false);
+        PlayerSelector.playerSelector.hasFocus = null;
     }
 }

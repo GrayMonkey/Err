@@ -9,16 +9,16 @@ using Menus = MenuHandler.MenuOverlay;
 
 public class CardTrad : MonoBehaviour
 {
-    [SerializeField] GameObject[] clues;
-    [SerializeField] Image[] numbers;
-    [SerializeField] GameObject nextBtn;
-    [SerializeField] GameObject failBtn;
-    [SerializeField] Text word;
-    [SerializeField] Text letter;
-    [SerializeField] Text clue0;
-    [SerializeField] Text clue1;
-    [SerializeField] Text clue2;
-    [SerializeField] Text clue3;
+    [SerializeField] private GameObject[] clues;
+    [SerializeField] private Image[] numbers;
+    [SerializeField] private GameObject nextBtn;
+    [SerializeField] private GameObject failBtn;
+    [SerializeField] private Text word;
+    [SerializeField] private Text letter;
+    [SerializeField] private Text clue0;
+    [SerializeField] private Text clue1;
+    [SerializeField] private Text clue2;
+    [SerializeField] private Text clue3;
 
     GameManager gameManager;
     PlayerController playerController;

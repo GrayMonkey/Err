@@ -12,19 +12,24 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     // Main PlayerObject variables
     public Player refPlayer;
 
-    [SerializeField] Text playerName;
-    [SerializeField] InputField nameInputField;
-    [SerializeField] Image buttonImage;
+    [SerializeField] private Text playerName;
+    [SerializeField] private InputField nameInputField;
+    [SerializeField] private Image buttonImage;
+    [SerializeField] private Button trashPlayer;
+    [SerializeField] private Sprite btnReturn;
+    [SerializeField] private Sprite btnTrash;
+    [SerializeField] private Sprite btnCancel;
 
     GameObject dummyPlayer; // to mimic the playerDragged object
+    ModalDialog modalDialog;
     PlayerRosterSelect playerRosterSelect;
     PlayerSelector playerSelector;
     PlayerController playerController;
     PlayerObject hasSubMenuFocus;
     MenuHandler uiMenus;
     RectTransform rectTransform;
-    Text inputText;
-    Text inputPlaceholder;
+    //Text inputText;
+    //Text inputPlaceholder;
     Vector3 newPos;
     Vector2 normSize = new Vector2(350.0f, 2.0f);
     Vector2 dragSize = new Vector2(350.0f, 20.0f);
@@ -59,9 +64,11 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         uiMenus = MenuHandler.uiMenus;
         playerSelector = PlayerSelector.playerSelector;
-        playerRosterSelect = PlayerRosterSelect.playerRosterSelect;refPlayer = playerController.activePlayer;
+        playerRosterSelect = PlayerRosterSelect.playerRosterSelect; 
+        refPlayer = playerController.activePlayer;
         playerName.text = refPlayer.playerName;
         dummyPlayer = GameObject.FindWithTag("DummyPlayer");
+        modalDialog = ModalDialog.Instance();
    }
 
     private void Update()
@@ -69,7 +76,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         //if (animator.enabled && animator.GetBool("openMenu") == false)
         if (playerSelector.hasFocus != this)
         {
-            OpenMenu(false);
+            ShowMenu(false);
             AnimatorClipInfo[] animatorClips = this.animator.GetCurrentAnimatorClipInfo(0);
             if (animatorClips.Length == 0)
             {
@@ -122,6 +129,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
         refPlayer = rosterPlayer;
         playerName.text = refPlayer.playerName;
+        playerController.activePlayer = refPlayer;
     }
     #endregion
 
@@ -129,6 +137,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        playerController.activePlayer = refPlayer;
         playerSelector.playerDragged = gameObject;
         GetComponent<BoxCollider2D>().size = dragSize;
 
@@ -162,6 +171,8 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        playerController.activePlayer = refPlayer;
+
         // Check if another button has the sub menu open and close it
         playerSelector.hasFocus = this;
 
@@ -175,8 +186,8 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             nameInputField.gameObject.SetActive(true);
             nameInputField.image.gameObject.SetActive(true);
             nameInputField.Select();
-            inputText.text = playerName.text;
-            inputPlaceholder.text = playerName.text;
+            //inputText.text = playerName.text;
+            //inputPlaceholder.text = playerName.text;
             lastTap = 0f;
         }
         else
@@ -204,13 +215,20 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         if (playerSelector.hasFocus == this)
         {
-            OpenMenu(false);
+            ShowMenu(false);
             playerSelector.hasFocus = null;
         } else {
             this.animator.enabled = true;
             playerSelector.hasFocus = this;
-            OpenMenu(true);
-            SubMenuActivate(999);
+            ShowMenu(true);
+            if (playerController.playerRoster.Count > 0)
+            {
+                SubMenuActivate((int)SubMenu.PlayerRoster);
+            }
+            else
+            {
+                SubMenuActivate((int)SubMenu.CardSets);
+            }
         }
 
         // Select the active button
@@ -218,7 +236,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     }
 
     // Open the collapsed menu
-    public void OpenMenu(bool open)
+    public void ShowMenu(bool open)
     {
         animator.SetBool("openMenu", open);
     }
@@ -226,6 +244,8 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     // Set the active submenu
     public void SubMenuActivate (int subMenuID)
     {
+        playerController.activePlayer = refPlayer;
+
         foreach (Button button in btn_SubMenuButtons)
         {
             button.GetComponent<Image>().color = normal;
@@ -275,17 +295,22 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 subMenuRect.content = rectTransform;
                 btn_SubMenuButtons[2].GetComponent<Image>().color = hilightGreen;
                 subMenuInfoText.text = "Select player...";
-                if (!playerController.playerDataExists)
-                {
+
+                //if (!playerController.playerDataExists)
+                if (playerController.playerRoster.Count == 0)
                     subMenuInfoText.text = "No player data is available!";
-                }
+
                 break;
                 
             case (int) SubMenu.RemovePlayer:
                 mnu_SubMenus[3].SetActive(true);
                 subMenuRect.content = mnu_SubMenus[3].GetComponent<RectTransform>();
                 btn_SubMenuButtons[3].GetComponent<Image>().color = hilightGreen;
-                subMenuInfoText.text = "Remove player...?...";
+
+                trashPlayer.interactable = false;
+                if (playerController.playerRoster.Contains(refPlayer))
+                    trashPlayer.interactable = true;
+                subMenuInfoText.text = "Remove player...";
                 break;
 
             default:
@@ -300,14 +325,46 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         subMenuInfoText.text = "Select language... (" + refPlayer.language.ToString() + ")";
     }
 
-    public void SetCardSets()
+    public void DeletePlayer()
     {
-        
+        ModalDialogDetails details = new ModalDialogDetails();
+        details.button1Details = new ButtonDetails();
+        details.button2Details = new ButtonDetails();
+        details.buttonCanceldetails = new ButtonDetails();
+
+        details.title = "WARNING!";
+        details.body = "This action will delete all of " + refPlayer.playerName + "'s data.\n\nAre you sure you want to continue?";
+
+        details.button1Details.action = CloseDialog;
+        details.button1Details.icon = btnReturn;
+
+        details.button2Details.action = DeletePlayerData;
+        details.button2Details.icon = btnTrash;
+
+        details.buttonCanceldetails.icon = btnCancel;
+
+        modalDialog.Show(details);
     }
 
-    public void RemovePlayer(string removal)
+    void CloseDialog()
     {
-        
+        modalDialog.CloseDialog();
+    }
+
+
+    void DeletePlayerData ()
+    {
+        if(playerController.playerRoster.Contains(refPlayer))
+            playerController.playerRoster.Remove(refPlayer);
+
+        RemovePlayer();
+    }
+
+    public void RemovePlayer()
+    {
+        if (playerController.playersActive.Contains(refPlayer))
+            playerController.playersActive.Remove(refPlayer);
+        Destroy(gameObject);
     }
 
     IEnumerator SetScrollVPos (float vPos)

@@ -12,8 +12,8 @@ public class MenuHandler : MonoBehaviour
     public enum MenuOverlay { Options, FailAnswer, CorrectAnswer, NewQuestion, WinningPlayer, 
         PlayerInfo, RemovePlayer, PlayerStats, GameResults, QuitGame, Credits };
 
-    [SerializeField] GameObject backPanel;
-    [SerializeField] GameObject[] menuArray;
+    [SerializeField] private GameObject backPanel;
+    [SerializeField] private GameObject[] menuArray;
 
     private void Awake()
     {

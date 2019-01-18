@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class LocText : MonoBehaviour
 {
-    [SerializeField] Text transText;
+    [SerializeField] private Text transText;
 
     private SystemLanguage language;
     private string textKey;

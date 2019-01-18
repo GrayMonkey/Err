@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class CardSetObject : MonoBehaviour
 {
-    [SerializeField] Image icon;
-    [SerializeField] Text label;
-    [SerializeField] Text desc;
+    public CardSet cardSet;
+
+    [SerializeField] private Image icon;
+    [SerializeField] private Text label;
+    [SerializeField] private Text desc;
 
     Text subMenuInfoText;
     Player refPlayer;
-    CardSet cardSet;
     Toggle toggle;
 
     private void Awake()

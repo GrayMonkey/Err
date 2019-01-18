@@ -18,12 +18,12 @@ public class PlayerSelector : MonoBehaviour
     public bool loadPlayerActive = false;
     public PlayerObject hasFocus;
 
-    [SerializeField] GameObject playersPanelContent;
-    [SerializeField] GameObject playerObject;
-    [SerializeField] Text playerCountLabel;
-    [SerializeField] Button loadPlayers;
-    [SerializeField] Button addPlayer;
-    [SerializeField] Button startGame;
+    [SerializeField] private GameObject playersPanelContent;
+    [SerializeField] private GameObject playerObject;
+    [SerializeField] private Text playerCountLabel;
+    [SerializeField] private Button loadPlayers;
+    [SerializeField] private Button addPlayer;
+    [SerializeField] private Button startGame;
 
     PlayerController playerController;
     GameOptions gameOptions;
@@ -73,6 +73,7 @@ public class PlayerSelector : MonoBehaviour
         newPlayerCount++;
         Player newPlayer = playerController.AddNewPlayer();
         ActivatePlayerButton(newPlayer);
+        hasFocus = null;
     }
 
     // Activate a new player button object

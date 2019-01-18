@@ -1,6 +1,4 @@
-﻿#pragma warning disable 649   // Disable [SerializeField] warnings CS0649
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,18 +6,18 @@ using Menus = MenuHandler.MenuOverlay;
 
 public class CardMod : MonoBehaviour
 {
-    [SerializeField] GameObject[] clues;
-    [SerializeField] Button[] buttons;
-    [SerializeField] Slider wordSlider;
-    [SerializeField] GameObject nextBtn;
-    [SerializeField] GameObject failBtn;
-    [SerializeField] Text word;
-    [SerializeField] Text hiddenWord;
-    [SerializeField] Text letter;
-    [SerializeField] Text clue4;
-    [SerializeField] Text clue3;
-    [SerializeField] Text clue2;
-    [SerializeField] Text clue1;
+    [SerializeField] private GameObject[] clues;
+    [SerializeField] private Button[] buttons;
+    [SerializeField] private Slider wordSlider;
+    [SerializeField] private GameObject nextBtn;
+    [SerializeField] private GameObject failBtn;
+    [SerializeField] private Text word;
+    [SerializeField] private Text hiddenWord;
+    [SerializeField] private Text letter;
+    [SerializeField] private Text clue4;
+    [SerializeField] private Text clue3;
+    [SerializeField] private Text clue2;
+    [SerializeField] private Text clue1;
 
     GameManager gameManager;
     GameOptions gameOptions;

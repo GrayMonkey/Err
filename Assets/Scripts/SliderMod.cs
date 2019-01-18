@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class SliderMod : MonoBehaviour
 {
-    [SerializeField] RectTransform fillRectTransform;
-    [SerializeField] RectTransform textRectTransform;
-    [SerializeField] Slider slider;
+    [SerializeField] private RectTransform fillRectTransform;
+    [SerializeField] private RectTransform textRectTransform;
+    [SerializeField] private Slider slider;
     bool sliderLock;
 
     //private Vector2 fillOffSetMin;

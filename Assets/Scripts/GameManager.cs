@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public Question activeQuestion;
     public CardSet defaultCardSet;
     public SystemLanguage defaultLanguage;
-    public CardSet[] cardSets;
+    //public CardSet[] cardSets;
     public GameObject[] gameStateObject;
     public bool gameInProgress = false;
 

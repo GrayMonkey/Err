@@ -1,6 +1,4 @@
-﻿#pragma warning disable 649   // Disable [SerializeField] warnings CS0649
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -10,6 +8,7 @@ public class CardSet : MonoBehaviour
     public string cardSetDesc;
     public Sprite cardSetIcon;
     public List<string> cardSetLangs = new List<string>();
+    public bool purchased;
 
     [SerializeField] string jsonFile;			// JSON file for reading data
 
@@ -22,7 +21,7 @@ public class CardSet : MonoBehaviour
 	void Start () 
 	{
         setupData();
-        Random.InitState((int)System.DateTime.Now.Ticks);
+        UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
 	}
 
     // Set up the card set questions from csvFile
