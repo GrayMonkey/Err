@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json.Converters;
 using UnityEngine;
 
 public class CardSet : MonoBehaviour 
@@ -40,6 +41,7 @@ public class CardSet : MonoBehaviour
             // Question[] questions = JsonHelper.FromJson<Question>(dataAsJson); 			// Removed as replaced Question array with List
             questionList = JsonHelper.FromJsonList<Question>(dataAsJson);
 
+            Debug.Log ("Questions: " + questionList.Count.ToString());
             cardRange = questionList.Count; // maximum range is exclusive on int - see Unity random.range 
         }
     }

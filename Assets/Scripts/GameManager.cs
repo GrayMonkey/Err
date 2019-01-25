@@ -45,6 +45,8 @@ public class GameManager : MonoBehaviour
         gameOptions = GameOptions.gameOptions;
         uiMenus = MenuHandler.uiMenus;
 
+
+
         for (int i = 0; i < gameStateObject.Length; i++)
         {
             gameStateObject[i].SetActive(false);

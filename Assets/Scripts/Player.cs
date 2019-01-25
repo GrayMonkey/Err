@@ -11,7 +11,7 @@ public class Player //: MonoBehaviour
 {
     public string playerName;
     public List<CardSet> cardSets = new List<CardSet>();
-    public GameLanguage language;
+    public SystemLanguage language;
     public int questionsThisGame = 0;
     public int answersThisGame = 0;
     public int pointsThisGame = 0;

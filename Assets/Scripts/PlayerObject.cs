@@ -321,7 +321,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void SetLanguage(int sysLang)
     {
-        refPlayer.language = (GameLanguage)sysLang;
+        refPlayer.language = LocManager.locManager.GameLang;
         subMenuInfoText.text = "Select language... (" + refPlayer.language.ToString() + ")";
     }
 

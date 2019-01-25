@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
  
     private void Start()
     {
-        Debug.Log (Application.persistentDataPath + "/PlayerData.dat");
+        //Debug.Log (Application.persistentDataPath + "/PlayerData.dat");
         gameManager = GameManager.gameManager;
         gameOptions = GameOptions.gameOptions;
         locManager = LocManager.locManager;
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         }
 
         newPlayer.playerName = newPlayerName;
-        newPlayer.language = locManager.gameLanguage;
+        newPlayer.language = locManager.GameLang;
         newPlayer.cardSets.Add(gameManager.defaultCardSet);
 
         //playersActive.Add(newPlayer);
@@ -297,7 +297,7 @@ public class PlayerController : MonoBehaviour
 class PlayerData
 {
     public string playerName;
-    public GameLanguage language;
+    public SystemLanguage language;
     public int gamesTotal;
     public int gamesWon;
     public int questionsTotal;

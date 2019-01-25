@@ -1,0 +1,52 @@
+UI_Correct,[SP] Correct
+UI_Credits,[SP] Credits
+UI_Delete,[SP] Delete
+UI_Down,[SP] Move down
+UI_Pass,[SP] Pass
+UI_Home,[SP] Home
+UI_HowToPLay,[SP] How to play
+UI_Next,[SP] Next
+UI_NextPlayer,[SP] Next player
+UI_Options,[SP] Options
+UI_Remove,[SP] Remove this player from the current game?
+UI_Return,[SP] Return
+UI_Start,[SP] Start...
+UI_Trash,[SP] Trash all data for this player?
+UI_Up,[SP] Move up
+UI_DeclareWinner,[SP] Declare winner
+UI_ConfirmNoPlayers,[SP] No Players!
+UI_NoPlayersText,[SP] No players have been added to the player list. \n\n Do you wish to continue and play the game with no players and no game scores will be held?
+UI_CorectAnswerSpaces,[SP] spaces
+UI_CorrectAnswer,[SP] Correct Answer!
+UI_CorrectAnswerText,[SP] Well done!\nYou can move...
+UI_FailAnswer,[SP] Unluckly!
+UI_FailedAnswerText,[SP] %%PlayerName stays where they are.\\nBetter luck next time!
+SplashText,[SP] A game of definition and meaning!
+UI_NewQuestion,[SP] New Question!
+UI_YourTurn,[SP] You're next...
+UI_EasyRead,[SP] Easy read clues
+UI_GuessTime,[SP] Question time:
+UI_Off,[SP] Off
+UI_60s,[SP] 60s
+UI_RandomOrder,[SP] Random player turns
+UI_ShowAnswer,[SP] Auto-display answer
+UI_ShowButtonHints,[SP] Show button hints
+UI_SliderLock,[SP] Lock answer slider
+UI_LogData,[SP] Save data
+UI_NameCheckBad,[SP] Player name taken!
+UI_NameCheckGood,[SP] Player name availalble
+UI_AddPlayer,[SP] Add Player...
+UI_LoadPlayers,[SP] Load
+UI_PlayerCount,[SP] %%PlayerCount / %%MaxPlayers
+UI_Players,[SP] Player List
+UI_RemovePlayerText,[SP] Do you want to...
+UI_ConfirmTrash,[SP] Remove Player Data
+UI_ConfirmTrashText,[SP] WARNING!\n\nAll data for\n\n\n\n\n\nwill be removed!\n\nOnce deleted this data cannot be retrieved.
+UI_Winner,[SP] Err... Winner!
+UI_WinningText,[SP] Congratulations!!!\n\nYou have been declared the winner of the game!
+NewPlayer,[SP] New Player
+UI_GameInProgress,[SP] Quit Current Game?
+UI_QuitGameText,[SP] A game is currently in progress.\n\nReturning Home will quit the current game and remove all current game data and scores for each active player!\n\nDo you wish to return to the Home screen or return to the game?
+UI_MostPoints,[SP] Score most points: (
+UI_MostAnswers,[SP] Highest answer percentage: (
+UI_CardSetSelect,[SP] Select CardSet(s)
