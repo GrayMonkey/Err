@@ -1,0 +1,86 @@
+{
+  "title": "Test Set A",
+  "description": "CS_Test Set A",
+  "languages": 
+  [
+  {
+    "en": true,
+    "fr": false,
+    "ge": false,
+    "it": false,
+    "sp": false
+  }
+  ]
+  "questionsNew": [
+    {
+      "word": "accept",
+      "clue4": "to make a favorable response to",
+      "clue3": "to endure without protest",
+      "clue2": "to give approval to",
+      "clue1": "to receive willingly"
+    },
+    {
+      "word": "accept",
+      "clue4": "tolerate, submit to",
+      "clue3": "regard favorably, treat as welcome",
+      "clue2": "reply favorably to an invitation",
+      "clue1": "receive something offered"
+    },
+    {
+      "word": "accord",
+      "clue4": "a formal treaty or agreement",
+      "clue3": "harmonious correspondence in pitch, tone, color, etc.",
+      "clue2": "to grant permission",
+      "clue1": "to be in harmony, to be consistent"
+    },
+    {
+      "word": "appeal",
+      "clue4": "an earnest plea",
+      "clue3": "attractiveness",
+      "clue2": "a request for public help",
+      "clue1": "to refer a case to a higher court"
+    },
+    {
+      "word": "arm",
+      "clue4": "a subdivision of an organization",
+      "clue3": "to prepare an explosive device for use",
+      "clue2": "the side part of a chair",
+      "clue1": "a sleeve of a jacket"
+    },
+    {
+      "word": "advance",
+      "clue4": "a first step or approach made",
+      "clue3": "a rise in price, value or amount",
+      "clue2": "to raise to a higher rank",
+      "clue1": "a party of soldiers sent before others"
+    },
+    {
+      "word": "air",
+      "clue4": "an artificial or affected manner",
+      "clue3": "to transmit by radio or TV",
+      "clue2": "empty space",
+      "clue1": "the mixture of gases that we breathe"
+    },
+    {
+      "word": "act",
+      "clue4": "a pretence",
+      "clue3": "a written ordinance of congress",
+      "clue2": "part of a performance",
+      "clue1": "to perform on the stage"
+    },
+    {
+      "word": "action",
+      "clue4": "the style of movement of the feet and legs of a horse",
+      "clue3": "combat in war",
+      "clue2": "the initiating of a proceeding in a court by which one demands one’s rights",
+      "clue1": "a thing done, a dee"
+    },
+    {
+      "word": "acute",
+      "clue4": "ending in a sharp point",
+      "clue3": "serious, demanding urgent attention",
+      "clue2": "an angle measuring less than 90",
+      "clue1": "describing a sharp, severe pain"
+    }
+  ]
+}
