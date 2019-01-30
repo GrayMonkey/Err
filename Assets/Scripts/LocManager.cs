@@ -13,7 +13,7 @@ public class LocManager : MonoBehaviour
     {
         locManager = this;
         GameLang = Application.systemLanguage;
-        GameLang = SystemLanguage.Spanish;
+        //GameLang = SystemLanguage.Spanish;
         SetLang();
     }
 

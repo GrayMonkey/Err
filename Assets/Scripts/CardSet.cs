@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using Newtonsoft.Json.Converters;
+//using Newtonsoft.Json.Converters;
 using UnityEngine;
 
 public class CardSet : MonoBehaviour 
