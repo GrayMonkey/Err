@@ -27,8 +27,8 @@ public class CardSetObject : MonoBehaviour
     {
         cardSet = cSet;
         icon.sprite = cSet.cardSetIcon;
-        label.text = cSet.cardSetName;
-        desc.text = cSet.cardSetDesc;
+        label.text = LocManager.locManager.GetLocText(cSet.cardSetNameKey);
+        desc.text = LocManager.locManager.GetLocText(cSet.cardSetDescKey);
         toggle.isOn = false;
         subMenuInfoText.text = "Select CardSet(s)... (" + refPlayer.cardSets.Count.ToString() + ")";
 

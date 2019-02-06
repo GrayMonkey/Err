@@ -17,26 +17,6 @@ public class CardSetSelect : MonoBehaviour
         PopulateList();
     }
 
-    //public void PopulateList()
-    //{
-    //    playersActive = playerController.playersActive;
-
-    //    // Clear the current content
-    //    for (int i = 0; i < playerRosterContent.childCount; i++)
-    //    {
-    //        Debug.Log("Obj: " + playerRosterContent.GetChild(i).name);
-    //        Destroy(playerRosterContent.GetChild(i).gameObject);
-    //    }
-
-    //    foreach (Player player in playerRoster)
-    //    {
-    //        GameObject newPlayer = Instantiate(playerRosterObject, transform);
-    //        newPlayer.transform.SetParent(playerRosterContent);
-    //        newPlayer.GetComponent<PlayerRosterObject>().AttachPlayer(player);
-    //        newPlayer.GetComponent<Button>().interactable = !playersActive.Contains(player);
-    //    }
-    //}
-
     public void PopulateList()
     {
         List<CardSet> playerCardSets = PlayerController.playerController.activePlayer.cardSets;
@@ -56,46 +36,3 @@ public class CardSetSelect : MonoBehaviour
         }
     }
 }
-        // Populate the list and check if the cardset is currently selected for the player
-
-
-        //CardSet[] objs = Object.FindObjectsOfType<CardSet>();
-        //Player activePlayer = PlayerController.playerController.activePlayer;
-
-        //// Check that the cardset doesn't already exist
-        //foreach (CardSet cardSet in objs)
-        //{
-        //    if (!cardSets.Contains(cardSet))
-        //        cardSets.Add(cardSet);
-        //}
-
-        //cardSets.Sort(delegate (CardSet x, CardSet y)
-        //{
-        //    if (x.cardSetName == null && y.cardSetName == null) return 0;     // The null values should never
-        //    else if (x.cardSetName == null) return -1;                       // be evaluated as the playerName
-        //    else if (y.cardSetName == null) return 1;                        // will always have a value
-        //    else return x.cardSetName.CompareTo(y.cardSetName);
-        //});
-
-        //foreach (CardSet findCardSet in cardSets)
-        //{
-        //    bool found = false;
-        //    CardSet[] foundCardSets = cardSetContent.GetComponentsInChildren<CardSet>();
-        //    foreach (CardSet cardSet in foundCardSets)
-        //    {
-        //        if (findCardSet == cardSet)
-        //        {
-        //            found = true;
-        //            bool playerCardSet = activePlayer.cardSets.Contains(findCardSet);
-        //            cardSet.gameObject.GetComponent<Toggle>().isOn = playerCardSet;
-        //            break;
-        //        }
-        //    }
-
-        //    if (!found)
-        //    {
-        //        GameObject newCardSet = Instantiate(cardSetObject, cardSetContent);
-        //        newCardSet.GetComponent<CardSetObject>().SetUp(findCardSet);
-        //        newCardSet.GetComponent<Toggle>().isOn = activePlayer.cardSets.Contains(findCardSet);
-        //    }
-        //}

@@ -19,7 +19,8 @@ public class GameOptions : MonoBehaviour
         gameOptions = this;
     }
 
-    void UpdateOptions (float newTime, bool newShowAnswer, bool newModCards, bool newSliderLock, bool newRandomTurns)
+    void UpdateOptions (float newTime, bool newShowAnswer, bool newModCards,
+                        bool newSliderLock, bool newRandomTurns)
     {
         guessTime = newTime * 5.0f;
         showAnswer = newShowAnswer;

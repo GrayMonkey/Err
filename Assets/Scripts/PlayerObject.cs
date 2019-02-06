@@ -41,6 +41,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     Color lightRed = new Color(1.0f, 0.35f, 0.35f);
     Color hilightRed = new Color(1.0f, 0.6f, 0.6f);
     Color normal = new Color(1.0f, 1.0f, 1.0f);
+    string locText;
 
     // SubMenus variables
     public Text subMenuInfoText;
@@ -50,7 +51,8 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [SerializeField] GameObject[] mnu_SubMenus;
     [SerializeField] Button[] btn_SubMenuButtons;
 
-    enum SubMenu { PlayerRoster, CardSets, Language, RemovePlayer };
+    //enum SubMenu { PlayerRoster, CardSets, Language, RemovePlayer };
+    enum SubMenu { PlayerRoster, CardSets, RemovePlayer };
 
     private void Awake()
     {
@@ -259,62 +261,68 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         switch (subMenuID)
         {
             case (int) SubMenu.CardSets:
-                mnu_SubMenus[0].SetActive(true);
+                mnu_SubMenus[subMenuID].SetActive(true);
                 subMenuRect.content = mnu_SubMenus[0].GetComponent<RectTransform>();
-                btn_SubMenuButtons[0].GetComponent<Image>().color = hilightGreen;
-                subMenuInfoText.text = "Select CardSet(s)... (" + refPlayer.cardSets.Count.ToString() + ")";
+                btn_SubMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
+                string locText = LocManager.locManager.GetLocText("str_SelectCardsets");
+                subMenuInfoText.text = locText + " (" + refPlayer.cardSets.Count.ToString() + ")";
                 break;
                 
-            case (int) SubMenu.Language:
-                mnu_SubMenus[1].SetActive(true);
-                rectTransform = mnu_SubMenus[1].GetComponent<RectTransform>();
-                subMenuRect.content = rectTransform;
-                btn_SubMenuButtons[1].GetComponent<Image>().color = hilightGreen;
+            //case (int) SubMenu.Language:
+                //mnu_SubMenus[1].SetActive(true);
+                //rectTransform = mnu_SubMenus[1].GetComponent<RectTransform>();
+                //subMenuRect.content = rectTransform;
+                //btn_SubMenuButtons[1].GetComponent<Image>().color = hilightGreen;
 
-                int playerLang = (int)refPlayer.language;
-                Toggle[] languages = GetComponentsInChildren<Toggle>();
-                for (int i = 0; i < languages.Length; i++)
-                {
-                    languages[i].isOn = false;
-                }
-                languages[playerLang].isOn = true;
-                subMenuInfoText.text = "Select language... (" + refPlayer.language.ToString() + ")"; 
+                //int playerLang = (int)refPlayer.language;
+                //Toggle[] languages = GetComponentsInChildren<Toggle>();
+                //for (int i = 0; i < languages.Length; i++)
+                //{
+                //    languages[i].isOn = false;
+                //}
+                //languages[playerLang].isOn = true;
+                //locText = LocManager.locManager.GetLocText("str_PlayerLanguage");
+                //subMenuInfoText.text = locText + " (" + refPlayer.language.ToString() + ")"; 
 
-                // set the scrollrect so that the selected language is shown
-                float maxPos = languages.Length - 1;
-                float vPos = playerLang / maxPos;
-                vPos = 1.0f - vPos;
-                subMenuRect.verticalNormalizedPosition = vPos;
+                //// set the scrollrect so that the selected language is shown
+                //float maxPos = languages.Length - 1;
+                //float vPos = playerLang / maxPos;
+                //vPos = 1.0f - vPos;
+                //subMenuRect.verticalNormalizedPosition = vPos;
  
-                break;
+                //break;
                 
             case (int) SubMenu.PlayerRoster:
-                mnu_SubMenus[2].SetActive(true);
+                mnu_SubMenus[subMenuID].SetActive(true);
                 rectTransform = subMenuRect.content;
-                rectTransform = mnu_SubMenus[2].GetComponent<RectTransform>();
+                rectTransform = mnu_SubMenus[subMenuID].GetComponent<RectTransform>();
                 subMenuRect.content = rectTransform;
-                btn_SubMenuButtons[2].GetComponent<Image>().color = hilightGreen;
-                subMenuInfoText.text = "Select player...";
+                btn_SubMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
+                locText = LocManager.locManager.GetLocText("str_SelectPlayer");
 
                 //if (!playerController.playerDataExists)
                 if (playerController.playerRoster.Count == 0)
-                    subMenuInfoText.text = "No player data is available!";
+                    locText = LocManager.locManager.GetLocText("str_NoPlayerData");
 
+                subMenuInfoText.text = locText;
                 break;
                 
             case (int) SubMenu.RemovePlayer:
-                mnu_SubMenus[3].SetActive(true);
+                mnu_SubMenus[subMenuID].SetActive(true);
                 subMenuRect.content = mnu_SubMenus[3].GetComponent<RectTransform>();
-                btn_SubMenuButtons[3].GetComponent<Image>().color = hilightGreen;
+                btn_SubMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
 
                 trashPlayer.interactable = false;
                 if (playerController.playerRoster.Contains(refPlayer))
                     trashPlayer.interactable = true;
-                subMenuInfoText.text = "Remove player...";
+
+                locText = LocManager.locManager.GetLocText("str_RemovePlayer");
+                subMenuInfoText.text = locText;
                 break;
 
             default:
-                subMenuInfoText.text = "Select option...";
+                locText = LocManager.locManager.GetLocText("str_SelectOption");
+                subMenuInfoText.text = locText;
                 break;
         }
     }
@@ -322,7 +330,8 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public void SetLanguage(int sysLang)
     {
         refPlayer.language = LocManager.locManager.GameLang;
-        subMenuInfoText.text = "Select language... (" + refPlayer.language.ToString() + ")";
+        locText = LocManager.locManager.GetLocText("str_PlayerLanguage");
+        subMenuInfoText.text = locText + " (" + refPlayer.language.ToString() + ")";
     }
 
     public void DeletePlayer()
@@ -332,8 +341,20 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         details.button2Details = new ButtonDetails();
         details.buttonCanceldetails = new ButtonDetails();
 
-        details.title = "WARNING!";
-        details.body = "This action will delete all of " + refPlayer.playerName + "'s data.\n\nAre you sure you want to continue?";
+        locText = LocManager.locManager.GetLocText("str_Warning");
+        details.title = locText;
+
+        locText = LocManager.locManager.GetLocText("str_WarningBody");
+
+        try
+        {
+            locText.Replace("%%PlayerName", refPlayer.playerName);
+        }
+        catch
+        {
+            Debug.Log("str_WarningBody is missing %% PlayerName in localised text!");
+        }
+        details.body = locText;
 
         details.button1Details.action = CloseDialog;
         details.button1Details.icon = btnReturn;

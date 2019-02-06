@@ -47,9 +47,9 @@ public class PlayerSelector : MonoBehaviour
 
     private void Update()
     {
-        string updateCount = "UI_PlayerCount: %%playerCount / 10";
-        updateCount = updateCount.Replace("%%playerCount", playersActive.Count.ToString());
-        playerCountLabel.text = updateCount;
+        string updateCount = LocManager.locManager.GetLocText("str_PlayerCount");
+        string players = playersActive.Count.ToString() + "/10";
+        playerCountLabel.text = updateCount + ": " + players;
 
         switch (playersActive.Count)
         {

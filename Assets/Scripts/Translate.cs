@@ -3,14 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Translate : MonoBehaviour 
+public class Translate : MonoBehaviour
 {
+    Text text;
     string key;
 
-    private void Start()
+    private void Awake()
     {
-        Text text = GetComponent<Text>();
+        text = gameObject.GetComponent<Text>();
         key = text.text;
+    }
+
+    private void OnEnable()
+    {
+        UpdateString();
+    }
+
+    public void UpdateString()
+    {
         text.text = LocManager.locManager.GetLocText(key);
     }
 }

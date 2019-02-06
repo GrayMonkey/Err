@@ -13,8 +13,7 @@ public class LocManager : MonoBehaviour
     {
         locManager = this;
         GameLang = Application.systemLanguage;
-        //GameLang = SystemLanguage.Spanish;
-        SetLang();
+        SetLang(GameLang);
     }
 
     public SystemLanguage GameLang
@@ -30,10 +29,11 @@ public class LocManager : MonoBehaviour
         }
     }
 
-    private void SetLang()
+    public void SetLang(SystemLanguage lang)
     {
-        string m_lang = GameLang.ToString();
+        string m_lang = lang.ToString();
         string file = "LocText - " + m_lang;
+        locText.Clear();
 
         TextAsset textData = Resources.Load<TextAsset>(file);
 
@@ -48,10 +48,14 @@ public class LocManager : MonoBehaviour
             locText.Add(data);
         }
 
-        Debug.Log(locText[32].key + ": " + locText[32].text);
 
-        string text = GetLocText("UI_Trash");
-        Debug.Log(text);
+        // Update all the strings in the scene 
+        Translate[] updateStrings = FindObjectsOfType<Translate>();
+
+        foreach (Translate _string in updateStrings)
+        {
+            _string.UpdateString();
+        }
     }
 
     public string GetLocText(string key)

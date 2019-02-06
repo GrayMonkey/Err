@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public enum GameState {Home, Players, Question, EndGame, HowToPlay};
     public Question activeQuestion;
     public CardSet defaultCardSet;
-    public SystemLanguage defaultLanguage;
     //public CardSet[] cardSets;
     public GameObject[] gameStateObject;
     public bool gameInProgress = false;
@@ -27,7 +26,6 @@ public class GameManager : MonoBehaviour
         gameManager = this;
         gameOptions = gameManager.GetComponent<GameOptions>();
         playerController = PlayerController.playerController;
-        defaultLanguage = Application.systemLanguage;
     }
 
     private void OnApplicationQuit()
@@ -44,8 +42,6 @@ public class GameManager : MonoBehaviour
         currGameState = GameState.Home;
         gameOptions = GameOptions.gameOptions;
         uiMenus = MenuHandler.uiMenus;
-
-
 
         for (int i = 0; i < gameStateObject.Length; i++)
         {

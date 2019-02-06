@@ -1,52 +1,69 @@
-UI_Correct,[GE] Correct
-UI_Credits,[GE] Credits
-UI_Delete,[GE] Delete
-UI_Down,[GE] Move down
-UI_Pass,[GE] Pass
-UI_Home,[GE] Home
-UI_HowToPLay,[GE] How to play
-UI_Next,[GE] Next
-UI_NextPlayer,[GE] Next player
-UI_Options,[GE] Options
-UI_Remove,[GE] Remove this player from the current game?
-UI_Return,[GE] Return
-UI_Start,[GE] Start...
-UI_Trash,[GE] Trash all data for this player?
-UI_Up,[GE] Move up
-UI_DeclareWinner,[GE] Declare winner
+CS_Starter_Desc,[GE] Full question starter set of 250 questions
+CS_Starter_Title,[GE] Starter Set
+CS_TestA_Desc,[GE] Test: 10 Questions with starting with the letter A
+CS_TestA_Title,[GE] Test Set A
+CS_TestB_Desc,[GE] Test: 10 Questions with starting with the letter B
+CS_TestB_Title,[GE] Test Set B
+CS_TestC_Desc,[GE] Test: 10 Questions with starting with the letter C
+CS_TestC_Title,[GE] Test Set C
+SplashText,[GE] A game of definition and meaning!
+str_NoPlayerData,[GE] No player data is available!
+str_Player,[GE] Player
+str_PlayerCount,[GE] Player Count
+str_PlayerLanguage,[GE] Select player language...
+str_RemovePlayer,[GE] Remove player...
+str_SelectCardsets,[GE] Select CardSet(s)...
+str_SelectOption,[GE] Select option...
+str_SelectPlayer,[GE] Select player...
+str_Warning,[GE] WARNING!
+str_WarningBody,[GE] This action will delete all of the data for\n\n%%PlayerName\n\nAre you sure you want to continue?
+UI_60s,[GE] 60s
+UI_AddPlayer,[GE] Add Player...
+UI_CardSetSelect,[GE] Select Cardset(s)
 UI_ConfirmNoPlayers,[GE] No Players!
-UI_NoPlayersText,[GE] No players have been added to the player list. \n\n Do you wish to continue and play the game with no players and no game scores will be held?
+UI_ConfirmTrash,[GE] Remove Player Data
+UI_ConfirmTrashText,[GE] WARNING!\n\nAll data for\n\n\n\n\n\nwill be removed!\n\nOnce deleted this data cannot be retrieved.
 UI_CorectAnswerSpaces,[GE] spaces
+UI_Correct,[GE] Correct
 UI_CorrectAnswer,[GE] Correct Answer!
 UI_CorrectAnswerText,[GE] Well done!\nYou can move...
+UI_Credits,[GE] Credits
+UI_DeclareWinner,[GE] Declare winner
+UI_Delete,[GE] Delete
+UI_Down,[GE] Move down
+UI_EasyRead,[GE] Easy read clues
 UI_FailAnswer,[GE] Unluckly!
 UI_FailedAnswerText,[GE] %%PlayerName stays where they are.\\nBetter luck next time!
-SplashText,[GE] A game of definition and meaning!
+UI_GameInProgress,[GE] Quit Current Game?
+UI_GameLanguage,[GE] Select language
+UI_GuessTime,[GE] Question time
+UI_Home,[GE] Home
+UI_HowToPlay,[GE] How to play
+UI_LoadPlayers,[GE] Load
+UI_LogData,[GE] Save data
+UI_MostAnswers,[GE] Highest answer percentage: (
+UI_MostPoints,[GE] Score most points: (
+UI_NameCheckBad,[GE] Player name taken!
+UI_NameCheckGood,[GE] Player name availalble
 UI_NewQuestion,[GE] New Question!
-UI_YourTurn,[GE] You're next...
-UI_EasyRead,[GE] Easy read clues
-UI_GuessTime,[GE] Question time:
+UI_Next,[GE] Next
+UI_NextPlayer,[GE] Next player
+UI_NoPlayersText,[GE] No players have been added to the player list. \n\n Do you wish to continue and play the game with no players and no game scores will be held?
 UI_Off,[GE] Off
-UI_60s,[GE] 60s
+UI_Options,[GE] Options
+UI_Pass,[GE] Pass
+UI_PlayerCount,[GE] %%PlayerCount / %%MaxPlayers
+UI_Players,[GE] Player List
+UI_QuitGameText,[GE] A game is currently in progress.\n\nReturning Home will quit the current game and remove all current game data and scores for each active player!\n\nDo you wish to return to the Home screen or return to the game?
 UI_RandomOrder,[GE] Random player turns
+UI_RemovePlayer,[GE] Remove player from this game?
+UI_Return,[GE] Return
 UI_ShowAnswer,[GE] Auto-display answer
 UI_ShowButtonHints,[GE] Show button hints
 UI_SliderLock,[GE] Lock answer slider
-UI_LogData,[GE] Save data
-UI_NameCheckBad,[GE] Player name taken!
-UI_NameCheckGood,[GE] Player name availalble
-UI_AddPlayer,[GE] Add Player...
-UI_LoadPlayers,[GE] Load
-UI_PlayerCount,[GE] %%PlayerCount / %%MaxPlayers
-UI_Players,[GE] Player List
-UI_RemovePlayerText,[GE] Do you want to...
-UI_ConfirmTrash,[GE] Remove Player Data
-UI_ConfirmTrashText,[GE] WARNING!\n\nAll data for\n\n\n\n\n\nwill be removed!\n\nOnce deleted this data cannot be retrieved.
+UI_Start,[GE] Start...
+UI_TrashPlayer,[GE] Trash all data for this player?
+UI_Up,[GE] Move up
 UI_Winner,[GE] Err... Winner!
 UI_WinningText,[GE] Congratulations!!!\n\nYou have been declared the winner of the game!
-NewPlayer,[GE] New Player
-UI_GameInProgress,[GE] Quit Current Game?
-UI_QuitGameText,[GE] A game is currently in progress.\n\nReturning Home will quit the current game and remove all current game data and scores for each active player!\n\nDo you wish to return to the Home screen or return to the game?
-UI_MostPoints,[GE] Score most points: (
-UI_MostAnswers,[GE] Highest answer percentage: (
-UI_CardSetSelect,[GE] Select CardSet(s)
+UI_YourTurn,[GE] You're next...

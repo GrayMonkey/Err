@@ -1,52 +1,69 @@
-UI_Correct,Correct
-UI_Credits,Credits
-UI_Delete,Delete
-UI_Down,Move down
-UI_Pass,Pass
-UI_Home,Home
-UI_HowToPLay,How to play
-UI_Next,Next
-UI_NextPlayer,Next player
-UI_Options,Options
-UI_Remove,Remove this player from the current game?
-UI_Return,Return
-UI_Start,Start...
-UI_Trash,Trash all data for this player?
-UI_Up,Move up
-UI_DeclareWinner,Declare winner
+CS_Starter_Desc,Full question starter set of 250 questions
+CS_Starter_Title,Starter Set
+CS_TestA_Desc,Test: 10 Questions with starting with the letter A
+CS_TestA_Title,Test Set A
+CS_TestB_Desc,Test: 10 Questions with starting with the letter B
+CS_TestB_Title,Test Set B
+CS_TestC_Desc,Test: 10 Questions with starting with the letter C
+CS_TestC_Title,Test Set C
+SplashText,A game of definition and meaning!
+str_NoPlayerData,No player data is available!
+str_Player,Player
+str_PlayerCount,Player Count
+str_PlayerLanguage,Select player language...
+str_RemovePlayer,Remove player...
+str_SelectCardsets,Select CardSet(s)...
+str_SelectOption,Select option...
+str_SelectPlayer,Select player...
+str_Warning,WARNING!
+str_WarningBody,This action will delete all of the data for\n\n%%PlayerName\n\nAre you sure you want to continue?
+UI_60s,60s
+UI_AddPlayer,Add Player...
+UI_CardSetSelect,Select Cardset(s)
 UI_ConfirmNoPlayers,No Players!
-UI_NoPlayersText,No players have been added to the player list. \n\n Do you wish to continue and play the game with no players and no game scores will be held?
+UI_ConfirmTrash,Remove Player Data
+UI_ConfirmTrashText,WARNING!\n\nAll data for\n\n\n\n\n\nwill be removed!\n\nOnce deleted this data cannot be retrieved.
 UI_CorectAnswerSpaces,spaces
+UI_Correct,Correct
 UI_CorrectAnswer,Correct Answer!
 UI_CorrectAnswerText,Well done!\nYou can move...
+UI_Credits,Credits
+UI_DeclareWinner,Declare winner
+UI_Delete,Delete
+UI_Down,Move down
+UI_EasyRead,Easy read clues
 UI_FailAnswer,Unluckly!
 UI_FailedAnswerText,%%PlayerName stays where they are.\\nBetter luck next time!
-SplashText,A game of definition and meaning!
+UI_GameInProgress,Quit Current Game?
+UI_GameLanguage,Select language
+UI_GuessTime,Question time
+UI_Home,Home
+UI_HowToPlay,How to play
+UI_LoadPlayers,Load
+UI_LogData,Save data
+UI_MostAnswers,Highest answer percentage: (
+UI_MostPoints,Score most points: (
+UI_NameCheckBad,Player name taken!
+UI_NameCheckGood,Player name availalble
 UI_NewQuestion,New Question!
-UI_YourTurn,You're next...
-UI_EasyRead,Easy read clues
-UI_GuessTime,Question time:
+UI_Next,Next
+UI_NextPlayer,Next player
+UI_NoPlayersText,No players have been added to the player list. \n\n Do you wish to continue and play the game with no players and no game scores will be held?
 UI_Off,Off
-UI_60s,60s
+UI_Options,Options
+UI_Pass,Pass
+UI_PlayerCount,%%PlayerCount / %%MaxPlayers
+UI_Players,Player List
+UI_QuitGameText,A game is currently in progress.\n\nReturning Home will quit the current game and remove all current game data and scores for each active player!\n\nDo you wish to return to the Home screen or return to the game?
 UI_RandomOrder,Random player turns
+UI_RemovePlayer,Remove player from this game?
+UI_Return,Return
 UI_ShowAnswer,Auto-display answer
 UI_ShowButtonHints,Show button hints
 UI_SliderLock,Lock answer slider
-UI_LogData,Save data
-UI_NameCheckBad,Player name taken!
-UI_NameCheckGood,Player name availalble
-UI_AddPlayer,Add Player...
-UI_LoadPlayers,Load
-UI_PlayerCount,%%PlayerCount / %%MaxPlayers
-UI_Players,Player List
-UI_RemovePlayerText,Do you want to...
-UI_ConfirmTrash,Remove Player Data
-UI_ConfirmTrashText,WARNING!\n\nAll data for\n\n\n\n\n\nwill be removed!\n\nOnce deleted this data cannot be retrieved.
+UI_Start,Start...
+UI_TrashPlayer,Trash all data for this player?
+UI_Up,Move up
 UI_Winner,Err... Winner!
 UI_WinningText,Congratulations!!!\n\nYou have been declared the winner of the game!
-NewPlayer,New Player
-UI_GameInProgress,Quit Current Game?
-UI_QuitGameText,A game is currently in progress.\n\nReturning Home will quit the current game and remove all current game data and scores for each active player!\n\nDo you wish to return to the Home screen or return to the game?
-UI_MostPoints,Score most points: (
-UI_MostAnswers,Highest answer percentage: (
-UI_CardSetSelect,Select CardSet(s)
+UI_YourTurn,You're next...

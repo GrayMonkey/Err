@@ -38,7 +38,6 @@ public class PlayerController : MonoBehaviour
  
     private void Start()
     {
-        //Debug.Log (Application.persistentDataPath + "/PlayerData.dat");
         gameManager = GameManager.gameManager;
         gameOptions = GameOptions.gameOptions;
         locManager = LocManager.locManager;
@@ -55,11 +54,11 @@ public class PlayerController : MonoBehaviour
         Player newPlayer = new Player();
 
         int i = 1;
-        string newPlayerName = "Player " + i.ToString(); // TODO Change for localisation
+        string newPlayerName = locManager.GetLocText("str_Player") + " " + i.ToString();
         while (!UniqueNameCheck(newPlayerName, newPlayer))
         {
             i++;
-            newPlayerName = "Player " + i.ToString(); //TODO change for localisation
+            newPlayerName = locManager.GetLocText("str_Player") + " " + i.ToString();
         }
 
         newPlayer.playerName = newPlayerName;
@@ -197,26 +196,6 @@ public class PlayerController : MonoBehaviour
             }
 
             playersData.Add(data);
-
-            //String debugData;
-            //debugData = "Player Name: " + data.playerName + "\n" +
-            //    "Language: " + data.language.ToString() + "\n" +
-            //    "Total Games: " + data.gamesTotal.ToString() + "\n" +
-            //    "Total Wins: " + data.gamesWon.ToString() + "\n" +
-            //    "Total Questions: " + data.questionsTotal.ToString() + "\n" +
-            //    "Total Answers: " + data.answersTotal.ToString() + "\n" +
-            //    "Total Points: " + data.pointsTotal.ToString() + "\n";
-
-            //String cardSetsData = "CardSets: ";
-            //foreach (string str in data.cardSets)
-            //{
-            //    cardSetsData += str + ", ";
-            //}
-            //cardSetsData = cardSetsData.Substring(0, cardSetsData.Length - 2);
-
-            //debugData += cardSetsData;
-
-            //Debug.Log(debugData);
         }
 
         // Create/write playerRoster to the save file
@@ -225,14 +204,12 @@ public class PlayerController : MonoBehaviour
         bf.Serialize(saveFile, playersData);
         saveFile.Close();
         playerDataExists = LoadPlayerData();
-        //PlayerRosterSelect.playerRosterSelect.PopulateList();
     }
 
     public bool LoadPlayerData()
     {
         if (File.Exists(Application.persistentDataPath + "/PlayerData.dat"))
         {
-            //Debug.Log(Application.persistentDataPath + "/PlayerData.dat");
             BinaryFormatter bf = new BinaryFormatter();
             FileStream loadFile = File.Open(Application.persistentDataPath + "/PlayerData.dat", FileMode.Open);
             List<PlayerData> playersData = (List<PlayerData>)bf.Deserialize(loadFile);
