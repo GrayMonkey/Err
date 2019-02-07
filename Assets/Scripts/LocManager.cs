@@ -37,7 +37,9 @@ public class LocManager : MonoBehaviour
 
         TextAsset textData = Resources.Load<TextAsset>(file);
 
-        string[] rowData = textData.text.Split(new char[] { '\n' });
+        //string[] rowData = textData.text.Split(new char[] { '\n' });
+        string[] rowData = textData.text.Split(new char[] { '\r' , '\n' },System.StringSplitOptions.RemoveEmptyEntries);
+
 
         for (int i = 0; i < rowData.Length; i++)
         {

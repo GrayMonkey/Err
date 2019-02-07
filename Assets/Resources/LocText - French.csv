@@ -32,11 +32,12 @@ UI_DeclareWinner,[FR] Declare winner
 UI_Delete,[FR] Delete
 UI_Down,[FR] Move down
 UI_EasyRead,[FR] Easy read clues
+UI_EnterName,[FR] Enter name
 UI_FailAnswer,[FR] Unluckly!
 UI_FailedAnswerText,[FR] %%PlayerName stays where they are.\\nBetter luck next time!
 UI_GameInProgress,[FR] Quit Current Game?
 UI_GameLanguage,[FR] Select language
-UI_GuessTime,[FR] Question time
+UI_GuessTime,[FR] Question time:
 UI_Home,[FR] Home
 UI_HowToPlay,[FR] How to play
 UI_LoadPlayers,[FR] Load
