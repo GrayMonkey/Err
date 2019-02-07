@@ -74,18 +74,25 @@ public class PlayerController : MonoBehaviour
     public bool UniqueNameCheck(string checkName, Player refPlayer)
     {
         if (checkName == "") { return false; }
+        if (checkName == refPlayer.playerName) { return true; }
 
-        foreach (Player player in playerController.playersActive)
-        {
-            if (checkName == player.playerName && checkName
-                != refPlayer.playerName) { return false; }
-        }
+        Player _player = playerController.playersActive.Find((Player obj) => obj.playerName == checkName);
+        if (_player != null) { return false; }
 
-        foreach (Player player in playerController.playerRoster)
-        {
-            if (checkName == player.playerName && checkName
-                != refPlayer.playerName) { return false; }
-        }
+        _player = playerController.playerRoster.Find((Player obj) => obj.playerName == checkName);
+        if (_player != null) { return false; }
+
+        //foreach (Player player in playerController.playersActive)
+        //{
+        //    if (checkName == player.playerName && checkName
+        //        != refPlayer.playerName) { return false; }
+        //}
+
+        //foreach (Player player in playerController.playerRoster)
+        //{
+        //    if (checkName == player.playerName && checkName
+        //        != refPlayer.playerName) { return false; }
+        //}
         return true;
     }
 

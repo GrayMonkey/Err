@@ -97,30 +97,38 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         }
     }
 
-    public void NameCheck(string text)
+    public void UpdatePlayerName(bool endEdit)
     {
-        buttonImage.color = hilightRed;
-        text = nameInputField.text;
-        if (playerController.UniqueNameCheck(text, refPlayer))
-        { 
-            buttonImage.color = hilightGreen; 
-        }
-    }
+        // Only need to do this if the input field is active fixes
+        // bug whereby this function is called when endEdit is true
+        if (!nameInputField.IsActive()) { return; }
 
-    public void UpdatePlayerName()
-    {
         string newName = nameInputField.text;
+        bool goodName = playerController.UniqueNameCheck(newName, refPlayer);
+        buttonImage.color = hilightRed;
 
         // check if the new name is blank and if so reset it to the original name
         // or if the new name is not unique
-        if (!playerController.UniqueNameCheck(newName, refPlayer)) {newName = playerName.text;}
+        if (goodName)
+        {
+            //playerName.gameObject.SetActive(true);
+            buttonImage.color = hilightGreen;
+        }
 
-        refPlayer.playerName = newName;
-        playerName.text = newName;
-        playerName.gameObject.SetActive(true);
-        nameInputField.text = newName;
-        nameInputField.gameObject.SetActive(false);
-        buttonImage.color = Color.white;
+        if (endEdit)
+        {
+            nameInputField.gameObject.SetActive(false);
+            playerName.gameObject.SetActive(true);
+            buttonImage.color = Color.white;
+            nameInputField.text = "";
+
+            if (goodName)
+            {
+                //newName = playerName.text;
+                refPlayer.playerName = newName;
+                playerName.text = newName;
+            }
+        }
     }
 
     public void UpdateToRosterPlayer(Player rosterPlayer)
@@ -182,14 +190,18 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         // Change players name
         if (lastTap + delayTap > Time.time)
         {
+            // close the submenu if it is open
+            if(playerSelector.hasFocus == this)
+            {
+                return;
+            }
             // TODO Edit player details
             Debug.Log("Obj Pressed: " + this.gameObject.name);
             playerName.gameObject.SetActive(false);
             nameInputField.gameObject.SetActive(true);
-            nameInputField.image.gameObject.SetActive(true);
             nameInputField.Select();
             //inputText.text = playerName.text;
-            //inputPlaceholder.text = playerName.text;
+            nameInputField.text = playerName.text;
             lastTap = 0f;
         }
         else
