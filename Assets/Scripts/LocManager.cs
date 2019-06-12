@@ -13,6 +13,10 @@ public class LocManager : MonoBehaviour
     {
         locManager = this;
         GameLang = Application.systemLanguage;
+    }
+
+    private void Start()
+    {
         SetLang(GameLang);
     }
 
@@ -57,6 +61,8 @@ public class LocManager : MonoBehaviour
         foreach (Translate _string in updateStrings)
         {
             _string.UpdateString();
+            //_string.text.text = GetLocText(_string.key);
+
         }
     }
 

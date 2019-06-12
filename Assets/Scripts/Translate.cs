@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Translate : MonoBehaviour
 {
-    Text text;
-    string key;
+    public string key;
+    public Text text;
 
     private void Awake()
     {
