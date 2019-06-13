@@ -274,7 +274,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         {
             case (int) SubMenu.CardSets:
                 mnu_SubMenus[subMenuID].SetActive(true);
-                subMenuRect.content = mnu_SubMenus[0].GetComponent<RectTransform>();
+                subMenuRect.content = mnu_SubMenus[1].GetComponent<RectTransform>();
                 btn_SubMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
                 string locText = LocManager.locManager.GetLocText("str_SelectCardsets");
                 subMenuInfoText.text = locText + " (" + refPlayer.cardSets.Count.ToString() + ")";
