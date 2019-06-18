@@ -10,7 +10,6 @@ public class CardSetObject : MonoBehaviour
     [SerializeField] private Image icon;
     [SerializeField] private Text label;
     [SerializeField] private Text desc;
-
     Text subMenuInfoText;
     Player refPlayer;
     Toggle toggle;
@@ -59,7 +58,9 @@ public class CardSetObject : MonoBehaviour
 
     void ShowDescription(bool show)
     {
-        desc.transform.parent.gameObject.SetActive(show);
+       
+        desc.gameObject.SetActive(show);
+
     }
 
 }
