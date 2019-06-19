@@ -73,6 +73,10 @@ public class LocManager : MonoBehaviour
         {
             return ("Key for text not found!");
         }
+        else if (text.text == null)
+        {
+            return ("Translation not found");
+        }
         else
         {
             return text.text;
