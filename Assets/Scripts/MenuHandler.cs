@@ -9,8 +9,9 @@ using UnityEngine.UI;
 public class MenuHandler : MonoBehaviour 
 {
     public static MenuHandler uiMenus;
+    public GameObject helpButton;
     public enum MenuOverlay { Options, FailAnswer, CorrectAnswer, NewQuestion, WinningPlayer, 
-        PlayerInfo, RemovePlayer, PlayerStats, GameResults, QuitGame, Credits };
+        GameResults, QuitGame, Credits }; // RemovePlayer, PlayerStats, PlayerInfo
 
     [SerializeField] private GameObject backPanel;
     [SerializeField] private GameObject[] menuArray;

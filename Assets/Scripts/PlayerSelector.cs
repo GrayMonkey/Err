@@ -21,7 +21,7 @@ public class PlayerSelector : MonoBehaviour
     [SerializeField] private GameObject playersPanelContent;
     [SerializeField] private GameObject playerObject;
     [SerializeField] private Text playerCountLabel;
-    [SerializeField] private Button loadPlayers;
+    //[SerializeField] private Button loadPlayers; NLR
     [SerializeField] private Button addPlayer;
     [SerializeField] private Button startGame;
 
@@ -42,7 +42,7 @@ public class PlayerSelector : MonoBehaviour
         playersActive = playerController.playersActive;
         gameOptions = GameOptions.gameOptions;
         uiMenus = MenuHandler.uiMenus;
-        loadPlayers.interactable = false;
+        //loadPlayers.interactable = false; NLR
     }
 
     private void Update()

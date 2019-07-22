@@ -6,7 +6,40 @@ CS_TestB_Desc,[FR] Test: 10 Questions with starting with the letter B
 CS_TestB_Title,[FR] Test Set B
 CS_TestC_Desc,[FR] Test: 10 Questions with starting with the letter C
 CS_TestC_Title,[FR] Test Set C
-SplashText,[FR] A game of definition and meaning!
+str_BtnDetailsAddPlayer,[FR] Add a player to the current game.
+str_BtnDetailsCorrect,[FR] The player got the answer correct. Move on to the next player or declare the winner.
+str_BtnDetailsCredits,[FR] Show the credits of who has helped make this game possible.
+str_BtnDetailsHome,[FR] Return to the Home/Start screen.
+str_BtnDetailsInstructions,[FR] Show instructions on how to play the game and use the app.
+str_BtnDetailsLoadPlayer,[FR] Load previously saved player information.
+str_BtnDetailsNext,[FR] Progress to the next screen.
+str_BtnDetailsNextPlayer,[FR] Pass play to the next player.
+str_BtnDetailsOptions,[FR] Access the options screen to adjust how the game plays.
+str_BtnDetailsOptionsSave,[FR] Save the current Option selections
+str_BtnDetailsPass,[FR] Pass on a clue and move to the next one.
+str_BtnDetailsQuitGame,[FR] Quits the current game and return to the Home/Start screen
+str_BtnDetailsRemovePlayer,[FR] Remove a player from the current game.
+str_BtnDetailsReturn,[FR] Return to the previous screen.
+str_BtnDetailsStart,[FR] Start the game.
+str_BtnDetailsTrash,[FR] Permanently delete a player and all their information.
+str_BtnDetailsWinner,[FR] Declare the current player the winner!
+str_BtnHelpAddPlayer,[FR] Add Player
+str_BtnHelpCorrect,[FR] Correct Answer
+str_BtnHelpCredits,[FR] Credits
+str_BtnHelpHome,[FR] Home
+str_BtnHelpInstructions,[FR] Instructions
+str_BtnHelpLoadPlayer,[FR] Load Player
+str_BtnHelpNext,[FR] Next
+str_BtnHelpNextPlayer,[FR] Next Player
+str_BtnHelpOptions,[FR] Options
+str_BtnHelpOptionsSave,[FR] Save
+str_BtnHelpPass,[FR] Pass
+str_BtnHelpQuitGame,[FR] Quit Game
+str_BtnHelpRemovePlayer,[FR] Remove Player
+str_BtnHelpReturn,[FR] Return
+str_BtnHelpStart,[FR] Start
+str_BtnHelpTrash,[FR] Delete
+str_BtnHelpWinner,[FR] Winner
 str_NoPlayerData,[FR] No player data is available!
 str_Player,[FR] Player
 str_PlayerCount,[FR] Player Count
@@ -15,10 +48,14 @@ str_RemovePlayer,[FR] Remove player...
 str_SelectCardsets,[FR] Select CardSet(s)...
 str_SelectOption,[FR] Select option...
 str_SelectPlayer,[FR] Select player...
+str_SplashText,[FR] A game of definition and meaning!
 str_Warning,[FR] WARNING!
 str_WarningBody,[FR] This action will delete all of the data for\n\n%%PlayerName\n\nAre you sure you want to continue?
 UI_60s,[FR] 60s
 UI_AddPlayer,[FR] Add Player...
+UI_AppInstructions,[FR] App Information
+UI_AppInstructions,[FR] App Information
+UI_AppTitle,[FR] This app...
 UI_CardSetSelect,[FR] Select Cardset(s)
 UI_ConfirmNoPlayers,[FR] No Players!
 UI_ConfirmTrash,[FR] Remove Player Data
@@ -34,12 +71,16 @@ UI_Down,[FR] Move down
 UI_EasyRead,[FR] Easy read clues
 UI_EnterName,[FR] Enter name
 UI_FailAnswer,[FR] Unluckly!
-UI_FailedAnswerText,[FR] %%PlayerName stays where they are.\\nBetter luck next time!
+UI_FailedAnswerText,[FR] %%PlayerName stays where they are.\nBetter luck next time!
 UI_GameInProgress,[FR] Quit Current Game?
+UI_GameInstructionDetails,[FR] ToDo: Link game instructions and translations from Jonny & Mike
+UI_GameInstructions,[FR] Game Rules
 UI_GameLanguage,[FR] Select language
 UI_GuessTime,[FR] Question time:
 UI_Home,[FR] Home
-UI_HowToPlay,[FR] How to play
+UI_IconRef,[FR] Icon Glossary
+UI_LaunchMessage,[FR] Don't have the board tiles? You'll need them... Find out more at...
+UI_LaunchTitle,[FR] The Full\n\n\n\n\nExperience!
 UI_LoadPlayers,[FR] Load
 UI_LogData,[FR] Save data
 UI_MostAnswers,[FR] Highest answer percentage: (
@@ -57,14 +98,20 @@ UI_PlayerCount,[FR] %%PlayerCount / %%MaxPlayers
 UI_Players,[FR] Player List
 UI_QuitGameText,[FR] A game is currently in progress.\n\nReturning Home will quit the current game and remove all current game data and scores for each active player!\n\nDo you wish to return to the Home screen or return to the game?
 UI_RandomOrder,[FR] Random player turns
+UI_RefTitle,[FR] Reference...
 UI_RemovePlayer,[FR] Remove player from this game?
 UI_Return,[FR] Return
+UI_RulesTitle,[FR] Rules...
 UI_ShowAnswer,[FR] Auto-display answer
 UI_ShowButtonHints,[FR] Show button hints
+UI_ShowLaunchScreen,[FR] Show this message at launch?
 UI_SliderLock,guess
 UI_Start,[FR] Start...
+UI_TileReference,[FR] Tile Reference
 UI_TrashPlayer,[FR] Trash all data for this player?
 UI_Up,[FR] Move up
+UI_UsingApp,[FR] How to Use
+UI_UsingAppDetails,[FR] App Details
 UI_Winner,[FR] Err... Winner!
 UI_WinningText,[FR] Congratulations!!!\n\nYou have been declared the winner of the game!
 UI_YourTurn,[FR] You're next...

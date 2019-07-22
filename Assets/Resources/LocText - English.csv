@@ -6,7 +6,40 @@ CS_TestB_Desc,Test: 10 Questions with starting with the letter B
 CS_TestB_Title,Test Set B
 CS_TestC_Desc,Test: 10 Questions with starting with the letter C
 CS_TestC_Title,Test Set C
-SplashText,A game of definition and meaning!
+str_BtnDetailsAddPlayer,Add a player to the current game.
+str_BtnDetailsCorrect,The player got the answer correct. Move on to the next player or declare the winner.
+str_BtnDetailsCredits,Show the credits of who has helped make this game possible.
+str_BtnDetailsHome,Return to the Home/Start screen.
+str_BtnDetailsInstructions,Show instructions on how to play the game and use the app.
+str_BtnDetailsLoadPlayer,Load previously saved player information.
+str_BtnDetailsNext,Progress to the next screen.
+str_BtnDetailsNextPlayer,Pass play to the next player.
+str_BtnDetailsOptions,Access the options screen to adjust how the game plays.
+str_BtnDetailsOptionsSave,Save the current Option selections
+str_BtnDetailsPass,Pass on a clue and move to the next one.
+str_BtnDetailsQuitGame,Quits the current game and return to the Home/Start screen
+str_BtnDetailsRemovePlayer,Remove a player from the current game.
+str_BtnDetailsReturn,Return to the previous screen.
+str_BtnDetailsStart,Start the game.
+str_BtnDetailsTrash,Permanently delete a player and all their information.
+str_BtnDetailsWinner,Declare the current player the winner!
+str_BtnHelpAddPlayer,Add Player
+str_BtnHelpCorrect,Correct Answer
+str_BtnHelpCredits,Credits
+str_BtnHelpHome,Home
+str_BtnHelpInstructions,Instructions
+str_BtnHelpLoadPlayer,Load Player
+str_BtnHelpNext,Next
+str_BtnHelpNextPlayer,Next Player
+str_BtnHelpOptions,Options
+str_BtnHelpOptionsSave,Save
+str_BtnHelpPass,Pass
+str_BtnHelpQuitGame,Quit Game
+str_BtnHelpRemovePlayer,Remove Player
+str_BtnHelpReturn,Return
+str_BtnHelpStart,Start
+str_BtnHelpTrash,Delete
+str_BtnHelpWinner,Winner
 str_NoPlayerData,No player data is available!
 str_Player,Player
 str_PlayerCount,Player Count
@@ -15,10 +48,14 @@ str_RemovePlayer,Remove player...
 str_SelectCardsets,Select CardSet(s)...
 str_SelectOption,Select option...
 str_SelectPlayer,Select player...
+str_SplashText,A game of definition and meaning!
 str_Warning,WARNING!
 str_WarningBody,This action will delete all of the data for\n\n%%PlayerName\n\nAre you sure you want to continue?
 UI_60s,60s
 UI_AddPlayer,Add Player...
+UI_AppInstructions,App Information
+UI_AppInstructions,App Information
+UI_AppTitle,This app...
 UI_CardSetSelect,Select Cardset(s)
 UI_ConfirmNoPlayers,No Players!
 UI_ConfirmTrash,Remove Player Data
@@ -34,12 +71,16 @@ UI_Down,Move down
 UI_EasyRead,Easy read clues
 UI_EnterName,Enter name
 UI_FailAnswer,Unluckly!
-UI_FailedAnswerText,%%PlayerName stays where they are.\\nBetter luck next time!
+UI_FailedAnswerText,%%PlayerName stays where they are.\nBetter luck next time!
 UI_GameInProgress,Quit Current Game?
+UI_GameInstructionDetails,ToDo: Link game instructions and translations from Jonny & Mike
+UI_GameInstructions,Game Rules
 UI_GameLanguage,Select language
 UI_GuessTime,Question time:
 UI_Home,Home
-UI_HowToPlay,How to play
+UI_IconRef,Icon Glossary
+UI_LaunchMessage,Don't have the board tiles? You'll need them... Find out more at...
+UI_LaunchTitle,The Full\n\n\n\n\nExperience!
 UI_LoadPlayers,Load
 UI_LogData,Save data
 UI_MostAnswers,Highest answer percentage: (
@@ -57,14 +98,20 @@ UI_PlayerCount,%%PlayerCount / %%MaxPlayers
 UI_Players,Player List
 UI_QuitGameText,A game is currently in progress.\n\nReturning Home will quit the current game and remove all current game data and scores for each active player!\n\nDo you wish to return to the Home screen or return to the game?
 UI_RandomOrder,Random player turns
+UI_RefTitle,Reference...
 UI_RemovePlayer,Remove player from this game?
 UI_Return,Return
+UI_RulesTitle,Rules...
 UI_ShowAnswer,Auto-display answer
 UI_ShowButtonHints,Show button hints
+UI_ShowLaunchScreen,Show this message at launch?
 UI_SliderLock,Lock answer slider
 UI_Start,Start...
+UI_TileReference,Tile Reference
 UI_TrashPlayer,Trash all data for this player?
 UI_Up,Move up
+UI_UsingApp,How to Use
+UI_UsingAppDetails,App Details
 UI_Winner,Err... Winner!
 UI_WinningText,Congratulations!!!\n\nYou have been declared the winner of the game!
 UI_YourTurn,You're next...
