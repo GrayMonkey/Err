@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
     public void StartGame()
     {
         gameManager.gameInProgress = true;
-        PlayerObject playerObject = PlayerSelector.playerSelector.hasFocus;
+        PlayerObject playerObject = PlayerSelector.playerSelector.selectedPlayer;
         if (playerObject)
             playerObject.ShowMenu(false);
 

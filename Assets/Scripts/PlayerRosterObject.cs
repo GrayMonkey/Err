@@ -33,6 +33,6 @@ public class PlayerRosterObject : MonoBehaviour
 
         playerObject.UpdateToRosterPlayer(refPlayer);
         animator.SetBool("openMenu", false);
-        PlayerSelector.playerSelector.hasFocus = null;
+        PlayerSelector.playerSelector.selectedPlayer = null;
     }
 }

@@ -14,9 +14,10 @@ public class PlayerSelector : MonoBehaviour
     public static PlayerSelector playerSelector;
     public List<Player> playersActive;
     public GameObject playerDragged;
+    public GameObject dummyPlayer;
     public int newPlayerCount = 0;
     public bool loadPlayerActive = false;
-    public PlayerObject hasFocus;
+    public PlayerObject selectedPlayer;
 
     [SerializeField] private GameObject playersPanelContent;
     [SerializeField] private GameObject playerObject;
@@ -29,6 +30,7 @@ public class PlayerSelector : MonoBehaviour
     GameOptions gameOptions;
     MenuHandler uiMenus;
     List<Player> playerData = new List<Player>();
+    string updateCount;
 
     private void Awake()
     {
@@ -42,12 +44,12 @@ public class PlayerSelector : MonoBehaviour
         playersActive = playerController.playersActive;
         gameOptions = GameOptions.gameOptions;
         uiMenus = MenuHandler.uiMenus;
+        updateCount = LocManager.locManager.GetLocText("str_PlayerCount");
         //loadPlayers.interactable = false; NLR
     }
 
     private void Update()
     {
-        string updateCount = LocManager.locManager.GetLocText("str_PlayerCount");
         string players = playersActive.Count.ToString() + "/10";
         playerCountLabel.text = updateCount + ": " + players;
 
@@ -73,7 +75,7 @@ public class PlayerSelector : MonoBehaviour
         newPlayerCount++;
         Player newPlayer = playerController.AddNewPlayer();
         ActivatePlayerButton(newPlayer);
-        hasFocus = null;
+        selectedPlayer = null;
     }
 
     // Activate a new player button object

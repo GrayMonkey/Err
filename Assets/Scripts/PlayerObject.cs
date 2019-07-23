@@ -16,11 +16,13 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [SerializeField] private InputField nameInputField;
     [SerializeField] private Image buttonImage;
     [SerializeField] private Button trashPlayer;
+    [SerializeField] private Button[] subMenuButtons;
     [SerializeField] private Sprite btnReturn;
     [SerializeField] private Sprite btnTrash;
     [SerializeField] private Sprite btnCancel;
 
     GameObject dummyPlayer; // to mimic the playerDragged object
+    GameObject helpButton;
     ModalDialog modalDialog;
     PlayerRosterSelect playerRosterSelect;
     PlayerSelector playerSelector;
@@ -28,8 +30,6 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     PlayerObject hasSubMenuFocus;
     MenuHandler uiMenus;
     RectTransform rectTransform;
-    //Text inputText;
-    //Text inputPlaceholder;
     Vector3 newPos;
     Vector2 normSize = new Vector2(350.0f, 2.0f);
     Vector2 dragSize = new Vector2(350.0f, 20.0f);
@@ -52,11 +52,12 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [SerializeField] Button[] btn_SubMenuButtons;
 
     //enum SubMenu { PlayerRoster, CardSets, Language, RemovePlayer };
-    enum SubMenu { PlayerRoster, CardSets, RemovePlayer };
+    enum SubMenu { Blank, PlayerRoster, CardSets, RemovePlayer };
 
     private void Awake()
     {
         uiMenus = MenuHandler.uiMenus;
+        helpButton = uiMenus.helpButton;
         playerSelector = PlayerSelector.playerSelector;
         playerController = PlayerController.playerController;
         playerRosterSelect = PlayerRosterSelect.playerRosterSelect;
@@ -64,19 +65,55 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     private void Start()
     {
-        uiMenus = MenuHandler.uiMenus;
-        playerSelector = PlayerSelector.playerSelector;
-        playerRosterSelect = PlayerRosterSelect.playerRosterSelect; 
         refPlayer = playerController.activePlayer;
         playerName.text = refPlayer.playerName;
-        dummyPlayer = GameObject.FindWithTag("DummyPlayer");
+        dummyPlayer = playerSelector.dummyPlayer;
         modalDialog = ModalDialog.Instance();
+
+        //Set up the ContextButton variables as this is a Prefab
+        foreach (ContextButton button in subMenuButtons)
+        {
+            button.helpButton = helpButton;
+            string buttonName = button.name;
+
+            switch (buttonName)
+            {
+                case "btnCollapse":
+                    button.keyTitle   = "str_BtnHelpCollapse";
+                    button.keyDetails = "str_BtnDetailsCollapse";
+                    break;
+
+                case "btnRoster":
+                    button.keyTitle   = "str_BtnHelpRoster";
+                    button.keyDetails = "str_BtnDetailsRoster";
+                    break;
+
+                case "btnCardSet":
+                    button.keyTitle   = "str_BtnHelpCardSet";
+                    button.keyDetails = "str_BtnDetailsCardSet";
+                    break;
+
+                case "btnLang":
+                    button.keyTitle   = "str_BtnHelpLang";
+                    button.keyDetails = "str_BtnDetailsLang";
+                    break;
+
+                case "btnTrash":
+                    button.keyTitle   = "str_BtnHelpTrash";
+                    button.keyDetails = "str_BtnDetailsTrash";
+                    break;
+
+                default:
+                    button.keyTitle   = "ButtonNotFound";
+                    button.keyDetails = "ButtonNotFound";
+                    break;
+            }
+        }
    }
 
     private void Update()
     {
-        //if (animator.enabled && animator.GetBool("openMenu") == false)
-        if (playerSelector.hasFocus != this)
+        if (playerSelector.selectedPlayer != this)
         {
             ShowMenu(false);
             AnimatorClipInfo[] animatorClips = this.animator.GetCurrentAnimatorClipInfo(0);
@@ -85,11 +122,6 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 animator.enabled = false;
             }
         }
-    }
-
-    private void LateUpdate()
-    {
-        
     }
 
     #region Player handling
@@ -116,7 +148,6 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         // or if the new name is not unique
         if (goodName)
         {
-            //playerName.gameObject.SetActive(true);
             buttonImage.color = hilightGreen;
         }
 
@@ -129,7 +160,6 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
             if (goodName)
             {
-                //newName = playerName.text;
                 refPlayer.playerName = newName;
                 playerName.text = newName;
             }
@@ -188,24 +218,21 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         playerController.activePlayer = refPlayer;
 
-        // Check if another button has the sub menu open and close it
-        playerSelector.hasFocus = this;
+        // Check if another button has the sub menu open and close it by
+        // forcing this player to take the focus
+        playerSelector.selectedPlayer = this;
 
         // Double tap detected. Can't use tapcount as not supported by Android
         // Change players name
         if (lastTap + delayTap > Time.time)
         {
-            // close the submenu if it is open
-            if(playerSelector.hasFocus == this)
+            if(playerSelector.selectedPlayer != this)
             {
                 return;
             }
-            // TODO Edit player details
-            Debug.Log("Obj Pressed: " + this.gameObject.name);
             playerName.gameObject.SetActive(false);
             nameInputField.gameObject.SetActive(true);
             nameInputField.Select();
-            //inputText.text = playerName.text;
             nameInputField.text = playerName.text;
             lastTap = 0f;
         }
@@ -232,13 +259,13 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     // Puts the focus on this button and then opens the menu
     public void GetFocus()
     {
-        if (playerSelector.hasFocus == this)
+        if (playerSelector.selectedPlayer == this)
         {
             ShowMenu(false);
-            playerSelector.hasFocus = null;
+            playerSelector.selectedPlayer = null;
         } else {
             this.animator.enabled = true;
-            playerSelector.hasFocus = this;
+            playerSelector.selectedPlayer = this;
             ShowMenu(true);
             if (playerController.playerRoster.Count > 0)
             {
@@ -249,9 +276,6 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 SubMenuActivate((int)SubMenu.CardSets);
             }
         }
-
-        // Select the active button
-        //SubMenuActivate((int)SubMenu.PlayerRoster);
     }
 
     // Open the collapsed menu
@@ -265,7 +289,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         playerController.activePlayer = refPlayer;
 
-        foreach (Button button in btn_SubMenuButtons)
+        foreach (ContextButton button in subMenuButtons)
         {
             button.GetComponent<Image>().color = normal;
         }
@@ -279,8 +303,8 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         {
             case (int) SubMenu.CardSets:
                 mnu_SubMenus[subMenuID].SetActive(true);
-                subMenuRect.content = mnu_SubMenus[1].GetComponent<RectTransform>();
-                btn_SubMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
+                subMenuRect.content = mnu_SubMenus[subMenuID].GetComponent<RectTransform>();
+                subMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
                 string locText = LocManager.locManager.GetLocText("str_SelectCardsets");
                 subMenuInfoText.text = locText + " (" + refPlayer.cardSets.Count.ToString() + ")";
                 break;
@@ -314,10 +338,9 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 rectTransform = subMenuRect.content;
                 rectTransform = mnu_SubMenus[subMenuID].GetComponent<RectTransform>();
                 subMenuRect.content = rectTransform;
-                btn_SubMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
+                subMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
                 locText = LocManager.locManager.GetLocText("str_SelectPlayer");
 
-                //if (!playerController.playerDataExists)
                 if (playerController.playerRoster.Count == 0)
                     locText = LocManager.locManager.GetLocText("str_NoPlayerData");
 
@@ -326,8 +349,8 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 
             case (int) SubMenu.RemovePlayer:
                 mnu_SubMenus[subMenuID].SetActive(true);
-                subMenuRect.content = mnu_SubMenus[3].GetComponent<RectTransform>();
-                btn_SubMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
+                subMenuRect.content = mnu_SubMenus[2].GetComponent<RectTransform>();
+                subMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
 
                 trashPlayer.interactable = false;
                 if (playerController.playerRoster.Contains(refPlayer))

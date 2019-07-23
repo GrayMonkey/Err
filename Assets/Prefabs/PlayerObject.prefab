@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 224978922918664192}
   - component: {fileID: 222613089284742238}
   - component: {fileID: 114942058033310450}
-  - component: {fileID: 114334076513856568}
+  - component: {fileID: 212797437800950347}
   m_Layer: 5
   m_Name: btnCardSet
   m_TagString: Untagged
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &114334076513856568
+--- !u!114 &212797437800950347
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1113048920277634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 22f2a6adf603e4084923e39951bf4960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -277,7 +277,7 @@ MonoBehaviour:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
+    m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 114942058033310450}
@@ -290,13 +290,16 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  helpButton: {fileID: 0}
+  keyTitle: 
+  keyDetails: 
 --- !u!1 &1178830235104542
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,7 +736,7 @@ GameObject:
   - component: {fileID: 224239701425170806}
   - component: {fileID: 222926037913392696}
   - component: {fileID: 114947215136638310}
-  - component: {fileID: 114150409913758170}
+  - component: {fileID: 5868419559971149383}
   m_Layer: 5
   m_Name: btnCollapse
   m_TagString: Untagged
@@ -797,7 +800,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &114150409913758170
+--- !u!114 &5868419559971149383
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -806,7 +809,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1266802458881138}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 22f2a6adf603e4084923e39951bf4960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -833,7 +836,7 @@ MonoBehaviour:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
+    m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 114947215136638310}
@@ -853,6 +856,9 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  helpButton: {fileID: 0}
+  keyTitle: 
+  keyDetails: 
 --- !u!1 &1286319538786010
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,7 +870,7 @@ GameObject:
   - component: {fileID: 224136428422569112}
   - component: {fileID: 222385380498409056}
   - component: {fileID: 114560027091614258}
-  - component: {fileID: 114439784219930104}
+  - component: {fileID: 6113241676404858697}
   m_Layer: 5
   m_Name: btnTrash
   m_TagString: Untagged
@@ -928,7 +934,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &114439784219930104
+--- !u!114 &6113241676404858697
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -937,7 +943,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1286319538786010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 22f2a6adf603e4084923e39951bf4960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -964,7 +970,7 @@ MonoBehaviour:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
+    m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 114560027091614258}
@@ -977,13 +983,16 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  helpButton: {fileID: 0}
+  keyTitle: 
+  keyDetails: 
 --- !u!1 &1287933860019878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,8 +1107,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -50}
-  m_SizeDelta: {x: 250, y: 40}
+  m_AnchoredPosition: {x: 175, y: -50}
+  m_SizeDelta: {x: 300, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &222533836549408846
 CanvasRenderer:
@@ -2136,7 +2145,12 @@ MonoBehaviour:
   playerName: {fileID: 114812380304687114}
   nameInputField: {fileID: 114004407856820268}
   buttonImage: {fileID: 114623882557494018}
-  trashPlayer: {fileID: 0}
+  trashPlayer: {fileID: 6994947448286469208}
+  subMenuButtons:
+  - {fileID: 5868419559971149383}
+  - {fileID: 8629801636649986990}
+  - {fileID: 212797437800950347}
+  - {fileID: 6113241676404858697}
   btnReturn: {fileID: 21300000, guid: 052d12d639efb4e7b9b7213653f5671c, type: 3}
   btnTrash: {fileID: 21300000, guid: f9d404a337a33448a8fc9ec9cc5572f6, type: 3}
   btnCancel: {fileID: 21300000, guid: 5f89f1774c2a04619a9e1617f05e6fff, type: 3}
@@ -2145,12 +2159,13 @@ MonoBehaviour:
   subMenuRect: {fileID: 114997356991742808}
   mnu_SubMenus:
   - {fileID: 1999412021571688}
+  - {fileID: 1999412021571688}
   - {fileID: 1736282545476444}
   - {fileID: 1773258856417608}
   btn_SubMenuButtons:
-  - {fileID: 114116469451260966}
-  - {fileID: 114334076513856568}
-  - {fileID: 114439784219930104}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!95 &95014455726782548
 Animator:
   serializedVersion: 3
@@ -3016,7 +3031,7 @@ GameObject:
   - component: {fileID: 224862346398462324}
   - component: {fileID: 222491038087469494}
   - component: {fileID: 114107702306447102}
-  - component: {fileID: 114116469451260966}
+  - component: {fileID: 8629801636649986990}
   m_Layer: 5
   m_Name: btnRoster
   m_TagString: Untagged
@@ -3080,7 +3095,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &114116469451260966
+--- !u!114 &8629801636649986990
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3089,7 +3104,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1814623261717508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 22f2a6adf603e4084923e39951bf4960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -3116,7 +3131,7 @@ MonoBehaviour:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
+    m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 114107702306447102}
@@ -3129,13 +3144,16 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  helpButton: {fileID: 0}
+  keyTitle: 
+  keyDetails: 
 --- !u!1 &1875072662741602
 GameObject:
   m_ObjectHideFlags: 0
@@ -3301,7 +3319,7 @@ GameObject:
   - component: {fileID: 224644033196887244}
   - component: {fileID: 222871931471704322}
   - component: {fileID: 114565584608498788}
-  - component: {fileID: 114389470201634990}
+  - component: {fileID: 551282416897048878}
   m_Layer: 5
   m_Name: btnLang
   m_TagString: Untagged
@@ -3365,7 +3383,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &114389470201634990
+--- !u!114 &551282416897048878
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3374,7 +3392,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1967783530159738}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 22f2a6adf603e4084923e39951bf4960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -3401,7 +3419,7 @@ MonoBehaviour:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
+    m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 114565584608498788}
@@ -3418,9 +3436,12 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  helpButton: {fileID: 0}
+  keyTitle: 
+  keyDetails: 
 --- !u!1 &1972039513993998
 GameObject:
   m_ObjectHideFlags: 0
@@ -3831,7 +3852,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: UI_TrashPlayer
+  m_Text: str_BtnDetailsTrash
 --- !u!114 &5669150417457790613
 MonoBehaviour:
   m_ObjectHideFlags: 0

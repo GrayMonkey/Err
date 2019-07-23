@@ -11,16 +11,9 @@ public class ContextButton : Button
     public string keyTitle;
     public string keyDetails;
     private float touchTime = 1f;
-    private bool eligibleForClick = true;
-
-    //[Header("Buttons")]
-    //bool btnOK;
-    //bool btnCancel;
 
     public override void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Button clicked!");
-//        eligibleForClick = false;
         Invoke("ShowHelp", touchTime);
     }
 
@@ -28,16 +21,10 @@ public class ContextButton : Button
     {
         Debug.Log("Button released");
         CancelInvoke("ShowHelp");
-        //eventData.eligibleForClick = true;
     }
 
     void ShowHelp()
     {
-        //ModalDialogDetails details = GetComponentInChildren<ModalDialogDetails>();
-
-        //eligibleForClick = false;
-        Debug.Log("Showing help");
-
         HelpButtonPanel helpButtonPanel = helpButton.GetComponent<HelpButtonPanel>();
         Sprite helpSprite = helpButtonPanel.helpImage.sprite;
 
@@ -45,10 +32,5 @@ public class ContextButton : Button
         helpButtonPanel.keyTitle.text = LocManager.locManager.GetLocText(keyTitle);
         helpButtonPanel.keyDetails.text = LocManager.locManager.GetLocText(keyDetails);
         helpButtonPanel.gameObject.SetActive(true);
-
-        Debug.Log("Image: " + helpButtonPanel.helpImage.sprite.name);
-
-        // Set up dialog box
-
     }
 }

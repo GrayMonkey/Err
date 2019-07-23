@@ -7,10 +7,13 @@ CS_TestB_Title,[SP] Test Set B
 CS_TestC_Desc,[SP] Test: 10 Questions with starting with the letter C
 CS_TestC_Title,[SP] Test Set C
 str_BtnDetailsAddPlayer,[SP] Add a player to the current game.
+str_BtnDetailsCardSet,[SP] Choose one or more question sets for the player
+str_BtnDetailsCollapse,[SP] Edit the player options
 str_BtnDetailsCorrect,[SP] The player got the answer correct. Move on to the next player or declare the winner.
 str_BtnDetailsCredits,[SP] Show the credits of who has helped make this game possible.
 str_BtnDetailsHome,[SP] Return to the Home/Start screen.
 str_BtnDetailsInstructions,[SP] Show instructions on how to play the game and use the app.
+str_BtnDetailsLanguage,[SP] Select the chosen language for the player
 str_BtnDetailsLoadPlayer,[SP] Load previously saved player information.
 str_BtnDetailsNext,[SP] Progress to the next screen.
 str_BtnDetailsNextPlayer,[SP] Pass play to the next player.
@@ -20,14 +23,18 @@ str_BtnDetailsPass,[SP] Pass on a clue and move to the next one.
 str_BtnDetailsQuitGame,[SP] Quits the current game and return to the Home/Start screen
 str_BtnDetailsRemovePlayer,[SP] Remove a player from the current game.
 str_BtnDetailsReturn,[SP] Return to the previous screen.
+str_BtnDetailsRoster,[SP] Open and load previous players and their data
 str_BtnDetailsStart,[SP] Start the game.
 str_BtnDetailsTrash,[SP] Permanently delete a player and all their information.
 str_BtnDetailsWinner,[SP] Declare the current player the winner!
 str_BtnHelpAddPlayer,[SP] Add Player
+str_BtnHelpCardSet,[SP] Question Sets
+str_BtnHelpCollapse,[SP] Player Options
 str_BtnHelpCorrect,[SP] Correct Answer
 str_BtnHelpCredits,[SP] Credits
 str_BtnHelpHome,[SP] Home
 str_BtnHelpInstructions,[SP] Instructions
+str_BtnHelpLanguage,[SP] Language
 str_BtnHelpLoadPlayer,[SP] Load Player
 str_BtnHelpNext,[SP] Next
 str_BtnHelpNextPlayer,[SP] Next Player
@@ -37,6 +44,7 @@ str_BtnHelpPass,[SP] Pass
 str_BtnHelpQuitGame,[SP] Quit Game
 str_BtnHelpRemovePlayer,[SP] Remove Player
 str_BtnHelpReturn,[SP] Return
+str_BtnHelpRoster,[SP] Load Player
 str_BtnHelpStart,[SP] Start
 str_BtnHelpTrash,[SP] Delete
 str_BtnHelpWinner,[SP] Winner
