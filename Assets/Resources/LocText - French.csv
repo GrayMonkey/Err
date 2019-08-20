@@ -8,7 +8,7 @@ CS_TestC_Desc,[FR] Test: 10 Questions with starting with the letter C
 CS_TestC_Title,[FR] Test Set C
 str_BtnDetailsAddPlayer,[FR] Add a player to the current game.
 str_BtnDetailsCardSet,[FR] Choose one or more question sets for the player
-str_BtnDetailsCollapse,[FR] Edit the player options
+str_BtnDetailsCollape,[FR] Edit the player options. Double tap the player name to edit the player's name.
 str_BtnDetailsCorrect,[FR] The player got the answer correct. Move on to the next player or declare the winner.
 str_BtnDetailsCredits,[FR] Show the credits of who has helped make this game possible.
 str_BtnDetailsHome,[FR] Return to the Home/Start screen.
@@ -16,16 +16,18 @@ str_BtnDetailsInstructions,[FR] Show instructions on how to play the game and us
 str_BtnDetailsLanguage,[FR] Select the chosen language for the player
 str_BtnDetailsLoadPlayer,[FR] Load previously saved player information.
 str_BtnDetailsNext,[FR] Progress to the next screen.
+str_BtnDetailsNextPage,[FR] Go to the next page of information.
 str_BtnDetailsNextPlayer,[FR] Pass play to the next player.
 str_BtnDetailsOptions,[FR] Access the options screen to adjust how the game plays.
 str_BtnDetailsOptionsSave,[FR] Save the current Option selections
 str_BtnDetailsPass,[FR] Pass on a clue and move to the next one.
+str_BtnDetailsPrevPage,[FR] Go to the previous page of information.
 str_BtnDetailsQuitGame,[FR] Quits the current game and return to the Home/Start screen
 str_BtnDetailsRemovePlayer,[FR] Remove a player from the current game.
 str_BtnDetailsReturn,[FR] Return to the previous screen.
 str_BtnDetailsRoster,[FR] Open and load previous players and their data
 str_BtnDetailsStart,[FR] Start the game.
-str_BtnDetailsTrash,[FR] Permanently delete a player and all their information.
+str_BtnDetailsTrash,[FR] Permanently delete a player and all their saved information.
 str_BtnDetailsWinner,[FR] Declare the current player the winner!
 str_BtnHelpAddPlayer,[FR] Add Player
 str_BtnHelpCardSet,[FR] Question Sets
@@ -37,10 +39,12 @@ str_BtnHelpInstructions,[FR] Instructions
 str_BtnHelpLanguage,[FR] Language
 str_BtnHelpLoadPlayer,[FR] Load Player
 str_BtnHelpNext,[FR] Next
+str_BtnHelpNextPage,[FR] Next Page
 str_BtnHelpNextPlayer,[FR] Next Player
-str_BtnHelpOptions,[FR] Options
+str_BtnHelpOptions,[FR] Game Options
 str_BtnHelpOptionsSave,[FR] Save
 str_BtnHelpPass,[FR] Pass
+str_BtnHelpPrevPage,[FR] Previous Page
 str_BtnHelpQuitGame,[FR] Quit Game
 str_BtnHelpRemovePlayer,[FR] Remove Player
 str_BtnHelpReturn,[FR] Return
@@ -48,6 +52,7 @@ str_BtnHelpRoster,[FR] Load Player
 str_BtnHelpStart,[FR] Start
 str_BtnHelpTrash,[FR] Delete
 str_BtnHelpWinner,[FR] Winner
+str_from,[FR] from 
 str_NoPlayerData,[FR] No player data is available!
 str_Player,[FR] Player
 str_PlayerCount,[FR] Player Count
@@ -57,12 +62,14 @@ str_SelectCardsets,[FR] Select CardSet(s)...
 str_SelectOption,[FR] Select option...
 str_SelectPlayer,[FR] Select player...
 str_SplashText,[FR] A game of definition and meaning!
+str_BtnHelpTile,[FR] Board tile description
+str_BtnDetailsTile,[FR] Press the button to show the description of this tile.
 str_Warning,[FR] WARNING!
 str_WarningBody,[FR] This action will delete all of the data for\n\n%%PlayerName\n\nAre you sure you want to continue?
 UI_60s,[FR] 60s
 UI_AddPlayer,[FR] Add Player...
-UI_AppInstructions,[FR] App Information
-UI_AppInstructions,[FR] App Information
+UI_AppInfo,[FR] App Information
+UI_AppInfoDetails,[FR] The Err App
 UI_AppTitle,[FR] This app...
 UI_CardSetSelect,[FR] Select Cardset(s)
 UI_ConfirmNoPlayers,[FR] No Players!
@@ -76,17 +83,19 @@ UI_Credits,[FR] Credits
 UI_DeclareWinner,[FR] Declare winner
 UI_Delete,[FR] Delete
 UI_Down,[FR] Move down
-UI_EasyRead,[FR] Easy read clues
+UI_EasyRead,[FR] Classic mode
 UI_EnterName,[FR] Enter name
 UI_FailAnswer,[FR] Unluckly!
 UI_FailedAnswerText,[FR] %%PlayerName stays where they are.\nBetter luck next time!
 UI_GameInProgress,[FR] Quit Current Game?
-UI_GameInstructionDetails,[FR] ToDo: Link game instructions and translations from Jonny & Mike
-UI_GameInstructions,[FR] Game Rules
+UI_GameInstructionsDetail1,[FR] 
 UI_GameLanguage,[FR] Select language
-UI_GuessTime,[FR] Question time:
+UI_GameRules,[FR] Game Rules
+UI_GameRulesDetails,[FR] ToDo: Link game instructions and translations from Jonny & Mike
+UI_GuessTime,[FR] Timer:
 UI_Home,[FR] Home
 UI_IconRef,[FR] Icon Glossary
+UI_Instructions,[FR] Instructions
 UI_LaunchMessage,[FR] Don't have the board tiles? You'll need them... Find out more at...
 UI_LaunchTitle,[FR] The Full\n\n\n\n\nExperience!
 UI_LoadPlayers,[FR] Load
@@ -113,12 +122,25 @@ UI_RulesTitle,[FR] Rules...
 UI_ShowAnswer,[FR] Auto-display answer
 UI_ShowButtonHints,[FR] Show button hints
 UI_ShowLaunchScreen,[FR] Show this message at launch?
-UI_SliderLock,guess
+UI_SliderLock,[FR] Lock answer slider
 UI_Start,[FR] Start...
-UI_TileReference,[FR] Tile Reference
-UI_TrashPlayer,[FR] Trash all data for this player?
+UI_TileRef,[FR] Tile Reference
+UI_TileRefAccum,[FR] Accumulator
+UI_TileRefBlank,[FR] Blank
+UI_TileRefController,[FR] Controller
+UI_TileRefDetailsAccum,"[FR] When the active player STARTS their turn on this tile they take their turn as normal. If they get the answer correct they can choose to either keep their score and move or answer an additional question. However, for additional questions the active player nominates the level of difficulty of the clue. If they get the answer correct to the additional question the clue amount is added to the move score they already have. A maximum of four additional questions can be asked. If at any time during the additional questions the player gets the answer wrong then they can no longer take additional questions and move a total of their accumulated score."
+UI_TileRefDetailsBlank,[FR] The blank tile has no special affect and is counted as one move.
+UI_TileRefDetailsController,"[FR] When the active player STARTS their turn on this tile not only do they move normally but they can also move other players to a total equal to their move, i.e. if they scored a move of three then they can move another player three spaces, two players one and two spaces respectively, or three players a single space each."
+UI_TileRefDetailsDoubler,[FR] When the active player STARTS their turn on this tile whatever they score is doubled and the player moves that amount of spaces.
+UI_TileRefDetailsOneShot,[FR] When the active player ENDS their turn on this tile they can take an extra turn but only with one clue given. If they get the answer right they continue to move the according number of spaces for that clue only.
+UI_TileRefDetailsOpen,[FR] When the active player STARTS on this tile they essentially lose their turn and asks their opposing players the question as normal. If an opposing player guesses correctly they move the relevant number of spaces. The active player is the judge in any answers called out simultaneously! The active player is only penalised once and continues their game as normal on their next turn.
+UI_TileRefDetailsSplitter,"[FR] When the active player STARTS their turn on this tile they take their turn as normal. If they get the answer correct they can choose to either keep their score and move or answer an additional question. However, for additional questions the active player nominates the level of difficulty of the clue. If they get the answer correct to the additional question the clue amount is added to the move score they already have. A maximum of four additional questions can be asked. If at any time during the additional questions the player gets the answer wrong then they can no longer take additional questions and move a total of their accumulated score."
+UI_TileRefDoubler,[FR] Doubler
+UI_TileRefOneShot,[FR] One Shot
+UI_TileRefOpen,[FR] Open
+UI_TileRefSplitter,[FR] Splitter
 UI_Up,[FR] Move up
-UI_UsingApp,[FR] How to Use
+UI_UsingApp,[FR] Using this App
 UI_UsingAppDetails,[FR] App Details
 UI_Winner,[FR] Err... Winner!
 UI_WinningText,[FR] Congratulations!!!\n\nYou have been declared the winner of the game!

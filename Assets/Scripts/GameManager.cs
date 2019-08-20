@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
 
     public void ShowInstructions()
     {
-        //uiMenu.ShowMenu(Menu.HowToPlay);
+        uiMenus.ShowMenu(Menu.Instructions);
     }
 
     public void ShowOptions()
