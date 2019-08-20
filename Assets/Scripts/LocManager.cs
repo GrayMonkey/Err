@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.IO;
 
 public class LocManager : MonoBehaviour
@@ -8,6 +9,7 @@ public class LocManager : MonoBehaviour
     public List<LocTextData> locText = new List<LocTextData>();
 
     private SystemLanguage gameLang;
+    private Translate[] trans;
 
     private void Awake()
     {
@@ -17,6 +19,7 @@ public class LocManager : MonoBehaviour
 
     private void Start()
     {
+        trans = Resources.FindObjectsOfTypeAll<Translate>();
         SetLang(GameLang);
     }
 
@@ -51,18 +54,8 @@ public class LocManager : MonoBehaviour
             LocTextData data = new LocTextData();
             data.key = cellData[0];
             data.text = cellData[1];
+            //Debug.Log(i +": " + data.key + ": " + data.text);
             locText.Add(data);
-        }
-
-
-        // Update all the strings in the scene 
-        Translate[] updateStrings = FindObjectsOfType<Translate>();
-
-        foreach (Translate _string in updateStrings)
-        {
-            _string.UpdateString();
-            //_string.text.text = GetLocText(_string.key);
-
         }
     }
 

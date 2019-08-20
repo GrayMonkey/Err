@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Translate : MonoBehaviour
 {
@@ -12,15 +13,27 @@ public class Translate : MonoBehaviour
     {
         text = gameObject.GetComponent<Text>();
         key = text.text;
+        if (key == "")
+        {
+            Debug.Log("No text component found for:" + gameObject.name);
+        }
     }
 
     private void OnEnable()
     {
-        UpdateString();
+        if (key != "") UpdateString();
     }
 
     public void UpdateString()
     {
-        text.text = LocManager.locManager.GetLocText(key);
+        try
+        {
+            text.text = LocManager.locManager.GetLocText(key);
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e, this);
+            Debug.Log(this.gameObject.name);
+        }
     }
 }

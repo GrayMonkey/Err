@@ -307,32 +307,8 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 subMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
                 string locText = LocManager.locManager.GetLocText("str_SelectCardsets");
                 subMenuInfoText.text = locText + " (" + refPlayer.cardSets.Count.ToString() + ")";
-                break;
-                
-            //case (int) SubMenu.Language:
-                //mnu_SubMenus[1].SetActive(true);
-                //rectTransform = mnu_SubMenus[1].GetComponent<RectTransform>();
-                //subMenuRect.content = rectTransform;
-                //btn_SubMenuButtons[1].GetComponent<Image>().color = hilightGreen;
-
-                //int playerLang = (int)refPlayer.language;
-                //Toggle[] languages = GetComponentsInChildren<Toggle>();
-                //for (int i = 0; i < languages.Length; i++)
-                //{
-                //    languages[i].isOn = false;
-                //}
-                //languages[playerLang].isOn = true;
-                //locText = LocManager.locManager.GetLocText("str_PlayerLanguage");
-                //subMenuInfoText.text = locText + " (" + refPlayer.language.ToString() + ")"; 
-
-                //// set the scrollrect so that the selected language is shown
-                //float maxPos = languages.Length - 1;
-                //float vPos = playerLang / maxPos;
-                //vPos = 1.0f - vPos;
-                //subMenuRect.verticalNormalizedPosition = vPos;
- 
-                //break;
-                
+                break;            
+               
             case (int) SubMenu.PlayerRoster:
                 mnu_SubMenus[subMenuID].SetActive(true);
                 rectTransform = subMenuRect.content;
