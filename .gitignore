@@ -60,3 +60,9 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+*.meta
+*.meta
+*.meta
+*.mdb
+*.meta
+*.meta
