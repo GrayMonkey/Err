@@ -44,16 +44,29 @@ public class LocManager : MonoBehaviour
 
         TextAsset textData = Resources.Load<TextAsset>(file);
 
+        //Remove any hard returns, new lines and double quotes
         //string[] rowData = textData.text.Split(new char[] { '\n' });
         string[] rowData = textData.text.Split(new char[] { '\r' , '\n' },System.StringSplitOptions.RemoveEmptyEntries);
 
 
+
         for (int i = 0; i < rowData.Length; i++)
         {
-            string[] cellData = rowData[i].Split(new char[] { ',' });
+            //Split on the first comma
+            int firstComma = rowData[i].IndexOf(",");
+            string dataKey = rowData[i].Substring(0, firstComma);
+            string dataValue = rowData[i].Substring(firstComma + 1);
+
+            //Remove double quotes from beginning and end of string
+            if (dataValue.StartsWith("\""))
+            {
+                dataValue = dataValue.Substring(1, dataValue.Length - 2);
+            }
+
+            //Add data to locText
             LocTextData data = new LocTextData();
-            data.key = cellData[0];
-            data.text = cellData[1];
+            data.key = dataKey;
+            data.text = dataValue;
             //Debug.Log(i +": " + data.key + ": " + data.text);
             locText.Add(data);
         }
