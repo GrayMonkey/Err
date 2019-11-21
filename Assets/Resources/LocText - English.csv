@@ -8,7 +8,7 @@ CS_TestC_Desc,Test: 10 Questions with starting with the letter C
 CS_TestC_Title,Test Set C
 str_BtnDetailsAddPlayer,Add a player to the current game.
 str_BtnDetailsCardSet,Choose one or more question sets for the player
-str_BtnDetailsCollape,Edit the player options. Double tap the player name to edit the player's name.
+str_BtnDetailsCollapse,Edit the player options. Double tap the player name to edit the player's name.
 str_BtnDetailsCorrect,The player got the answer correct. Move on to the next player or declare the winner.
 str_BtnDetailsCredits,Show the credits of who has helped make this game possible.
 str_BtnDetailsHome,Return to the Home/Start screen.

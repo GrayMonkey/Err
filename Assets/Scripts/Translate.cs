@@ -32,8 +32,8 @@ public class Translate : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.LogException(e, this);
             Debug.Log(this.gameObject.name);
+            Debug.LogException(e, this);
         }
     }
 }

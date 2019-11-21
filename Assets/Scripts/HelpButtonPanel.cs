@@ -14,6 +14,6 @@ public class HelpButtonPanel : MonoBehaviour
     private void Start()
     {
         helpIcon.sprite = helpImage.sprite;
-        Debug.Log("Changed images");
+        //Debug.Log("Changed images");
     }
 }
