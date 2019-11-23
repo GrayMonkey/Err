@@ -22,7 +22,6 @@ public class PlayerSelector : MonoBehaviour
     [SerializeField] private GameObject playersPanelContent;
     [SerializeField] private GameObject playerObject;
     [SerializeField] private Text playerCountLabel;
-    //[SerializeField] private Button loadPlayers; NLR
     [SerializeField] private Button addPlayer;
     [SerializeField] private Button startGame;
 
@@ -45,7 +44,6 @@ public class PlayerSelector : MonoBehaviour
         gameOptions = GameOptions.gameOptions;
         uiMenus = MenuHandler.uiMenus;
         updateCount = LocManager.locManager.GetLocText("str_PlayerCount");
-        //loadPlayers.interactable = false; NLR
     }
 
     private void Update()

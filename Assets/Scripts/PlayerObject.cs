@@ -49,10 +49,8 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [SerializeField] Animator animator;
     [SerializeField] ScrollRect subMenuRect;
     [SerializeField] GameObject[] mnu_SubMenus;
-    [SerializeField] Button[] btn_SubMenuButtons;
 
-    //enum SubMenu { PlayerRoster, CardSets, Language, RemovePlayer };
-    enum SubMenu { Blank, PlayerRoster, CardSets, RemovePlayer };
+    enum SubMenu { PlayerRoster, CardSets, RemovePlayer };
 
     private void Awake()
     {
@@ -74,40 +72,6 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         foreach (ContextButton button in subMenuButtons)
         {
             button.helpButton = helpButton;
-            string buttonName = button.name;
-
-            switch (buttonName)
-            {
-                case "btnCollapse":
-                    button.keyTitle   = "str_BtnHelpCollapse";
-                    button.keyDetails = "str_BtnDetailsCollapse";
-                    break;
-
-                case "btnRoster":
-                    button.keyTitle   = "str_BtnHelpRoster";
-                    button.keyDetails = "str_BtnDetailsRoster";
-                    break;
-
-                case "btnCardSet":
-                    button.keyTitle   = "str_BtnHelpCardSet";
-                    button.keyDetails = "str_BtnDetailsCardSet";
-                    break;
-
-                case "btnLang":
-                    button.keyTitle   = "str_BtnHelpLang";
-                    button.keyDetails = "str_BtnDetailsLang";
-                    break;
-
-                case "btnTrash":
-                    button.keyTitle   = "str_BtnHelpTrash";
-                    button.keyDetails = "str_BtnDetailsTrash";
-                    break;
-
-                default:
-                    button.keyTitle   = "ButtonNotFound";
-                    button.keyDetails = "ButtonNotFound";
-                    break;
-            }
         }
    }
 
@@ -322,10 +286,10 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
                 subMenuInfoText.text = locText;
                 break;
-                
-            case (int) SubMenu.RemovePlayer:
+
+            case (int)SubMenu.RemovePlayer:
                 mnu_SubMenus[subMenuID].SetActive(true);
-                subMenuRect.content = mnu_SubMenus[2].GetComponent<RectTransform>();
+                subMenuRect.content = mnu_SubMenus[subMenuID].GetComponent<RectTransform>();
                 subMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
 
                 trashPlayer.interactable = false;

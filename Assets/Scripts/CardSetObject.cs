@@ -5,11 +5,23 @@ using UnityEngine.UI;
 
 public class CardSetObject : MonoBehaviour
 {
+    [System.Serializable]
+    public struct LangFlags
+    {
+        public GameObject english;
+        public GameObject french;
+        public GameObject german;
+        public GameObject italian;
+        public GameObject spanish;
+    }
+
     public CardSet cardSet;
 
     [SerializeField] private Image icon;
     [SerializeField] private Text label;
     [SerializeField] private Text desc;
+    [SerializeField] private GameObject langs;
+    [SerializeField] private LangFlags langFlags;
     Text subMenuInfoText;
     Player refPlayer;
     Toggle toggle;
@@ -30,6 +42,12 @@ public class CardSetObject : MonoBehaviour
         desc.text = LocManager.locManager.GetLocText(cSet.cardSetDescKey);
         toggle.isOn = false;
         subMenuInfoText.text = "Select CardSet(s)... (" + refPlayer.cardSets.Count.ToString() + ")";
+
+        langFlags.english.SetActive(cSet.cardSetLangs.english);
+        langFlags.french.SetActive(cSet.cardSetLangs.french);
+        langFlags.german.SetActive(cSet.cardSetLangs.german);
+        langFlags.italian.SetActive(cSet.cardSetLangs.italian);
+        langFlags.spanish.SetActive(cSet.cardSetLangs.spanish);
 
         if(refPlayer.cardSets.Contains(cardSet))
         {
@@ -58,9 +76,8 @@ public class CardSetObject : MonoBehaviour
 
     void ShowDescription(bool show)
     {
-       
         desc.gameObject.SetActive(show);
-
+        langs.SetActive(show);
     }
 
 }

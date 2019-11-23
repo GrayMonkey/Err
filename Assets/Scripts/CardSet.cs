@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class CardSet : MonoBehaviour 
 {
+    [System.Serializable]
+    public struct CardSetLangs
+    {
+        public bool english;
+        public bool french;
+        public bool german;
+        public bool italian;
+        public bool spanish;
+    }
+
     public string cardSetNameKey;
     public string cardSetDescKey;
     public Sprite cardSetIcon;
-    public List<string> cardSetLangs = new List<string>();
+    public CardSetLangs cardSetLangs;
     public bool purchased;
 
     [SerializeField] string jsonFile;			// JSON file for reading data
