@@ -55,11 +55,11 @@ public class mnu_Options : MonoBehaviour
         guessTime.text = xTime;
     }
 
-    public void Btn_Instruction()
-    {
-        //uiMenu.ShowMenu(Menus.HowToPlay);
-        uiMenus.CloseMenu(Menus.Options);
-    }
+    //public void Btn_Instruction()
+    //{
+    //    //uiMenu.ShowMenu(Menus.HowToPlay);
+    //    uiMenus.CloseMenu(Menus.Options);
+    //}
 
     public void Btn_Credits()
     {
