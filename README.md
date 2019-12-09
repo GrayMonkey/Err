@@ -2,7 +2,7 @@
 Mobile app for board game
 
 #### ToDo
-- [ ] Update all buttons
+- [x] Update all buttons
 - [ ] Only show cardsets in the system language
 
 #### Features
