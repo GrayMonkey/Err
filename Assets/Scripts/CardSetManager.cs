@@ -2,20 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// CardSets should be added to the Manager game object under the
+// Card Set Manager component
 public class CardSetManager : MonoBehaviour
 {
     public static CardSetManager csManager;
-    public List<CardSet> availableCardSets;
-    public List<CardSet> purchasedCardSets;
+
+    [SerializeField] List<GameObject> allCardSets;
+
     private void OnEnable()
     {
         csManager = this;
-        purchasedCardSets.Clear();
+        allCardSets.Clear();
+        string lang = Application.systemLanguage.ToString();
+        UpdateCardSets();
+        FilterCardSets(lang, true);
+    }
 
-        foreach (CardSet cardset in availableCardSets)
-        {
-            if (cardset.purchased)
-                purchasedCardSets.Add(cardset);
-        }
+    public void UpdateCardSets()
+    {
+    }
+
+    public void FilterCardSets (string lang, bool active)
+    {
     }
 }

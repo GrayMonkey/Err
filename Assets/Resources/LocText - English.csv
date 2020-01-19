@@ -52,6 +52,8 @@ str_BtnHelpRoster,Load Player
 str_BtnHelpStart,Start
 str_BtnHelpTrash,Delete
 str_BtnHelpWinner,Winner
+str_DefaultCardSet,Set Default CardSet?
+str_DefaultCardSetBody,Do you want you update all players to use this cardset selection?\n\nNote that individual cardsets can still be set for individual players from the Player Select screen.
 str_from,from 
 str_NoPlayerData,No player data is available!
 str_Player,Player
@@ -62,6 +64,8 @@ str_SelectCardsets,Select CardSet(s)...
 str_SelectOption,Select option...
 str_SelectPlayer,Select player...
 str_SplashText,A game of definition and meaning!
+str_Available,Available
+str_Purchase,Buy additional CardSets!
 str_BtnHelpTile,Board tile description
 str_BtnDetailsTile,Press the button to show the description of this tile.
 str_Warning,WARNING!
@@ -116,7 +120,8 @@ UI_Players,Player List
 UI_QuitGameText,A game is currently in progress.\n\nReturning Home will quit the current game and remove all current game data and scores for each active player!\n\nDo you wish to return to the Home screen or return to the game?
 UI_RandomOrder,Random player turns
 UI_RefTitle,Reference...
-UI_RemovePlayer,Remove player from this game?
+UI_RemovePlayer,Remove %%PlayerName from this game?
+UI_TrashPlayer,Permanently delete %%PlayerName and all of their data?
 UI_Return,Return
 UI_RulesTitle,Rules...
 UI_ShowAnswer,Auto-display answer

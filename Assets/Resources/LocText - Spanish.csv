@@ -8,7 +8,7 @@ CS_TestC_Desc,[SP] Test: 10 Questions with starting with the letter C
 CS_TestC_Title,[SP] Test Set C
 str_BtnDetailsAddPlayer,[SP] Add a player to the current game.
 str_BtnDetailsCardSet,[SP] Choose one or more question sets for the player
-str_BtnDetailsCollape,[SP] Edit the player options. Double tap the player name to edit the player's name.
+str_BtnDetailsCollapse,[SP] Edit the player options. Double tap the button to edit the player's name.
 str_BtnDetailsCorrect,[SP] The player got the answer correct. Move on to the next player or declare the winner.
 str_BtnDetailsCredits,[SP] Show the credits of who has helped make this game possible.
 str_BtnDetailsHome,[SP] Return to the Home/Start screen.
@@ -52,6 +52,8 @@ str_BtnHelpRoster,[SP] Load Player
 str_BtnHelpStart,[SP] Start
 str_BtnHelpTrash,[SP] Delete
 str_BtnHelpWinner,[SP] Winner
+str_DefaultCardSet,[SP] Set Default CardSet?
+str_DefaultCardSetBody,[SP] Do you want you update all players to use this cardset selection?\n\nNote that individual cardsets can still be set for individual players from the Player Select screen.
 str_from,[SP] from 
 str_NoPlayerData,[SP] No player data is available!
 str_Player,[SP] Player
@@ -62,6 +64,8 @@ str_SelectCardsets,[SP] Select CardSet(s)...
 str_SelectOption,[SP] Select option...
 str_SelectPlayer,[SP] Select player...
 str_SplashText,[SP] A game of definition and meaning!
+str_Available,[SP] Available
+str_Purchase,[SP] Buy additional CardSets!
 str_BtnHelpTile,[SP] Board tile description
 str_BtnDetailsTile,[SP] Press the button to show the description of this tile.
 str_Warning,[SP] WARNING!
@@ -116,7 +120,8 @@ UI_Players,[SP] Player List
 UI_QuitGameText,[SP] A game is currently in progress.\n\nReturning Home will quit the current game and remove all current game data and scores for each active player!\n\nDo you wish to return to the Home screen or return to the game?
 UI_RandomOrder,[SP] Random player turns
 UI_RefTitle,[SP] Reference...
-UI_RemovePlayer,[SP] Remove player from this game?
+UI_RemovePlayer,[SP] Remove %%PlayerName from this game?
+UI_TrashPlayer,[SP] Permanently delete %%PlayerName and all of their data?
 UI_Return,[SP] Return
 UI_RulesTitle,[SP] Rules...
 UI_ShowAnswer,[SP] Auto-display answer

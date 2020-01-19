@@ -14,10 +14,11 @@ public class CardMod : MonoBehaviour
     [SerializeField] private Text word;
     [SerializeField] private Text hiddenWord;
     [SerializeField] private Text letter;
-    [SerializeField] private Text clue4;
-    [SerializeField] private Text clue3;
-    [SerializeField] private Text clue2;
-    [SerializeField] private Text clue1;
+    //[SerializeField] private Text clue4;
+    //[SerializeField] private Text clue3;
+    //[SerializeField] private Text clue2;
+    //[SerializeField] private Text clue1;
+    [SerializeField] private Text credit;
 
     GameManager gameManager;
     GameOptions gameOptions;
@@ -61,6 +62,7 @@ public class CardMod : MonoBehaviour
         lastClueID = 0;
         word.text = activeQuestion.word;
         hiddenWord.text = new string('*', activeQuestion.word.Length);
+        credit.text = gameManager.activeQuestion.credit;
 
         // Set the question word values
         letter.text = activeQuestion.word.Substring(0, 1);

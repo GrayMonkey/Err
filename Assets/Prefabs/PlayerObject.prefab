@@ -1712,10 +1712,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f034633ec78e46edb855a3ff3c2ce94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardSetObject: {fileID: 1959640372011226, guid: 8f5706b7d30ad43faa2a884dc188b712,
-    type: 3}
-  cardSetContent: {fileID: 224827287003571972}
-  cardSets: []
+  csAvailable: {fileID: 0}
+  csShop: {fileID: 0}
 --- !u!114 &114983621978912338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2468,7 +2466,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: str_BtnDetailsTrash
+  m_Text: ui_TrashPlayer
 --- !u!114 &5669150417457790613
 MonoBehaviour:
   m_ObjectHideFlags: 0

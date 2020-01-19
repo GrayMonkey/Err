@@ -8,7 +8,7 @@ CS_TestC_Desc,[GE] Test: 10 Questions with starting with the letter C
 CS_TestC_Title,[GE] Test Set C
 str_BtnDetailsAddPlayer,[GE] Add a player to the current game.
 str_BtnDetailsCardSet,[GE] Choose one or more question sets for the player
-str_BtnDetailsCollape,[GE] Edit the player options. Double tap the player name to edit the player's name.
+str_BtnDetailsCollapse,[GE] Edit the player options. Double tap the button to edit the player's name.
 str_BtnDetailsCorrect,[GE] The player got the answer correct. Move on to the next player or declare the winner.
 str_BtnDetailsCredits,[GE] Show the credits of who has helped make this game possible.
 str_BtnDetailsHome,[GE] Return to the Home/Start screen.
@@ -52,6 +52,8 @@ str_BtnHelpRoster,[GE] Load Player
 str_BtnHelpStart,[GE] Start
 str_BtnHelpTrash,[GE] Delete
 str_BtnHelpWinner,[GE] Winner
+str_DefaultCardSet,[GE] Set Default CardSet?
+str_DefaultCardSetBody,[GE] Do you want you update all players to use this cardset selection?\n\nNote that individual cardsets can still be set for individual players from the Player Select screen.
 str_from,[GE] from 
 str_NoPlayerData,[GE] No player data is available!
 str_Player,[GE] Player
@@ -62,6 +64,8 @@ str_SelectCardsets,[GE] Select CardSet(s)...
 str_SelectOption,[GE] Select option...
 str_SelectPlayer,[GE] Select player...
 str_SplashText,[GE] A game of definition and meaning!
+str_Available,[GE] Available
+str_Purchase,[GE] Buy additional CardSets!
 str_BtnHelpTile,[GE] Board tile description
 str_BtnDetailsTile,[GE] Press the button to show the description of this tile.
 str_Warning,[GE] WARNING!
@@ -116,7 +120,8 @@ UI_Players,[GE] Player List
 UI_QuitGameText,[GE] A game is currently in progress.\n\nReturning Home will quit the current game and remove all current game data and scores for each active player!\n\nDo you wish to return to the Home screen or return to the game?
 UI_RandomOrder,[GE] Random player turns
 UI_RefTitle,[GE] Reference...
-UI_RemovePlayer,[GE] Remove player from this game?
+UI_RemovePlayer,[GE] Remove %%PlayerName from this game?
+UI_TrashPlayer,[GE] Permanently delete %%PlayerName and all of their data?
 UI_Return,[GE] Return
 UI_RulesTitle,[GE] Rules...
 UI_ShowAnswer,[GE] Auto-display answer

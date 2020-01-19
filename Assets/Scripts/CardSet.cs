@@ -4,28 +4,24 @@ using UnityEngine;
 
 public class CardSet : MonoBehaviour 
 {
-    [System.Serializable]
-    public struct CardSetLangs
-    {
-        public bool english;
-        public bool french;
-        public bool german;
-        public bool italian;
-        public bool spanish;
-    }
-
     public string cardSetNameKey;
     public string cardSetDescKey;
-    public Sprite cardSetIcon;
-    public CardSetLangs cardSetLangs;
+    //public Sprite cardSetIcon;
+    //public GameObject cardSetLangs;
     public bool purchased;
+    [SerializeField] string jsonFile;           // JSON file for reading data
 
-    [SerializeField] string jsonFile;			// JSON file for reading data
+    [Header("Languages")]
+    public bool english;
+    public bool french;
+    public bool german;
+    public bool italian;
+    public bool spanish;
 
-    List<Question> questionList;
-    Question activeQuestion;
-    int cardRange;
-    int cardsUsed = 0;
+    private List<Question> questionList;
+    private Question activeQuestion;
+    private int cardRange;
+    private int cardsUsed = 0;
 
 	// Use this for initialization
 	void Start () 
@@ -85,5 +81,6 @@ public class Question
     public string clue3;
     public string clue2;
     public string clue1;
+    public string credit;
     public int maxPoints;
 }

@@ -7,9 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
     public static GameOptions gameOptions;
-    public enum GameState {Home, Players, Question, EndGame, HowToPlay};
+    public enum GameState {Home, CardSet, Players, Question, EndGame, HowToPlay};
     public Question activeQuestion;
-    public CardSet defaultCardSet;
+    public List<CardSet> defaultCardSets;
     //public CardSet[] cardSets;
     public GameObject[] gameStateObject;
     public bool gameInProgress = false;
@@ -49,6 +49,13 @@ public class GameManager : MonoBehaviour
         }
 
         gameStateObject[0].SetActive(true);
+
+        // if this is the first time the game has been launched
+        // then show the Welcome message
+        if(gameOptions.firstLaunch)
+        {
+
+        }
     }
 
     // Bug Fix: If the card type is changed during a question and 
@@ -81,6 +88,11 @@ public class GameManager : MonoBehaviour
             //Main game menu
             case GameState.Home:                    //"Home":
                 activeGameStateObject = gameStateObject[(int)GameState.Home];
+                break;
+
+            // Set the basic cardsets for all players
+            case GameState.CardSet:
+                activeGameStateObject = gameStateObject[(int)GameState.CardSet];
                 break;
 
             // Display the current players sleected for the game, if any
@@ -125,7 +137,8 @@ public class GameManager : MonoBehaviour
     // Called by Start button
     public void NewGame()
     {
-         newGameState = GameState.Players;
+        //newGameState = GameState.Players;
+        newGameState = GameState.CardSet;
     }
 
     public void ShowInstructions()

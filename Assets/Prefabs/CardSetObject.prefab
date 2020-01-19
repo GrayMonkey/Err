@@ -404,6 +404,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardSet: {fileID: 0}
+  csManager: {fileID: 0}
+  isPurchased: 0
   icon: {fileID: 114143966716250594}
   label: {fileID: 114567167614650540}
   desc: {fileID: 3732360251413589693}

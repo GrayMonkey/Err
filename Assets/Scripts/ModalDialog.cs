@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 // This class is based around the online training for modal dialogs
+// To use ModalDialog see example at end of this file
 
 public class ModalDialog : MonoBehaviour
 {

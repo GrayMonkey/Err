@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         playerRoster = new List<Player>();
         playersActive = new List<Player>();
     }
- 
+
     private void Start()
     {
         gameManager = GameManager.gameManager;
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
         newPlayer.playerName = newPlayerName;
         newPlayer.language = locManager.GameLang;
-        newPlayer.cardSets.Add(gameManager.defaultCardSet);
+        newPlayer.cardSets = gameManager.defaultCardSets;
 
         //playersActive.Add(newPlayer);
         activePlayer = newPlayer;
@@ -129,9 +129,11 @@ public class PlayerController : MonoBehaviour
 
     public void GetNewQuestion()
     {
-        // set the default CardSet as chosen
-        CardSet cardSet = gameManager.defaultCardSet;
-        cardSet.setQuestion();
+        CardSet questionSet;
+
+        int i = UnityEngine.Random.Range(1, activePlayer.cardSets.Count());
+        questionSet = activePlayer.cardSets[i];
+        questionSet.setQuestion();
 
         // set the gamestatemanager
         gameManager.UpdateGameState(GameManager.GameState.Question);
@@ -140,9 +142,9 @@ public class PlayerController : MonoBehaviour
     public void StartGame()
     {
         gameManager.gameInProgress = true;
-        PlayerObject playerObject = PlayerSelector.playerSelector.selectedPlayer;
-        if (playerObject)
-            playerObject.ShowMenu(false);
+        PlayerObject pObject = PlayerSelector.playerSelector.selectedPlayer;
+        if (pObject)
+            pObject.ShowMenu(false);
 
         // Update stats for all the players
         foreach (Player player in playersActive)
@@ -159,12 +161,12 @@ public class PlayerController : MonoBehaviour
     // TODO Should this be in game manager?
     public void UpdatePlayerStats()
     {
-        foreach(Player player in playersActive)
+        foreach (Player player in playersActive)
         {
             player.answersTotal += player.answersThisGame;
             player.questionsTotal += player.questionsThisGame;
             player.pointsTotal += player.pointsThisGame;
-                    }
+        }
     }
 
     public void SavePlayerData()
@@ -188,14 +190,16 @@ public class PlayerController : MonoBehaviour
 
         foreach (Player player in playerRoster)
         {
-            PlayerData data = new PlayerData();
-            data.playerName = player.playerName;
-            data.language = player.language;
-            data.gamesTotal = player.gamesTotal;
-            data.gamesWon = player.gamesWon;
-            data.questionsTotal = player.questionsTotal;
-            data.answersTotal = player.answersTotal;
-            data.pointsTotal = player.pointsTotal;
+            PlayerData data = new PlayerData
+            {
+                playerName = player.playerName,
+                language = player.language,
+                gamesTotal = player.gamesTotal,
+                gamesWon = player.gamesWon,
+                questionsTotal = player.questionsTotal,
+                answersTotal = player.answersTotal,
+                pointsTotal = player.pointsTotal
+            };
 
             foreach (CardSet cardSet in player.cardSets)
             {
@@ -266,7 +270,7 @@ public class PlayerController : MonoBehaviour
 
     public void RemovePlayerData(Player deletePlayer)
     {
-        if (playerRoster.Count>0)
+        if (playerRoster.Count > 0)
         {
             int index = playerRoster.FindIndex((Player obj) => obj.playerName.Equals(deletePlayer.playerName));
             if (index > 0)

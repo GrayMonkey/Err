@@ -13,6 +13,7 @@ public class GameOptions : MonoBehaviour
     public bool modCards = false;
     public bool sliderLock = false;
     public bool randomTurns = false;
+    public bool firstLaunch = true;
 
     void Awake()
     {

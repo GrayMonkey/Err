@@ -23,7 +23,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     GameObject dummyPlayer; // to mimic the playerDragged object
     GameObject helpButton;
-    ModalDialog modalDialog;
+    ModalDialog dialogDeletePlayer;
     PlayerRosterSelect playerRosterSelect;
     PlayerSelector playerSelector;
     PlayerController playerController;
@@ -66,7 +66,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         refPlayer = playerController.activePlayer;
         playerName.text = refPlayer.playerName;
         dummyPlayer = playerSelector.dummyPlayer;
-        modalDialog = ModalDialog.Instance();
+        dialogDeletePlayer = ModalDialog.Instance();
 
         //Set up the ContextButton variables as this is a Prefab
         foreach (ContextButton button in subMenuButtons)
@@ -321,10 +321,10 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         details.button2Details = new ButtonDetails();
         details.buttonCanceldetails = new ButtonDetails();
 
-        locText = LocManager.locManager.GetLocText("str_Warning");
+        locText = LocManager.locManager.GetLocText("str_DialogTitleWarning");
         details.title = locText;
 
-        locText = LocManager.locManager.GetLocText("str_WarningBody");
+        locText = LocManager.locManager.GetLocText("str_DialogPlayerDelete");
 
         try
         {
@@ -344,12 +344,12 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
         details.buttonCanceldetails.icon = btnCancel;
 
-        modalDialog.Show(details);
+        dialogDeletePlayer.Show(details);
     }
 
     void CloseDialog()
     {
-        modalDialog.CloseDialog();
+        dialogDeletePlayer.CloseDialog();
     }
 
 

@@ -19,6 +19,7 @@ public class CardTrad : MonoBehaviour
     [SerializeField] private Text clue1;
     [SerializeField] private Text clue2;
     [SerializeField] private Text clue3;
+    [SerializeField] private Text credit;
 
     GameManager gameManager;
     PlayerController playerController;
@@ -53,6 +54,7 @@ public class CardTrad : MonoBehaviour
         activeQuestion = gameManager.activeQuestion;
         nextBtn.SetActive(true);
         failBtn.SetActive(false);
+        credit.text = activeQuestion.credit;
 //        gameManager.activeQuestion.maxPoints = 4;
 
 

@@ -2,12 +2,12 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-// Extends the button class and overrides some of the pointer events
+// Extends the toggle class and overrides some of the pointer events
 // to create a contextual help when the button is held for touchTime
 
-public class ContextButton : Button
+public class ContextToggle : Toggle
 {
-    public GameObject helpButton;
+    public GameObject helpToggle;
     public string keyTitle;
     public string keyDetails;
     private float touchTime = 1f;
@@ -32,7 +32,7 @@ public class ContextButton : Button
     void ShowHelp()
     {
         //Debug.Log("Showing help");
-        HelpPanel helpPanel = helpButton.GetComponent<HelpPanel>();
+        HelpPanel helpPanel = helpToggle.GetComponent<HelpPanel>();
         Sprite helpSprite = helpPanel.helpImage.sprite;
 
         helpPanel.helpImage.sprite = this.image.sprite;
