@@ -1,10 +1,9 @@
 # Err
 Mobile app for board game
 
-#### ToDo
-- [x] Update all buttons
-- [x] Only show cardsets in the system language
-- [x] Filter cardsets by language
+#### WiP/ToDo
+- [ ] Change front end to select players, cardsets, new game, continue game
+- [ ] Change player object and remove cardset selection, change to point to new cardset handling
 
 #### Features
 - [ ] Add particle effects for getting answers right
@@ -24,3 +23,9 @@ Mobile app for board game
 - [ ] EN: Junior
 - [ ] FR: General
 - [ ] FR: Junior
+
+#### Done
+- [x] Update all buttons
+- [x] Only show cardsets in the system language
+- [x] Filter cardsets by language
+- [x] Background particle effect
