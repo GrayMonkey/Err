@@ -3,7 +3,8 @@ Mobile app for board game
 
 #### ToDo
 - [x] Update all buttons
-- [ ] Only show cardsets in the system language
+- [x] Only show cardsets in the system language
+- [x] Filter cardsets by language
 
 #### Features
 - [ ] Add particle effects for getting answers right
