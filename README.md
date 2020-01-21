@@ -3,6 +3,7 @@ Mobile app for board game
 
 #### WiP/ToDo
 - [ ] Change front end to select players, cardsets, new game, continue game
+- [ ] Add Landing Screen
 - [ ] Change player object and remove cardset selection, change to point to new cardset handling
 
 #### Features
