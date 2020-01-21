@@ -22,7 +22,7 @@ public class mnu_QuitGame : MonoBehaviour
         if (quit)
         {
             gameManager.gameInProgress = false;
-            gameManager.UpdateGameState(GameManager.GameState.Home);
+           //gameManager.UpdateGameState(GameManager.GameState.Home);
             uiMenus.CloseMenu(Menu.Options);
         }
 

@@ -89,6 +89,16 @@ public class mnu_Options : MonoBehaviour
             gameOptions.randomTurns = randomTurns.isOn;
             locManager.GameLang = tempGameLang;
 
+            // Change the question style to match modCards
+            tradCard.SetActive(true);
+            modCard.SetActive(false);
+
+            if (modCards)
+            {
+                tradCard.SetActive(false);
+                modCard.SetActive(true);
+            }
+        
             // Bug Fix: If the card type is changed during a question and 
             // answers correctly, the card would not update correctly to the
             // next question, but would use the old question. This forces an

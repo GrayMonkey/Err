@@ -230,7 +230,8 @@ public class CardSetSelect : MonoBehaviour
             }
 
             // Return to the GameManager and select players
-            gameManager.UpdateGameState(GameManager.GameState.Players);
+            // gameManager.UpdateGameState(GameManager.GameState.Players);
+            gameManager.SetGameState(gameManager.gameState.playerSelect);
         }
 
         // Otherwise purchase the selected Cardsets and add them

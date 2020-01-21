@@ -5,18 +5,37 @@ using Menu = MenuHandler.MenuOverlay;
 
 public class GameManager : MonoBehaviour
 {
+    // TODO Tidy this file up and remove all old
+    // commented code!!!!
+
+    [System.Serializable]
+    public struct GameState
+    {
+        public GameObject landingScreen;
+        public GameObject home;
+        public GameObject cardSetSelect;
+        public GameObject playerSelect;
+        public GameObject question;
+        public GameObject endGame;
+    }
+
     public static GameManager gameManager;
     public static GameOptions gameOptions;
-    public enum GameState {Home, CardSet, Players, Question, EndGame, HowToPlay};
+    public GameState gameState;
     public Question activeQuestion;
     public List<CardSet> defaultCardSets;
     //public CardSet[] cardSets;
-    public GameObject[] gameStateObject;
     public bool gameInProgress = false;
 
+    // The following GameState and gameStateObject should be in the
+    // same order
+    // public enum GameState { Home, CardSet, Players, Question, EndGame, LandingScreen };
+    // public GameObject[] gameStateObject;
+
     PlayerController playerController;
-    GameState currGameState;
-    GameState newGameState;
+    //GameState currGameState;
+    //GameState newGameState;
+    GameObject currGameState;
     GameObject activeGameStateObject;
     GameObject pausedGameStateObject;
     MenuHandler uiMenus;
@@ -37,25 +56,26 @@ public class GameManager : MonoBehaviour
     // TODO Read in save game data
     void Start()
     {
-        activeGameStateObject = gameStateObject[0];
+        //activeGameStateObject = gameStateObject[(int)GameState.LandingScreen];
+        //currGameState = GameState.Home;
         playerController = PlayerController.playerController;
-        currGameState = GameState.Home;
         gameOptions = GameOptions.gameOptions;
         uiMenus = MenuHandler.uiMenus;
+        SetGameState(gameState.landingScreen);
 
-        for (int i = 0; i < gameStateObject.Length; i++)
-        {
-            gameStateObject[i].SetActive(false);
-        }
+        //for (int i = 0; i < gameStateObject.Length; i++)
+        //{
+        //    gameStateObject[i].SetActive(false);
+        //}
 
-        gameStateObject[0].SetActive(true);
+        //gameStateObject[0].SetActive(true);
 
         // if this is the first time the game has been launched
         // then show the Welcome message
-        if(gameOptions.firstLaunch)
-        {
+        //if(gameOptions.firstLaunch)
+        //{
 
-        }
+        //}
     }
 
     // Bug Fix: If the card type is changed during a question and 
@@ -65,80 +85,91 @@ public class GameManager : MonoBehaviour
     // Called when card type is changed via options during a game
     public void ChangeCardType()
     {
-        UpdateGameState(GameState.Question);
+        //UpdateGameState(GameState.Question);
+        SetGameState(gameState.question);
     }
 
     // Update is called once per frame
-    void Update()
+    //void Update()
+    //{
+    //    if (currGameState != newGameState)
+    //    {
+    //        UpdateGameState(newGameState);
+    //    }
+    //}
+
+    public void SetGameState(GameObject newGameState)
     {
-        if (currGameState != newGameState)
-        {
-            UpdateGameState(newGameState);
-        }
+        if(currGameState!=null)
+            currGameState.SetActive(false);
+
+        currGameState = newGameState;
+        currGameState.SetActive(true);
     }
 
     // Set up a new game state
-    public void UpdateGameState(GameState setGameState)
-    {
-        activeGameStateObject.SetActive(false);
+    //public void UpdateGameState(GameState setGameState)
+    //{
+    //    activeGameStateObject.SetActive(false);
 
-        // Switch to the gamestate using the enum GameState
-        switch (setGameState)
-        {
-            //Main game menu
-            case GameState.Home:                    //"Home":
-                activeGameStateObject = gameStateObject[(int)GameState.Home];
-                break;
+    //    // Switch to the gamestate using the enum GameState
+    //    switch (setGameState)
+    //    {
+    //        //Main game menu
+    //        case GameState.Home:                    //"Home":
+    //            activeGameStateObject = gameStateObject[(int)GameState.Home];
+    //            break;
 
-            // Set the basic cardsets for all players
-            case GameState.CardSet:
-                activeGameStateObject = gameStateObject[(int)GameState.CardSet];
-                break;
+    //        // Set the basic cardsets for all players
+    //        case GameState.CardSet:
+    //            activeGameStateObject = gameStateObject[(int)GameState.CardSet];
+    //            break;
 
-            // Display the current players sleected for the game, if any
-            case GameState.Players:                 //"Players":
-                activeGameStateObject = gameStateObject[(int)GameState.Players];
-                break;
+    //        // Display the current players sleected for the game, if any
+    //        case GameState.Players:                 //"Players":
+    //            activeGameStateObject = gameStateObject[(int)GameState.Players];
+    //            break;
 
 
-            //Activate a new question
-            case GameState.Question:                //"Question":
-                if (gameOptions.modCards)
-                {
-                    activeGameStateObject = gameStateObject[2];     // Modern cards
-                }
-                else
-                {
-                    activeGameStateObject = gameStateObject[3];     // Traditional cards
-                }
-                break;
+    //        //Activate a new question
+    //        case GameState.Question:                //"Question":
+    //            if (gameOptions.modCards)
+    //            {
+    //                activeGameStateObject = gameStateObject[2];     // Modern cards
+    //            }
+    //            else
+    //            {
+    //                activeGameStateObject = gameStateObject[3];     // Traditional cards
+    //            }
+    //            break;
 
-            // End the game
-            case GameState.EndGame:                 //"EndGame":
-                // TODO save the player data
-                // TODO show game stats
-                playerController.SavePlayerData();
-                newGameState = GameState.Home; // temp hack
-                activeGameStateObject = gameStateObject[(int)GameState.Home];
-                break;
+    //        // End the game
+    //        case GameState.EndGame:                 //"EndGame":
+    //            // TODO save the player data
+    //            // TODO show game stats
+    //            playerController.SavePlayerData();
+    //            newGameState = GameState.Home; // temp hack
+    //            activeGameStateObject = gameStateObject[(int)GameState.Home];
+    //            break;
 
-            // Instructions on how to play
-            case GameState.HowToPlay:               //"HowToPlay":
-                break;
+    //        // Instructions on how to play
+    //        // case GameState.HowToPlay:               //"HowToPlay":
+    //        //    break;
             
-            default:
-                break;
-        }
+    //        default:
+    //            break;
+    //    }
 
-        activeGameStateObject.SetActive(true);
-        currGameState = newGameState;
-    }
+    //    activeGameStateObject.SetActive(true);
+    //    currGameState = newGameState;
+    //}
 
     // Called by Start button
     public void NewGame()
     {
         //newGameState = GameState.Players;
-        newGameState = GameState.CardSet;
+        //newGameState = GameState.CardSet;
+        SetGameState(gameState.playerSelect);
     }
 
     public void ShowInstructions()
