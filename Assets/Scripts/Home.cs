@@ -12,35 +12,44 @@ public class Home : MonoBehaviour
     GameManager gameManager;
     PlayerController playerController;
     
-    Color proceed = new Color(1.0f, 1.0f, 1.0f);
+    Color proceed = new Color(0.7f, 1.0f, 0.4f);
     Color select = new Color(1.0f, 0.7f, 0.7f);
+    Image playerBtnImage;
+    Image cardSetBtnImage;
+    Text playerBtnText;
+    Text cardSetBtnText;
 
-    private void OnEnable()
+    private void Awake()
     {
         gameManager = GameManager.gameManager;
         playerController = PlayerController.playerController;
+        playerBtnImage = playerSelect.GetComponent<Image>();
+        cardSetBtnImage = cardSetSelect.GetComponent<Image>();
+        playerBtnText = playerSelect.GetComponentInChildren<Text>();
+        cardSetBtnText = cardSetSelect.GetComponentInChildren<Text>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnEnable()
     {
         bool players = false;
         bool cardsets = false;
         startGame.interactable = false;
-
-        playerSelect.GetComponent<Image>().color = select;
-        cardSetSelect.GetComponent<Image>().color = select;
-
+        playerBtnImage.color = select;
+        playerBtnText.text = "0";
+        cardSetBtnImage.color = select;
+        cardSetBtnText.text = "0";
 
         if (playerController.playersActive.Count > 0)
         {
-            playerSelect.GetComponent<Image>().color = proceed;
+            if (playerController.playersActive.Count > 1) playerBtnImage.color = proceed;
+            playerBtnText.text = playerController.playersActive.Count.ToString();
             players = true;
         }
 
         if (gameManager.defaultCardSets.Count > 0)
         {
-            cardSetSelect.GetComponent<Image>().color = proceed;
+            cardSetBtnImage.color = proceed;
+            cardSetBtnText.text = gameManager.defaultCardSets.Count.ToString();
             cardsets = true;
         }
 
@@ -48,18 +57,24 @@ public class Home : MonoBehaviour
             startGame.interactable = true;
     }
 
-    public void SelectPlayers()
+    public void StartGame()
     {
-        gameManager.SetGameState(gameManager.gameState.playerSelect);
+        this.gameObject.SetActive(false);
+        playerController.StartGame();
     }
 
-    public void SelectCardSets()
-    {
-        gameManager.SetGameState(gameManager.gameState.cardSetSelect);
-    }
+    //public void SelectPlayers()
+    //{
+    //    gameManager.SetGameState(gameManager.gameState.playerSelect);
+    //}
 
-    public void StarGame()
-    {
-        gameManager.SetGameState(gameManager.gameState.question);
-    }
+    //public void SelectCardSets()
+    //{
+    //    gameManager.SetGameState(gameManager.gameState.cardSetSelect);
+    //}
+
+    //public void StartGame()
+    //{
+    //    gameManager.SetGameState(gameManager.gameState.question);
+    //}
 }

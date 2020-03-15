@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour
         CardSet questionSet;
 
         int i = UnityEngine.Random.Range(1, activePlayer.cardSets.Count());
-        questionSet = activePlayer.cardSets[i];
+        questionSet = activePlayer.cardSets[i-1];
         questionSet.setQuestion();
 
         // set the gamestatemanager
@@ -153,6 +153,10 @@ public class PlayerController : MonoBehaviour
             player.answersThisGame = 0;
             player.questionsThisGame = 0;
             player.pointsThisGame = 0;
+
+            //Set the default card set for the player if cardSets is 0
+            if (player.cardSets.Count == 0)
+                player.cardSets = gameManager.defaultCardSets;
         }
 
         NextPlayer();

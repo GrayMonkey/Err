@@ -19,11 +19,12 @@ public class PlayerSelector : MonoBehaviour
     public bool loadPlayerActive = false;
     public PlayerObject selectedPlayer;
 
-    [SerializeField] private GameObject playersPanelContent;
-    [SerializeField] private GameObject playerObject;
-    [SerializeField] private Text playerCountLabel;
-    [SerializeField] private Button addPlayer;
-    [SerializeField] private Button startGame;
+    [SerializeField] GameObject homeObject;
+    [SerializeField] GameObject playersPanelContent;
+    [SerializeField] GameObject playerObject;
+    [SerializeField] Text playerCountLabel;
+    [SerializeField] Button addPlayer;
+    [SerializeField] Button startGame;
 
     PlayerController playerController;
     GameOptions gameOptions;
@@ -106,4 +107,10 @@ public class PlayerSelector : MonoBehaviour
             addPlayer.interactable = false;
         }
     }
+
+    //public void ProceedWithPlayers()
+    //{
+    //    this.gameObject.SetActive(false);
+    //    homeObject.SetActive(true);
+    //}
 }

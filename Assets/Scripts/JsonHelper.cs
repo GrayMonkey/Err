@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// is this even used anymore?
 public static class JsonHelper
 {
 	public static T[] FromJson<T>(string json)

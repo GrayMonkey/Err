@@ -34,16 +34,17 @@ public class CardSet : MonoBehaviour
     void setupData()
     {
         // Add the .json file extension and combine the whole filepath name
-        jsonFile = jsonFile + ".json";
-        string filePath = Path.Combine(Application.streamingAssetsPath + "/CardSets/", jsonFile);
+        string jsonFileName = jsonFile + ".json";
+        string filePath = Path.Combine(Application.streamingAssetsPath + "/CardSets/", jsonFileName);
 
         if (File.Exists(filePath))
         {
             // read the json file in to a string and fix the string for use with JsonHelper
+            // then replace the file name in the string with "dataset"
             string dataAsJson = File.ReadAllText(filePath);
+            dataAsJson = dataAsJson.Replace(jsonFile, "dataset");
 
             // pass the string through JsonHelper class and generate a list from JSON string
-            // Question[] questions = JsonHelper.FromJson<Question>(dataAsJson); 			// Removed as replaced Question array with List
             questionList = JsonHelper.FromJsonList<Question>(dataAsJson);
 
             cardRange = questionList.Count; // maximum range is exclusive on int - see Unity random.range 

@@ -1,1754 +1,2004 @@
 {
-  "dataset": [
+  "Starter": [
     {
       "word": "accept",
       "clue4": "to make a favorable response to",
       "clue3": "to endure without protest",
       "clue2": "to give approval to",
-      "clue1": "to receive willingly"
+      "clue1": "to receive willingly",
+      "credit": "the Err Team"
     },
     {
       "word": "accept",
       "clue4": "tolerate, submit to",
       "clue3": "regard favorably, treat as welcome",
       "clue2": "reply favorably to an invitation",
-      "clue1": "receive something offered"
+      "clue1": "receive something offered",
+      "credit": "the Err Team"
     },
     {
       "word": "accord",
       "clue4": "a formal treaty or agreement",
       "clue3": "harmonious correspondence in pitch, tone, color, etc.",
       "clue2": "to grant permission",
-      "clue1": "to be in harmony, to be consistent"
+      "clue1": "to be in harmony, to be consistent",
+      "credit": "the Err Team"
     },
     {
       "word": "arm",
       "clue4": "a subdivision of an organization",
       "clue3": "to prepare an explosive device for use",
       "clue2": "the side part of a chair",
-      "clue1": "a sleeve of a jacket"
+      "clue1": "a sleeve of a jacket",
+      "credit": "the Err Team"
     },
     {
       "word": "advance",
       "clue4": "a first step or approach made",
       "clue3": "a rise in price, value or amount",
       "clue2": "to raise to a higher rank",
-      "clue1": "a party of soldiers sent before others"
+      "clue1": "a party of soldiers sent before others",
+      "credit": "the Err Team"
     },
     {
       "word": "air",
       "clue4": "an artificial or affected manner",
       "clue3": "to transmit by radio or TV",
       "clue2": "empty space",
-      "clue1": "the mixture of gases that we breathe"
+      "clue1": "the mixture of gases that we breathe",
+      "credit": "the Err Team"
     },
     {
       "word": "act",
       "clue4": "a pretence",
       "clue3": "a written ordinance of congress",
       "clue2": "part of a performance",
-      "clue1": "to perform on the stage"
+      "clue1": "to perform on the stage",
+      "credit": "the Err Team"
     },
     {
       "word": "action",
       "clue4": "the style of movement of the feet and legs of a horse",
       "clue3": "combat in war",
       "clue2": "the initiating of a proceeding in a court by which one demands one’s rights",
-      "clue1": "a thing done, a dee"
+      "clue1": "a thing done, a deed",
+      "credit": "the Err Team"
     },
     {
       "word": "acute",
       "clue4": "ending in a sharp point",
       "clue3": "serious, demanding urgent attention",
       "clue2": "an angle measuring less than 90",
-      "clue1": "describing a sharp, severe pain"
+      "clue1": "describing a sharp, severe pain",
+      "credit": "the Err Team"
     },
     {
       "word": "address",
       "clue4": "to speak or write directly to",
       "clue3": "to concede as true or valid",
       "clue2": "to allow entry to a place",
-      "clue1": "the designation of a place where a person may be found or will receive mai"
+      "clue1": "the designation of a place where a person may be found or will receive mai",
+      "credit": "the Err Team"
     },
     {
       "word": "adjust",
       "clue4": "assist loss or damages",
       "clue3": "harmonize discrepancies",
       "clue2": "regulate by a small amount",
-      "clue1": "to make a change to"
+      "clue1": "to make a change to",
+      "credit": "the Err Team"
     },
     {
       "word": "account",
       "clue4": "a description of facts, conditions or events",
       "clue3": "a formal business arrangement",
       "clue2": "a statement explaining ones conduct",
-      "clue1": "a record of debit and credit entries"
+      "clue1": "a record of debit and credit entries",
+      "credit": "the Err Team"
     },
     {
       "word": "acid",
       "clue4": "piercingly intense and often jarring",
       "clue3": "sharp tasting, sour",
       "clue2": "slang for the drug LSD",
-      "clue1": "a corrosive chemical liquid"
+      "clue1": "a corrosive chemical liquid",
+      "credit": "the Err Team"
     },
     {
       "word": "acknowledge",
       "clue4": "to take notice of",
       "clue3": "to express gratitude for",
       "clue2": "to recognise the rights, authority or status of",
-      "clue1": "to admit the truth of"
+      "clue1": "to admit the truth of",
+      "credit": "the Err Team"
     },
     {
       "word": "ash",
       "clue4": "a color",
       "clue3": "a type of tree",
       "clue2": "volcanic dust",
-      "clue1": "the remains of a fire"
+      "clue1": "the remains of a fire",
+      "credit": "the Err Team"
     },
     {
       "word": "abandon",
       "clue4": "to give damaged property back to insurers in order to claim",
       "clue3": "to stop play before the end of a soccer match",
       "clue2": "to desert",
-      "clue1": "freedom from inhibitions"
+      "clue1": "freedom from inhibitions",
+      "credit": "the Err Team"
     },
     {
       "word": "abuse",
       "clue4": "corrupt practice or custom",
       "clue3": "a deceitful act",
       "clue2": "improper or excessive use or treatment",
-      "clue1": "physical maltreatment"
+      "clue1": "physical maltreatment",
+      "credit": "the Err Team"
     },
     {
       "word": "above",
       "clue4": "Too proud or honorable to stoop to",
       "clue3": "a higher authority",
       "clue2": "in or to heaven",
-      "clue1": "overhead"
+      "clue1": "overhead",
+      "credit": "the Err Team"
     },
     {
       "word": "analysis",
       "clue4": "In math, the use of algebra and calculus in problem-solving",
       "clue3": "in sports, a statement of a teams performance",
       "clue2": "in chemistry, the act or process of breaking something down into its constituent parts",
-      "clue1": "a detailed examination"
+      "clue1": "a detailed examination",
+      "credit": "the Err Team"
     },
     {
       "word": "appear",
       "clue4": "to be published",
       "clue3": "to be evident",
       "clue2": "to be present in court before a judge",
-      "clue1": "to come into sight"
+      "clue1": "to come into sight",
+      "credit": "the Err Team"
     },
     {
       "word": "big",
       "clue4": "full to bursting",
       "clue3": "imposing, pretentious",
       "clue2": "of great force",
-      "clue1": "large in dimension, not small"
+      "clue1": "large in dimension, not small",
+      "credit": "the Err Team"
     },
     {
       "word": "bead",
       "clue4": "a narrow molding",
       "clue3": "a drop of sweat",
       "clue2": "to string together",
-      "clue1": "a small piece of glass used to make jewellery"
+      "clue1": "a small piece of glass used to make jewellery",
+      "credit": "the Err Team"
     },
     {
       "word": "beam",
       "clue4": "the main stem of a deer's antlers",
       "clue3": "the width of the buttocks",
       "clue2": "heavy timber used in construction",
-      "clue1": "to smile with joy"
+      "clue1": "to smile with joy",
+      "credit": "the Err Team"
     },
     {
       "word": "bear",
       "clue4": "to support a weight or strain",
       "clue3": "to suffer or endure",
       "clue2": "to produce fruit",
-      "clue1": "a large carnivorous animal"
+      "clue1": "a large carnivorous animal",
+      "credit": "the Err Team"
     },
     {
       "word": "bind",
       "clue4": "to constipate",
       "clue3": "to bandage up",
       "clue2": "in cooking to use an ingredient to get others to stick together",
-      "clue1": "to make secure such as with a rope"
+      "clue1": "to make secure such as with a rope",
+      "credit": "the Err Team"
     },
     {
       "word": "black",
       "clue4": "a sinister macabre comedy",
       "clue3": "thoroughly evil",
       "clue2": "total absence of light",
-      "clue1": "the opposite of white"
+      "clue1": "the opposite of white",
+      "credit": "the Err Team"
     },
     {
       "word": "blade",
       "clue4": "a sword",
       "clue3": "the leaf of a herb or grass",
       "clue2": "a flat bone, as in the shoulder",
-      "clue1": "the cutting part of a knife"
+      "clue1": "the cutting part of a knife",
+      "credit": "the Err Team"
     },
     {
       "word": "blue",
       "clue4": "low in spirits, feeling gloomy",
       "clue3": "a Union soldier in the Civil War",
       "clue2": "profane, indecent",
-      "clue1": "the color associated with cold"
+      "clue1": "the color associated with cold",
+      "credit": "the Err Team"
     },
     {
       "word": "brand",
       "clue4": "to mark with disapproval",
       "clue3": "a charred piece of wood",
       "clue2": "a particular make of goods",
-      "clue1": "a mark put on criminals with a hot iron"
+      "clue1": "a mark put on criminals with a hot iron",
+      "credit": "the Err Team"
     },
     {
       "word": "bob",
       "clue4": "to crop a horses tail",
       "clue3": "to nod or curtsy briefly",
       "clue2": "a short hair-cut on a woman",
-      "clue1": "to try to seize a floating apple with the teeth"
+      "clue1": "to try to seize a floating apple with the teeth",
+      "credit": "the Err Team"
     },
     {
       "word": "back",
       "clue4": "to support by material or moral assistance",
       "clue3": "to provide musical accompaniment for",
       "clue2": "a position in games behind the front line of players",
-      "clue1": "the rear of the human body"
+      "clue1": "the rear of the human body",
+      "credit": "the Err Team"
     },
     {
       "word": "base",
       "clue4": "lacking in higher qualities of mind or spirit",
       "clue3": "the fundamental part of something",
       "clue2": "a permanent military installation",
-      "clue1": "the lower part of a wall or column"
+      "clue1": "the lower part of a wall or column",
+      "credit": "the Err Team"
     },
     {
       "word": "bait",
       "clue4": "to lure or tempt",
       "clue3": "to harass a chained animal",
       "clue2": "to persecute with malicious attacks",
-      "clue1": "food used to catch a fish or animal"
+      "clue1": "food used to catch a fish or animal",
+      "credit": "the Err Team"
     },
     {
       "word": "bleed",
       "clue4": "to be printed so as to run off the edge of the page after trimming",
       "clue3": "to extort money from someone over a long period of time",
       "clue2": "to draw sap from a tree",
-      "clue1": "to loose blood"
+      "clue1": "to loose blood",
+      "credit": "the Err Team"
     },
     {
       "word": "brick",
       "clue4": "a good hearted person",
       "clue3": "a semi-soft holey cheese with a mild flavor",
       "clue2": "a block of ice-cream",
-      "clue1": "material used for building properties"
+      "clue1": "material used for building properties",
+      "credit": "the Err Team"
     },
     {
       "word": "bridge",
       "clue4": "the hand as a rest for a billiards or pool cue",
       "clue3": "a card game derived from whist",
       "clue2": "the upper bony part of the nose",
-      "clue1": "a structure carrying a road across a river"
+      "clue1": "a structure carrying a road across a river",
+      "credit": "the Err Team"
     },
     {
       "word": "brief",
       "clue4": "to coach thoroughly in advance",
       "clue3": "a concise statement of a client’s case made out for the instruction of a counsel",
       "clue2": "in a few words",
-      "clue1": "short in duration"
+      "clue1": "short in duration",
+      "credit": "the Err Team"
     },
     {
       "word": "bust",
       "clue4": "to fail to complete a straight or flush in poker",
       "clue3": "to break or smash",
       "clue2": "slang for an arrest or raid",
-      "clue1": "a sculpture of a person’s head and shoulders"
+      "clue1": "a sculpture of a person’s head and shoulders",
+      "credit": "the Err Team"
     },
     {
       "word": "butt",
       "clue4": "a blind for shooting birds",
       "clue3": "a large cask especially for wine, beer or water",
       "clue2": "a push with the head or horns",
-      "clue1": "slang for the buttocks"
+      "clue1": "slang for the buttocks",
+      "credit": "the Err Team"
     },
     {
       "word": "balloon",
       "clue4": "to increase rapidly",
       "clue3": "to swell or puff out",
       "clue2": "the outline enclosing words in a cartoon",
-      "clue1": "an inflatable bag used for decoration"
+      "clue1": "an inflatable bag used for decoration",
+      "credit": "the Err Team"
     },
     {
       "word": "button",
       "clue4": "the terminal segment of a rattlesnake’s rattle",
       "clue3": "the point of the chin, especially as a target for a knockout blow",
       "clue2": "an immature, small whole mushroom",
-      "clue1": "a devise for fastening a shirt"
+      "clue1": "a devise for fastening a shirt",
+      "credit": "the Err Team"
     },
     {
       "word": "call",
       "clue4": "a divine vocation",
       "clue3": "a summoning of actors to rehearsal",
       "clue2": "the selection of a play in football",
-      "clue1": "a telephone conversation"
+      "clue1": "a telephone conversation",
+      "credit": "the Err Team"
     },
     {
       "word": "cap",
       "clue4": "top of a birds head",
       "clue3": "paper holding an explosive charge",
       "clue2": "a cover for a bottle",
-      "clue1": "a head covering with a visor"
+      "clue1": "a head covering with a visor",
+      "credit": "the Err Team"
     },
     {
       "word": "cast",
       "clue4": "the turning of an eye to a particular direction",
       "clue3": "an impression taken from an object",
       "clue2": "a rigid dressing of plaster used to dress a broken bone",
-      "clue1": "the throw of a dice"
+      "clue1": "the throw of a dice",
+      "credit": "the Err Team"
     },
     {
       "word": "cast",
       "clue4": "the discarded skin of an insect",
       "clue3": "the distance a bow can shoot",
       "clue2": "the actors in a production",
-      "clue1": "a throw of a fishing line"
+      "clue1": "a throw of a fishing line",
+      "credit": "the Err Team"
     },
     {
       "word": "cane",
       "clue4": "a tiny glass rod used in millefiori or paperweights",
       "clue3": "a tall woody reed",
       "clue2": "a walking stick",
-      "clue1": "a rod used for flogging"
+      "clue1": "a rod used for flogging",
+      "credit": "the Err Team"
     },
     {
       "word": "cock",
       "clue4": "to set a camera shutter for tripping",
       "clue3": "a male lobster, crab or salmon",
       "clue2": "to position the hammer of a firearm for firing",
-      "clue1": "a male chicken"
+      "clue1": "a male chicken",
+      "credit": "the Err Team"
     },
     {
       "word": "cage",
       "clue4": "a barred cell for confining prisoners",
       "clue3": "a framework serving as a support",
       "clue2": "a screen placed behind home plate to stop baseballs hitting during practice",
-      "clue1": "an enclosure for birds"
+      "clue1": "an enclosure for birds",
+      "credit": "the Err Team"
     },
     {
       "word": "condition",
       "clue4": "a stipulation in a contract",
       "clue3": "to make fit, especially dogs and horses",
       "clue2": "the state of physical fitness or readiness for use",
-      "clue1": "a defective state of health such as a heart problem"
+      "clue1": "a defective state of health such as a heart problem",
+      "credit": "the Err Team"
     },
     {
       "word": "casual",
       "clue4": "occurring by chance",
       "clue3": "without regularity, occasional",
       "clue2": "feeling or showing little concern",
-      "clue1": "an irregular or migratory worker"
+      "clue1": "an irregular or migratory worker",
+      "credit": "the Err Team"
     },
     {
       "word": "cord",
       "clue4": "a unit of wood cut for fuel",
       "clue3": "a moral, spiritual or emotional bond",
       "clue2": "a ribbed fabric",
-      "clue1": "an electric cable"
+      "clue1": "an electric cable",
+      "credit": "the Err Team"
     },
     {
       "word": "court",
       "clue4": "a wide alley with only one opening into the street",
       "clue3": "to seek to win a pledge of marriage",
       "clue2": "a place where judges assemble",
-      "clue1": "an area where tennis is played"
+      "clue1": "an area where tennis is played",
+      "credit": "the Err Team"
     },
     {
       "word": "center",
       "clue4": "a source from which something originates",
       "clue3": "a player occupying a middle position on a team",
       "clue2": "the point, pivot or axis around which something rotates",
-      "clue1": "the middle part of a forehead"
+      "clue1": "the middle part of a forehead",
+      "credit": "the Err Team"
     },
     {
       "word": "capsule",
       "clue4": "an extremely brief condensation",
       "clue3": "a closed receptacle containing seeds",
       "clue2": "a gelatin shell covering for drugs",
-      "clue1": "a small compartment for space flight"
+      "clue1": "a small compartment for space flight",
+      "credit": "the Err Team"
     },
     {
       "word": "case",
       "clue4": "the object of an investigation",
       "clue3": "to inspect or study with an intent to rob",
       "clue2": "an outer covering of pastry",
-      "clue1": "a receptacle used for clothes"
+      "clue1": "a receptacle used for clothes",
+      "credit": "the Err Team"
     },
     {
       "word": "chest",
       "clue4": "the place where money of a public institution is kept",
       "clue3": "a container for storage or shipping",
       "clue2": "a small cabinet for medicines, etc.",
-      "clue1": "the human breast"
+      "clue1": "the human breast",
+      "credit": "the Err Team"
     },
     {
       "word": "clear",
       "clue4": "even and pure in tone and color",
       "clue3": "to remove unwanted growth from the land",
       "clue2": "to free someone’s name from blame",
-      "clue1": "to rid one’s throat of phlegm"
+      "clue1": "to rid one’s throat of phlegm",
+      "credit": "the Err Team"
     },
     {
       "word": "creep",
       "clue4": "a feed trough that young animals can enter while adults are excluded",
       "clue3": "a gradual change of the shape of a metal under stress",
       "clue2": "an unpleasant or obnoxious person",
-      "clue1": "crawl along quietly, so as not to be seen"
+      "clue1": "crawl along quietly, so as not to be seen",
+      "credit": "the Err Team"
     },
     {
       "word": "dig",
       "clue4": "a cutting remark",
       "clue3": "an archaeological excavation",
       "clue2": "slang for “understand, like or admire”",
-      "clue1": "to break up earth with a fork"
+      "clue1": "to break up earth with a fork",
+      "credit": "the Err Team"
     },
     {
       "word": "dip",
       "clue4": "to lower and then raise again",
       "clue3": "to immerse sheep in an antiseptic solution",
       "clue2": "a brief plunge into water after a sauna",
-      "clue1": "a sauce accompanying food"
+      "clue1": "a sauce accompanying food",
+      "credit": "the Err Team"
     },
     {
       "word": "dope",
       "clue4": "a thick liquid or pasty preparation",
       "clue3": "slang for a stupid person",
       "clue2": "a drug given to a racehorse to slow it down",
-      "clue1": "slang for marijuana"
+      "clue1": "slang for marijuana",
+      "credit": "the Err Team"
     },
     {
       "word": "drop",
       "clue4": "casually mention",
       "clue3": "a painted scenery curtain in the theater",
       "clue2": "a reduction, as in temperature",
-      "clue1": "to let something fall from your grasp"
+      "clue1": "to let something fall from your grasp",
+      "credit": "the Err Team"
     },
     {
       "word": "dull",
       "clue4": "lacking sharpness of edge or point",
       "clue3": "boring",
       "clue2": "mentally slow, stupid",
-      "clue1": "cloudy"
+      "clue1": "cloudy",
+      "credit": "the Err Team"
     },
     {
       "word": "dummy",
       "clue4": "having the appearance of being real",
       "clue3": "a large puppet manipulated by a ventriloquist",
       "clue2": "one who is stupid",
-      "clue1": "a stuffed bag used by football players for practice"
+      "clue1": "a stuffed bag used by football players for practice",
+      "credit": "the Err Team"
     },
     {
       "word": "dash",
       "clue4": "flashy display",
       "clue3": "a sudden onset, rush or attempt",
       "clue2": "a short fast race",
-      "clue1": "a punctuation mark"
+      "clue1": "a punctuation mark",
+      "credit": "the Err Team"
     },
     {
       "word": "dirt",
       "clue4": "embarrassing or incriminating information",
       "clue3": "a contemptible person",
       "clue2": "a filthy or soiling substance",
-      "clue1": "loose packed soil"
+      "clue1": "loose packed soil",
+      "credit": "the Err Team"
     },
     {
       "word": "dismiss",
       "clue4": "to put out of judicial consideration",
       "clue3": "to put out of one’s mind",
       "clue2": "to discharge",
-      "clue1": "to remove an employee from a job"
+      "clue1": "to remove an employee from a job",
+      "credit": "the Err Team"
     },
     {
       "word": "draft",
       "clue4": "the force required to pull an implement",
       "clue3": "a game piece from a checker board",
       "clue2": "a portion of liquid to be drunk",
-      "clue1": "a current of cold air"
+      "clue1": "a current of cold air",
+      "credit": "the Err Team"
     },
     {
       "word": "end",
       "clue4": "an outcome worked towards",
       "clue3": "a period of action in some sports events",
       "clue2": "to terminate, destroy",
-      "clue1": "the very last"
+      "clue1": "the very last",
+      "credit": "the Err Team"
     },
     {
       "word": "flute",
       "clue4": "something long and slender",
       "clue3": "a grooved pleat on a hat brim",
       "clue2": "a tall wine glass used for champagne",
-      "clue1": "a musical instrument"
+      "clue1": "a musical instrument",
+      "credit": "the Err Team"
     },
     {
       "word": "eliminate",
       "clue4": "in physiology, to expel waste from the body",
       "clue3": "to remove a competitor from a contest",
       "clue2": "to murder in cold blood",
-      "clue1": "to reject, remove"
+      "clue1": "to reject, remove",
+      "credit": "the Err Team"
     },
     {
       "word": "exit",
       "clue4": "to leave",
       "clue3": "a departure from a stage",
       "clue2": "one of the points of departure from an expressway",
-      "clue1": "a way out"
+      "clue1": "a way out",
+      "credit": "the Err Team"
     },
     {
       "word": "extend",
       "clue4": "offer hospitality",
       "clue3": "to cause a horse to move at full stride",
       "clue2": "to exert oneself to full potential",
-      "clue1": "to lengthen"
+      "clue1": "to lengthen",
+      "credit": "the Err Team"
     },
     {
       "word": "fall",
       "clue4": "for a lamb to become born",
       "clue3": "to drop in pitch or volume",
       "clue2": "a loss of greatness",
-      "clue1": "autumn"
+      "clue1": "autumn",
+      "credit": "the Err Team"
     },
     {
       "word": "fiddle",
       "clue4": "to move the hands or fingers restlessly",
       "clue3": "to meddle, make minor adjustments",
       "clue2": "to cheat or swindle",
-      "clue1": "a string instrument used in country music"
+      "clue1": "a string instrument used in country music",
+      "credit": "the Err Team"
     },
     {
       "word": "fin",
       "clue4": "1925 slang for a 5 dollar bill",
       "clue3": "an airfoil fixed to a rocket for stability",
       "clue2": "an underwater swimmer’s flipper",
-      "clue1": "part of a fish"
+      "clue1": "part of a fish",
+      "credit": "the Err Team"
     },
     {
       "word": "fish",
       "clue4": "a person who is wanted in a criminal investigation",
       "clue3": "to seek something by roundabout means",
       "clue2": "the symbol of Pisces",
-      "clue1": "an aquatic animal"
+      "clue1": "an aquatic animal",
+      "credit": "the Err Team"
     },
     {
       "word": "fix",
       "clue4": "to set or place definitely",
       "clue3": "to spay or castrate an animal",
       "clue2": "a shot of a narcotic",
-      "clue1": "to repair or mend"
+      "clue1": "to repair or mend",
+      "credit": "the Err Team"
     },
     {
       "word": "flash",
       "clue4": "to display ostentatiously",
       "clue3": "to cause to burst violently into flame",
       "clue2": "a first brief news report",
-      "clue1": "an explosion of light used with a camera"
+      "clue1": "an explosion of light used with a camera",
+      "credit": "the Err Team"
     },
     {
       "word": "floor",
       "clue4": "a lower limit, base",
       "clue3": "to knock or bring down",
       "clue2": "a structure dividing a building into stories",
-      "clue1": "a ground surface"
+      "clue1": "a ground surface",
+      "credit": "the Err Team"
     },
     {
       "word": "focus",
       "clue4": "the origin of an earthquake",
       "clue3": "the center point of attention",
       "clue2": "to concentrate",
-      "clue1": "to adjust the eyes to create a clear picture"
+      "clue1": "to adjust the eyes to create a clear picture",
+      "credit": "the Err Team"
     },
     {
       "word": "foil",
       "clue4": "a person who enhances the qualities of another by contrast",
       "clue3": "to prevent from finishing, to thwart",
       "clue2": "a light flexible sword used in fencing",
-      "clue1": "a metallic food wrap"
+      "clue1": "a metallic food wrap",
+      "credit": "the Err Team"
     },
     {
       "word": "form",
       "clue4": "the nest of a hare",
       "clue3": "the shape of a body",
       "clue2": "the past performance of a racehorse",
-      "clue1": "a document with blank spaces to fill in"
+      "clue1": "a document with blank spaces to fill in",
+      "credit": "the Err Team"
     },
     {
       "word": "frock",
       "clue4": "to make a cleric of",
       "clue3": "an outer garment worn by monks and friars",
       "clue2": "a workman’s outer shirt",
-      "clue1": "a woman’s dress"
+      "clue1": "a woman’s dress",
+      "credit": "the Err Team"
     },
     {
       "word": "frog",
       "clue4": "the nut of a violin bow",
       "clue3": "a loop attached to a belt to hold a tool",
       "clue2": "part of a horse’s foot",
-      "clue1": "a mature tadpole"
+      "clue1": "a mature tadpole",
+      "credit": "the Err Team"
     },
     {
       "word": "flat",
       "clue4": "lacking shadow or contours",
       "clue3": "singing below normal pitch",
       "clue2": "a shoe or slipper having no heel",
-      "clue1": "a deflated tire"
+      "clue1": "a deflated tire",
+      "credit": "the Err Team"
     },
     {
       "word": "fire",
       "clue4": "to throw with speed or force",
       "clue3": "burning passion, ardor",
       "clue2": "to dismiss from a position",
-      "clue1": "to shoot a gun"
+      "clue1": "to shoot a gun",
+      "credit": "the Err Team"
     },
     {
       "word": "file",
       "clue4": "to rub smooth",
       "clue3": "to arrange in order, for reference",
       "clue2": "a line of people, one behind the other",
-      "clue1": "a place for keeping information on a computer"
+      "clue1": "a place for keeping information on a computer",
+      "credit": "the Err Team"
     },
     {
       "word": "float",
       "clue4": "to offer stocks and shares on the stock market",
       "clue3": "a decorated vehicle included as part of a parade",
       "clue2": "to move on the surface of water without sinking",
-      "clue1": "a soft drink with ice cream in it"
+      "clue1": "a soft drink with ice cream in it",
+      "credit": "the Err Team"
     },
     {
       "word": "ground zero",
       "clue4": "the very beginning, square one",
       "clue3": "the center of rapid, intense activity or change",
       "clue2": "the point at which a nuclear explosion occurs",
-      "clue1": "the site of a terrorist attack in New York"
+      "clue1": "the site of a terrorist attack in New York",
+      "credit": "the Err Team"
     },
     {
       "word": "green",
       "clue4": "deficient in training and knowledge",
       "clue3": "pale, sickly and nauseated appearance",
       "clue2": "describing an environmentalist",
-      "clue1": "a salad made up of herbs and leaves"
+      "clue1": "a salad made up of herbs and leaves",
+      "credit": "the Err Team"
     },
     {
       "word": "good",
       "clue4": "not ruined",
       "clue3": "promising or favorable",
       "clue2": "describing a shapely attractive figure",
-      "clue1": "obedient and well-behaved"
+      "clue1": "obedient and well-behaved",
+      "credit": "the Err Team"
     },
     {
       "word": "grace",
       "clue4": "to confer dignity or honor on",
       "clue3": "a virtue coming from God",
       "clue2": "elegance and beauty",
-      "clue1": "a short prayer at a meal"
+      "clue1": "a short prayer at a meal",
+      "credit": "the Err Team"
     },
     {
       "word": "grand",
       "clue4": "having more importance than others",
       "clue3": "fine or imposing in appearance",
       "clue2": "a large sumptuous piano",
-      "clue1": "slang for a thousand dollars"
+      "clue1": "slang for a thousand dollars",
+      "credit": "the Err Team"
     },
     {
       "word": "green",
       "clue4": "freshly sawed wood",
       "clue3": "fresh and new",
       "clue2": "envious",
-      "clue1": "a color between blue and yellow"
+      "clue1": "a color between blue and yellow",
+      "credit": "the Err Team"
     },
     {
       "word": "ground",
       "clue4": "the background color of a painting",
       "clue3": "the first coat of paint applied",
       "clue2": "to restrict a child from activities as punishment",
-      "clue1": "earth or soil"
+      "clue1": "earth or soil",
+      "credit": "the Err Team"
     },
     {
       "word": "gallery",
       "clue4": "a working drift or level in mining",
       "clue3": "the spectators at a tennis or golf match",
       "clue2": "an outdoor balcony",
-      "clue1": "a room devoted to an art exhibition"
+      "clue1": "a room devoted to an art exhibition",
+      "credit": "the Err Team"
     },
     {
       "word": "hack",
       "clue4": "to play inexpert golf",
       "clue3": "to clear a way through the brush",
       "clue2": "a ride on a horse",
-      "clue1": "a short dry cough"
+      "clue1": "a short dry cough",
+      "credit": "the Err Team"
     },
     {
       "word": "ham",
       "clue4": "a cushion used by tailors for pressing curved areas of garments",
       "clue3": "an actor performing in an exaggerated style",
       "clue2": "a buttock with it’s thigh",
-      "clue1": "a cut of meat from a hog"
+      "clue1": "a cut of meat from a hog",
+      "credit": "the Err Team"
     },
     {
       "word": "hammer",
       "clue4": "part of a striking mechanism in a piano",
       "clue3": "part of the firing mechanism of a gun",
       "clue2": "a gavel, mallet",
-      "clue1": "a hand tool used for driving in nails"
+      "clue1": "a hand tool used for driving in nails",
+      "credit": "the Err Team"
     },
     {
       "word": "hook",
       "clue4": "a selling point or marketing scheme",
       "clue3": "to work as a prostitute",
       "clue2": "a boxing blow with the elbow bent",
-      "clue1": "a device used to catch fish"
+      "clue1": "a device used to catch fish",
+      "credit": "the Err Team"
     },
     {
       "word": "home",
       "clue4": "a place of origin",
       "clue3": "the habitat of an animal",
       "clue2": "an establishment providing care for the elderly",
-      "clue1": "one’s place of residence"
+      "clue1": "one’s place of residence",
+      "credit": "the Err Team"
     },
     {
       "word": "hand",
       "clue4": "a member of a ship’s crew",
       "clue3": "the hind foot of an ape",
       "clue2": "a cluster of bananas",
-      "clue1": "found at the end of an arm"
+      "clue1": "found at the end of an arm",
+      "credit": "the Err Team"
     },
     {
       "word": "handle",
       "clue4": "the total amount of money bet on a race, game or event",
       "clue3": "a nickname",
       "clue2": "to buy, sell and distribute a commodity",
-      "clue1": "a part designed to be grasped by the hand"
+      "clue1": "a part designed to be grasped by the hand",
+      "credit": "the Err Team"
     },
     {
       "word": "hood",
       "clue4": "a canopy to protect users of a machine",
       "clue3": "a leather covering for a hawk’s head",
       "clue2": "a gang member",
-      "clue1": "the cover over the engine of a car"
+      "clue1": "the cover over the engine of a car",
+      "credit": "the Err Team"
     },
     {
       "word": "house",
       "clue4": "a residence for a religious community or students",
       "clue3": "an audience in a cinema or theater",
       "clue2": "a college of a university",
-      "clue1": "a dwelling place"
+      "clue1": "a dwelling place",
+      "credit": "the Err Team"
     },
     {
       "word": "impress",
       "clue4": "to procure or enlist by forcible persuasion",
       "clue3": "to put a design on something with a stamp",
       "clue2": "a characteristic or distinctive mark",
-      "clue1": "to affect or influence someone deeply"
+      "clue1": "to affect or influence someone deeply",
+      "credit": "the Err Team"
     },
     {
       "word": "indicator",
       "clue4": "a substance that changes color at a given stage in a chemical reaction",
       "clue3": "an instrument that registers or measures something",
       "clue2": "something that acts as a sign",
-      "clue1": "a device on a car that shows you are turning left or right"
+      "clue1": "a device on a car that shows you are turning left or right",
+      "credit": "the Err Team"
     },
     {
       "word": "junior",
       "clue4": "a person holding a lower position of rank",
       "clue3": "designed for young people especially adolescents",
       "clue2": "less advanced in age",
-      "clue1": "a son with the same name as his father"
+      "clue1": "a son with the same name as his father",
+      "credit": "the Err Team"
     },
     {
       "word": "juice",
       "clue4": "slang for liquor",
       "clue3": "the natural fluids of an animal body",
       "clue2": "gas or electricity as a source of power",
-      "clue1": "the liquid part of fruit or vegetables"
+      "clue1": "the liquid part of fruit or vegetables",
+      "credit": "the Err Team"
     },
     {
       "word": "kill",
       "clue4": "to defeat, veto a bill in congress",
       "clue3": "an enemy unit destroyed by military action",
       "clue2": "an animal shot in a hunt",
-      "clue1": "to slay, murder"
+      "clue1": "to slay, murder",
+      "credit": "the Err Team"
     },
     {
       "word": "keep",
       "clue4": "to take care of, tend",
       "clue3": "the strongest part of a medieval castle",
       "clue2": "to refrain from revealing a secret",
-      "clue1": "to hold on to something, not let it go"
+      "clue1": "to hold on to something, not let it go",
+      "credit": "the Err Team"
     },
     {
       "word": "knot",
       "clue4": "a cluster of persons or things",
       "clue3": "a bond of union, especially the marriage bond",
       "clue2": "a unit of a ship’s speed",
-      "clue1": "a tangle in a rope"
+      "clue1": "a tangle in a rope",
+      "credit": "the Err Team"
     },
     {
       "word": "lap",
       "clue4": "a thin or weak beverage or food",
       "clue3": "the sound of water on the shore",
       "clue2": "to take in a drink with the tongue",
-      "clue1": "one circuit of a racecourse"
+      "clue1": "one circuit of a racecourse",
+      "credit": "the Err Team"
     },
     {
       "word": "lead",
       "clue4": "a wire conveying electric current from one appliance to another",
       "clue3": "an item of news given prominence in a newspaper",
       "clue2": "to direct or guide a partner in a dance",
-      "clue1": "a rope for walking a horse"
+      "clue1": "a rope for walking a horse",
+      "credit": "the Err Team"
     },
     {
       "word": "level",
       "clue4": "to raze to the ground",
       "clue3": "a position in rank or status",
       "clue2": "to deal frankly and openly",
-      "clue1": "a story in a building"
+      "clue1": "a story in a building",
+      "credit": "the Err Team"
     },
     {
       "word": "livery",
       "clue4": "the act of delivering legal possession of property",
       "clue3": "a concern offering boats for rent",
       "clue2": "the stabling and care of horses for pay",
-      "clue1": "a servants uniform"
+      "clue1": "a servants uniform",
+      "credit": "the Err Team"
     },
     {
       "word": "load",
       "clue4": "to place a s a burden or obligation",
       "clue3": "to transfer a computer program to a memory device",
       "clue2": "to put ammunition into a firearm",
-      "clue1": "the burden of a horse, truck, donkey, etc."
+      "clue1": "the burden of a horse, truck, donkey, etc.",
+      "credit": "the Err Team"
     },
     {
       "word": "low",
       "clue4": "coarse and vulgar",
       "clue3": "small in number or amount",
       "clue2": "not loud, soft",
-      "clue1": "feeling sad, dejected"
+      "clue1": "feeling sad, dejected",
+      "credit": "the Err Team"
     },
     {
       "word": "lump",
       "clue4": "any swelling or tumor",
       "clue3": "to group together indiscriminately",
       "clue2": "a person who is heavy and ungainly",
-      "clue1": "a tight dry feeling in the throat normally before crying"
+      "clue1": "a tight dry feeling in the throat normally before crying",
+      "credit": "the Err Team"
     },
     {
       "word": "lace",
       "clue4": "to mark with streaks of color",
       "clue3": "to beat, lash",
       "clue2": "to add a dash of liquor to",
-      "clue1": "to tie one’s shoes"
+      "clue1": "to tie one’s shoes",
+      "credit": "the Err Team"
     },
     {
       "word": "labor",
       "clue4": "of a ship, to roll or pitch heavily",
       "clue3": "to go on and on about something",
       "clue2": "physical toil",
-      "clue1": "the process of childbirth"
+      "clue1": "the process of childbirth",
+      "credit": "the Err Team"
     },
     {
       "word": "launch",
       "clue4": "a large boat that operates from a ship",
       "clue3": "to throw oneself energetically into something",
       "clue2": "to set a boat afloat",
-      "clue1": "to release a rocket"
+      "clue1": "to release a rocket",
+      "credit": "the Err Team"
     },
     {
       "word": "lesson",
       "clue4": "a passage from the Bible read aloud in church",
       "clue3": "an experience that serves as a warning or example",
       "clue2": "something learned by study",
-      "clue1": "a single period of teaching"
+      "clue1": "a single period of teaching",
+      "credit": "the Err Team"
     },
     {
       "word": "luster",
       "clue4": "a period of 5 years",
       "clue3": "an inner beauty, radiance",
       "clue2": "a shiny metallic surface on porcelain or pottery",
-      "clue1": "a glow of reflected light, a sheen"
+      "clue1": "a glow of reflected light, a sheen",
+      "credit": "the Err Team"
     },
     {
       "word": "maroon",
       "clue4": "a fugitive black slave of the West Indies",
       "clue3": "to put ashore on a desolate island",
       "clue2": "to abandon and cause a person to be unable to leave",
-      "clue1": "a dark red color"
+      "clue1": "a dark red color",
+      "credit": "the Err Team"
     },
     {
       "word": "mug",
       "clue4": "a simpleton, a gullible person",
       "clue3": "the face or mouth of a person",
       "clue2": "to rob and assault someone",
-      "clue1": "a vessel for drinking coffee"
+      "clue1": "a vessel for drinking coffee",
+      "credit": "the Err Team"
     },
     {
       "word": "master",
       "clue4": "a person licensed to command a merchant ship",
       "clue3": "an original version from which copies can be made",
       "clue2": "a great artist",
-      "clue1": "the male head of a household"
+      "clue1": "the male head of a household",
+      "credit": "the Err Team"
     },
     {
       "word": "mean",
       "clue4": "intermediate or medium in size, quantity, etc.",
       "clue3": "shabby and poor",
       "clue2": "malicious and ill-tempered",
-      "clue1": "miserly, ungenerous and petty"
+      "clue1": "miserly, ungenerous and petty",
+      "credit": "the Err Team"
     },
     {
       "word": "mad",
       "clue4": "wildly light-hearted",
       "clue3": "describing a rabid animal",
       "clue2": "angry, furious",
-      "clue1": "insane"
+      "clue1": "insane",
+      "credit": "the Err Team"
     },
     {
       "word": "maiden",
       "clue4": "a horse that has never won a race",
       "clue3": "a female animal that has never borne young",
       "clue2": "a young unmarried woman",
-      "clue1": "the first voyage of a ship"
+      "clue1": "the first voyage of a ship",
+      "credit": "the Err Team"
     },
     {
       "word": "manage",
       "clue4": "to school and handle a horse",
       "clue3": "to succeed in achieving",
       "clue2": "to direct a baseball team",
-      "clue1": "to organize and regulate employees"
+      "clue1": "to organize and regulate employees",
+      "credit": "the Err Team"
     },
     {
       "word": "mold",
       "clue4": "soil rich in humus",
       "clue3": "a prototype",
       "clue2": "a form in which food is given a decorative shape",
-      "clue1": "a woolly growth of fungi in damp conditions"
+      "clue1": "a woolly growth of fungi in damp conditions",
+      "credit": "the Err Team"
     },
     {
       "word": "muddy",
       "clue4": "morally impure, base",
       "clue3": "lacking in clarity or brightness",
       "clue2": "to stain",
-      "clue1": "covered in or full of wet soil or dust"
+      "clue1": "covered in or full of wet soil or dust",
+      "credit": "the Err Team"
     },
     {
       "word": "mark",
       "clue4": "in boxing, the pit of the stomach",
       "clue3": "a target, goal, object, etc.",
       "clue2": "attach a price to goods",
-      "clue1": "a cross made in place of a signature"
+      "clue1": "a cross made in place of a signature",
+      "credit": "the Err Team"
     },
     {
       "word": "mission",
       "clue4": "a permanent embassy or legation",
       "clue3": "a definite military or naval task",
       "clue2": "a center offering aid or shelter",
-      "clue1": "a flight of a spacecraft for a specific purpose"
+      "clue1": "a flight of a spacecraft for a specific purpose",
+      "credit": "the Err Team"
     },
     {
       "word": "nap",
       "clue4": "a card game similar to whist",
       "clue3": "to be off guard",
       "clue2": "the raised fibres of velvet or similar cloth",
-      "clue1": "a sleep briefly especially during the day"
+      "clue1": "a sleep briefly especially during the day",
+      "credit": "the Err Team"
     },
     {
       "word": "natural",
       "clue4": "in music, a note that is neither sharp nor flat",
       "clue3": "a pale skin color",
       "clue2": "not acquired, but inborn",
-      "clue1": "xisting in nature"
+      "clue1": "xisting in nature",
+      "credit": "the Err Team"
     },
     {
       "word": "nest",
       "clue4": "a group of objects built to fit closely within one another",
       "clue3": "a place of rest, retreat or lodging",
       "clue2": "a set of similar things",
-      "clue1": "a bed for a bird and it’s eggs"
+      "clue1": "a bed for a bird and it’s eggs",
+      "credit": "the Err Team"
     },
     {
       "word": "nose",
       "clue4": "the odor or perfume of wine, tea, hay, etc.",
       "clue3": "to search impertinently, to pry",
       "clue2": "the front end of a car, airplane, etc.",
-      "clue1": "an organ used for breathing"
+      "clue1": "an organ used for breathing",
+      "credit": "the Err Team"
     },
     {
       "word": "noble",
       "clue4": "chemically inert or inactive especially toward oxygen",
       "clue3": "impressive and magnificent",
       "clue2": "having high moral qualities",
-      "clue1": "belonging to a class of people who hold titles and ranks"
+      "clue1": "belonging to a class of people who hold titles and ranks",
+      "credit": "the Err Team"
     },
     {
       "word": "nurse",
       "clue4": "a sexually imperfect bee, caring for a young brood",
       "clue3": "in forestry, a tree planted as a shelter to others",
       "clue2": "to nourish at the breast",
-      "clue1": "a person trained in caring for the sick"
+      "clue1": "a person trained in caring for the sick",
+      "credit": "the Err Team"
     },
     {
       "word": "normal",
       "clue4": "in geometry, a perpendicular line or plane",
       "clue3": "characterized by average intelligence or development",
       "clue2": "free from mental or physical disorder",
-      "clue1": "standard, usual, regular"
+      "clue1": "standard, usual, regular",
+      "credit": "the Err Team"
     },
     {
       "word": "negative",
       "clue4": "marked by the absence of qualities",
       "clue3": "apathetic, pessimistic",
       "clue2": "a number less than zero",
-      "clue1": "in photography, an image with black and white reversed"
+      "clue1": "in photography, an image with black and white reversed",
+      "credit": "the Err Team"
     },
     {
       "word": "object",
       "clue4": "the goal or end of an effort or activity",
       "clue3": "to oppose something firmly with words or arguments",
       "clue2": "to feel distaste for something",
-      "clue1": "something material that can be touched and seen"
+      "clue1": "something material that can be touched and seen",
+      "credit": "the Err Team"
     },
     {
       "word": "obligation",
       "clue4": "the constraining power of a law, contract, etc.",
       "clue3": "a binding agreement, commitment",
       "clue2": "a sense of being in debt because of a service or favor",
-      "clue1": "a moral or legal duty, a promise, or a vow"
+      "clue1": "a moral or legal duty, a promise, or a vow",
+      "credit": "the Err Team"
     },
     {
       "word": "obscure",
       "clue4": "remote, secluded",
       "clue3": "shrouded or hidden in darkness",
       "clue2": "not easily understood",
-      "clue1": "not well-known"
+      "clue1": "not well-known",
+      "credit": "the Err Team"
     },
     {
       "word": "odds",
       "clue4": "a significant difference",
       "clue3": "an equalizing allowance to a weaker competitor",
       "clue2": "the balance of advantage or disadvantage",
-      "clue1": "the probability, expressed as a ratio, that something will or will not happen"
+      "clue1": "the probability, expressed as a ratio, that something will or will not happen",
+      "credit": "the Err Team"
     },
     {
       "word": "office",
       "clue4": "a ceremonial duty",
       "clue3": "a government department or agency",
       "clue2": "a place where tickets, information or some service can be obtained",
-      "clue1": "a room, etc., in which business is carried out"
+      "clue1": "a room, etc., in which business is carried out",
+      "credit": "the Err Team"
     },
     {
       "word": "offset",
       "clue4": "a printing process",
       "clue3": "a spur from a range of hills",
       "clue2": "something that sets off to advantage or embellishes something else",
-      "clue1": "to cancel out or compensate for"
+      "clue1": "to cancel out or compensate for",
+      "credit": "the Err Team"
     },
     {
       "word": "olive",
       "clue4": "a yellowish brown, sallow complexion",
       "clue3": "an evergreen Mediterranean tree",
       "clue2": "a small green or black fruit",
-      "clue1": "a type of cooking oil"
+      "clue1": "a type of cooking oil",
+      "credit": "the Err Team"
     },
     {
       "word": "open",
       "clue4": "not decided or finalized",
       "clue3": "honest and frank",
       "clue2": "exposed to view, blatant",
-      "clue1": "not closed"
+      "clue1": "not closed",
+      "credit": "the Err Team"
     },
     {
       "word": "organ",
       "clue4": "a subordinate organization that performs specialized functions",
       "clue3": "a medium of communication such as a newspaper, periodical, etc.",
       "clue2": "a body part that is adapted to perform a particular function, e.g., heart",
-      "clue1": "a musical instrument often played in church"
+      "clue1": "a musical instrument often played in church",
+      "credit": "the Err Team"
     },
     {
       "word": "pack",
       "clue4": "select a jury so as to secure a decision in one’s favor",
       "clue3": "a hot or cold pad of absorbent material for treating a wound",
       "clue2": "to fill a stadium completely",
-      "clue1": "to put clothes into a suitcase"
+      "clue1": "to put clothes into a suitcase",
+      "credit": "the Err Team"
     },
     {
       "word": "pack",
       "clue4": "a medical term for wrapping a body in a wet sheet, etc.",
       "clue3": "a compacted mass of snow or ice",
       "clue2": "a cosmetic paste for the face",
-      "clue1": "a set of playing cards"
+      "clue1": "a set of playing cards",
+      "credit": "the Err Team"
     },
     {
       "word": "page",
       "clue4": "in Medieval history a boy in training for knighthood",
       "clue3": "to summon a person by beeper or loudspeaker",
       "clue2": "a small boy attending a bride",
-      "clue1": "one side of one of the leaves of a book"
+      "clue1": "one side of one of the leaves of a book",
+      "credit": "the Err Team"
     },
     {
       "word": "pale",
       "clue4": "a pointed piece of wood used for fencing, a picket",
       "clue3": "lacking intensity and vigor",
       "clue2": "faintly colored, lacking brightness",
-      "clue1": "a whitish or ashen complexion or appearance"
+      "clue1": "a whitish or ashen complexion or appearance",
+      "credit": "the Err Team"
     },
     {
       "word": "pass",
       "clue4": "a juggling trick",
       "clue3": "to exceed",
       "clue2": "to discharge from a bodily part, especially the bowels",
-      "clue1": "to throw or hit a ball to another teammate"
+      "clue1": "to throw or hit a ball to another teammate",
+      "credit": "the Err Team"
     },
     {
       "word": "patch",
       "clue4": "a temporary connection in a computer system",
       "clue3": "a scrap or remnant",
       "clue2": "a small contrasting section",
-      "clue1": "a protective covering for the eye"
+      "clue1": "a protective covering for the eye",
+      "credit": "the Err Team"
     },
     {
       "word": "patrol",
       "clue4": "to tramp around in the mud",
       "clue3": "a subdivision of a Boy Scout or Girl Scout troop",
       "clue2": "a detachment of troops sent out to reconnoitre",
-      "clue1": "the act of travelling around an area to protect it"
+      "clue1": "the act of travelling around an area to protect it",
+      "credit": "the Err Team"
     },
     {
       "word": "pawn",
       "clue4": "to pledge or wager one’s honor, word, etc.",
       "clue3": "one that can be used to further the purposes of another",
       "clue2": "deposit an object as security for money lent",
-      "clue1": "minor piece in a chess set"
+      "clue1": "minor piece in a chess set",
+      "credit": "the Err Team"
     },
     {
       "word": "peel",
       "clue4": "a baker’s shovel for bringing loaves out of the oven",
       "clue3": "a cosmetic operation for the removal of skin blemishes",
       "clue2": "to shed skin as a result of sunburn",
-      "clue1": "to remove the rind of a fruit"
+      "clue1": "to remove the rind of a fruit",
+      "credit": "the Err Team"
     },
     {
       "word": "phrase",
       "clue4": "a short musical thought",
       "clue3": "a series of dance moves comprising a section of a pattern",
       "clue2": "to express in words",
-      "clue1": "a group of words forming a unit of meaning in a sentence"
+      "clue1": "a group of words forming a unit of meaning in a sentence",
+      "credit": "the Err Team"
     },
     {
       "word": "pick",
       "clue4": "a blow or stroke with a pointed instrument",
       "clue3": "to gather by plucking",
       "clue2": "to choose or select something",
-      "clue1": "to open a lock with an instrument other than a key"
+      "clue1": "to open a lock with an instrument other than a key",
+      "credit": "the Err Team"
     },
     {
       "word": "pink",
       "clue4": "to wound by irony, criticism, or ridicule",
       "clue3": "the highest degree possible",
       "clue2": "to cut a saw-toothed edge on",
-      "clue1": "a light red color"
+      "clue1": "a light red color",
+      "credit": "the Err Team"
     },
     {
       "word": "pit",
       "clue4": "the stone of some fruits",
       "clue3": "a pockmark",
       "clue2": "the area occupied by the orchestra in a theater",
-      "clue1": "the area on a motor track used for the servicing of vehicles"
+      "clue1": "the area on a motor track used for the servicing of vehicles",
+      "credit": "the Err Team"
     },
     {
       "word": "pitch",
       "clue4": "the steepness of the slope of a roof",
       "clue3": "a thick, sticky substance formed from coal tar",
       "clue2": "to throw hay",
-      "clue1": "o throw a baseball to a batter"
+      "clue1": "o throw a baseball to a batter",
+      "credit": "the Err Team"
     },
     {
       "word": "pitch",
       "clue4": "any of various bituminous substances",
       "clue3": "to set in a particular musical key",
       "clue2": "an often high-pressure sales presentation",
-      "clue1": "to erect and fix a tent"
+      "clue1": "to erect and fix a tent",
+      "credit": "the Err Team"
     },
     {
       "word": "plane",
       "clue4": "to skim across the surface of the water",
       "clue3": "a perfectly flat surface",
       "clue2": "a tool with a steel blade for smoothing timber",
-      "clue1": "short for airplane"
+      "clue1": "short for airplane",
+      "credit": "the Err Team"
     },
     {
       "word": "plug",
       "clue4": "a piece of tobacco for chewing",
       "clue3": "to advertise or publicize insistently",
       "clue2": "to hit with a bullet, shoot",
-      "clue1": "a device which connects an appliance to an electricity supply"
+      "clue1": "a device which connects an appliance to an electricity supply",
+      "credit": "the Err Team"
     },
     {
       "word": "pocket",
       "clue4": "a small often isolated area or group",
       "clue3": "a superficial pouch in some animals",
       "clue2": "to drive a ball into one of the holes of a pool table",
-      "clue1": "a small cavity in ones clothing used for carrying things"
+      "clue1": "a small cavity in ones clothing used for carrying things",
+      "credit": "the Err Team"
     },
     {
       "word": "pot",
       "clue4": "one round in a poker game",
       "clue3": "an enclosed framework for catching lobsters or fish",
       "clue2": "slang for marijuana",
-      "clue1": "a round deep container used for cooking"
+      "clue1": "a round deep container used for cooking",
+      "credit": "the Err Team"
     },
     {
       "word": "punch",
       "clue4": "a machine for impressing a design on a material",
       "clue3": "to hit or press the keys on a typewriter",
       "clue2": "a mixed drink of soft and alcoholic drinks",
-      "clue1": "to strike with a clenched fist"
+      "clue1": "to strike with a clenched fist",
+      "credit": "the Err Team"
     },
     {
       "word": "parent",
       "clue4": "a source or origin",
       "clue3": "describing an initiating organization or enterprise",
       "clue2": "an animal or plant from which others are derived",
-      "clue1": "a father or mother"
+      "clue1": "a father or mother",
+      "credit": "the Err Team"
     },
     {
       "word": "parlor",
       "clue4": "a conference chamber or private reception room",
       "clue3": "a room or building for milking cows",
       "clue2": "a sitting room in a private house",
-      "clue1": "any of various business places such as funeral or beauty"
+      "clue1": "any of various business places such as funeral or beauty",
+      "credit": "the Err Team"
     },
     {
       "word": "peg",
       "clue4": "a pointed prong or claw for catching or tearing",
       "clue3": "to place in a definite category",
       "clue2": "a hard throw in baseball made in an attempt to put out the base runner",
-      "clue1": "a clip for holding washing on the line"
+      "clue1": "a clip for holding washing on the line",
+      "credit": "the Err Team"
     },
     {
       "word": "pick",
       "clue4": "to throw a shuttle across the loom",
       "clue3": "a screen in basket-ball",
       "clue2": "a long handled tool pointed at one end",
-      "clue1": "a tool for breaking up ice"
+      "clue1": "a tool for breaking up ice",
+      "credit": "the Err Team"
     },
     {
       "word": "point",
       "clue4": "the head of the bow of a stringed instrument",
       "clue3": "a headland",
       "clue2": "a dot or very small mark",
-      "clue1": "the tip of a needle"
+      "clue1": "the tip of a needle",
+      "credit": "the Err Team"
     },
     {
       "word": "quiet",
       "clue4": "not showy",
       "clue3": "to set free, to calm",
       "clue2": "not busy",
-      "clue1": "characterized by an absence of noise"
+      "clue1": "characterized by an absence of noise",
+      "credit": "the Err Team"
     },
     {
       "word": "racket",
       "clue4": "a dodge, a sly game",
       "clue3": "a confused clattering noise",
       "clue2": "an illegal activity used to make money",
-      "clue1": "a tool for playing tennis or badminton"
+      "clue1": "a tool for playing tennis or badminton",
+      "credit": "the Err Team"
     },
     {
       "word": "rave",
       "clue4": "to move or advance violently",
       "clue3": "an extravagantly favorable criticism",
       "clue2": "a temporary fashion or craze",
-      "clue1": "to talk in a wild and incoherent manner"
+      "clue1": "to talk in a wild and incoherent manner",
+      "credit": "the Err Team"
     },
     {
       "word": "red",
       "clue4": "flushed in the face from anger or shame",
       "clue3": "slang for a communist",
       "clue2": "the color associated with the debit side of an account",
-      "clue1": "a warning color"
+      "clue1": "a warning color",
+      "credit": "the Err Team"
     },
     {
       "word": "relay",
       "clue4": "a supply of horses arranged beforehand for successive relief",
       "clue3": "to broadcast an event as it happens",
       "clue2": "a fresh set of people substituted for tired ones",
-      "clue1": "a race involving more than one person"
+      "clue1": "a race involving more than one person",
+      "credit": "the Err Team"
     },
     {
       "word": "relish",
       "clue4": "pleasing or zestful flavor",
       "clue3": "to eat or drink with pleasure",
       "clue2": "to anticipate eagerly",
-      "clue1": "a condiment eaten with food to add flavor"
+      "clue1": "a condiment eaten with food to add flavor",
+      "credit": "the Err Team"
     },
     {
       "word": "rent",
       "clue4": "a slit made by tearing",
       "clue3": "a split in a party or organized group",
       "clue2": "payment for use of equipment, etc.",
-      "clue1": "to have use of a building in return for periodic payments"
+      "clue1": "to have use of a building in return for periodic payments",
+      "credit": "the Err Team"
     },
     {
       "word": "rest",
       "clue4": "a thing or place on which to put something for support",
       "clue3": "to put pastry in a cool place to allow the gluten to contract",
       "clue2": "the repose of death",
-      "clue1": "relaxation from labor"
+      "clue1": "relaxation from labor",
+      "credit": "the Err Team"
     },
     {
       "word": "rich",
       "clue4": "magnificently impressive, sumptuous",
       "clue3": "describing a full, mellow, resonant voice",
       "clue2": "describing food that has a large proportion of fat",
-      "clue1": "wealthy"
+      "clue1": "wealthy",
+      "credit": "the Err Team"
     },
     {
       "word": "riot",
       "clue4": "a dazzling display of color",
       "clue3": "one that is wildly amusing",
       "clue2": "an occasion of lively enjoyment",
-      "clue1": "a disturbance of the peace by a crowd"
+      "clue1": "a disturbance of the peace by a crowd",
+      "credit": "the Err Team"
     },
     {
       "word": "rose",
       "clue4": "compass card",
       "clue3": "a type of cut for a gemstone",
       "clue2": "a pink color",
-      "clue1": "a plant with prickly stems and a fragrant smell"
+      "clue1": "a plant with prickly stems and a fragrant smell",
+      "credit": "the Err Team"
     },
     {
       "word": "run",
       "clue4": "a rapid scale-like passage of musical notes",
       "clue3": "a way, track, or path frequented by animals",
       "clue2": "a steeply inclined course used for skiing",
-      "clue1": "a score in baseball"
+      "clue1": "a score in baseball",
+      "credit": "the Err Team"
     },
     {
       "word": "run",
       "clue4": "of fish, to move up or down a river to spawn",
       "clue3": "a continuous and urgent demand on money",
       "clue2": "a series of unravelled stitches, especially in pantyhose",
-      "clue1": "to move on foot at a rapid pace"
+      "clue1": "to move on foot at a rapid pace",
+      "credit": "the Err Team"
     },
     {
       "word": "rag",
       "clue4": "any of various large rocks",
       "clue3": "to scold, torment or tease",
       "clue2": "slang for a newspaper",
-      "clue1": "a small piece of cloth in poor condition"
+      "clue1": "a small piece of cloth in poor condition",
+      "credit": "the Err Team"
     },
     {
       "word": "ring",
       "clue4": "to rise in the air spirally",
       "clue3": "a band around a planet",
       "clue2": "to draw or make a circle around something",
-      "clue1": "an enclosure for a circus performance"
+      "clue1": "an enclosure for a circus performance",
+      "credit": "the Err Team"
     },
     {
       "word": "rock",
       "clue4": "to distress, perturb",
       "clue3": "a firma and dependable support or protection",
       "clue2": "flavored stick candy with color running through",
-      "clue1": "a slang term for a diamond"
+      "clue1": "a slang term for a diamond",
+      "credit": "the Err Team"
     },
     {
       "word": "root",
       "clue4": "the essential core, the heart",
       "clue3": "to dig up the earth in search of food using the snout",
       "clue2": "t o noisily applaud or encourage a contestant or team",
-      "clue1": "the part of a tooth within a socket"
+      "clue1": "the part of a tooth within a socket",
+      "credit": "the Err Team"
     },
     {
       "word": "represent",
       "clue4": "to state or explain",
       "clue3": "to be a means of expressing",
       "clue2": "to act the part or role of",
-      "clue1": "to act as the authorized delegate for"
+      "clue1": "to act as the authorized delegate for",
+      "credit": "the Err Team"
     },
     {
       "word": "retain",
       "clue4": "keep in place, hold fixed",
       "clue3": "to keep in one’s pay or service",
       "clue2": "to hold in the memory",
-      "clue1": "to keep in one’s possession"
+      "clue1": "to keep in one’s possession",
+      "credit": "the Err Team"
     },
     {
       "word": "roach",
       "clue4": "a small European freshwater fish",
       "clue3": "a roll of hair brushed straight back from the forehead or side of the head",
       "clue2": "the butt of a marijuana cigarette",
-      "clue1": "short for cockroach"
+      "clue1": "short for cockroach",
+      "credit": "the Err Team"
     },
     {
       "word": "rocket",
       "clue4": "to rise up swiftly, spectacularly, and with force",
       "clue3": "a plant grown for salads",
       "clue2": "a type of firework",
-      "clue1": "a spaceship"
+      "clue1": "a spaceship",
+      "credit": "the Err Team"
     },
     {
       "word": "record",
       "clue4": "a body of known or recorded facts",
       "clue3": "an official document",
       "clue2": "an unsurpassed statistic",
-      "clue1": "a disk on which on which sound or visual images are put"
+      "clue1": "a disk on which on which sound or visual images are put",
+      "credit": "the Err Team"
     },
     {
       "word": "sap",
       "clue4": "a foolish gullible person",
       "clue3": "bodily health and vigor",
       "clue2": "to weaken or exhaust the energy of",
-      "clue1": "the vital juice circulating in plants"
+      "clue1": "the vital juice circulating in plants",
+      "credit": "the Err Team"
     },
     {
       "word": "salt",
       "clue4": "to give flavor and piquancy to a story",
       "clue3": "an experienced sailor",
       "clue2": "to season food",
-      "clue1": "sodium chloride, a white crystalline substance used for flavoring food"
+      "clue1": "sodium chloride, a white crystalline substance used for flavoring food",
+      "credit": "the Err Team"
     },
     {
       "word": "screw",
       "clue4": "a propeller of a ship",
       "clue3": "to mistreat or exploit through trickery",
       "clue2": "a twisting movement",
-      "clue1": "a device used to fasten things together by rotating and cutting its own thread"
+      "clue1": "a device used to fasten things together by rotating and cutting its own thread",
+      "credit": "the Err Team"
     },
     {
       "word": "seal",
       "clue4": "a dark brown color",
       "clue3": "to finalise or authorise",
       "clue2": "to make a container airtight or watertight",
-      "clue1": "a fish eating mammal which lives in the sea"
+      "clue1": "a fish eating mammal which lives in the sea",
+      "credit": "the Err Team"
     },
     {
       "word": "seat",
       "clue4": "the place or center in which something is based",
       "clue3": "a congressional constituency",
       "clue2": "to put in a sitting position",
-      "clue1": "a chair, stool, or bench intended to be sat on"
+      "clue1": "a chair, stool, or bench intended to be sat on",
+      "credit": "the Err Team"
     },
     {
       "word": "second",
       "clue4": "to give aid or backing to",
       "clue3": "another of the same kind, additional",
       "clue2": "in boxing, the attendant who looks after the competitor",
-      "clue1": "coming directly after first"
+      "clue1": "coming directly after first",
+      "credit": "the Err Team"
     },
     {
       "word": "shadow",
       "clue4": "a hint or faint semblance",
       "clue3": "in medicine, a dark area in an x-ray film",
       "clue2": "to follow or trail secretly",
-      "clue1": "a patch of shade"
+      "clue1": "a patch of shade",
+      "credit": "the Err Team"
     },
     {
       "word": "sheet",
       "clue4": "lower corner of a sail",
       "clue3": "a wide, continuous expanse of ice",
       "clue2": "a set of unseparated postage stamps",
-      "clue1": "an individual piece of paper"
+      "clue1": "an individual piece of paper",
+      "credit": "the Err Team"
     },
     {
       "word": "sign",
       "clue4": "the scent or spoor of an animal",
       "clue3": "a visible indication",
       "clue2": "a board or placard displayed in public, intended to inform",
-      "clue1": "to write one’s name as a signature on a document"
+      "clue1": "to write one’s name as a signature on a document",
+      "credit": "the Err Team"
     },
     {
       "word": "slug",
       "clue4": "a disk for insertion in a slot machine",
       "clue3": "a bullet",
       "clue2": "to hit very hard",
-      "clue1": "a soft slimy garden pest"
+      "clue1": "a soft slimy garden pest",
+      "credit": "the Err Team"
     },
     {
       "word": "snap",
       "clue4": "a flat brittle cookie",
       "clue3": "to utter sharp biting words",
       "clue2": "to break suddenly",
-      "clue1": "something that is easy and presents no problems, a cinch"
+      "clue1": "something that is easy and presents no problems, a cinch",
+      "credit": "the Err Team"
     },
     {
       "word": "sock",
       "clue4": "a shoe worn by actors in Greek and Roman comedy",
       "clue3": "to hit or strike a ball forcefully",
       "clue2": "a removable inner sole put into a shoe for warmth, etc.",
-      "clue1": "a covering for the foot"
+      "clue1": "a covering for the foot",
+      "credit": "the Err Team"
     },
     {
       "word": "sound",
       "clue4": "a channel between two larger areas of sea",
       "clue3": "to measure the depth of the sea",
       "clue2": "free from damage and decay",
-      "clue1": "anything that can be heard, noise"
+      "clue1": "anything that can be heard, noise",
+      "credit": "the Err Team"
     },
     {
       "word": "spare",
       "clue4": "a style that is plain, without unnecessary details",
       "clue3": "to refrain from doing harm",
       "clue2": "the knocking down of all 10 pins with the first 2 balls in a frame in bowling",
-      "clue1": "extra to what is needed"
+      "clue1": "extra to what is needed",
+      "credit": "the Err Team"
     },
     {
       "word": "spark",
       "clue4": "a flash of wit, etc.",
       "clue3": "something that sets off a sudden force",
       "clue2": "a light produced by a sudden disruptive discharge of electricity through the air",
-      "clue1": "a fiery particle thrown from a fire"
+      "clue1": "a fiery particle thrown from a fire",
+      "credit": "the Err Team"
     },
     {
       "word": "spell",
       "clue4": "a fairly short period of time",
       "clue3": "a strong compelling influence or attraction",
       "clue2": "a magical charm or incantation",
-      "clue1": "write or name the letters that form a word"
+      "clue1": "write or name the letters that form a word",
+      "credit": "the Err Team"
     },
     {
       "word": "spike",
       "clue4": "an ear of grain",
       "clue3": "slang for a hypodermic needle",
       "clue2": "to add an alcoholic beverage to a drink",
-      "clue1": "a sharp point"
+      "clue1": "a sharp point",
+      "credit": "the Err Team"
     },
     {
       "word": "square",
       "clue4": "in a straightforward or honest manner",
       "clue3": "an area within barracks used for drilling",
       "clue2": "an open area at the meeting of streets",
-      "clue1": "an equilateral rectangle"
+      "clue1": "an equilateral rectangle",
+      "credit": "the Err Team"
     },
     {
       "word": "stable",
       "clue4": "a group of athletes under one management",
       "clue3": "have a calm, rational personality",
       "clue2": "steady in purpose",
-      "clue1": "a building in which horses are kept"
+      "clue1": "a building in which horses are kept",
+      "credit": "the Err Team"
     },
     {
       "word": "strain",
       "clue4": "a breed or stock of animals, plants, etc.",
       "clue3": "a severe demand on physical strength",
       "clue2": "tension or tiredness resulting from overwork or worry",
-      "clue1": "to pour a substance through a sieve"
+      "clue1": "to pour a substance through a sieve",
+      "credit": "the Err Team"
     },
     {
       "word": "scour",
       "clue4": "diarrhea in cattle",
       "clue3": "to clear out a pipe by flushing it through",
       "clue2": "to search an area thoroughly",
-      "clue1": "t o rub hard with a rough material for cleansing"
+      "clue1": "t o rub hard with a rough material for cleansing",
+      "credit": "the Err Team"
     },
     {
       "word": "shaft",
       "clue4": "a projectile thrown like a spear or shot like an arrow",
       "clue3": "a ray of light",
       "clue2": "the long thin handle of a tool, or golf club",
-      "clue1": "a long, narrow, vertical space containing an elevator in a building"
+      "clue1": "a long, narrow, vertical space containing an elevator in a building",
+      "credit": "the Err Team"
     },
     {
       "word": "shower",
       "clue4": "a brisk flurry of arrows, gravel, sparks, etc.",
       "clue3": "a party given by friends who bring gifts",
       "clue2": "to wet in a spray, fine steam, or drops",
-      "clue1": "a brief fall of rain"
+      "clue1": "a brief fall of rain",
+      "credit": "the Err Team"
     },
     {
       "word": "satisfy",
       "clue4": "in math, to make an equation true",
       "clue3": "to pay a debt",
       "clue2": "to fulfil the requirements of",
-      "clue1": "to put an end to an appetite by supplying what was required"
+      "clue1": "to put an end to an appetite by supplying what was required",
+      "credit": "the Err Team"
     },
     {
       "word": "saturate",
       "clue4": "to overwhelm enemy defenses by concentrated bombing",
       "clue3": "to cause a substance to combine with the maximum amount of another substance",
       "clue2": "to fill to capacity",
-      "clue1": "to soak thoroughly"
+      "clue1": "to soak thoroughly",
+      "credit": "the Err Team"
     },
     {
       "word": "strain",
       "clue4": "to draw taut",
       "clue3": "the main body of descendants",
       "clue2": "to make an intensive effort",
-      "clue1": "injury caused through over exertion"
+      "clue1": "injury caused through over exertion",
+      "credit": "the Err Team"
     },
     {
       "word": "stir",
       "clue4": "to bring up memories",
       "clue3": "slang for prison",
       "clue2": "to rouse to activity",
-      "clue1": "to use a spoon to mix liquids"
+      "clue1": "to use a spoon to mix liquids",
+      "credit": "the Err Team"
     },
     {
       "word": "slick",
       "clue4": "describing a shrewd untrustworthy person",
       "clue3": "slippery",
       "clue2": "in motor racing, a smooth tire",
-      "clue1": "a film of oil"
+      "clue1": "a film of oil",
+      "credit": "the Err Team"
     },
     {
       "word": "set",
       "clue4": "a piece of electronic apparatus",
       "clue3": "a slip, shoot, bulb, etc., for planting",
       "clue2": "a group of implements regarded collectively",
-      "clue1": "to lay a table with dishes"
+      "clue1": "to lay a table with dishes",
+      "credit": "the Err Team"
     },
     {
       "word": "tack",
       "clue4": "a zigzag movement on land",
       "clue3": "a sticky or adhesive quality or condition",
       "clue2": "stable gear for use on a saddle horse",
-      "clue1": "a nail, pin or drawing pin"
+      "clue1": "a nail, pin or drawing pin",
+      "credit": "the Err Team"
     },
     {
       "word": "tick",
       "clue4": "the fabric case of a mattress, pillow, or bolster",
       "clue3": "a parasite on the skin of dogs and cattle, etc.",
       "clue2": "a mark used to check off something",
-      "clue1": "the noise of a clock"
+      "clue1": "the noise of a clock",
+      "credit": "the Err Team"
     },
     {
       "word": "tip",
       "clue4": "to tilt",
       "clue3": "to remove the ends of raspberries",
       "clue2": "a piece of expert advice or information",
-      "clue1": "an amount of money given to a waiter for service"
+      "clue1": "an amount of money given to a waiter for service",
+      "credit": "the Err Team"
     },
     {
       "word": "tip",
       "clue4": "a light touch or blow",
       "clue3": "a narrow or pointed end of something",
       "clue2": "a piece of inside information",
-      "clue1": "to pour out the contents of a container"
+      "clue1": "to pour out the contents of a container",
+      "credit": "the Err Team"
     },
     {
       "word": "tongue",
       "clue4": "the pole of a vehicle",
       "clue3": "a language or dialect",
       "clue2": "a flap of leather on a shoe",
-      "clue1": "a mass of muscular tissue in the mouth"
+      "clue1": "a mass of muscular tissue in the mouth",
+      "credit": "the Err Team"
     },
     {
       "word": "tool",
       "clue4": "to fashion",
       "clue3": "a person used to perform dishonorable or unpleasant tasks for another",
       "clue2": "any object, skill, etc., used for a particular task or occupation",
-      "clue1": "an implement such as a hammer, spade, etc."
+      "clue1": "an implement such as a hammer, spade, etc.",
+      "credit": "the Err Team"
     },
     {
       "word": "turn",
       "clue4": "to shape wood or metal on a lathe",
       "clue3": "to change one’s religion",
       "clue2": "of leaves, to change color in fall",
-      "clue1": "to take a new direction"
+      "clue1": "to take a new direction",
+      "credit": "the Err Team"
     },
     {
       "word": "tuck",
       "clue4": "to draw together in a small space",
       "clue3": "a pleat or fold in part of a garment",
       "clue2": "a position held in skiing, diving and trampolining",
-      "clue1": "to cover by pushing in bedclothes"
+      "clue1": "to cover by pushing in bedclothes",
+      "credit": "the Err Team"
     },
     {
       "word": "trial",
       "clue4": "one of a number of repetitions of an experiment",
       "clue3": "a sports match to test the ability of the players",
       "clue2": "a test of faith, patience, or stamina",
-      "clue1": "an investigation of a case in front of a judge"
+      "clue1": "an investigation of a case in front of a judge",
+      "credit": "the Err Team"
     },
     {
       "word": "traffic",
       "clue4": "the information or signals transmitted over a communications system",
       "clue3": "ealings between individuals or groups",
       "clue2": "the passengers or cargo carried by a transportation system",
-      "clue1": "the movement of vehicles along a route"
+      "clue1": "the movement of vehicles along a route",
+      "credit": "the Err Team"
     },
     {
       "word": "underground",
       "clue4": "describing art, music, film, etc., that is avant-garde or experimental",
       "clue3": "a movement dedicated to overthrowing a government",
       "clue2": "conducted by secret means",
-      "clue1": "below the surface of the ground"
+      "clue1": "below the surface of the ground",
+      "credit": "the Err Team"
     },
     {
       "word": "vein",
       "clue4": "a distinctive trait in speech or writing",
       "clue3": "an irregular streak of color in wood or cheese",
       "clue2": "a clearly defined layer of ore or mineral in rock",
-      "clue1": "any of the tubes that carry blood to the heart"
+      "clue1": "any of the tubes that carry blood to the heart",
+      "credit": "the Err Team"
     },
     {
       "word": "vibrant",
       "clue4": "describing a resonant sound",
       "clue3": "describing a bright and vivid color",
       "clue2": "pulsating with life, vigor, or activity",
-      "clue1": "vibrating"
+      "clue1": "vibrating",
+      "credit": "the Err Team"
     },
     {
       "word": "walk",
       "clue4": "the route of a postman",
       "clue3": "to go to first base as a result of a base on balls",
       "clue2": "a promenade",
-      "clue1": "to travel on foot"
+      "clue1": "to travel on foot",
+      "credit": "the Err Team"
     },
     {
       "word": "warm",
       "clue4": "describing a scent trail that is recently made",
       "clue3": "to develop affection and kindness to someone",
       "clue2": "describing colors that are predominantly red or yellow",
-      "clue1": "a moderate degree of heat"
+      "clue1": "a moderate degree of heat",
+      "credit": "the Err Team"
     },
     {
       "word": "whip",
       "clue4": "to train forcibly into a desired condition",
       "clue3": "to bind a fishing rod with cord for protection and strength",
       "clue2": "to beat eggs, cream, etc., with a whisk",
-      "clue1": "a piece of rope or leather used for hitting people or animals"
+      "clue1": "a piece of rope or leather used for hitting people or animals",
+      "credit": "the Err Team"
     },
     {
       "word": "wing",
       "clue4": "one of the pieces of scenery at the side of a stage",
       "clue3": "a left or right section of an army or fleet",
       "clue2": "one of the offensive positions on either side of a center position in football",
-      "clue1": "used for flying"
+      "clue1": "used for flying",
+      "credit": "the Err Team"
     },
     {
       "word": "wrench",
       "clue4": "to distort facts to suit a theory",
       "clue3": "acute emotional distress",
       "clue2": "to pull or strain at something with violent twisting",
-      "clue1": "a tool used for gripping and turning nuts"
+      "clue1": "a tool used for gripping and turning nuts",
+      "credit": "the Err Team"
     },
     {
       "word": "yellow",
       "clue4": "describing newspapers that are unscrupulously sensational",
       "clue3": "describing a sallow complexion",
       "clue2": "cowardly or afraid",
-      "clue1": "the yoke of an egg"
+      "clue1": "the yoke of an egg",
+      "credit": "the Err Team"
     },
     {
       "word": "zap",
       "clue4": "to move quickly",
       "clue3": "to change TV channels rapidly by remote control",
       "clue2": "used to express a sound made by a gun",
-      "clue1": "to cook something in a microwave"
+      "clue1": "to cook something in a microwave",
+      "credit": "the Err Team"
     },
     {
       "word": "zone",
       "clue4": "in geography, one of the divisions of the earth’s surface according to temperature",
       "clue3": "a range of longitudes where a common standard time is used",
       "clue2": "a section on a transport route",
-      "clue1": "an area of defence in basketball"
+      "clue1": "an area of defence in basketball",
+      "credit": "the Err Team"
     }
   ]
 }

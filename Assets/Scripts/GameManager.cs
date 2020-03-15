@@ -32,10 +32,14 @@ public class GameManager : MonoBehaviour
     // public enum GameState { Home, CardSet, Players, Question, EndGame, LandingScreen };
     // public GameObject[] gameStateObject;
 
+    [SerializeField] GameObject cardMod;
+    [SerializeField] GameObject cardTrad;
+
     PlayerController playerController;
     //GameState currGameState;
     //GameState newGameState;
     GameObject currGameState;
+    GameObject prevGameState;
     GameObject activeGameStateObject;
     GameObject pausedGameStateObject;
     MenuHandler uiMenus;
@@ -43,8 +47,9 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         gameManager = this;
-        gameOptions = gameManager.GetComponent<GameOptions>();
-        playerController = PlayerController.playerController;
+        //gameOptions = GameOptions.gameOptions;
+        //gameOptions = gameManager.GetComponent<GameOptions>();
+        //playerController = PlayerController.playerController;
     }
 
     private void OnApplicationQuit()
@@ -61,7 +66,10 @@ public class GameManager : MonoBehaviour
         playerController = PlayerController.playerController;
         gameOptions = GameOptions.gameOptions;
         uiMenus = MenuHandler.uiMenus;
-        SetGameState(gameState.landingScreen);
+        SetQuestionType();
+        currGameState = gameState.landingScreen;
+        SetGameState(currGameState);
+
 
         //for (int i = 0; i < gameStateObject.Length; i++)
         //{
@@ -83,7 +91,7 @@ public class GameManager : MonoBehaviour
     // next question, but would use the old question. This forces an
     // update mid game. See mnu_Options.CloseMenu()
     // Called when card type is changed via options during a game
-    public void ChangeCardType()
+    public void ForceCardTypeChange()
     {
         //UpdateGameState(GameState.Question);
         SetGameState(gameState.question);
@@ -100,12 +108,44 @@ public class GameManager : MonoBehaviour
 
     public void SetGameState(GameObject newGameState)
     {
-        if(currGameState!=null)
-            currGameState.SetActive(false);
+        if (currGameState != newGameState)
+        {
+            prevGameState = currGameState;
+            prevGameState.SetActive(false);
+        }
+        else
+        {
+            prevGameState = null;
+        }
 
         currGameState = newGameState;
         currGameState.SetActive(true);
     }
+
+    public void SetGameState(bool prevScreen)
+    {
+        if(prevScreen)
+        {
+            currGameState = prevGameState;
+            prevGameState = null;
+            currGameState.SetActive(true);
+        }
+    }
+
+    public void PlayGame()
+    {
+        GameObject cardType = cardTrad;
+
+        if (gameOptions.modCards) cardType = cardMod;
+
+        SetGameState(cardType);
+    }
+
+    //public void SwitchScreen(GameObject newScreen)
+    //{
+    //    oldScreen.SetActive(false);
+    //    newScreen.SetActive(true);
+    //}
 
     // Set up a new game state
     //public void UpdateGameState(GameState setGameState)
@@ -155,7 +195,7 @@ public class GameManager : MonoBehaviour
     //        // Instructions on how to play
     //        // case GameState.HowToPlay:               //"HowToPlay":
     //        //    break;
-            
+
     //        default:
     //            break;
     //    }
@@ -180,5 +220,17 @@ public class GameManager : MonoBehaviour
     public void ShowOptions()
     {
         uiMenus.ShowMenu(Menu.Options);
+    }
+
+    public void SetQuestionType()
+    {
+        if(gameOptions.modCards)
+        {
+            gameState.question = cardMod;
+        }
+        else
+        {
+            gameState.question = cardTrad;
+        }
     }
 }

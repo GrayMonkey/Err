@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CardSetSelect : MonoBehaviour
 {
     [SerializeField] List<GameObject> allCardSets = default;
-    [SerializeField] GameObject[] langFlags = default;
+    [SerializeField] Toggle[] langFlags = default;
     [SerializeField] GameObject btnShopCardsets = default;
     [SerializeField] GameObject btnGameCardsets = default;
     [SerializeField] Sprite btnOK = default;
@@ -22,29 +22,30 @@ public class CardSetSelect : MonoBehaviour
     private LocManager locManager;
     private ModalDialog dialogNoLangs;
 
-    private void OnEnable()
+    private void Awake()
     {
         gameManager = GameManager.gameManager;
         csManager = CardSetManager.csManager;
         locManager = LocManager.locManager;
         dialogNoLangs = ModalDialog.Instance();
 
+        activeLanguages.Add(locManager.GameLang.ToString());
+    }
+
+    private void OnEnable()
+    {
         InitialiseLangFlags();
         SortCardSets();
     }
 
     private void InitialiseLangFlags()
     {
-        string lang = locManager.GameLang.ToString();
-        activeLanguages.Clear();
-        activeLanguages.Add(lang);
-
-        foreach (GameObject flag in langFlags)
+        foreach (Toggle flag in langFlags)
         {
-            flag.GetComponent<Toggle>().isOn = false;
-
             if (activeLanguages.Contains(flag.name))
-                flag.GetComponent<Toggle>().isOn = true;
+                flag.isOn = true;
+            else
+                flag.isOn = false;
         }
     }
 
@@ -84,9 +85,10 @@ public class CardSetSelect : MonoBehaviour
     {
         //Check for any languages that are toggled on
         List<string> newLangs = new List<string>();
-        foreach (GameObject flag in langFlags)
+
+        foreach (Toggle flag in langFlags)
         {
-            if (flag.GetComponent<Toggle>().isOn)
+            if (flag.isOn)
                 newLangs.Add(flag.name);
         }
 
@@ -140,7 +142,7 @@ public class CardSetSelect : MonoBehaviour
 
 
         // Update activeLanguages
-        activeLanguages.Clear();
+        // activeLanguages.Clear();
         activeLanguages = newLangs;
     }
 
@@ -154,7 +156,7 @@ public class CardSetSelect : MonoBehaviour
                 newCardSets.Add(cardSet.GetComponent<CardSet>());
         }
 
-        // Set the CardSet if refPlayer is set (and then reset refPlayer
+        // Set the CardSet if refPlayer is set and then reset refPlayer
         // to avoid overwriting. If no refPLayer then set as default
         // cardset
 
@@ -191,11 +193,11 @@ public class CardSetSelect : MonoBehaviour
         // Reset the flags and use the existing activeLanguages
         foreach (string langName in activeLanguages)
         {
-            foreach (GameObject langFlag in langFlags)
+            foreach (Toggle langFlag in langFlags)
             {
-                if (langFlag.name == langName)
+                if (langFlag.transform.parent.name == langName)
                 {
-                    langFlag.GetComponent<Toggle>().isOn = true;
+                    langFlag.isOn = true;
                 }
             }
         }
@@ -220,18 +222,18 @@ public class CardSetSelect : MonoBehaviour
                     selectedCardSets.Add(cardSet.GetComponent<CardSet>());
             }
 
+            // Set the default card set or player card set and return to 
+            // the Home screen or player select...
             if (refPlayer == null)
             {
                 gameManager.defaultCardSets = selectedCardSets;
+                gameManager.SetGameState(gameManager.gameState.home);
             }
             else
             {
                 refPlayer.cardSets = selectedCardSets;
+                gameManager.SetGameState(gameManager.gameState.playerSelect);
             }
-
-            // Return to the GameManager and select players
-            // gameManager.UpdateGameState(GameManager.GameState.Players);
-            gameManager.SetGameState(gameManager.gameState.playerSelect);
         }
 
         // Otherwise purchase the selected Cardsets and add them

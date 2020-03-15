@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Menu = MenuHandler.MenuOverlay;
 
-public class mnu_NewQuestion : MonoBehaviour 
+public class mnu_NewQuestion : MonoBehaviour
 {
     PlayerController playerController;
     MenuHandler uiMenus;

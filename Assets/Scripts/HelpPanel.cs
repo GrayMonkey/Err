@@ -8,12 +8,4 @@ public class HelpPanel : MonoBehaviour
     public Text keyTitle;
     public Text keyDetails;
     public Image helpImage;
-
-    //[SerializeField] Image helpIcon;
-
-    //private void Start()
-    //{
-    //    helpIcon.sprite = helpImage.sprite;
-    //    //Debug.Log("Changed images");
-    //}
 }

@@ -48,26 +48,28 @@ public class LocManager : MonoBehaviour
         //string[] rowData = textData.text.Split(new char[] { '\n' });
         string[] rowData = textData.text.Split(new char[] { '\r' , '\n' },System.StringSplitOptions.RemoveEmptyEntries);
 
-
-
         for (int i = 0; i < rowData.Length; i++)
         {
             //Split on the first comma
             int firstComma = rowData[i].IndexOf(",");
             string dataKey = rowData[i].Substring(0, firstComma);
             string dataValue = rowData[i].Substring(firstComma + 1);
+            dataValue = dataValue.Replace("\\n", "\n");
 
             //Remove double quotes from beginning and end of string
             if (dataValue.StartsWith("\""))
             {
                 dataValue = dataValue.Substring(1, dataValue.Length - 2);
+                if(dataValue.Contains("\\n"))
+                {
+                    Debug.Log(dataValue);
+                }
             }
 
             //Add data to locText
             LocTextData data = new LocTextData();
             data.key = dataKey;
             data.text = dataValue;
-            //Debug.Log(i +": " + data.key + ": " + data.text);
             locText.Add(data);
         }
     }

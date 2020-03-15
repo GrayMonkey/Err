@@ -90,22 +90,15 @@ public class mnu_Options : MonoBehaviour
             locManager.GameLang = tempGameLang;
 
             // Change the question style to match modCards
-            tradCard.SetActive(true);
-            modCard.SetActive(false);
+            gameManager.SetQuestionType();
 
-            if (modCards)
-            {
-                tradCard.SetActive(false);
-                modCard.SetActive(true);
-            }
-        
             // Bug Fix: If the card type is changed during a question and 
             // answers correctly, the card would not update correctly to the
             // next question, but would use the old question. This forces an
             // update mid game.
             if (gameManager.gameInProgress)
             {
-                gameManager.ChangeCardType();
+                gameManager.ForceCardTypeChange();
             }
         }
 
