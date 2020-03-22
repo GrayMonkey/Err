@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardSet : MonoBehaviour 
 {
     public string cardSetNameKey;
     public string cardSetDescKey;
-    //public Sprite cardSetIcon;
+    public Image cardSetIcon;
     //public GameObject cardSetLangs;
     public bool purchased;
     [SerializeField] string jsonFile;           // JSON file for reading data
@@ -49,6 +50,9 @@ public class CardSet : MonoBehaviour
 
             cardRange = questionList.Count; // maximum range is exclusive on int - see Unity random.range 
         }
+
+        // Set the CardSetIcon
+        cardSetIcon = GetComponentInParent<Image>();
     }
 
 	public void setQuestion()

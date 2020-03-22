@@ -11,7 +11,7 @@ str_BtnDetailsCardSet,Choose one or more question sets for the player
 str_BtnDetailsCollapse,Edit the player options. Double tap the button to edit the player's name.
 str_BtnDetailsCorrect,The player got the answer correct. Move on to the next player or declare the winner.
 str_BtnDetailsCredits,Show the credits of who has helped make this game possible.
-str_BtnDetailsHome,Return to the Home/Start screen.
+str_BtnDetailsHome,Go to the Home/Start screen.
 str_BtnDetailsInstructions,Show instructions on how to play the game and use the app.
 str_BtnDetailsLanguage,Select the chosen language for the player
 str_BtnDetailsLoadPlayer,Load previously saved player information.
@@ -24,6 +24,8 @@ str_BtnDetailsPass,Pass on a clue and move to the next one.
 str_BtnDetailsPrevPage,Go to the previous page of information.
 str_BtnDetailsQuitGame,Quits the current game and return to the Home/Start screen
 str_BtnDetailsRemovePlayer,Remove a player from the current game.
+str_BtnDetailsSelectPlayers,Select players for a game.
+str_BtnDetailsGameSetup,Return to the game setup.
 str_BtnDetailsReturn,Return to the previous screen.
 str_BtnDetailsRoster,Open and load previous players and their data
 str_BtnDetailsStart,Start the game.
@@ -48,6 +50,8 @@ str_BtnHelpPrevPage,Previous Page
 str_BtnHelpQuitGame,Quit Game
 str_BtnHelpRemovePlayer,Remove Player
 str_BtnHelpReturn,Return
+str_BtnHelpSelectPlayers,Select Players
+str_BtnHelpGameSetup,Game Setup
 str_BtnHelpRoster,Load Player
 str_BtnHelpStart,Start
 str_BtnHelpTrash,Delete

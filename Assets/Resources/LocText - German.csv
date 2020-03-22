@@ -11,7 +11,7 @@ str_BtnDetailsCardSet,[GE] Choose one or more question sets for the player
 str_BtnDetailsCollapse,[GE] Edit the player options. Double tap the button to edit the player's name.
 str_BtnDetailsCorrect,[GE] The player got the answer correct. Move on to the next player or declare the winner.
 str_BtnDetailsCredits,[GE] Show the credits of who has helped make this game possible.
-str_BtnDetailsHome,[GE] Return to the Home/Start screen.
+str_BtnDetailsHome,[GE] Go to the Home/Start screen.
 str_BtnDetailsInstructions,[GE] Show instructions on how to play the game and use the app.
 str_BtnDetailsLanguage,[GE] Select the chosen language for the player
 str_BtnDetailsLoadPlayer,[GE] Load previously saved player information.
@@ -24,6 +24,8 @@ str_BtnDetailsPass,[GE] Pass on a clue and move to the next one.
 str_BtnDetailsPrevPage,[GE] Go to the previous page of information.
 str_BtnDetailsQuitGame,[GE] Quits the current game and return to the Home/Start screen
 str_BtnDetailsRemovePlayer,[GE] Remove a player from the current game.
+str_BtnDetailsSelectPlayers,[GE] Select players for a game.
+str_BtnDetailsGameSetup,[GE] Return to the game setup.
 str_BtnDetailsReturn,[GE] Return to the previous screen.
 str_BtnDetailsRoster,[GE] Open and load previous players and their data
 str_BtnDetailsStart,[GE] Start the game.
@@ -48,6 +50,8 @@ str_BtnHelpPrevPage,[GE] Previous Page
 str_BtnHelpQuitGame,[GE] Quit Game
 str_BtnHelpRemovePlayer,[GE] Remove Player
 str_BtnHelpReturn,[GE] Return
+str_BtnHelpSelectPlayers,[GE] Select Players
+str_BtnHelpGameSetup,[GE] Game Setup
 str_BtnHelpRoster,[GE] Load Player
 str_BtnHelpStart,[GE] Start
 str_BtnHelpTrash,[GE] Delete
@@ -158,4 +162,4 @@ UI_UsingApp,[GE] Using this App
 UI_UsingAppDetails,[GE] App Details
 UI_Winner,[GE] Err... Winner!
 UI_WinningText,[GE] Congratulations!!!\n\nYou have been declared the winner of the game!
-UI_YourTurn,[GE] You're next...
+UI_YourTurn,[GE] You're next!\n\nA question from the deck...

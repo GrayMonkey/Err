@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class Home : MonoBehaviour
 {
-    [SerializeField] Button playerSelect = default;
-    [SerializeField] Button cardSetSelect = default;
-    [SerializeField] Button startGame = default;
+    [SerializeField] Text instructions;
+    [SerializeField] Button playerSelect;
+    [SerializeField] Button cardSetSelect;
+    [SerializeField] Button startGame;
 
     GameManager gameManager;
     PlayerController playerController;
@@ -34,27 +35,35 @@ public class Home : MonoBehaviour
         bool players = false;
         bool cardsets = false;
         startGame.interactable = false;
-        playerBtnImage.color = select;
-        playerBtnText.text = "0";
         cardSetBtnImage.color = select;
         cardSetBtnText.text = "0";
+        playerBtnImage.color = select;
+        playerBtnText.text = "0";
+        playerSelect.interactable = false;
 
-        if (playerController.playersActive.Count > 0)
-        {
-            if (playerController.playersActive.Count > 1) playerBtnImage.color = proceed;
-            playerBtnText.text = playerController.playersActive.Count.ToString();
-            players = true;
-        }
+        instructions.text = LocManager.locManager.GetLocText("UI_CardSetSelect");
 
         if (gameManager.defaultCardSets.Count > 0)
         {
             cardSetBtnImage.color = proceed;
             cardSetBtnText.text = gameManager.defaultCardSets.Count.ToString();
             cardsets = true;
+            instructions.text = LocManager.locManager.GetLocText("str_BtnHelpSelectPlayers");
+            playerSelect.interactable = true;
+        }
+
+        if (playerController.playersActive.Count > 0 && cardsets)
+        {
+            if (playerController.playersActive.Count > 1) playerBtnImage.color = proceed;
+            playerBtnText.text = playerController.playersActive.Count.ToString();
+            players = true;
         }
 
         if (players && cardsets)
+        {
+            instructions.text = "";
             startGame.interactable = true;
+        }
     }
 
     public void StartGame()
