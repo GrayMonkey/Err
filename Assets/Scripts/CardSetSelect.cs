@@ -53,10 +53,14 @@ public class CardSetSelect : MonoBehaviour
     {
         foreach (GameObject cardSet in allCardSets)
         {
-            cardSet.transform.SetParent(csShop.transform);
-
             if (cardSet.GetComponent<CardSet>().purchased)
+            {
                 cardSet.transform.SetParent(csGame.transform);
+            }
+            else
+            {
+                cardSet.transform.SetParent(csShop.transform);
+            }
         }
         ShowShop(false);
     }

@@ -8,7 +8,7 @@ public class GameOptions : MonoBehaviour
     public bool modCards = false;
     public bool sliderLock = false;
     public bool randomTurns = false;
-    public bool welcomeScreen = true;
+    public bool welcomeScreen = false;
 
     void Awake()
     {

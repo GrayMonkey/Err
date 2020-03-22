@@ -15,10 +15,21 @@ public class MenuHandler : MonoBehaviour
 
     [SerializeField] private GameObject backPanel;
     [SerializeField] private GameObject[] menuArray;
+    GameObject lastScreen;
 
     private void Awake()
     {
         uiMenus = this;
+    }
+
+    public void ShowMenu(MenuOverlay menuID, GameObject currScreen)
+    {
+        int iD = (int)menuID;
+        menuArray[iD].SetActive(true);
+        backPanel.SetActive(true);
+
+        lastScreen = currScreen;
+        currScreen.SetActive(false);
     }
 
     public void ShowMenu(MenuOverlay menuID)
@@ -33,5 +44,11 @@ public class MenuHandler : MonoBehaviour
         int iD = (int)menuID;
         menuArray[iD].SetActive(false);
         backPanel.SetActive(false);
+
+        if (lastScreen!= null)
+        {
+            lastScreen.SetActive(true);
+            lastScreen = null;
+        }
     }
 }

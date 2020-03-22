@@ -131,8 +131,8 @@ public class PlayerController : MonoBehaviour
     {
         CardSet questionSet;
 
-        int i = UnityEngine.Random.Range(1, activePlayer.cardSets.Count());
-        questionSet = activePlayer.cardSets[i-1];
+        int i = UnityEngine.Random.Range(0, activePlayer.cardSets.Count()-1);
+        questionSet = activePlayer.cardSets[i];
         questionSet.setQuestion();
 
         // set the gamestatemanager

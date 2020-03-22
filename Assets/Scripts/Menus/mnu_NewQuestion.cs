@@ -11,6 +11,7 @@ public class mnu_NewQuestion : MonoBehaviour
     PlayerController playerController;
     MenuHandler uiMenus;
     [SerializeField] Text playerName;
+    [SerializeField] Text deckName;
 
     private void Awake()
     {
@@ -20,12 +21,13 @@ public class mnu_NewQuestion : MonoBehaviour
 
     private void OnEnable()
     {
+        playerController.GetNewQuestion();
         playerName.text = playerController.activePlayer.playerName;
+        deckName.text = GameManager.gameManager.activeCardSet.name;
     }
 
     public void CloseMenu()
     {
-        playerController.GetNewQuestion();
         uiMenus.CloseMenu(Menu.NewQuestion);
     }
 }

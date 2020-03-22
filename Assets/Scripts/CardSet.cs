@@ -70,6 +70,7 @@ public class CardSet : MonoBehaviour
         // to the end of the list
         activeQuestion = questionList[cardRange - 1];
         activeQuestion.maxPoints = 4;
+        GameManager.gameManager.activeCardSet = this;
         GameManager.gameManager.activeQuestion = activeQuestion;
     }
 }

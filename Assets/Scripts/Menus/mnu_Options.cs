@@ -90,7 +90,7 @@ public class mnu_Options : MonoBehaviour
             locManager.GameLang = tempGameLang;
 
             // Change the question style to match modCards
-            gameManager.SetQuestionType();
+            gameManager.SetCardType();
 
             // Bug Fix: If the card type is changed during a question and 
             // answers correctly, the card would not update correctly to the

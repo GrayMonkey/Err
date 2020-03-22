@@ -84,7 +84,7 @@ public class CardMod : MonoBehaviour
             scale.Set(1.0f, 1.0f, 1.0f);
             button.transform.localScale = scale;
             button.transform.GetComponent<Image>().color = unused;
-            button.transform.GetComponentInChildren<Text>().fontStyle = FontStyle.Italic;
+            button.transform.GetComponentInChildren<Text>().fontStyle = FontStyle.Normal;
             button.transform.GetComponentInChildren<Text>().color = unusedText;
         }
 

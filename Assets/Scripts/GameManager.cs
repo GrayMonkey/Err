@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public static GameOptions gameOptions;
     public GameState gameState;
     public Question activeQuestion;
+    public CardSet activeCardSet;
     public List<CardSet> defaultCardSets;
     //public CardSet[] cardSets;
     public bool gameInProgress = false;
@@ -66,7 +67,7 @@ public class GameManager : MonoBehaviour
         playerController = PlayerController.playerController;
         gameOptions = GameOptions.gameOptions;
         uiMenus = MenuHandler.uiMenus;
-        SetQuestionType();
+        SetCardType();
         currGameState = gameState.landingScreen;
         SetGameState(currGameState);
 
@@ -122,15 +123,15 @@ public class GameManager : MonoBehaviour
         currGameState.SetActive(true);
     }
 
-    public void SetGameState(bool prevScreen)
-    {
-        if(prevScreen)
-        {
-            currGameState = prevGameState;
-            prevGameState = null;
-            currGameState.SetActive(true);
-        }
-    }
+    //public void SetGameState(bool prevScreen)
+    //{
+    //    if(prevScreen)
+    //    {
+    //        currGameState = prevGameState;
+    //        prevGameState = null;
+    //        currGameState.SetActive(true);
+    //    }
+    //}
 
     public void PlayGame()
     {
@@ -214,15 +215,15 @@ public class GameManager : MonoBehaviour
 
     public void ShowInstructions()
     {
-        uiMenus.ShowMenu(Menu.Instructions);
+        uiMenus.ShowMenu(Menu.Instructions,currGameState);
     }
 
     public void ShowOptions()
     {
-        uiMenus.ShowMenu(Menu.Options);
+        uiMenus.ShowMenu(Menu.Options,currGameState);
     }
 
-    public void SetQuestionType()
+    public void SetCardType()
     {
         if(gameOptions.modCards)
         {

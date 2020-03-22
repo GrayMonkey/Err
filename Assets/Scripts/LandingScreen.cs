@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class LandingScreen : MonoBehaviour
 {
-    [SerializeField] GameObject welcomeScreen = default;
-    [SerializeField] Toggle dontShowAgain = default;
+    [SerializeField] GameObject welcomeScreen;
+    [SerializeField] GameObject mainScreen;
+    [SerializeField] Toggle dontShowAgain;
     [SerializeField] string url;
     [SerializeField] Button tapAnywhere;
     [SerializeField] RectTransform textPanel;
@@ -20,19 +21,19 @@ public class LandingScreen : MonoBehaviour
         gameManager = GameManager.gameManager;
         gameOptions = GameOptions.gameOptions;
         rect = GetComponent<RectTransform>();
-        gameOptions.welcomeScreen = !dontShowAgain.isOn;
 
-        if (gameOptions.welcomeScreen)
-        {
-            ShowWelcomeScreen(true);
-        }
+        LayoutRebuilder.ForceRebuildLayoutImmediate(textPanel);
+        welcomeScreen.SetActive(false);
+        mainScreen.SetActive(false);
+
+        WelcomeScreenSelect(gameOptions.welcomeScreen);
     }
 
-    public void ShowWelcomeScreen(bool show)
+    public void WelcomeScreenSelect(bool show)
     {
         welcomeScreen.SetActive(show);
+        mainScreen.SetActive(!show);
         tapAnywhere.interactable = !show;
-        LayoutRebuilder.ForceRebuildLayoutImmediate(textPanel);
     }
 
     public void DisableWelcomeScreen()
@@ -40,11 +41,11 @@ public class LandingScreen : MonoBehaviour
         gameOptions.welcomeScreen = !dontShowAgain.isOn;
     }
 
-    public void ShowHomeScreen()
-    {
-        //gameManager.UpdateGameState(GameManager.GameState.Home);
-        gameManager.SetGameState(gameManager.gameState.home);
-    }
+    //public void ShowHomeScreen()
+    //{
+    //    //gameManager.UpdateGameState(GameManager.GameState.Home);
+    //    gameManager.SetGameState(gameManager.gameState.home);
+    //}
 
     public void BuyGame()
     {

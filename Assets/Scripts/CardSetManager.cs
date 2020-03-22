@@ -9,6 +9,7 @@ public class CardSetManager : MonoBehaviour
     public static CardSetManager csManager;
 
     [SerializeField] List<GameObject> allCardSets;
+    List<CardSet> activeCardsets;
 
     private void OnEnable()
     {
