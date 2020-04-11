@@ -72,7 +72,23 @@ public class CardSetSelect : MonoBehaviour
         csGame.SetActive(true);
         csShop.SetActive(false);
 
-        labelGameShop.text = locManager.GetLocText("str_CardSetsGame");
+        string _labelGameShop;
+        string _player;
+
+        _labelGameShop = locManager.GetLocText("str_CardSetsGame");
+
+        if (refPlayer == null)
+        {
+            _player = locManager.GetLocText("str_AllPlayers");
+        }
+        else
+        {
+            _player = refPlayer.playerName;
+        }
+
+        _labelGameShop += " " + _player;
+
+        labelGameShop.text = _labelGameShop;
 
         if (showShop)
         {

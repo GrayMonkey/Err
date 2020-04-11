@@ -9,6 +9,7 @@ using Menu = MenuHandler.MenuOverlay;
 public class mnu_NewQuestion : MonoBehaviour
 {
     PlayerController playerController;
+    GameManager gameManager;
     MenuHandler uiMenus;
     [SerializeField] Text playerName;
     [SerializeField] Text deckName;
@@ -17,6 +18,7 @@ public class mnu_NewQuestion : MonoBehaviour
     private void Awake()
     {
         playerController = PlayerController.playerController;
+        gameManager = GameManager.gameManager;
         uiMenus = MenuHandler.uiMenus;
     }
 
@@ -27,12 +29,13 @@ public class mnu_NewQuestion : MonoBehaviour
 
         //fill the menu
         playerName.text = playerController.activePlayer.playerName;
-        deckName.text = GameManager.gameManager.activeCardSet.name;
-        deckIcon.sprite = GameManager.gameManager.activeCardSet.cardSetIcon.sprite;
+        deckName.text = gameManager.activeCardSet.name;
+        deckIcon.sprite = gameManager.activeCardSet.cardSetIcon.sprite;
     }
 
     public void CloseMenu()
     {
         uiMenus.CloseMenu(Menu.NewQuestion);
+        gameManager.SetGameState(gameManager.gameState.question);
     }
 }

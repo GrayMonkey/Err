@@ -6,11 +6,14 @@ CS_TestB_Desc,[SP] Test: 10 Questions with starting with the letter B
 CS_TestB_Title,[SP] Test Set B
 CS_TestC_Desc,[SP] Test: 10 Questions with starting with the letter C
 CS_TestC_Title,[SP] Test Set C
+str_AllPlayers,[SP] all players
+str_Available,[SP] Available
 str_BtnDetailsAddPlayer,[SP] Add a player to the current game.
 str_BtnDetailsCardSet,[SP] Choose one or more question sets for the player
 str_BtnDetailsCollapse,[SP] Edit the player options. Double tap the button to edit the player's name.
 str_BtnDetailsCorrect,[SP] The player got the answer correct. Move on to the next player or declare the winner.
 str_BtnDetailsCredits,[SP] Show the credits of who has helped make this game possible.
+str_BtnDetailsGameSetup,[SP] Return to the game setup.
 str_BtnDetailsHome,[SP] Go to the Home/Start screen.
 str_BtnDetailsInstructions,[SP] Show instructions on how to play the game and use the app.
 str_BtnDetailsLanguage,[SP] Select the chosen language for the player
@@ -24,11 +27,11 @@ str_BtnDetailsPass,[SP] Pass on a clue and move to the next one.
 str_BtnDetailsPrevPage,[SP] Go to the previous page of information.
 str_BtnDetailsQuitGame,[SP] Quits the current game and return to the Home/Start screen
 str_BtnDetailsRemovePlayer,[SP] Remove a player from the current game.
-str_BtnDetailsSelectPlayers,[SP] Select players for a game.
-str_BtnDetailsGameSetup,[SP] Return to the game setup.
 str_BtnDetailsReturn,[SP] Return to the previous screen.
 str_BtnDetailsRoster,[SP] Open and load previous players and their data
+str_BtnDetailsSelectPlayers,[SP] Select players for a game.
 str_BtnDetailsStart,[SP] Start the game.
+str_BtnDetailsTile,[SP] Press the button to show the description of this tile.
 str_BtnDetailsTrash,[SP] Permanently delete a player and all their saved information.
 str_BtnDetailsWinner,[SP] Declare the current player the winner!
 str_BtnHelpAddPlayer,[SP] Add Player
@@ -36,6 +39,7 @@ str_BtnHelpCardSet,[SP] Question Sets
 str_BtnHelpCollapse,[SP] Player Options
 str_BtnHelpCorrect,[SP] Correct Answer
 str_BtnHelpCredits,[SP] Credits
+str_BtnHelpGameSetup,[SP] Game Setup
 str_BtnHelpHome,[SP] Home
 str_BtnHelpInstructions,[SP] Instructions
 str_BtnHelpLanguage,[SP] Language
@@ -50,39 +54,36 @@ str_BtnHelpPrevPage,[SP] Previous Page
 str_BtnHelpQuitGame,[SP] Quit Game
 str_BtnHelpRemovePlayer,[SP] Remove Player
 str_BtnHelpReturn,[SP] Return
-str_BtnHelpSelectPlayers,[SP] Select Players
-str_BtnHelpGameSetup,[SP] Game Setup
 str_BtnHelpRoster,[SP] Load Player
+str_BtnHelpSelectPlayers,[SP] Select Players
 str_BtnHelpStart,[SP] Start
+str_BtnHelpTile,[SP] Board tile description
 str_BtnHelpTrash,[SP] Delete
 str_BtnHelpWinner,[SP] Winner
+str_BuyTheGame,[SP] Buy the Game!
+str_CardSetsGame,[SP] CardSets available for
+str_CardSetsShop,[SP] CardSets available to purchase...
 str_DefaultCardSet,[SP] Set Default CardSet?
 str_DefaultCardSetBody,[SP] Do you want you update all players to use this cardset selection?\n\nNote that individual cardsets can still be set for individual players from the Player Select screen.
+str_DialogNoLanguage,[SP] At least one language must be selected!
+str_DialogPlayerDelete,[SP] This action will delete all of the data for\n\n%%PlayerName\n\nAre you sure you want to continue?
+str_DialogTitleWarning,[SP] WARNING!
+str_DoNotShowAgain,[SP] Do not show this screen again...
 str_from,[SP] from 
 str_NoPlayerData,[SP] No player data is available!
 str_Player,[SP] Player
 str_PlayerCount,[SP] Player Count
 str_PlayerLanguage,[SP] Select player language...
+str_Purchase,[SP] Buy additional CardSets!
 str_RemovePlayer,[SP] Remove player...
 str_SelectCardsets,[SP] Select CardSet(s)...
-str_CardSetsGame,[SP] Select CardSets to play with...
-str_TaptoContinue,[SP] Tap to continue...
-str_WelcomeTitle,[SP] Welcome to Err...
-str_WelcomeBody1,[SP] Thank you for purchasing Err... The incredible word game of meanings and strategy.\n\n If you are not in possession of the board game tiles click on the button below...
-str_WelcomeBody2,"[SP] If at any time it is unclear how to use this app then press and hold a button for some contextual help. Access the Options menu for further details on how the game, tiles and app plays."
-str_BuyTheGame,[SP] Buy the Game!
-str_DoNotShowAgain,[SP] Do not show this screen again...
-str_CardSetsShop,[SP] CardSets available to purchase...
 str_SelectOption,[SP] Select option...
 str_SelectPlayer,[SP] Select player...
 str_SplashText,[SP] A game of definition and meaning!
-str_Available,[SP] Available
-str_Purchase,[SP] Buy additional CardSets!
-str_BtnHelpTile,[SP] Board tile description
-str_BtnDetailsTile,[SP] Press the button to show the description of this tile.
-str_DialogTitleWarning,[SP] WARNING!
-str_DialogPlayerDelete,[SP] This action will delete all of the data for\n\n%%PlayerName\n\nAre you sure you want to continue?
-str_DialogNoLanguage,[SP] At least one language must be selected!
+str_TaptoContinue,[SP] Tap to continue...
+str_WelcomeBody1,[SP] Thank you for purchasing Err... The incredible word game of meanings and strategy.\n\n If you are not in possession of the board game tiles click on the button below...
+str_WelcomeBody2,"[SP] If at any time it is unclear how to use this app then press and hold a button for some contextual help. Access the Options menu for further details on how the game, tiles and app plays."
+str_WelcomeTitle,[SP] Welcome to Err...
 UI_60s,[SP] 60s
 UI_AddPlayer,[SP] Add Player...
 UI_AppInfo,[SP] App Information
@@ -134,7 +135,6 @@ UI_QuitGameText,[SP] A game is currently in progress.\n\nReturning Home will qui
 UI_RandomOrder,[SP] Random player turns
 UI_RefTitle,[SP] Reference...
 UI_RemovePlayer,[SP] Remove %%PlayerName from this game?
-UI_TrashPlayer,[SP] Permanently delete %%PlayerName and all of their data?
 UI_Return,[SP] Return
 UI_RulesTitle,[SP] Rules...
 UI_ShowAnswer,[SP] Auto-display answer
@@ -157,6 +157,7 @@ UI_TileRefDoubler,[SP] Doubler
 UI_TileRefOneShot,[SP] One Shot
 UI_TileRefOpen,[SP] Open
 UI_TileRefSplitter,[SP] Splitter
+UI_TrashPlayer,[SP] Permanently delete %%PlayerName and all of their data?
 UI_Up,[SP] Move up
 UI_UsingApp,[SP] Using this App
 UI_UsingAppDetails,[SP] App Details

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Stars : MonoBehaviour
 {
-    [SerializeField] GameObject[] stars;
-    int points = -1;
-    float starDelay = 0.5f;
+    [SerializeField] Star[] stars;
+    [SerializeField] float starDelay = 0.25f;
     float lastStar;
+    int points = -1;
+    int starID = 0;
 
     //void Update()
     //{
@@ -22,19 +23,43 @@ public class Stars : MonoBehaviour
     //        lastStar = Time.time;
     //    }
     //}
+    private void Start()
+    {
+        
+    }
+
 
     public void LaunchStars(int x)
     {
-        foreach (GameObject star in stars) star.SetActive(false);
-        points = x - 1;
-
-        for (int i = 0; i<=points; i++)
+        foreach (Star star in stars)
         {
-            stars[i].SetActive(true);
-            Animator anim = stars[i].GetComponentInChildren<Animator>();
-            anim.SetTrigger("RevealStar");
+            star.gameObject.SetActive(false);
+        }
+
+        points = x;
+
+        for (int i = 0; i <= points-1; i++)
+        {
+            stars[i].gameObject.SetActive(true);
+            //    Animator anim = stars[i].GetComponentInChildren<Animator>();
+            //    anim.SetTrigger("RevealStar");
         }
 
         //lastStar = Time.time;
+    }
+
+    private void Update()
+    {
+        if(Time.time > lastStar+starDelay && starID<points)
+        {
+            stars[starID].ActivateStar();
+            starID++;
+            lastStar = Time.time;
+        }
+        else if (starID == points)
+        {
+            starID = 0;
+            points = -1;
+        }
     }
 }

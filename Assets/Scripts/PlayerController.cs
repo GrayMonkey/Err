@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour
 
         // set the gamestatemanager
         //gameManager.UpdateGameState(GameManager.GameState.Question);
-        gameManager.SetGameState(gameManager.gameState.question);
+        //gameManager.SetGameState(gameManager.gameState.question);
     }
 
     public void StartGame()

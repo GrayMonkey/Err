@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Star : MonoBehaviour
 {
-    Animator animator;
+    public GameObject starBody;
 
-    private void Awake()
+    [SerializeField] Animator anim;
+
+    private void OnEnable()
     {
-        animator = GetComponent<Animator>();
+        starBody.SetActive(false);
     }
 
-    public void PlayStar()
+    public void ActivateStar()
     {
-        animator.Play("CorrectStar");
+        starBody.SetActive(true);
+        anim.SetTrigger("StartReveal");
     }
 }

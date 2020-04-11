@@ -156,8 +156,8 @@ public class CardMod : MonoBehaviour
 
     public void Answer()
     {
-        //playerController.activePlayer.currentMoves = cluePoints;
-        uiMenus.ShowMenu(Menus.CorrectAnswer);
+        uiMenus.ShowMenu(Menus.CorrectAnswer,this.gameObject);
+        this.gameObject.SetActive(false);
     }
 
     private void ChangeNextFailButtons()

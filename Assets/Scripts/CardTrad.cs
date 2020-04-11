@@ -119,8 +119,8 @@ public class CardTrad : MonoBehaviour
 
     public void Answer()
     {
-        //playerController.activePlayer.currentMoves = currentClue;
-        uiMenu.ShowMenu(Menus.CorrectAnswer);
+        uiMenu.ShowMenu(Menus.CorrectAnswer,this.gameObject);
+        this.gameObject.SetActive(false);
     }
 
     public void Pass()

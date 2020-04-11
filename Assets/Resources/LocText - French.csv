@@ -6,11 +6,14 @@ CS_TestB_Desc,[FR] Test: 10 Questions with starting with the letter B
 CS_TestB_Title,[FR] Test Set B
 CS_TestC_Desc,[FR] Test: 10 Questions with starting with the letter C
 CS_TestC_Title,[FR] Test Set C
+str_AllPlayers,[FR] all players
+str_Available,[FR] Available
 str_BtnDetailsAddPlayer,[FR] Add a player to the current game.
 str_BtnDetailsCardSet,[FR] Choose one or more question sets for the player
 str_BtnDetailsCollapse,[FR] Edit the player options. Double tap the button to edit the player's name.
 str_BtnDetailsCorrect,[FR] The player got the answer correct. Move on to the next player or declare the winner.
 str_BtnDetailsCredits,[FR] Show the credits of who has helped make this game possible.
+str_BtnDetailsGameSetup,[FR] Return to the game setup.
 str_BtnDetailsHome,[FR] Go to the Home/Start screen.
 str_BtnDetailsInstructions,[FR] Show instructions on how to play the game and use the app.
 str_BtnDetailsLanguage,[FR] Select the chosen language for the player
@@ -24,11 +27,11 @@ str_BtnDetailsPass,[FR] Pass on a clue and move to the next one.
 str_BtnDetailsPrevPage,[FR] Go to the previous page of information.
 str_BtnDetailsQuitGame,[FR] Quits the current game and return to the Home/Start screen
 str_BtnDetailsRemovePlayer,[FR] Remove a player from the current game.
-str_BtnDetailsSelectPlayers,[FR] Select players for a game.
-str_BtnDetailsGameSetup,[FR] Return to the game setup.
 str_BtnDetailsReturn,[FR] Return to the previous screen.
 str_BtnDetailsRoster,[FR] Open and load previous players and their data
+str_BtnDetailsSelectPlayers,[FR] Select players for a game.
 str_BtnDetailsStart,[FR] Start the game.
+str_BtnDetailsTile,[FR] Press the button to show the description of this tile.
 str_BtnDetailsTrash,[FR] Permanently delete a player and all their saved information.
 str_BtnDetailsWinner,[FR] Declare the current player the winner!
 str_BtnHelpAddPlayer,[FR] Add Player
@@ -36,6 +39,7 @@ str_BtnHelpCardSet,[FR] Question Sets
 str_BtnHelpCollapse,[FR] Player Options
 str_BtnHelpCorrect,[FR] Correct Answer
 str_BtnHelpCredits,[FR] Credits
+str_BtnHelpGameSetup,[FR] Game Setup
 str_BtnHelpHome,[FR] Home
 str_BtnHelpInstructions,[FR] Instructions
 str_BtnHelpLanguage,[FR] Language
@@ -50,39 +54,36 @@ str_BtnHelpPrevPage,[FR] Previous Page
 str_BtnHelpQuitGame,[FR] Quit Game
 str_BtnHelpRemovePlayer,[FR] Remove Player
 str_BtnHelpReturn,[FR] Return
-str_BtnHelpSelectPlayers,[FR] Select Players
-str_BtnHelpGameSetup,[FR] Game Setup
 str_BtnHelpRoster,[FR] Load Player
+str_BtnHelpSelectPlayers,[FR] Select Players
 str_BtnHelpStart,[FR] Start
+str_BtnHelpTile,[FR] Board tile description
 str_BtnHelpTrash,[FR] Delete
 str_BtnHelpWinner,[FR] Winner
+str_BuyTheGame,[FR] Buy the Game!
+str_CardSetsGame,[FR] CardSets available for
+str_CardSetsShop,[FR] CardSets available to purchase...
 str_DefaultCardSet,[FR] Set Default CardSet?
 str_DefaultCardSetBody,[FR] Do you want you update all players to use this cardset selection?\n\nNote that individual cardsets can still be set for individual players from the Player Select screen.
+str_DialogNoLanguage,[FR] At least one language must be selected!
+str_DialogPlayerDelete,[FR] This action will delete all of the data for\n\n%%PlayerName\n\nAre you sure you want to continue?
+str_DialogTitleWarning,[FR] WARNING!
+str_DoNotShowAgain,[FR] Do not show this screen again...
 str_from,[FR] from 
 str_NoPlayerData,[FR] No player data is available!
 str_Player,[FR] Player
 str_PlayerCount,[FR] Player Count
 str_PlayerLanguage,[FR] Select player language...
+str_Purchase,[FR] Buy additional CardSets!
 str_RemovePlayer,[FR] Remove player...
 str_SelectCardsets,[FR] Select CardSet(s)...
-str_CardSetsGame,[FR] Select CardSets to play with...
-str_TaptoContinue,[FR] Tap to continue...
-str_WelcomeTitle,[FR] Welcome to Err...
-str_WelcomeBody1,[FR] Thank you for purchasing Err... The incredible word game of meanings and strategy.\n\n If you are not in possession of the board game tiles click on the button below...
-str_WelcomeBody2,"[FR] If at any time it is unclear how to use this app then press and hold a button for some contextual help. Access the Options menu for further details on how the game, tiles and app plays."
-str_BuyTheGame,[FR] Buy the Game!
-str_DoNotShowAgain,[FR] Do not show this screen again...
-str_CardSetsShop,[FR] CardSets available to purchase...
 str_SelectOption,[FR] Select option...
 str_SelectPlayer,[FR] Select player...
 str_SplashText,[FR] A game of definition and meaning!
-str_Available,[FR] Available
-str_Purchase,[FR] Buy additional CardSets!
-str_BtnHelpTile,[FR] Board tile description
-str_BtnDetailsTile,[FR] Press the button to show the description of this tile.
-str_DialogTitleWarning,[FR] WARNING!
-str_DialogPlayerDelete,[FR] This action will delete all of the data for\n\n%%PlayerName\n\nAre you sure you want to continue?
-str_DialogNoLanguage,[FR] At least one language must be selected!
+str_TaptoContinue,[FR] Tap to continue...
+str_WelcomeBody1,[FR] Thank you for purchasing Err... The incredible word game of meanings and strategy.\n\n If you are not in possession of the board game tiles click on the button below...
+str_WelcomeBody2,"[FR] If at any time it is unclear how to use this app then press and hold a button for some contextual help. Access the Options menu for further details on how the game, tiles and app plays."
+str_WelcomeTitle,[FR] Welcome to Err...
 UI_60s,[FR] 60s
 UI_AddPlayer,[FR] Add Player...
 UI_AppInfo,[FR] App Information
@@ -134,7 +135,6 @@ UI_QuitGameText,[FR] A game is currently in progress.\n\nReturning Home will qui
 UI_RandomOrder,[FR] Random player turns
 UI_RefTitle,[FR] Reference...
 UI_RemovePlayer,[FR] Remove %%PlayerName from this game?
-UI_TrashPlayer,[FR] Permanently delete %%PlayerName and all of their data?
 UI_Return,[FR] Return
 UI_RulesTitle,[FR] Rules...
 UI_ShowAnswer,[FR] Auto-display answer
@@ -157,6 +157,7 @@ UI_TileRefDoubler,[FR] Doubler
 UI_TileRefOneShot,[FR] One Shot
 UI_TileRefOpen,[FR] Open
 UI_TileRefSplitter,[FR] Splitter
+UI_TrashPlayer,[FR] Permanently delete %%PlayerName and all of their data?
 UI_Up,[FR] Move up
 UI_UsingApp,[FR] Using this App
 UI_UsingAppDetails,[FR] App Details

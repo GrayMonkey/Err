@@ -10,6 +10,7 @@ public class mnu_CorrectAnswer : MonoBehaviour
     [SerializeField] Text playerName;
     [SerializeField] Text moves;
     [SerializeField] Stars stars;
+    [SerializeField] int points = 0;
 
     GameManager gameManager;
     PlayerController playerController;
@@ -25,7 +26,7 @@ public class mnu_CorrectAnswer : MonoBehaviour
 
     private void OnEnable()
     {
-        int points = gameManager.activeQuestion.maxPoints;
+        points = gameManager.activeQuestion.maxPoints; //comment out for debug only
         moves.text = points.ToString();
         activePlayer = playerController.activePlayer;
         playerName.text = activePlayer.playerName;
