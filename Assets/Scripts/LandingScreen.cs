@@ -11,6 +11,7 @@ public class LandingScreen : MonoBehaviour
     [SerializeField] string url;
     [SerializeField] Button tapAnywhere;
     [SerializeField] RectTransform textPanel;
+    [SerializeField] AudioSource welcome;
 
     GameManager gameManager;
     GameOptions gameOptions;
@@ -34,6 +35,7 @@ public class LandingScreen : MonoBehaviour
         welcomeScreen.SetActive(show);
         mainScreen.SetActive(!show);
         tapAnywhere.interactable = !show;
+        if (!show) welcome.Play();
     }
 
     public void DisableWelcomeScreen()
