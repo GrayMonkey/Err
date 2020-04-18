@@ -1,4 +1,4 @@
-#License Info
+# License Info
 Some assets used in the game are from other sources...
 UI Audio SFX:
 Music: SoundImage.org - if going to use then consider payment and/or accreditation
