@@ -7,21 +7,19 @@ public class LandingScreen : MonoBehaviour
 {
     [SerializeField] GameObject welcomeScreen;
     [SerializeField] GameObject mainScreen;
+    [SerializeField] Image mainLogo;
+    [SerializeField] Text mainText;
+    [SerializeField] Text mainPressKey;
     [SerializeField] Toggle dontShowAgain;
     [SerializeField] string url;
     [SerializeField] Button tapAnywhere;
     [SerializeField] RectTransform textPanel;
-    [SerializeField] AudioSource welcome;
 
-    GameManager gameManager;
     GameOptions gameOptions;
-    RectTransform rect;
 
     void Start()
     {
-        gameManager = GameManager.gameManager;
         gameOptions = GameOptions.gameOptions;
-        rect = GetComponent<RectTransform>();
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(textPanel);
         welcomeScreen.SetActive(false);
@@ -33,9 +31,15 @@ public class LandingScreen : MonoBehaviour
     public void WelcomeScreenSelect(bool show)
     {
         welcomeScreen.SetActive(show);
-        mainScreen.SetActive(!show);
-        tapAnywhere.interactable = !show;
-        if (!show) welcome.Play();
+
+        if(!show)
+        {
+            mainScreen.SetActive(!show);
+            CanvasGroup canvasGroup = GetComponentInChildren<CanvasGroup>();
+            StartCoroutine(CanvasFade(canvasGroup, 5.0f));
+            tapAnywhere.interactable = !show;
+            
+        }
     }
 
     public void DisableWelcomeScreen()
@@ -52,5 +56,17 @@ public class LandingScreen : MonoBehaviour
     public void BuyGame()
     {
         Application.OpenURL(url);
+    }
+
+    IEnumerator CanvasFade(CanvasGroup canvasGroup, float fadeTime)
+    {
+        while (canvasGroup.alpha > 0f)
+        {
+            canvasGroup.alpha -= Time.deltaTime / fadeTime;
+            yield return null;
+        }
+
+        canvasGroup.interactable = true;
+        yield return null;
     }
 }
