@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LandingScreen : MonoBehaviour
 {
     [SerializeField] GameObject welcomeScreen;
+    [SerializeField] GameObject mainScreen;
     [SerializeField] GameObject tapText;
     [SerializeField] Toggle dontShowAgain;
     [SerializeField] string url;
@@ -27,6 +28,7 @@ public class LandingScreen : MonoBehaviour
         if(gameOptions.welcomeScreen)
         {
             welcomeScreen.SetActive(true);
+            mainScreen.SetActive(false);
             LayoutRebuilder.ForceRebuildLayoutImmediate(textPanel);
         }
         else
