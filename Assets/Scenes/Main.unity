@@ -1138,6 +1138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   welcomeScreen: {fileID: 2060158030}
+  mainScreen: {fileID: 1952977825}
   tapText: {fileID: 401743483}
   dontShowAgain: {fileID: 2076054492}
   url: https://sites.google.com/errgame.com/err/buy
@@ -32574,6 +32575,7 @@ GameObject:
   - component: {fileID: 1003429751}
   - component: {fileID: 1003429753}
   - component: {fileID: 1003429752}
+  - component: {fileID: 1003429754}
   m_Layer: 5
   m_Name: Player count
   m_TagString: Untagged
@@ -32631,7 +32633,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: UI_PlayerCount
+  m_Text: 
 --- !u!222 &1003429753
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32640,6 +32642,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003429750}
   m_CullTransparentMesh: 0
+--- !u!114 &1003429754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003429750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36bb8d9da50324b389b6cd543dab0c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 
+  text: {fileID: 0}
 --- !u!1 &1005720568
 GameObject:
   m_ObjectHideFlags: 0
@@ -39860,7 +39876,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 1
+  prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -44933,7 +44949,7 @@ MonoBehaviour:
   guessTime: 0
   showAnswer: 0
   modCards: 1
-  sliderLock: 0
+  sliderLock: 1
   randomTurns: 1
   welcomeScreen: 0
 --- !u!114 &1407768783

@@ -87,7 +87,13 @@ public class LocManager : MonoBehaviour
         }
         else
         {
-            return text.text;
+            string returnString = text.text;
+            if(returnString.Contains("%%PlayerName"))
+                {
+                string playerName = PlayerController.playerController.activePlayer.playerName;
+                returnString = returnString.Replace("%%PlayerName", playerName);
+                }
+            return returnString;
         }
     }
 }

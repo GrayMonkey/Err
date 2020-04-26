@@ -1451,6 +1451,8 @@ MonoBehaviour:
   - {fileID: 1999412021571688}
   - {fileID: 1736282545476444}
   - {fileID: 1773258856417608}
+  removePlayer: {fileID: 114467990126800136}
+  deletePlayer: {fileID: 8759993193458931742}
 --- !u!95 &95014455726782548
 Animator:
   serializedVersion: 3
@@ -1712,8 +1714,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f034633ec78e46edb855a3ff3c2ce94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csAvailable: {fileID: 0}
+  allCardSets: []
+  langFlags: []
+  btnShopCardsets: {fileID: 0}
+  btnGameCardsets: {fileID: 0}
+  btnOK: {fileID: 0}
+  csGame: {fileID: 0}
   csShop: {fileID: 0}
+  labelGameShop: {fileID: 0}
 --- !u!114 &114983621978912338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1765,7 +1773,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -200, y: -154}
+  m_SizeDelta: {x: -200, y: -54}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &114443700465827462
 MonoBehaviour:
@@ -1973,7 +1981,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -280, y: -324}
+  m_SizeDelta: {x: -280, y: -224}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &114326352606271676
 MonoBehaviour:
@@ -2466,7 +2474,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: ui_TrashPlayer
+  m_Text: UI_TrashPlayer
 --- !u!114 &5669150417457790613
 MonoBehaviour:
   m_ObjectHideFlags: 0

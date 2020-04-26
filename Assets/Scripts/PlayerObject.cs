@@ -49,7 +49,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [SerializeField] Animator animator;
     [SerializeField] ScrollRect subMenuRect;
     [SerializeField] GameObject[] mnu_SubMenus;
-
+ 
     enum SubMenu { PlayerRoster, CardSets, RemovePlayer };
 
     private void Awake()
@@ -352,7 +352,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         dialogDeletePlayer.CloseDialog();
     }
 
-
+    // Permanently deletes the player
     void DeletePlayerData ()
     {
         if(playerController.playerRoster.Contains(refPlayer))
@@ -361,6 +361,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         RemovePlayer();
     }
 
+    // Removes the player from the current game
     public void RemovePlayer()
     {
         if (playerController.playersActive.Contains(refPlayer))

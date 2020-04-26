@@ -68,23 +68,17 @@ public class GameManager : MonoBehaviour
         gameOptions = GameOptions.gameOptions;
         uiMenus = MenuHandler.uiMenus;
         SetCardType();
+
+        // Turn off all game states
+        gameState.landingScreen.SetActive(false);
+        gameState.home.SetActive(false);
+        gameState.endGame.SetActive(false);
+        gameState.playerSelect.SetActive(false);
+        gameState.question.SetActive(false);
+        gameState.cardSetSelect.SetActive(false);
+
         currGameState = gameState.landingScreen;
         SetGameState(currGameState);
-
-
-        //for (int i = 0; i < gameStateObject.Length; i++)
-        //{
-        //    gameStateObject[i].SetActive(false);
-        //}
-
-        //gameStateObject[0].SetActive(true);
-
-        // if this is the first time the game has been launched
-        // then show the Welcome message
-        //if(gameOptions.firstLaunch)
-        //{
-
-        //}
     }
 
     // Bug Fix: If the card type is changed during a question and 

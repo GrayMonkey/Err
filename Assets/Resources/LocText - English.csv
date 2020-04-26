@@ -129,7 +129,6 @@ UI_NoPlayersText,No players have been added to the player list. \n\n Do you wish
 UI_Off,Off
 UI_Options,Options
 UI_Pass,Pass
-UI_PlayerCount,%%PlayerCount / %%MaxPlayers
 UI_Players,Player List
 UI_QuitGameText,A game is currently in progress.\n\nReturning Home will quit the current game and remove all current game data and scores for each active player!\n\nDo you wish to return to the Home screen or return to the game?
 UI_RandomOrder,Random player turns
