@@ -6,43 +6,36 @@ using UnityEngine.UI;
 public class LandingScreen : MonoBehaviour
 {
     [SerializeField] GameObject welcomeScreen;
-    [SerializeField] GameObject mainScreen;
-    [SerializeField] Image mainLogo;
-    [SerializeField] Text mainText;
-    [SerializeField] Text mainPressKey;
+    [SerializeField] GameObject tapText;
     [SerializeField] Toggle dontShowAgain;
     [SerializeField] string url;
-    [SerializeField] Button tapAnywhere;
     [SerializeField] RectTransform textPanel;
 
+    GameManager gameManager;
     GameOptions gameOptions;
 
     void Start()
     {
         gameOptions = GameOptions.gameOptions;
-
-        LayoutRebuilder.ForceRebuildLayoutImmediate(textPanel);
-        welcomeScreen.SetActive(false);
-        mainScreen.SetActive(false);
-
-        WelcomeScreenSelect(gameOptions.welcomeScreen);
+        gameManager = GameManager.gameManager;
+        CanvasGroup canvasGroup = GetComponentInChildren<CanvasGroup>();
+        StartCoroutine(CanvasFade(canvasGroup, Time.time, 5.0f));
     }
 
-    public void WelcomeScreenSelect(bool show)
+    public void ShowWelcomeScreen()
     {
-        welcomeScreen.SetActive(show);
-
-        if(!show)
+        if(gameOptions.welcomeScreen)
         {
-            mainScreen.SetActive(!show);
-            CanvasGroup canvasGroup = GetComponentInChildren<CanvasGroup>();
-            StartCoroutine(CanvasFade(canvasGroup, 5.0f));
-            tapAnywhere.interactable = !show;
-            
+            welcomeScreen.SetActive(true);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(textPanel);
+        }
+        else
+        {
+            gameManager.SetGameState(gameManager.gameState.home);
         }
     }
 
-    public void DisableWelcomeScreen()
+    public void SetGameOptionWelcome()
     {
         gameOptions.welcomeScreen = !dontShowAgain.isOn;
     }
@@ -58,15 +51,17 @@ public class LandingScreen : MonoBehaviour
         Application.OpenURL(url);
     }
 
-    IEnumerator CanvasFade(CanvasGroup canvasGroup, float fadeTime)
+    IEnumerator CanvasFade(CanvasGroup canvasGroup, float startTime, float fadeTime)
     {
         while (canvasGroup.alpha > 0f)
         {
-            canvasGroup.alpha -= Time.deltaTime / fadeTime;
+            float deltaTime = (Time.time - startTime) / fadeTime;
+            canvasGroup.alpha = Mathf.SmoothStep(1.0f, 0.0f, deltaTime);
             yield return null;
         }
 
-        canvasGroup.interactable = true;
+        canvasGroup.gameObject.SetActive(false);
+        tapText.SetActive(true);
         yield return null;
     }
 }

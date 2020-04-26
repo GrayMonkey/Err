@@ -12,13 +12,6 @@ public class SceneLoader : MonoBehaviour
     void Start()
     {
         StartCoroutine(AsynchLoad("main"));
-        logo.CrossFadeAlpha(1.0f, 3.0f, true);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     IEnumerator AsynchLoad(string scene)
