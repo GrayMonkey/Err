@@ -8551,7 +8551,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 48fe1d26ae6714b6ea5f7877ec3b2580, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b628f536dcb28ac45a424b6d5c9a8fa9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8789,7 +8789,7 @@ PrefabInstance:
     - target: {fileID: -6559357733833828090, guid: 9e25c46e7a7b64945a015b287a7ecb43,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -6559357733833828090, guid: 9e25c46e7a7b64945a015b287a7ecb43,
         type: 3}
@@ -8815,16 +8815,16 @@ PrefabInstance:
         type: 3}
       propertyPath: helpButton
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1802780201}
     - target: {fileID: -6559357733833828090, guid: 9e25c46e7a7b64945a015b287a7ecb43,
         type: 3}
       propertyPath: keyTitle
-      value: 
+      value: str_BtnHelpInstructions
       objectReference: {fileID: 0}
     - target: {fileID: -6559357733833828090, guid: 9e25c46e7a7b64945a015b287a7ecb43,
         type: 3}
       propertyPath: keyDetails
-      value: 
+      value: str_BtnDetailsInstructions
       objectReference: {fileID: 0}
     - target: {fileID: -6559357733833828090, guid: 9e25c46e7a7b64945a015b287a7ecb43,
         type: 3}
@@ -8840,6 +8840,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TargetGraphic
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -6559357733833828090, guid: 9e25c46e7a7b64945a015b287a7ecb43,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6559357733833828090, guid: 9e25c46e7a7b64945a015b287a7ecb43,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6559357733833828090, guid: 9e25c46e7a7b64945a015b287a7ecb43,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 197843055}
+    - target: {fileID: -6559357733833828090, guid: 9e25c46e7a7b64945a015b287a7ecb43,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: -6559357733833828090, guid: 9e25c46e7a7b64945a015b287a7ecb43,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 224434965682852384, guid: 9e25c46e7a7b64945a015b287a7ecb43,
         type: 3}
@@ -11175,7 +11200,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1242579928}
   m_HandleRect: {fileID: 1242579927}
   m_Direction: 3
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -11325,6 +11350,7 @@ MonoBehaviour:
   helpButton: {fileID: 1802780201}
   keyTitle: str_BtnHelpInstructions
   keyDetails: str_BtnDetailsInstructions
+  altImage: {fileID: 0}
 --- !u!114 &298644678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13538,6 +13564,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 197843055}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &462468262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14678,8 +14715,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba93d5cfa1e147e3ad5d0697220d585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starBody: {fileID: 1949849712}
-  anim: {fileID: 1949849713}
 --- !u!224 &505550997
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14886,7 +14921,7 @@ PrefabInstance:
     - target: {fileID: -6252746713421420218, guid: b5831aa82bd534050acd68b5f2220819,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -6252746713421420218, guid: b5831aa82bd534050acd68b5f2220819,
         type: 3}
@@ -14927,6 +14962,31 @@ PrefabInstance:
         type: 3}
       propertyPath: keyDetails
       value: str_BtnDetailsReturn
+      objectReference: {fileID: 0}
+    - target: {fileID: -6252746713421420218, guid: b5831aa82bd534050acd68b5f2220819,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6252746713421420218, guid: b5831aa82bd534050acd68b5f2220819,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6252746713421420218, guid: b5831aa82bd534050acd68b5f2220819,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 351068178}
+    - target: {fileID: -6252746713421420218, guid: b5831aa82bd534050acd68b5f2220819,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: -6252746713421420218, guid: b5831aa82bd534050acd68b5f2220819,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 224509499679978106, guid: b5831aa82bd534050acd68b5f2220819,
         type: 3}
@@ -15335,9 +15395,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 197843055}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   helpButton: {fileID: 1802780201}
   keyTitle: str_BtnHelpTile
   keyDetails: str_BtnDetailsTile
+  altImage: {fileID: 0}
 --- !u!114 &545492127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17473,6 +17545,7 @@ MonoBehaviour:
   helpButton: {fileID: 1802780201}
   keyTitle: str_BtnHelpOptions
   keyDetails: str_BtnDetailsOptions
+  altImage: {fileID: 0}
 --- !u!114 &648771310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18713,7 +18786,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: UI_GameRuleDetails
+  m_Text: UI_GameRulesDetails
 --- !u!222 &720121063
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18843,7 +18916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &723075460
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20150,8 +20223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba93d5cfa1e147e3ad5d0697220d585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starBody: {fileID: 203758530}
-  anim: {fileID: 203758532}
 --- !u!1 &843132547
 GameObject:
   m_ObjectHideFlags: 0
@@ -25799,6 +25870,7 @@ MonoBehaviour:
   helpButton: {fileID: 1802780201}
   keyTitle: str_BtnHelpCardSet
   keyDetails: str_BtnDetailsCardSet
+  altImage: {fileID: 176733227}
 --- !u!114 &907057265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26951,6 +27023,7 @@ MonoBehaviour:
   helpButton: {fileID: 1802780201}
   keyTitle: str_BtnHelpOptions
   keyDetails: str_BtnDetailsOptions
+  altImage: {fileID: 0}
 --- !u!114 &976208114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31915,9 +31988,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 197843055}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   helpButton: {fileID: 1802780201}
   keyTitle: str_BtnHelpTile
   keyDetails: str_BtnDetailsTile
+  altImage: {fileID: 0}
 --- !u!114 &979972067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32440,6 +32525,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 197843055}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -33339,7 +33435,7 @@ PrefabInstance:
     - target: {fileID: -6252746713421420218, guid: b5831aa82bd534050acd68b5f2220819,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -6252746713421420218, guid: b5831aa82bd534050acd68b5f2220819,
         type: 3}
@@ -33380,6 +33476,31 @@ PrefabInstance:
         type: 3}
       propertyPath: keyDetails
       value: str_BtnDetailsReturn
+      objectReference: {fileID: 0}
+    - target: {fileID: -6252746713421420218, guid: b5831aa82bd534050acd68b5f2220819,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6252746713421420218, guid: b5831aa82bd534050acd68b5f2220819,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6252746713421420218, guid: b5831aa82bd534050acd68b5f2220819,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 351068178}
+    - target: {fileID: -6252746713421420218, guid: b5831aa82bd534050acd68b5f2220819,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: -6252746713421420218, guid: b5831aa82bd534050acd68b5f2220819,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1560618605434642, guid: b5831aa82bd534050acd68b5f2220819, type: 3}
       propertyPath: m_Name
@@ -37523,6 +37644,7 @@ MonoBehaviour:
   helpButton: {fileID: 1802780201}
   keyTitle: str_BtnHelpSelectPlayers
   keyDetails: str_BtnDetailsSelectPlayers
+  altImage: {fileID: 1892709486}
 --- !u!114 &1273878656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37985,6 +38107,7 @@ MonoBehaviour:
   helpButton: {fileID: 1802780201}
   keyTitle: str_BtnHelpStart
   keyDetails: str_BtnDetailsStart
+  altImage: {fileID: 0}
 --- !u!114 &1302582514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38319,6 +38442,7 @@ MonoBehaviour:
   helpButton: {fileID: 1802780201}
   keyTitle: str_BtnHelpOptions
   keyDetails: str_BtnDetailsOptions
+  altImage: {fileID: 0}
 --- !u!114 &1315400180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45285,7 +45409,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: UI_GameRules
+  m_Text: UI_GamesRules
 --- !u!222 &1420528881
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -45531,9 +45655,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 197843055}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   helpButton: {fileID: 1802780201}
   keyTitle: str_BtnHelpTile
   keyDetails: str_BtnDetailsTile
+  altImage: {fileID: 0}
 --- !u!114 &1427521795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51535,9 +51671,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 197843055}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   helpButton: {fileID: 1802780201}
   keyTitle: str_BtnHelpTile
   keyDetails: str_BtnDetailsTile
+  altImage: {fileID: 0}
 --- !u!114 &1474543025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52228,7 +52376,7 @@ PrefabInstance:
     - target: {fileID: 4709255461733550811, guid: 0a73e6f911b50405ea25fb3e13f34f59,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4709255461733550811, guid: 0a73e6f911b50405ea25fb3e13f34f59,
         type: 3}
@@ -52274,6 +52422,36 @@ PrefabInstance:
         type: 3}
       propertyPath: keyDetails
       value: str_BtnDetailsOptionsSave
+      objectReference: {fileID: 0}
+    - target: {fileID: 4709255461733550811, guid: 0a73e6f911b50405ea25fb3e13f34f59,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4709255461733550811, guid: 0a73e6f911b50405ea25fb3e13f34f59,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4709255461733550811, guid: 0a73e6f911b50405ea25fb3e13f34f59,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4709255461733550811, guid: 0a73e6f911b50405ea25fb3e13f34f59,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1671034944}
+    - target: {fileID: 4709255461733550811, guid: 0a73e6f911b50405ea25fb3e13f34f59,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 4709255461733550811, guid: 0a73e6f911b50405ea25fb3e13f34f59,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a73e6f911b50405ea25fb3e13f34f59, type: 3}
@@ -52366,6 +52544,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 197843055}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -52592,6 +52781,7 @@ MonoBehaviour:
   helpButton: {fileID: 1802780201}
   keyTitle: str_BtnHelpOptions
   keyDetails: str_BtnDetailsOptions
+  altImage: {fileID: 0}
 --- !u!114 &1527356880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56249,6 +56439,7 @@ MonoBehaviour:
   helpButton: {fileID: 1802780201}
   keyTitle: str_BtnHelpOptions
   keyDetails: str_BtnDetailsOptions
+  altImage: {fileID: 0}
 --- !u!114 &1725153246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56590,6 +56781,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 351068178}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1735896662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56801,7 +57003,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1435844178}
   m_HandleRect: {fileID: 1435844177}
   m_Direction: 3
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -58435,12 +58637,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03dcdf0dc20734e27b28ec6d6d5439d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stars:
-  - {fileID: 843003379}
-  - {fileID: 2044696658}
-  - {fileID: 1925214437}
-  - {fileID: 505550996}
-  starDelay: 0.25
 --- !u!224 &1843125266
 RectTransform:
   m_ObjectHideFlags: 0
@@ -58764,6 +58960,7 @@ MonoBehaviour:
   helpButton: {fileID: 1802780201}
   keyTitle: str_BtnHelpOptions
   keyDetails: str_BtnDetailsOptions
+  altImage: {fileID: 0}
 --- !u!114 &1860636616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60287,9 +60484,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 197843055}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   helpButton: {fileID: 1802780201}
   keyTitle: str_BtnHelpTile
   keyDetails: str_BtnDetailsTile
+  altImage: {fileID: 0}
 --- !u!114 &1915719650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60716,8 +60925,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba93d5cfa1e147e3ad5d0697220d585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starBody: {fileID: 514618578}
-  anim: {fileID: 514618580}
 --- !u!1 &1929457372
 GameObject:
   m_ObjectHideFlags: 0
@@ -61177,9 +61384,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 197843055}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   helpButton: {fileID: 1802780201}
   keyTitle: str_BtnHelpTile
   keyDetails: str_BtnDetailsTile
+  altImage: {fileID: 0}
 --- !u!114 &1939834304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62357,7 +62576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1970718227
 RectTransform:
   m_ObjectHideFlags: 0
@@ -62896,6 +63115,7 @@ MonoBehaviour:
   helpButton: {fileID: 1802780201}
   keyTitle: str_BtnHelpOptions
   keyDetails: str_BtnDetailsOptions
+  altImage: {fileID: 0}
 --- !u!114 &1999205216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63325,6 +63545,7 @@ MonoBehaviour:
   helpButton: {fileID: 1802780201}
   keyTitle: str_BtnHelpOptions
   keyDetails: str_BtnDetailsOptions
+  altImage: {fileID: 0}
 --- !u!114 &2032799214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63523,8 +63744,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba93d5cfa1e147e3ad5d0697220d585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starBody: {fileID: 340395440}
-  anim: {fileID: 340395442}
 --- !u!1 &2050175241
 GameObject:
   m_ObjectHideFlags: 0
@@ -64012,9 +64231,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 197843055}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   helpButton: {fileID: 1802780201}
   keyTitle: str_BtnHelpTile
   keyDetails: str_BtnDetailsTile
+  altImage: {fileID: 0}
 --- !u!114 &2062009896
 MonoBehaviour:
   m_ObjectHideFlags: 0

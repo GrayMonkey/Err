@@ -10,6 +10,7 @@ public class ContextButton : Button
     public GameObject helpButton;
     public string keyTitle;
     public string keyDetails;
+    public Image altImage;
     private float touchTime = 1f;
     //private bool eligibleForClick = true;
 
@@ -33,13 +34,21 @@ public class ContextButton : Button
     {
         //Debug.Log("Showing help");
         HelpPanel helpPanel = helpButton.GetComponent<HelpPanel>();
-        Sprite helpSprite = helpPanel.helpImage.sprite;
-
-        helpPanel.helpImage.sprite = this.image.sprite;
+       
         helpPanel.keyTitle.text = LocManager.locManager.GetLocText(keyTitle);
         helpPanel.keyDetails.text = LocManager.locManager.GetLocText(keyDetails);
-        helpPanel.gameObject.SetActive(true);
 
+        // If altIamge is used then override helpSprite
+        if (altImage)
+        {
+            helpPanel.helpImage.sprite = altImage.sprite;
+        }
+        else
+        {
+            helpPanel.helpImage.sprite = this.image.sprite;
+        }
+
+        helpPanel.gameObject.SetActive(true);
         //Debug.Log("Image: " + helpButtonPanel.helpImage.sprite.name);
     }
 }

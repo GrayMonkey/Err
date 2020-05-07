@@ -14,7 +14,10 @@ public class ContextButtonEditor : UnityEditor.UI.ButtonEditor
         EditorUtility.SetDirty(target);
         base.OnInspectorGUI();
 
-        component.helpButton = (GameObject)EditorGUILayout.ObjectField("Help Panel", component.helpButton, typeof(GameObject), true);
+        component.helpButton = (GameObject)EditorGUILayout.ObjectField("Help Panel", 
+            component.helpButton, typeof(GameObject), true);
+        component.altImage = (Image)EditorGUILayout.ObjectField("Alternative Image",
+            component.altImage, typeof(Image), true);
         component.keyTitle = EditorGUILayout.TextField("Help Title", component.keyTitle);
         component.keyDetails = EditorGUILayout.TextField("Help Details", component.keyDetails);
     }

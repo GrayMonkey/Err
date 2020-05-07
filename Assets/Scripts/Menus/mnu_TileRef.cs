@@ -10,6 +10,7 @@ public class mnu_TileRef : MonoBehaviour
     RectTransform rect;
 
     [SerializeField] GameObject[] tileInfos;
+    [SerializeField] AudioClip audioClip;
 
     // Start is called before the first frame update
     void Start()
