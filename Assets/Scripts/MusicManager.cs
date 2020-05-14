@@ -11,17 +11,6 @@ public class MusicManager : MonoBehaviour
     {
         StartCoroutine(AudioFade.FadeIn(musicMain, Time.time, 5.0f));
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void SwapMusic(AudioSource newMusic)
-    {
-
-    }
 }
 
 public static class AudioFade 

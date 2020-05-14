@@ -1,95 +1,85 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class mnu_TileRef : MonoBehaviour
 {
-    public GameObject activeTileRef;
-    [SerializeField] CanvasGroup tileRefs;
-    [SerializeField] CanvasGroup canvasGroup;
-    [SerializeField] Image tileImage;
-    [SerializeField] Text tileTitle;
-    [SerializeField] Text tileDescription;
- 
-    RectTransform rect;
+    //[SerializeField] GameObject bodyText;
+    [SerializeField] CanvasGroup tileIndex;
+    [SerializeField] CanvasGroup tileDetails;
+    [SerializeField] Text tileDetailsTitle;
+    [SerializeField] Text tileDetailsBody;
+    [SerializeField] Image tileDetailsIcon;
+    [SerializeField] ScrollRect tileDetailsScrollRect;
 
-    [SerializeField] GameObject[] tileInfos;
-    [SerializeField] AudioClip audioClip;
+    private Image tileIcon;
+    private Text tileTitle;
+    private string tileBody;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void OnEnable()
-    {
-        activateTileInfo(-1);
-    }
-
-    public void SetTileInfo()
-    {
-       
-    }
-
-    public void SwapTileInfo (bool showTileRefs)
-    {
-        StartCoroutine(FadeTileInfo(showTileRefs, Time.time, 0.5f));
-    }
-
-    // Set the active tile reference
-    public void activateTileInfo (int id)
-    {
-
-/*        bool show = false;
-        if (id != -1)
+    /*    public void ToggleDescription()
         {
-            show = tileInfos[id].GetComponent<mnu_TileInfo>().tileDesc.activeInHierarchy;
+            bodyText.SetActive (!bodyText.activeInHierarchy);
         }
-
-        foreach (GameObject tileInfo in tileInfos)
-        {
-            tileInfo.GetComponent<mnu_TileInfo>().tileDesc.SetActive(false);
-        }
-
-        if (id != -1) 
-        {
-            tileInfos[id].GetComponent<mnu_TileInfo>().tileDesc.SetActive(!show);
-        }
-*/    }
-
-    IEnumerator FadeTileInfo(bool fadeToTileRef, float startTime, float fadeTime)
+    */
+    private void Start()
     {
+        tileIndex.gameObject.SetActive(true);
+        tileIndex.alpha = 1.0f;
+        tileDetails.gameObject.SetActive(false);
+        tileDetails.alpha = 0.0f;
+    }
+
+    public void SetTileDetails()
+    {
+        //Set the tile details up from the button clicked reference
+        GameObject tileButton = EventSystem.current.currentSelectedGameObject;
+        string tileTitle = tileButton.GetComponentInChildren<Text>().text;
+        string tileBody = "UI_TileRefDetails"+tileButton.name;
+        Sprite tileIcon = tileButton.GetComponentInChildren<Image>().sprite;
+
+        tileDetailsTitle.text = tileTitle;
+        tileDetailsBody.text = LocManager.locManager.GetLocText(tileBody);
+        tileDetailsIcon.sprite = tileIcon;
+
+        ToggleDescription(false);
+    }
+    
+    public void ToggleDescription(bool fadeToTileRef)
+    {
+        StartCoroutine(FadeMenus(fadeToTileRef, Time.time, 0.5f));
+    }
+
+    IEnumerator FadeMenus(bool fadeToTileRef, float startTime,  float duration)
+    {
+        //Set the canvasgroups to fade between
+        CanvasGroup toCanvasGroup = tileDetails;
+        CanvasGroup fromCanvasGroup = tileIndex;
+
         if (fadeToTileRef)
         {
-            tileRefs.gameObject.SetActive(true);
-
-            while (canvasGroup.alpha > 0f)
-            {
-                float deltaTime = (Time.time - startTime) / fadeTime;
-                canvasGroup.alpha = Mathf.SmoothStep(1.0f, 0.0f, deltaTime);
-                tileRefs.alpha = Mathf.SmoothStep(0.0f, 1.0f, deltaTime);
-                yield return null;
-            }
-
-            canvasGroup.gameObject.SetActive(false);
-            yield return null;
+            fromCanvasGroup = tileDetails;
+            toCanvasGroup = tileIndex;
         }
-        else
+
+        //Activate the target gameobject to fade to
+        toCanvasGroup.gameObject.SetActive(true);
+
+        //If fading to the tile details reset the vertical scroll to the top
+        if (toCanvasGroup == tileDetails)
+            tileDetailsScrollRect.verticalNormalizedPosition = 1.0f;
+
+        //Begin the fade
+        while (toCanvasGroup.alpha < 1.0f)
         {
-            canvasGroup.gameObject.SetActive(true);
-
-            while (canvasGroup.alpha > 0f)
-            {
-                float deltaTime = (Time.time - startTime) / fadeTime;
-                canvasGroup.alpha = Mathf.SmoothStep(0.0f, 1.0f, deltaTime);
-                tileRefs.alpha = Mathf.SmoothStep(1.0f, 0.0f, deltaTime);
-                yield return null;
-            }
-
-            tileRefs.gameObject.SetActive(false);
+            toCanvasGroup.alpha = Mathf.SmoothStep(0.0f, 1.0f, (Time.time - startTime) / duration);
+            fromCanvasGroup.alpha = Mathf.SmoothStep(1.0f, 0.0f, (Time.time - startTime) / duration);
             yield return null;
         }
+
+        //Turn of the canvasgroup just faded from
+        fromCanvasGroup.gameObject.SetActive(false);
+        yield return null;
     }
 }

@@ -142,10 +142,10 @@ UI_ShowLaunchScreen,Show this message at launch?
 UI_SliderLock,Lock answer slider
 UI_Start,Start...
 UI_TileRef,Tile Reference
-UI_TileRefAccum,Accumulator
+UI_TileRefAccumulator,Accumulator
 UI_TileRefBlank,Blank
 UI_TileRefController,Controller
-UI_TileRefDetailsAccum,"When the active player STARTS their turn on this tile they take their turn as normal. If they get the answer correct they can choose to either keep their score and move or answer an additional question. However, for additional questions the active player nominates the level of difficulty of the clue. If they get the answer correct to the additional question the clue amount is added to the move score they already have. A maximum of four additional questions can be asked. If at any time during the additional questions the player gets the answer wrong then they can no longer take additional questions and move a total of their accumulated score."
+UI_TileRefDetailsAccumulator,"When the active player STARTS their turn on this tile they take their turn as normal. If they get the answer correct they can choose to either keep their score and move or answer an additional question. However, for additional questions the active player nominates the level of difficulty of the clue. If they get the answer correct to the additional question the clue amount is added to the move score they already have. A maximum of four additional questions can be asked. If at any time during the additional questions the player gets the answer wrong then they can no longer take additional questions and move a total of their accumulated score."
 UI_TileRefDetailsBlank,The blank tile has no special affect and is counted as one move.
 UI_TileRefDetailsController,"When the active player STARTS their turn on this tile not only do they move normally but they can also move other players to a total equal to their move, i.e. if they scored a move of three then they can move another player three spaces, two players one and two spaces respectively, or three players a single space each."
 UI_TileRefDetailsDoubler,When the active player STARTS their turn on this tile whatever they score is doubled and the player moves that amount of spaces.
