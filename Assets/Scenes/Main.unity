@@ -799,6 +799,7 @@ MonoBehaviour:
   tileDetailsTitle: {fileID: 1639035599}
   tileDetailsBody: {fileID: 596117162}
   tileDetailsIcon: {fileID: 207379421}
+  tileDetailsScrollRect: {fileID: 0}
 --- !u!1 &21610357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,12 +1265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f2854f42d61ae41a60dcefe56b6105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  welcomeScreen: {fileID: 2060158030}
-  mainScreen: {fileID: 1952977825}
-  tapText: {fileID: 401743483}
-  dontShowAgain: {fileID: 2076054492}
-  url: https://sites.google.com/errgame.com
-  textPanel: {fileID: 89112323}
 --- !u!1 &41248540
 GameObject:
   m_ObjectHideFlags: 0
@@ -9543,7 +9538,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6401784115292237074, guid: 542d306f942e84506a4d23eb63a25e94,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 2ea969c68e07c004c9459a4812175e60, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6963eaefcf29b6641af77f71cdd31368, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -11807,7 +11802,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6553691015096723952, guid: 542d306f942e84506a4d23eb63a25e94,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 3ee1e6267dcd002449e5f0083c212a32, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9064d2cc50813f049a7529d85cbed1d6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -12283,6 +12278,7 @@ MonoBehaviour:
   tileDetailsTitle: {fileID: 1639035599}
   tileDetailsBody: {fileID: 596117162}
   tileDetailsIcon: {fileID: 207379421}
+  tileDetailsScrollRect: {fileID: 0}
 --- !u!114 &316396090 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8433514908437026214, guid: 93f446bdb42784ce5991f739b47cfdb9,
@@ -12656,7 +12652,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6401784115292237074, guid: 542d306f942e84506a4d23eb63a25e94,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 9bab945b5f3864f4288af36688929235, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 209d7733e680efa409909691fc9ae6d0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -12784,7 +12780,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6401784115292237074, guid: 542d306f942e84506a4d23eb63a25e94,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 825cd8f94652239469de5f59654e8968, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e9d0dbaad57e46d42bd0ad1123b93d35, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -17189,7 +17185,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6401784115292237074, guid: 542d306f942e84506a4d23eb63a25e94,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: a52db63ad1fe3084286b5b9671c96cbc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1e30355bc9eeeb2408687eb360c307da, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -18200,6 +18196,7 @@ MonoBehaviour:
   tileDetailsTitle: {fileID: 1639035599}
   tileDetailsBody: {fileID: 596117162}
   tileDetailsIcon: {fileID: 207379421}
+  tileDetailsScrollRect: {fileID: 0}
 --- !u!1 &593716750
 GameObject:
   m_ObjectHideFlags: 0
@@ -18804,10 +18801,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61767881e0889247a142bd998e16684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instructions: {fileID: 768333067}
-  playerSelect: {fileID: 1273878655}
-  cardSetSelect: {fileID: 907057264}
-  startGame: {fileID: 1302582513}
 --- !u!1 &637795216
 GameObject:
   m_ObjectHideFlags: 0
@@ -19211,6 +19204,7 @@ MonoBehaviour:
   tileDetailsTitle: {fileID: 1639035599}
   tileDetailsBody: {fileID: 596117162}
   tileDetailsIcon: {fileID: 207379421}
+  tileDetailsScrollRect: {fileID: 0}
 --- !u!1 &650856186
 GameObject:
   m_ObjectHideFlags: 0
@@ -20678,6 +20672,7 @@ MonoBehaviour:
   tileDetailsTitle: {fileID: 0}
   tileDetailsBody: {fileID: 0}
   tileDetailsIcon: {fileID: 0}
+  tileDetailsScrollRect: {fileID: 0}
 --- !u!1 &738385922
 GameObject:
   m_ObjectHideFlags: 0
@@ -35258,6 +35253,7 @@ MonoBehaviour:
   tileDetailsTitle: {fileID: 1639035599}
   tileDetailsBody: {fileID: 596117162}
   tileDetailsIcon: {fileID: 207379421}
+  tileDetailsScrollRect: {fileID: 0}
 --- !u!1 &1010403125
 GameObject:
   m_ObjectHideFlags: 0
@@ -40672,44 +40668,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c155b2dd70f3917438ab0e02e7e0b29b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1331261501}
-  toggleTransition: 1
-  graphic: {fileID: 1454749956}
-  m_Group: {fileID: 0}
-  onValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_IsOn: 0
-  helpToggle: {fileID: 1802780201}
-  keyTitle: CS_TestB_Title
-  keyDetails: CS_TestC_Desc
 --- !u!114 &1331261500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47151,8 +47109,8 @@ GameObject:
   - component: {fileID: 1407768781}
   - component: {fileID: 1407768780}
   - component: {fileID: 1407768785}
-  - component: {fileID: 1407768786}
   - component: {fileID: 1407768787}
+  - component: {fileID: 1407768786}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -47307,11 +47265,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1407768779}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d01fba31d368b94c9601dee74069993, type: 3}
+  m_Script: {fileID: 11500000, guid: 601a8634c299b0141b930ac9b0b781b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicMain: {fileID: 291588066}
-  musicQuestion: {fileID: 1905642442}
+  musicMain: {fileID: 0}
+  musicQuestion: {fileID: 0}
 --- !u!1001 &1408263464
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53171,44 +53129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c155b2dd70f3917438ab0e02e7e0b29b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1445735196}
-  toggleTransition: 1
-  graphic: {fileID: 1714356874}
-  m_Group: {fileID: 0}
-  onValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_IsOn: 0
-  helpToggle: {fileID: 1802780201}
-  keyTitle: CS_TestA_Title
-  keyDetails: CS_TestA_Desc
 --- !u!114 &1445735195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58105,7 +58025,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6401784115292237074, guid: 542d306f942e84506a4d23eb63a25e94,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 9dbaecd43145c6b4ba3c580cbbe1d1f6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5fb8bb62f2cb61d4bab5295d09946b48, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -58678,44 +58598,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c155b2dd70f3917438ab0e02e7e0b29b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1714255596}
-  toggleTransition: 1
-  graphic: {fileID: 764772062}
-  m_Group: {fileID: 0}
-  onValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_IsOn: 0
-  helpToggle: {fileID: 1802780201}
-  keyTitle: CS_TestC_Title
-  keyDetails: CS_TestC_Desc
 --- !u!114 &1714255595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60128,7 +60010,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6401784115292237074, guid: 542d306f942e84506a4d23eb63a25e94,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 35d0785589d7a5e43b0dc01b38dec54a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b93207eb366d08740932ee7fe75a322d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -60868,9 +60750,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad312de6d949e044975d77933d8b6d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyTitle: {fileID: 2106125069}
-  keyDetails: {fileID: 1965402762}
-  helpImage: {fileID: 1346265709}
 --- !u!114 &1802780204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63034,7 +62913,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4745483843756482516, guid: 542d306f942e84506a4d23eb63a25e94,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: b3a0cc6d95cd9dd4d8db3060b80f3a53, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 41678ffbad149bc458b43e79a3af95cf, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -65689,6 +65568,7 @@ MonoBehaviour:
   tileDetailsTitle: {fileID: 1639035599}
   tileDetailsBody: {fileID: 596117162}
   tileDetailsIcon: {fileID: 207379421}
+  tileDetailsScrollRect: {fileID: 0}
 --- !u!114 &1975078775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67617,6 +67497,7 @@ MonoBehaviour:
   tileDetailsTitle: {fileID: 1639035599}
   tileDetailsBody: {fileID: 596117162}
   tileDetailsIcon: {fileID: 207379421}
+  tileDetailsScrollRect: {fileID: 0}
 --- !u!1 &2069405486
 GameObject:
   m_ObjectHideFlags: 0
@@ -68110,44 +67991,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c155b2dd70f3917438ab0e02e7e0b29b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 2083699351}
-  toggleTransition: 1
-  graphic: {fileID: 467613773}
-  m_Group: {fileID: 0}
-  onValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_IsOn: 0
-  helpToggle: {fileID: 1802780201}
-  keyTitle: CS_Starter_Title
-  keyDetails: CS_Starter_Desc
 --- !u!114 &2083699351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68306,6 +68149,7 @@ MonoBehaviour:
   tileDetailsTitle: {fileID: 1639035599}
   tileDetailsBody: {fileID: 596117162}
   tileDetailsIcon: {fileID: 207379421}
+  tileDetailsScrollRect: {fileID: 0}
 --- !u!1 &2091668090
 GameObject:
   m_ObjectHideFlags: 0
