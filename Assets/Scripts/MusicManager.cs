@@ -23,6 +23,7 @@ public static class AudioFade
             //Debug.Log("Music Vol: " + audioSource.volume.ToString());
             float deltaTime = (Time.time - startTime) / fadeTime;
             audioSource.volume = Mathf.SmoothStep(1.0f, 0.0f, deltaTime);
+            Debug.Log("Music Vol: " + audioSource.volume.ToString());
 
             yield return null;
         }

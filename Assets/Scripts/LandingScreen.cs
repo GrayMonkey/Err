@@ -64,6 +64,5 @@ public class LandingScreen : MonoBehaviour
 
         canvasGroup.gameObject.SetActive(false);
         tapText.SetActive(true);
-        yield return null;
     }
 }

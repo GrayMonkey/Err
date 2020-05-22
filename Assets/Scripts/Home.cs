@@ -39,7 +39,7 @@ public class Home : MonoBehaviour
         cardSetBtnText.text = "0";
         playerBtnImage.color = select;
         playerBtnText.text = "0";
-        playerSelect.interactable = false;
+        //playerSelect.interactable = false;
 
         instructions.text = LocManager.locManager.GetLocText("UI_CardSetSelect");
 
