@@ -79,7 +79,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     private void Update()
     {
-        // Close menu if this player has the menu open
+/*        // Close menu if this player has the menu open
         // TODO: Find a better way of handling this rather than through update
         if (playerSelector.selectedPlayer != this)
         {
@@ -90,7 +90,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 animator.enabled = false;
             }
         }
-    }
+*/    }
 
     #region Player handling
 
