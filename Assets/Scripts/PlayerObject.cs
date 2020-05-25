@@ -13,6 +13,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public Player refPlayer;
 
     [SerializeField] private Text playerName;
+    [SerializeField] private Text playerID;
     [SerializeField] private InputField nameInputField;
     [SerializeField] private Image buttonImage;
     [SerializeField] private Button trashPlayer;
@@ -55,7 +56,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     private void Awake()
     {
         uiMenus = MenuHandler.uiMenus;
-        helpButton = uiMenus.helpButton;
+        //helpButton = uiMenus.helpButton;
         playerSelector = PlayerSelector.playerSelector;
         playerController = PlayerController.playerController;
         playerRosterSelect = PlayerRosterSelect.playerRosterSelect;
@@ -65,6 +66,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         refPlayer = playerController.activePlayer;
         playerName.text = refPlayer.playerName;
+        playerID.text = refPlayer.playerID;
         dummyPlayer = playerSelector.dummyPlayer;
         dialogDeletePlayer = ModalDialog.Instance();
 
@@ -77,6 +79,8 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     private void Update()
     {
+        // Close menu if this player has the menu open
+        // TODO: Find a better way of handling this rather than through update
         if (playerSelector.selectedPlayer != this)
         {
             ShowMenu(false);
@@ -155,8 +159,20 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         // in the PlayersPanel group
         string playerName = refPlayer.playerName;
         dummyPlayer.SetActive(true);
-        Text dummyName = dummyPlayer.GetComponentInChildren<Text>();
-        dummyName.text = playerName;
+        Text[] dummyNames = dummyPlayer.GetComponentsInChildren<Text>();
+        foreach (Text _text in dummyNames)
+        {
+            if (_text.text.Length == 2)
+            {
+                _text.text = refPlayer.playerID;
+            }
+            else
+            {
+                _text.text = refPlayer.playerName;
+            }
+        }
+
+        Debug.Log("Dragging: " + refPlayer.playerName);
      }
 
     public void OnDrag(PointerEventData eventData)
@@ -176,6 +192,8 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         RectTransform rect = GetComponentInParent<RectTransform>();
         LayoutRebuilder.MarkLayoutForRebuild(rect);
         playerSelector.UpdatePlayerList();
+
+        Debug.Log("Dropped: " + refPlayer.playerName);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -208,6 +226,8 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
+        Debug.Log("Collision: " + refPlayer.playerName + ">" + collider.name);
+
         if (playerSelector.playerDragged != gameObject)
         {
             // Change the SiblingIndex in the heirarchy to make space

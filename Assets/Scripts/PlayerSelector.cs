@@ -82,6 +82,7 @@ public class PlayerSelector : MonoBehaviour
     {
         playerController.activePlayer = player;
         GameObject newPlayerButton = Instantiate(playerObject, playersPanelContent.transform);
+        newPlayerButton.SetActive(true);
         newPlayerButton.GetComponent<PlayerObject>().refPlayer = player;
         if (!playersActive.Contains(player)) { playersActive.Add(player); }
     }

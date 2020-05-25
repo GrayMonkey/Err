@@ -10,6 +10,7 @@ using UnityEngine;
 public class Player //: MonoBehaviour
 {
     public string playerName;
+    public string playerID;
     public List<CardSet> cardSets = new List<CardSet>();
     public SystemLanguage language;
     public int questionsThisGame = 0;

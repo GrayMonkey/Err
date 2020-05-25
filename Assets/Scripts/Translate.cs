@@ -15,7 +15,7 @@ public class Translate : MonoBehaviour
         key = text.text;
         if (key == "")
         {
-            Debug.Log("No text component found for:" + gameObject.name);
+            Debug.Log("No text component found for: " + gameObject.name);
         }
     }
 

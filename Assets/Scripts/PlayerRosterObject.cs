@@ -9,6 +9,7 @@ public class PlayerRosterObject : MonoBehaviour
     public Player refPlayer;
 
     [SerializeField] private Text playerName;
+    [SerializeField] private Text playerID;
 
     PlayerController playerController;
     PlayerRosterSelect playerRosterSelect;
@@ -24,6 +25,7 @@ public class PlayerRosterObject : MonoBehaviour
     {
         refPlayer = _player;
         playerName.text = refPlayer.playerName;
+        playerID.text = refPlayer.playerID;
     }
 
     public void AddPlayerToGame()

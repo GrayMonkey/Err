@@ -65,6 +65,23 @@ public class PlayerController : MonoBehaviour
         newPlayer.language = locManager.GameLang;
         newPlayer.cardSets = gameManager.defaultCardSets;
 
+        // Define the player ID using the first two characters or the first character
+        // of each word if a space is in the name
+        string _id;
+        int _index;
+        if (newPlayerName.Contains(" "))
+        {
+            _index = newPlayerName.IndexOf(" ") + 1;
+            _id = newPlayerName.Substring(0, 1) +
+                newPlayerName.Substring(_index, 1);
+        }
+        else
+        {
+            _id = newPlayerName.Substring(0, 2);
+        }
+
+        newPlayer.playerID = _id;
+
         //playersActive.Add(newPlayer);
         activePlayer = newPlayer;
         return activePlayer;
@@ -290,6 +307,7 @@ public class PlayerController : MonoBehaviour
 class PlayerData
 {
     public string playerName;
+    public string playerID;
     public SystemLanguage language;
     public int gamesTotal;
     public int gamesWon;
