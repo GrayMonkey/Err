@@ -6,11 +6,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Menu = MenuHandler.MenuOverlay;
+using UnityEngine.Events;
+using System;
 
 public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler 
 {
     // Main PlayerObject variables
     public Player refPlayer;
+    public bool subMenuOpen = false;
 
     [SerializeField] private Text playerName;
     [SerializeField] private Text playerID;
@@ -21,6 +24,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [SerializeField] private Sprite btnReturn;
     [SerializeField] private Sprite btnTrash;
     [SerializeField] private Sprite btnCancel;
+    [SerializeField] private RectTransform backPanel;
 
     GameObject dummyPlayer; // to mimic the playerDragged object
     GameObject helpButton;
@@ -36,6 +40,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     Vector2 dragSize = new Vector2(350.0f, 20.0f);
     float lastTap = 0f;
     float delayTap = 0.25f;
+    float startTime;
     bool uniqueName;
     Color darkGreen = new Color(0.0f, 0.9f, 0.0f);
     Color hilightGreen = new Color(0.7f, 1.0f,0.4f);
@@ -81,7 +86,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
 /*        // Close menu if this player has the menu open
         // TODO: Find a better way of handling this rather than through update
-        if (playerSelector.selectedPlayer != this)
+        if (playerSelector.selectedPlayer != this && animator.GetBool("openMenu"))
         {
             ShowMenu(false);
             AnimatorClipInfo[] animatorClips = this.animator.GetCurrentAnimatorClipInfo(0);
@@ -90,7 +95,16 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 animator.enabled = false;
             }
         }
-*/    }
+*/    
+/*    if(subMenuOpen && backPanel.sizeDelta.y < 170.0f)
+        {
+            float timeDelta = (Time.time - startTime) / 0.25f;
+            float deltaY = Mathf.SmoothStep(100.0f, 170.0f, timeDelta);
+            backPanel.sizeDelta = new Vector2(backPanel.sizeDelta.x, deltaY);
+            Debug.Log("Expanding button through Update");
+        }*/
+    
+    }
 
     #region Player handling
 
@@ -106,7 +120,8 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         // Only need to do this if the input field is active fixes
         // bug whereby this function is called when endEdit is true
-        if (!nameInputField.IsActive()) { return; }
+        if (!nameInputField.IsActive()) 
+            return;
 
         string newName = nameInputField.text;
         bool goodName = playerController.UniqueNameCheck(newName, refPlayer);
@@ -117,18 +132,31 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         if (goodName)
         {
             buttonImage.color = hilightGreen;
+
+            // Set the new ID tag
+            playerID.fontStyle = FontStyle.BoldAndItalic;
+            int length = Math.Min(newName.Length, 2);           // In case the name only has one character
+            playerID.text = newName.Substring(0, length);
+
+            if (newName.Contains(" "))
+            {
+                int index = newName.IndexOf(" ") + 1;
+                playerID.text = newName.Substring(0, 1) + newName.Substring(index, 1);
+            }
         }
 
         if (endEdit)
         {
             nameInputField.gameObject.SetActive(false);
             playerName.gameObject.SetActive(true);
+            playerID.fontStyle = FontStyle.Bold;
             buttonImage.color = Color.white;
             nameInputField.text = "";
 
             if (goodName)
             {
                 refPlayer.playerName = newName;
+                refPlayer.playerID = playerID.text;
                 playerName.text = newName;
             }
         }
@@ -212,10 +240,11 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             {
                 return;
             }
+            Debug.Log("Editing player...");
             playerName.gameObject.SetActive(false);
+            nameInputField.text = playerName.text;
             nameInputField.gameObject.SetActive(true);
             nameInputField.Select();
-            nameInputField.text = playerName.text;
             lastTap = 0f;
         }
         else
@@ -243,7 +272,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     // Puts the focus on this button and then opens the menu
     public void GetFocus()
     {
-        if (playerSelector.selectedPlayer == this)
+/*        if (playerSelector.selectedPlayer == this)
         {
             ShowMenu(false);
             playerSelector.selectedPlayer = null;
@@ -260,7 +289,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 SubMenuActivate((int)SubMenu.CardSets);
             }
         }
-    }
+*/    }
 
     // Open the collapsed menu
     public void ShowMenu(bool open)
