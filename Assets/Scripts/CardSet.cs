@@ -10,14 +10,15 @@ public class CardSet : MonoBehaviour
     public Image cardSetIcon;
     //public GameObject cardSetLangs;
     public bool purchased;
+    public bool freePurchase;
     [SerializeField] string jsonFile;           // JSON file for reading data
 
-    [Header("Languages")]
-    public bool english;
-    public bool french;
-    public bool german;
-    public bool italian;
-    public bool spanish;
+    //    public bool english;
+    //    public bool french;
+    //    public bool german;
+    //    public bool italian;
+    //    public bool spanish;
+    public Langs langs;
 
     private List<Question> questionList;
     private Question activeQuestion;

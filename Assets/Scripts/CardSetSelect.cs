@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Xml;
+using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CardSetSelect : MonoBehaviour
 {
-    [SerializeField] List<GameObject> allCardSets = default;
+    [SerializeField] List<CardSet> allCardSets = default;
     [SerializeField] Toggle[] langFlags = default;
     [SerializeField] GameObject btnShopCardsets = default;
     [SerializeField] GameObject btnGameCardsets = default;
     [SerializeField] Sprite btnOK = default;
+    [SerializeField] GameObject freePurchaseScreen;
     [SerializeField] GameObject csGame = default;
     [SerializeField] GameObject csShop = default;
     [SerializeField] Text labelGameShop = default;
@@ -17,10 +22,11 @@ public class CardSetSelect : MonoBehaviour
     private GameManager gameManager;
     private Player refPlayer;
     private List<CardSet> selectedCardSets = new List<CardSet>();
-    private List<string> activeLanguages = new List<string>();
     private CardSetManager csManager;
     private LocManager locManager;
     private ModalDialog dialogNoLangs;
+    private bool showFreeCardsetMessage = true;
+    private Langs activeLangs = new Langs();
 
     private void Awake()
     {
@@ -29,42 +35,107 @@ public class CardSetSelect : MonoBehaviour
         locManager = LocManager.locManager;
         dialogNoLangs = ModalDialog.Instance();
 
-        activeLanguages.Add(locManager.GameLang.ToString());
+        // Add the system language to the active languages
+        // If the system language isn't supported then default to English
+        switch (locManager.GameLang)
+        {
+            case SystemLanguage.French:
+                activeLangs.french = true;
+                break;
+            case SystemLanguage.German:
+                activeLangs.german = true;
+                break;
+            case SystemLanguage.Italian:
+                activeLangs.italian = true;
+                break;
+            case SystemLanguage.Spanish:
+                activeLangs.spanish = true;
+                break;
+            default:
+                activeLangs.english = true;
+                break;
+        }
     }
 
     private void OnEnable()
     {
-        InitialiseLangFlags();
+        SetLangFlags();
         SortCardSets();
     }
 
-    private void InitialiseLangFlags()
+    private void SetLangFlags()
     {
         foreach (Toggle flag in langFlags)
         {
-            if (activeLanguages.Contains(flag.name))
-                flag.isOn = true;
-            else
-                flag.isOn = false;
+            switch (flag.name)
+            {
+                case "French":
+                    flag.isOn = activeLangs.french;
+                    break;
+                case "German":
+                    flag.isOn = activeLangs.german;
+                    break;
+                case "Italian":
+                    flag.isOn = activeLangs.italian;
+                    break;
+                case "Spanish":
+                    flag.isOn = activeLangs.spanish;
+                    break;
+                default:
+                    flag.isOn = activeLangs.english;
+                    break;
+            }
         }
     }
 
     public void SortCardSets()
     {
-        foreach (GameObject cardSet in allCardSets)
+        List<CardSet> filteredCardSets = new List<CardSet>();
+        bool freeCardSet = true;
+
+        // Turn off CardSets that aren't relevant for the selected languages
+        foreach (CardSet cardset in allCardSets)
         {
-            if (cardSet.GetComponent<CardSet>().purchased)
+            cardset.gameObject.SetActive(false);
+
+            if (cardset.langs.english && activeLangs.english ||
+                cardset.langs.french && activeLangs.french ||
+                cardset.langs.german && activeLangs.german ||
+                cardset.langs.italian && activeLangs.italian ||
+                cardset.langs.spanish && activeLangs.spanish)
             {
-                cardSet.transform.SetParent(csGame.transform);
-            }
-            else
-            {
-                cardSet.transform.SetParent(csShop.transform);
+                cardset.gameObject.SetActive(true);
+                filteredCardSets.Add(cardset);
+
+                // Sort the cardset in to the correct store
+                cardset.transform.SetParent(csShop.transform);
+
+                if (cardset.purchased)
+                {
+                    cardset.transform.SetParent(csGame.transform);
+                    freeCardSet = false;
+                }
             }
         }
-        ShowShop(false);
-    }
 
+        // Only allow Free Purchase cardsets if no cardsets have been purchased
+        if (freeCardSet)
+        {
+            foreach (CardSet freecardset in filteredCardSets)
+            {
+                if (!freecardset.freePurchase)
+                    freecardset.gameObject.SetActive(false);
+            }
+
+            if (showFreeCardsetMessage)
+            {
+                freePurchaseScreen.SetActive(true);
+                showFreeCardsetMessage = false;
+            }
+        }
+
+    }
+    
     public void ShowShop(bool showShop)
     {
         btnGameCardsets.SetActive(false);
@@ -101,79 +172,60 @@ public class CardSetSelect : MonoBehaviour
         }
     }
 
-    public void FilterLanguages()
+    public void LangToggle()
     {
-        //Check for any languages that are toggled on
-        List<string> newLangs = new List<string>();
+        // What was the country flag that was just toggled
+        Toggle lastFlag = EventSystem.current.currentSelectedGameObject.GetComponent<Toggle>();        
+
+        // Set languages according to the flag toggle and also check that at least one language is selected
+        bool noLang = true;
+        Langs newLangs = new Langs();
 
         foreach (Toggle flag in langFlags)
         {
             if (flag.isOn)
-                newLangs.Add(flag.name);
-        }
+                noLang = false;
 
-        //If newLangs is empty send player message and quit
-        if (newLangs.Count == 0)
-        {
-            ShowDialog();
-            return;
-        }
-
-        //If newLangs is not empty then filter cardsets
-        foreach (GameObject cardSet in allCardSets)
-        {
-            cardSet.SetActive(false);
-
-            foreach (string lang in newLangs)
+            switch (flag.name)
             {
-                switch (lang)
-                {
-                    case "English":
-                        if (cardSet.GetComponent<CardSet>().english)
-                            cardSet.SetActive(true);
-                        break;
-
-                    case "French":
-                        if (cardSet.GetComponent<CardSet>().french)
-                            cardSet.SetActive(true);
-                        break;
-
-                    case "German":
-                        if (cardSet.GetComponent<CardSet>().german)
-                            cardSet.SetActive(true);
-                        break;
-
-                    case "Italian":
-                        if (cardSet.GetComponent<CardSet>().italian)
-                            cardSet.SetActive(true);
-                        break;
-
-                    case "Spanish":
-                        if (cardSet.GetComponent<CardSet>().spanish)
-                            cardSet.SetActive(true);
-                        break;
-
-                    case "default":
-                        break;
-
-                }
+                case "English":
+                    newLangs.english = flag.isOn;
+                    break;
+                case "French":
+                    newLangs.french = flag.isOn;
+                    break;
+                case "German":
+                    newLangs.german = flag.isOn;
+                    break;
+                case "Italian":
+                    newLangs.italian = flag.isOn;
+                    break;
+                case "Spanish":
+                    newLangs.spanish = flag.isOn;
+                    break;
+                default:
+                    break;
             }
         }
 
+        if (noLang)
+        {
+            SetLangFlags();
+            return;
+        }
 
-        // Update activeLanguages
-        // activeLanguages.Clear();
-        activeLanguages = newLangs;
+        activeLangs = newLangs;
+        SortCardSets();
     }
 
     public void SetCardSets(Player player)
     {
         List<CardSet> newCardSets = new List<CardSet>();
 
-        foreach (GameObject cardSet in allCardSets)
+        foreach (CardSet cardSet in allCardSets)
         {
             if (cardSet.GetComponent<Toggle>().isOn)
-                newCardSets.Add(cardSet.GetComponent<CardSet>());
+                newCardSets.Add(cardSet);
         }
 
         // Set the CardSet if refPlayer is set and then reset refPlayer
@@ -190,40 +242,6 @@ public class CardSetSelect : MonoBehaviour
         }
 
         refPlayer = null;
-    }
-
-    private void ShowDialog()
-    {
-        ModalDialogDetails details = new ModalDialogDetails();
-        ButtonDetails button1 = new ButtonDetails
-        {
-            icon = btnOK,
-            action = CloseDialog
-        };
-
-        details.button1Details = null;
-        details.title = locManager.GetLocText("str_DialogTitleWarning");
-        details.body = locManager.GetLocText("str_DialogNoLanguage");
-
-        dialogNoLangs.Show(details);
-    }
-
-    private void CloseDialog()
-    {
-        // Reset the flags and use the existing activeLanguages
-        foreach (string langName in activeLanguages)
-        {
-            foreach (Toggle langFlag in langFlags)
-            {
-                if (langFlag.transform.parent.name == langName)
-                {
-                    langFlag.isOn = true;
-                }
-            }
-        }
-
-        // Close the dialog box
-        dialogNoLangs.CloseDialog();
     }
 
     // The Confirm button has two different roles depending on

@@ -18,6 +18,7 @@ str_BtnDetailsHome,Go to the Home/Start screen.
 str_BtnDetailsInstructions,Show instructions on how to play the game and use the app.
 str_BtnDetailsLanguage,Select the chosen language for the player
 str_BtnDetailsLoadPlayer,Load previously saved player information.
+str_BtnDetailsMore,Additional options for the player.
 str_BtnDetailsNext,Progress to the next screen.
 str_BtnDetailsNextPage,Go to the next page of information.
 str_BtnDetailsNextPlayer,Pass play to the next player.
@@ -44,6 +45,7 @@ str_BtnHelpHome,Home
 str_BtnHelpInstructions,Instructions
 str_BtnHelpLanguage,Language
 str_BtnHelpLoadPlayer,Load Player
+str_BtnHelpMore,More
 str_BtnHelpNext,Next
 str_BtnHelpNextPage,Next Page
 str_BtnHelpNextPlayer,Next Player
@@ -69,8 +71,10 @@ str_DialogNoLanguage,At least one language must be selected!
 str_DialogPlayerDelete,This action will delete all of the data for\n\n%%PlayerName\n\nAre you sure you want to continue?
 str_DialogTitleWarning,WARNING!
 str_DoNotShowAgain,Do not show this screen again...
+str_FreePurchase,Free Cardset!
+str_FreePurchaseBody,To start you on your Err... journey select a free Starter CardSet in your preferred language.
 str_from,from 
-str_NoPlayerData,No player data is available!
+str_NoPlayerData,No previous player data is available!\n\nAdd a player with the Add Player button below.
 str_Player,Player
 str_PlayerCount,Player Count
 str_PlayerLanguage,Select player language...
@@ -82,7 +86,7 @@ str_SelectPlayer,Select player...
 str_SplashText,A game of definition and meaning!
 str_TaptoContinue,Tap to continue...
 str_WelcomeBody1,Thank you for purchasing Err... The incredible word game of meanings and strategy.\n\n If you are not in possession of the board game tiles click on the button below...
-str_WelcomeBody2,"If at any time it is unclear how to use this app then press and hold a button for some contextual help. Access the Options menu for further details on how the game, tiles and app plays."
+str_WelcomeBody2,"If at any time it is unclear how to use this app then press and hold a button for some contextual help.  Further instructions on game play, tile information and the app are available from the options menu."
 str_WelcomeTitle,Welcome to Err...
 UI_60s,60s
 UI_AddPlayer,Add Player...
@@ -129,7 +133,7 @@ UI_NoPlayersText,No players have been added to the player list. \n\n Do you wish
 UI_Off,Off
 UI_Options,Options
 UI_Pass,Pass
-UI_Players,Player List
+UI_Players,Select Players
 UI_QuitGameText,A game is currently in progress.\n\nReturning Home will quit the current game and remove all current game data and scores for each active player!\n\nDo you wish to return to the Home screen or return to the game?
 UI_RandomOrder,Random player turns
 UI_RefTitle,Reference...

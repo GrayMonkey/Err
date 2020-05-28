@@ -7,7 +7,7 @@ public class LocManager : MonoBehaviour
 {
     public static LocManager locManager;
     public List<LocTextData> locText = new List<LocTextData>();
-
+   
     private SystemLanguage gameLang;
     private Translate[] trans;
 
@@ -96,4 +96,13 @@ public class LocManager : MonoBehaviour
             return returnString;
         }
     }
+}
+[System.Serializable]
+public class Langs
+{
+    public bool english;
+    public bool french;
+    public bool german;
+    public bool italian;
+    public bool spanish;
 }

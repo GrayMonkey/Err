@@ -36,9 +36,9 @@ public class Home : MonoBehaviour
         bool cardsets = false;
         startGame.interactable = false;
         cardSetBtnImage.color = select;
-        cardSetBtnText.text = "0";
+        cardSetBtnText.text = gameManager.defaultCardSets.Count.ToString();
         playerBtnImage.color = select;
-        playerBtnText.text = "0";
+        playerBtnText.text = playerController.playersActive.Count.ToString();
         //playerSelect.interactable = false;
 
         instructions.text = LocManager.locManager.GetLocText("UI_CardSetSelect");
@@ -46,16 +46,15 @@ public class Home : MonoBehaviour
         if (gameManager.defaultCardSets.Count > 0)
         {
             cardSetBtnImage.color = proceed;
-            cardSetBtnText.text = gameManager.defaultCardSets.Count.ToString();
             cardsets = true;
             instructions.text = LocManager.locManager.GetLocText("str_BtnHelpSelectPlayers");
             playerSelect.interactable = true;
         }
 
-        if (playerController.playersActive.Count > 0 && cardsets)
+        if (playerController.playersActive.Count > 1 && cardsets)
         {
-            if (playerController.playersActive.Count > 1) playerBtnImage.color = proceed;
-            playerBtnText.text = playerController.playersActive.Count.ToString();
+            if (playerController.playersActive.Count > 1) 
+                playerBtnImage.color = proceed;
             players = true;
         }
 
