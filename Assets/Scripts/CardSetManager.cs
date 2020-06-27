@@ -7,9 +7,8 @@ using UnityEngine;
 public class CardSetManager : MonoBehaviour
 {
     public static CardSetManager csManager;
-
-    [SerializeField] List<GameObject> allCardSets;
-    List<CardSet> activeCardsets;
+    public List<CardSet> allCardSets = new List<CardSet>();
+    public List<CardSet> activeCardsets = new List<CardSet>();
 
     private void OnEnable()
     {

@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -222,6 +223,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -292,6 +294,7 @@ MonoBehaviour:
   helpButton: {fileID: 0}
   keyTitle: str_BtnHelpCardSet
   keyDetails: str_BtnDetailsCardSet
+  altImage: {fileID: 0}
 --- !u!1 &1178830235104542
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,6 +435,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.9, g: 0.9, b: 0.9, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -491,9 +495,9 @@ RectTransform:
   m_Father: {fileID: 224126615162392548}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -40, y: -40}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &222926037913392696
@@ -519,6 +523,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -589,6 +594,7 @@ MonoBehaviour:
   helpButton: {fileID: 0}
   keyTitle: str_BtnHelpCollapse
   keyDetails: str_BtnDetailsCollapse
+  altImage: {fileID: 0}
 --- !u!1 &1286319538786010
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,6 +656,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -720,6 +727,7 @@ MonoBehaviour:
   helpButton: {fileID: 0}
   keyTitle: str_BtnHelpRemovePLayer
   keyDetails: str_BtnDetailsRemovePlayer
+  altImage: {fileID: 0}
 --- !u!1 &1287933860019878
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,6 +788,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -858,6 +867,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -948,6 +958,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1040,6 +1051,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0.5}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1110,7 +1122,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -10, y: -10}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 80}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &114646438162454434
 MonoBehaviour:
@@ -1213,6 +1225,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1301,7 +1314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &224306437427831514
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1349,6 +1362,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1423,6 +1437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refPlayer:
     playerName: 
+    playerID: 
     cardSets: []
     language: 10
     questionsThisGame: 0
@@ -1433,7 +1448,13 @@ MonoBehaviour:
     questionsTotal: 0
     answersTotal: 0
     pointsTotal: 0
+  subMenuOpen: 0
   playerName: {fileID: 114812380304687114}
+  playerNameBG: {fileID: 0}
+  playerID: {fileID: 0}
+  playerIDBG: {fileID: 0}
+  playerIDOL: {fileID: 0}
+  moreButton: {fileID: 0}
   nameInputField: {fileID: 114004407856820268}
   buttonImage: {fileID: 114623882557494018}
   trashPlayer: {fileID: 6994947448286469208}
@@ -1444,6 +1465,7 @@ MonoBehaviour:
   btnReturn: {fileID: 21300000, guid: 052d12d639efb4e7b9b7213653f5671c, type: 3}
   btnTrash: {fileID: 21300000, guid: f9d404a337a33448a8fc9ec9cc5572f6, type: 3}
   btnCancel: {fileID: 21300000, guid: 5f89f1774c2a04619a9e1617f05e6fff, type: 3}
+  activePlayerRectTransform: {fileID: 0}
   subMenuInfoText: {fileID: 114400553560489754}
   animator: {fileID: 95014455726782548}
   subMenuRect: {fileID: 114997356991742808}
@@ -1451,8 +1473,6 @@ MonoBehaviour:
   - {fileID: 1999412021571688}
   - {fileID: 1736282545476444}
   - {fileID: 1773258856417608}
-  removePlayer: {fileID: 114467990126800136}
-  deletePlayer: {fileID: 8759993193458931742}
 --- !u!95 &95014455726782548
 Animator:
   serializedVersion: 3
@@ -1532,6 +1552,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1612,6 +1633,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.8, g: 0.8, b: 0.8, a: 0}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1714,11 +1736,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f034633ec78e46edb855a3ff3c2ce94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allCardSets: []
   langFlags: []
   btnShopCardsets: {fileID: 0}
   btnGameCardsets: {fileID: 0}
   btnOK: {fileID: 0}
+  freePurchaseScreen: {fileID: 0}
   csGame: {fileID: 0}
   csShop: {fileID: 0}
   labelGameShop: {fileID: 0}
@@ -1875,6 +1897,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1945,6 +1968,7 @@ MonoBehaviour:
   helpButton: {fileID: 0}
   keyTitle: str_BtnHelpRoster
   keyDetails: str_BtnDetailsRoster
+  altImage: {fileID: 0}
 --- !u!1 &1999412021571688
 GameObject:
   m_ObjectHideFlags: 0
@@ -2098,6 +2122,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2225,6 +2250,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2305,6 +2331,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2386,6 +2413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refPlayer:
     playerName: 
+    playerID: 
     cardSets: []
     language: 0
     questionsThisGame: 0
@@ -2397,6 +2425,7 @@ MonoBehaviour:
     answersTotal: 0
     pointsTotal: 0
   playerName: {fileID: 3789400875633985124}
+  playerID: {fileID: 0}
 --- !u!1 &7597671591884640307
 GameObject:
   m_ObjectHideFlags: 0
@@ -2458,6 +2487,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

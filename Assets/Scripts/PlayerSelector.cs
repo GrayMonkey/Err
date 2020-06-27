@@ -18,13 +18,15 @@ public class PlayerSelector : MonoBehaviour
     public int newPlayerCount = 0;
     public bool loadPlayerActive = false;
     public PlayerObject selectedPlayer;
+    public GameObject playersActiveContent;
 
     [SerializeField] GameObject homeObject;
-    [SerializeField] GameObject playersPanelContent;
+    [SerializeField] GameObject playersRosterContent;
     [SerializeField] GameObject playerObject;
     [SerializeField] Text playerCountLabel;
     [SerializeField] Button addPlayer;
     [SerializeField] Button startGame;
+    [SerializeField] GameObject noActivePlayers;
 
     PlayerController playerController;
     GameOptions gameOptions;
@@ -45,6 +47,21 @@ public class PlayerSelector : MonoBehaviour
         gameOptions = GameOptions.gameOptions;
         uiMenus = MenuHandler.uiMenus;
         updateCount = LocManager.locManager.GetLocText("str_PlayerCount");
+        CheckPlayerLists();
+    }
+
+    private void CheckPlayerLists()
+    {
+        // If players don't exist in the active players then display the no players text
+        noActivePlayers.SetActive(false);
+        if (playerController.playersActive.Count == 0)
+            noActivePlayers.SetActive(true);
+
+        // If no players are in the player roster then don't show the player roster
+        GameObject playersRoster = playersRosterContent.transform.parent.gameObject;
+        playersRoster.SetActive(true);
+        if (playerController.playerRoster.Count == 0)
+            playersRoster.SetActive(false);
     }
 
     private void Update()
@@ -68,6 +85,17 @@ public class PlayerSelector : MonoBehaviour
         }
     }
 
+    public void ResizeActivePlayerHolderCollider()
+    {
+        // Resize the height of the Collider box to accomodate new players
+        RectTransform rect = playersActiveContent.GetComponent<RectTransform>();
+        BoxCollider2D collider2D = playersActiveContent.GetComponent<BoxCollider2D>();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
+        float height = rect.sizeDelta.y;
+        Vector2 size = new Vector2(rect.sizeDelta.x, height);
+        collider2D.size = size;
+    }
+
     // Add a new player object and activate a new button
     public void AddNewPlayer()
     {
@@ -75,25 +103,28 @@ public class PlayerSelector : MonoBehaviour
         Player newPlayer = playerController.AddNewPlayer();
         ActivatePlayerButton(newPlayer);
         selectedPlayer = null;
+        CheckPlayerLists();
+        ResizeActivePlayerHolderCollider();
     }
 
     // Activate a new player button object
     public void ActivatePlayerButton(Player player)
     {
         playerController.activePlayer = player;
-        GameObject newPlayerButton = Instantiate(playerObject, playersPanelContent.transform);
+        GameObject newPlayerButton = Instantiate(playerObject, playersActiveContent.transform);
         newPlayerButton.SetActive(true);
         newPlayerButton.GetComponent<PlayerObject>().refPlayer = player;
-        if (!playersActive.Contains(player)) { playersActive.Add(player); }
+        if (!playersActive.Contains(player))
+            playersActive.Add(player);
     }
 
     public void UpdatePlayerList()
     {
         playersActive.Clear();
 
-        for (int i = 0; i < playersPanelContent.transform.childCount; i++)
+        for (int i = 0; i < playersActiveContent.transform.childCount; i++)
         {
-            PlayerObject playerButton = playersPanelContent.transform.GetChild(i).gameObject.GetComponent<PlayerObject>();
+            PlayerObject playerButton = playersActiveContent.transform.GetChild(i).gameObject.GetComponent<PlayerObject>();
             if (playerButton != null)
             {
                 playerButton.AddToPlayerList();
@@ -103,10 +134,19 @@ public class PlayerSelector : MonoBehaviour
  
         // Deactivate the add player button if playersActive.count is 10
         addPlayer.interactable = true;
-        if (playersActive.Count == playersPanelContent.transform.childCount)
+        if (playersActive.Count == playersActiveContent.transform.childCount)
         {
             addPlayer.interactable = false;
         }
+
+        CheckPlayerLists();
+    }
+
+    public void AddPlayerFromRoster()
+    {
+        // If a player is clicked on and is in the roster then add them to the active players
+
+        CheckPlayerLists();
     }
 
     //public void ProceedWithPlayers()

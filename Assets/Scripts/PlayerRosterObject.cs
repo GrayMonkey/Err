@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class PlayerRosterObject : MonoBehaviour
 {
@@ -15,15 +16,20 @@ public class PlayerRosterObject : MonoBehaviour
     PlayerRosterSelect playerRosterSelect;
 
     // Use this for initialization
-    private void Start()
+    private void Awake()
     {
         playerController = PlayerController.playerController;
         playerRosterSelect = PlayerRosterSelect.playerRosterSelect;
     }
 
-    public void AttachPlayer(Player _player)
+    private void OnEnable()
     {
-        refPlayer = _player;
+        AttachPlayer(playerController.activePlayer);
+    }
+
+    public void AttachPlayer (Player _refPlayer)
+    {
+        refPlayer = playerController.activePlayer ;
         playerName.text = refPlayer.playerName;
         playerID.text = refPlayer.playerID;
     }

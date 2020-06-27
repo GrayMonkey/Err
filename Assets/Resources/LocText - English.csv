@@ -63,8 +63,8 @@ str_BtnHelpTile,Board tile description
 str_BtnHelpTrash,Delete
 str_BtnHelpWinner,Winner
 str_BuyTheGame,Buy the Game!
-str_CardSetsGame,CardSets available for
-str_CardSetsShop,CardSets available to purchase...
+str_CardSetsGame,Available CardSets
+str_CardSetsShop,CardSets for Purchase
 str_DefaultCardSet,Set Default CardSet?
 str_DefaultCardSetBody,Do you want you update all players to use this cardset selection?\n\nNote that individual cardsets can still be set for individual players from the Player Select screen.
 str_DialogNoLanguage,At least one language must be selected!
@@ -78,9 +78,12 @@ str_NoPlayerData,No previous player data is available!\n\nAdd a player with the 
 str_Player,Player
 str_PlayerCount,Player Count
 str_PlayerLanguage,Select player language...
+str_PlayersActive,Active Players
+str_PlayersActiveNone,No active players!
+str_PlayersRoster,Player Roster
+str_PlayersRosterNone,No saved players!
 str_Purchase,Buy additional CardSets!
 str_RemovePlayer,Remove player...
-str_SelectCardsets,Select CardSet(s)...
 str_SelectOption,Select option...
 str_SelectPlayer,Select player...
 str_SplashText,A game of definition and meaning!

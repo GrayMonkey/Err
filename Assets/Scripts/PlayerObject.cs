@@ -8,15 +8,22 @@ using UnityEngine.EventSystems;
 using Menu = MenuHandler.MenuOverlay;
 using UnityEngine.Events;
 using System;
+using JetBrains.Annotations;
 
 public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler 
 {
+    // TODO: Still some tidying up of this script, need to remove unneeded variables.
+    
     // Main PlayerObject variables
     public Player refPlayer;
     public bool subMenuOpen = false;
 
     [SerializeField] private Text playerName;
+    [SerializeField] private Image playerNameBG;
     [SerializeField] private Text playerID;
+    [SerializeField] private Image playerIDBG;
+    [SerializeField] private Image playerIDOL;
+    [SerializeField] private GameObject moreButton;
     [SerializeField] private InputField nameInputField;
     [SerializeField] private Image buttonImage;
     [SerializeField] private Button trashPlayer;
@@ -24,23 +31,19 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [SerializeField] private Sprite btnReturn;
     [SerializeField] private Sprite btnTrash;
     [SerializeField] private Sprite btnCancel;
-    [SerializeField] private RectTransform backPanel;
+    [SerializeField] private RectTransform activePlayerRectTransform;
 
-    GameObject dummyPlayer; // to mimic the playerDragged object
+    GameObject dummyPlayer; // to mimic the playerDragged object and also last in heirarchy so draws over other PlayerObjects
     GameObject helpButton;
     ModalDialog dialogDeletePlayer;
     PlayerRosterSelect playerRosterSelect;
     PlayerSelector playerSelector;
     PlayerController playerController;
-    PlayerObject hasSubMenuFocus;
     MenuHandler uiMenus;
-    RectTransform rectTransform;
-    Vector3 newPos;
-    Vector2 normSize = new Vector2(350.0f, 2.0f);
-    Vector2 dragSize = new Vector2(350.0f, 20.0f);
     float lastTap = 0f;
     float delayTap = 0.25f;
     float startTime;
+    float clickOffset;
     bool uniqueName;
     Color darkGreen = new Color(0.0f, 0.9f, 0.0f);
     Color hilightGreen = new Color(0.7f, 1.0f,0.4f);
@@ -73,37 +76,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         playerName.text = refPlayer.playerName;
         playerID.text = refPlayer.playerID;
         dummyPlayer = playerSelector.dummyPlayer;
-        dialogDeletePlayer = ModalDialog.Instance();
-
-        //Set up the ContextButton variables as this is a Prefab
-        foreach (ContextButton button in subMenuButtons)
-        {
-            button.helpButton = helpButton;
-        }
-   }
-
-    private void Update()
-    {
-/*        // Close menu if this player has the menu open
-        // TODO: Find a better way of handling this rather than through update
-        if (playerSelector.selectedPlayer != this && animator.GetBool("openMenu"))
-        {
-            ShowMenu(false);
-            AnimatorClipInfo[] animatorClips = this.animator.GetCurrentAnimatorClipInfo(0);
-            if (animatorClips.Length == 0)
-            {
-                animator.enabled = false;
-            }
-        }
-*/    
-/*    if(subMenuOpen && backPanel.sizeDelta.y < 170.0f)
-        {
-            float timeDelta = (Time.time - startTime) / 0.25f;
-            float deltaY = Mathf.SmoothStep(100.0f, 170.0f, timeDelta);
-            backPanel.sizeDelta = new Vector2(backPanel.sizeDelta.x, deltaY);
-            Debug.Log("Expanding button through Update");
-        }*/
-    
+        gameObject.name = refPlayer.playerName;
     }
 
     #region Player handling
@@ -180,48 +153,45 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         playerController.activePlayer = refPlayer;
         playerSelector.playerDragged = gameObject;
-        GetComponent<BoxCollider2D>().size = dragSize;
+        GetComponent<BoxCollider2D>().isTrigger = true;
 
-        // Set up the dummy player as this will draw over the
-        // playerDragged object and not be hidden by other objects
-        // in the PlayersPanel group
-        string playerName = refPlayer.playerName;
+        // Turn on the dummyplayer and set it to the position of the playerobject
         dummyPlayer.SetActive(true);
-        Text[] dummyNames = dummyPlayer.GetComponentsInChildren<Text>();
-        foreach (Text _text in dummyNames)
-        {
-            if (_text.text.Length == 2)
-            {
-                _text.text = refPlayer.playerID;
-            }
-            else
-            {
-                _text.text = refPlayer.playerName;
-            }
-        }
+        dummyPlayer.transform.localPosition = gameObject.transform.localPosition;
 
-        Debug.Log("Dragging: " + refPlayer.playerName);
-     }
+        // Set the delta between the the gameObejct position and the eventData position
+        Vector2 offset = new Vector2();
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(activePlayerRectTransform, eventData.position, null, out offset);
+        clickOffset = transform.localPosition.y - offset.y;
+        // Debug.Log("Dragging: " + refPlayer.playerName);
+        // Debug.Log("Offset: " + clickOffset.ToString());
+    }
 
     public void OnDrag(PointerEventData eventData)
     {
-        newPos = new Vector3(transform.position.x, eventData.position.y);
-        transform.position = newPos;
-        dummyPlayer.transform.position = newPos;
+        RectTransform thisRectTransform = this.GetComponent<RectTransform>();
+        Vector2 posNew = gameObject.transform.localPosition;
+        Vector2 posInputLocal = new Vector2();
+        Vector2 posInput = eventData.position;
+        Camera camInput = null; // eventData.pressEventCamera; // seems to work better with a null camera
+
+        // Set the lower limits of the player holder, upper limit will not change
+        // bottomLimit is plus the size of the current gameObject height
+        float topLimit = activePlayerRectTransform.sizeDelta.y / 2;
+        float bottomLimit = -topLimit+thisRectTransform.sizeDelta.y;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(activePlayerRectTransform, posInput, camInput, out posInputLocal);
+        posNew.y = Mathf.Clamp(posInputLocal.y+clickOffset, bottomLimit, topLimit);
+        thisRectTransform.localPosition = posNew;
+        dummyPlayer.transform.position = thisRectTransform.position;
+        //Debug.Log("Object.y: " + posNew.y + " | Upper/Lower: " + topLimit.ToString() + "," + bottomLimit.ToString());
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        GetComponent<BoxCollider2D>().size = normSize;
+        GetComponent<BoxCollider2D>().isTrigger = false;
         dummyPlayer.SetActive(false);
-
-        // Redraw the layout group immediately otherwise playerDragged
-        // is dropped where the player releases and looks unbalanced
-        RectTransform rect = GetComponentInParent<RectTransform>();
-        LayoutRebuilder.MarkLayoutForRebuild(rect);
         playerSelector.UpdatePlayerList();
-
-        Debug.Log("Dropped: " + refPlayer.playerName);
+//        Debug.Log("Dropped: " + refPlayer.playerName);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -236,7 +206,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         // Change players name
         if (lastTap + delayTap > Time.time)
         {
-            if(playerSelector.selectedPlayer != this)
+            if (playerSelector.selectedPlayer != this)
             {
                 return;
             }
@@ -253,18 +223,19 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D collider)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision: " + refPlayer.playerName + ">" + collider.name);
+        //Debug.Log("Collider: " + collision.gameObject.name + " | Trigger: " + gameObject.name);
 
-        if (playerSelector.playerDragged != gameObject)
+        // Change the SiblingIndex in the heirarchy to make space
+        // immediately visible for playerDragged
+        if (gameObject == playerSelector.playerDragged)
         {
-            // Change the SiblingIndex in the heirarchy to make space
-            // immediately visible for playerDragged
-            int colSibling = transform.GetSiblingIndex();
+            int colSibling = collision.transform.GetSiblingIndex();
             playerSelector.playerDragged.transform.SetSiblingIndex(colSibling);
         }
     }
+
     #endregion
 
     #region Menu functions
@@ -300,7 +271,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     // Set the active submenu
     public void SubMenuActivate (int subMenuID)
     {
-        playerController.activePlayer = refPlayer;
+/*        playerController.activePlayer = refPlayer;
 
         foreach (ContextButton button in subMenuButtons)
         {
@@ -354,7 +325,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 subMenuInfoText.text = locText;
                 break;
         }
-    }
+*/    }
 
     public void SetLanguage(int sysLang)
     {
@@ -396,13 +367,13 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         dialogDeletePlayer.Show(details);
     }
 
-    void CloseDialog()
+    private void CloseDialog()
     {
         dialogDeletePlayer.CloseDialog();
     }
 
     // Permanently deletes the player
-    void DeletePlayerData ()
+    private void DeletePlayerData ()
     {
         if(playerController.playerRoster.Contains(refPlayer))
             playerController.playerRoster.Remove(refPlayer);
@@ -416,6 +387,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         if (playerController.playersActive.Contains(refPlayer))
             playerController.playersActive.Remove(refPlayer);
         Destroy(gameObject);
+        playerSelector.ResizeActivePlayerHolderCollider();
     }
 
     IEnumerator SetScrollVPos (float vPos)

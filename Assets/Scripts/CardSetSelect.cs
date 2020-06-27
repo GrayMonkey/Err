@@ -9,7 +9,6 @@ using UnityEngine.UI;
 
 public class CardSetSelect : MonoBehaviour
 {
-    [SerializeField] List<CardSet> allCardSets = default;
     [SerializeField] Toggle[] langFlags = default;
     [SerializeField] GameObject btnShopCardsets = default;
     [SerializeField] GameObject btnGameCardsets = default;
@@ -21,10 +20,10 @@ public class CardSetSelect : MonoBehaviour
 
     private GameManager gameManager;
     private Player refPlayer;
-    private List<CardSet> selectedCardSets = new List<CardSet>();
+    private List<CardSet> activeCardSets = new List<CardSet>();
+    private List<CardSet> allCardSets = new List<CardSet>();
     private CardSetManager csManager;
     private LocManager locManager;
-    private ModalDialog dialogNoLangs;
     private bool showFreeCardsetMessage = true;
     private Langs activeLangs = new Langs();
 
@@ -33,7 +32,6 @@ public class CardSetSelect : MonoBehaviour
         gameManager = GameManager.gameManager;
         csManager = CardSetManager.csManager;
         locManager = LocManager.locManager;
-        dialogNoLangs = ModalDialog.Instance();
 
         // Add the system language to the active languages
         // If the system language isn't supported then default to English
@@ -56,9 +54,10 @@ public class CardSetSelect : MonoBehaviour
                 break;
         }
     }
-
+    
     private void OnEnable()
     {
+        allCardSets = csManager.allCardSets;
         SetLangFlags();
         SortCardSets();
     }
@@ -253,23 +252,23 @@ public class CardSetSelect : MonoBehaviour
         if (csGame.activeInHierarchy)
         {
             Toggle[] cardSets = csGame.GetComponentsInChildren<Toggle>();
-            selectedCardSets.Clear();
+            activeCardSets.Clear();
             foreach (Toggle cardSet in cardSets)
             {
                 if (cardSet.isOn && cardSet.gameObject.activeInHierarchy)
-                    selectedCardSets.Add(cardSet.GetComponent<CardSet>());
+                    activeCardSets.Add(cardSet.GetComponent<CardSet>());
             }
 
             // Set the default card set or player card set and return to 
             // the Home screen or player select...
             if (refPlayer == null)
             {
-                gameManager.defaultCardSets = selectedCardSets;
+                gameManager.defaultCardSets = activeCardSets;
                 gameManager.SetGameState(gameManager.gameState.home);
             }
             else
             {
-                refPlayer.cardSets = selectedCardSets;
+                refPlayer.cardSets = activeCardSets;
                 gameManager.SetGameState(gameManager.gameState.playerSelect);
             }
         }
@@ -287,9 +286,18 @@ public class CardSetSelect : MonoBehaviour
                     Debug.Log("Need to activate purchasing of cards!!!");
                     cardSet.GetComponent<CardSet>().purchased = true;
 
+                    // If there are no default cardsets then added the recently
+                    // purchase cardset as the default cardset
+                    
                 }
             }
             SortCardSets();
         }
+    }
+
+    public void CloseFreeCardSetScreen()
+    {
+        freePurchaseScreen.SetActive(false);
+        ShowShop(true);
     }
 }
