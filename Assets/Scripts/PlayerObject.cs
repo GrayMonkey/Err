@@ -10,10 +10,10 @@ using UnityEngine.Events;
 using System;
 using JetBrains.Annotations;
 
-public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler 
+public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
     // TODO: Still some tidying up of this script, need to remove unneeded variables.
-    
+
     // Main PlayerObject variables
     public Player refPlayer;
     public bool subMenuOpen = false;
@@ -21,9 +21,15 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [SerializeField] private Text playerName;
     [SerializeField] private Image playerNameBG;
     [SerializeField] private Text playerID;
+    [SerializeField] private Text dummyPlayerName;
+    [SerializeField] private Text dummyPlayerID;
     [SerializeField] private Image playerIDBG;
     [SerializeField] private Image playerIDOL;
+    [SerializeField] private GameObject dummyPlayer;
+    [SerializeField] private GameObject addRosterPlayerButton;
     [SerializeField] private GameObject moreButton;
+    [SerializeField] private GameObject activePlayerHolder;
+    [SerializeField] private GameObject rosterPlayerHolder;
     [SerializeField] private InputField nameInputField;
     [SerializeField] private Image buttonImage;
     [SerializeField] private Button trashPlayer;
@@ -31,12 +37,12 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [SerializeField] private Sprite btnReturn;
     [SerializeField] private Sprite btnTrash;
     [SerializeField] private Sprite btnCancel;
-    [SerializeField] private RectTransform activePlayerRectTransform;
 
-    GameObject dummyPlayer; // to mimic the playerDragged object and also last in heirarchy so draws over other PlayerObjects
-    GameObject helpButton;
+    //GameObject dummyPlayer; // to mimic the playerDragged object and also last in heirarchy so draws over other PlayerObjects
+    //GameObject helpButton;
+    RectTransform activePlayerRectTransform;
     ModalDialog dialogDeletePlayer;
-    PlayerRosterSelect playerRosterSelect;
+    //PlayerRosterSelect playerRosterSelect;
     PlayerSelector playerSelector;
     PlayerController playerController;
     MenuHandler uiMenus;
@@ -44,9 +50,10 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     float delayTap = 0.25f;
     float startTime;
     float clickOffset;
+    bool active = false;
     bool uniqueName;
     Color darkGreen = new Color(0.0f, 0.9f, 0.0f);
-    Color hilightGreen = new Color(0.7f, 1.0f,0.4f);
+    Color hilightGreen = new Color(0.7f, 1.0f, 0.4f);
     Color lightRed = new Color(1.0f, 0.35f, 0.35f);
     Color hilightRed = new Color(1.0f, 0.6f, 0.6f);
     Color normal = new Color(1.0f, 1.0f, 1.0f);
@@ -58,7 +65,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [SerializeField] Animator animator;
     [SerializeField] ScrollRect subMenuRect;
     [SerializeField] GameObject[] mnu_SubMenus;
- 
+
     enum SubMenu { PlayerRoster, CardSets, RemovePlayer };
 
     private void Awake()
@@ -67,33 +74,53 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         //helpButton = uiMenus.helpButton;
         playerSelector = PlayerSelector.playerSelector;
         playerController = PlayerController.playerController;
-        playerRosterSelect = PlayerRosterSelect.playerRosterSelect;
+        //playerRosterSelect = PlayerRosterSelect.playerRosterSelect;
+        activePlayerRectTransform = activePlayerHolder.GetComponent<RectTransform>();
     }
 
     private void Start()
     {
-        refPlayer = playerController.activePlayer;
-        playerName.text = refPlayer.playerName;
-        playerID.text = refPlayer.playerID;
-        dummyPlayer = playerSelector.dummyPlayer;
-        gameObject.name = refPlayer.playerName;
+        //refPlayer = playerController.activePlayer;
+        //playerName.text = refPlayer.playerName;
+        //playerID.text = refPlayer.playerID;
+        //dummyPlayer = playerSelector.dummyPlayer;
+        //gameObject.name = refPlayer.playerName;
+        //SetContextButton();
+    }
+
+    private void SetContextButton()
+    {
+        GameObject parent = gameObject.transform.parent.gameObject;
+        bool rosterPlayer = parent.name.Equals("Roster Player Holder");
+
+        addRosterPlayerButton.SetActive(rosterPlayer);
+        moreButton.SetActive(!rosterPlayer);
+        active = !rosterPlayer;
+    }
+
+    public void SetPlayer(Player player)
+    {
+        playerName.text = player.playerName;
+        playerID.text = player.playerID;
+        gameObject.name = player.playerName;
+        SetContextButton();
     }
 
     #region Player handling
 
-    public void AddToPlayerList()
-    {
-        if (this.gameObject.activeSelf)
-        {
-            playerController.playersActive.Add(refPlayer);
-        }
-    }
+    //public void AddToPlayerList()
+    //{
+    //    if (this.gameObject.activeSelf)
+    //    {
+    //        playerController.playersActive.Add(refPlayer);
+    //    }
+    //}
 
     public void UpdatePlayerName(bool endEdit)
     {
         // Only need to do this if the input field is active fixes
         // bug whereby this function is called when endEdit is true
-        if (!nameInputField.IsActive()) 
+        if (!nameInputField.IsActive() || active)
             return;
 
         string newName = nameInputField.text;
@@ -135,15 +162,24 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         }
     }
 
+    public void AddRosterPlayerToGame()
+    {
+        gameObject.transform.SetParent(activePlayerHolder.transform);
+        //gameObject.transform.parent = activePlayerHolder.transform;
+        //playerSelector.UpdatePlayerList();
+        SetContextButton();
+    }
+
     public void UpdateToRosterPlayer(Player rosterPlayer)
     {
-        int index = playerController.playersActive.IndexOf(refPlayer);
-        playerController.playersActive.Insert(index, rosterPlayer);
-        playerController.playersActive.Remove(refPlayer);
+        throw new NotImplementedException();
+        //int index = playerController.playersActive.IndexOf(refPlayer);
+        //playerController.playersActive.Insert(index, rosterPlayer);
+        //playerController.playersActive.Remove(refPlayer);
 
-        refPlayer = rosterPlayer;
-        playerName.text = refPlayer.playerName;
-        playerController.activePlayer = refPlayer;
+        //refPlayer = rosterPlayer;
+        //playerName.text = refPlayer.playerName;
+        //playerController.activePlayer = refPlayer;
     }
     #endregion
 
@@ -151,11 +187,16 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (active == false)
+            return;
+
         playerController.activePlayer = refPlayer;
         playerSelector.playerDragged = gameObject;
         GetComponent<BoxCollider2D>().isTrigger = true;
 
         // Turn on the dummyplayer and set it to the position of the playerobject
+        dummyPlayerName.text = playerName.text;
+        dummyPlayerID.text = playerID.text;
         dummyPlayer.SetActive(true);
         dummyPlayer.transform.localPosition = gameObject.transform.localPosition;
 
@@ -169,6 +210,8 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (active == false)
+            return;
         RectTransform thisRectTransform = this.GetComponent<RectTransform>();
         Vector2 posNew = gameObject.transform.localPosition;
         Vector2 posInputLocal = new Vector2();
@@ -178,9 +221,9 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         // Set the lower limits of the player holder, upper limit will not change
         // bottomLimit is plus the size of the current gameObject height
         float topLimit = activePlayerRectTransform.sizeDelta.y / 2;
-        float bottomLimit = -topLimit+thisRectTransform.sizeDelta.y;
+        float bottomLimit = -topLimit + thisRectTransform.sizeDelta.y;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(activePlayerRectTransform, posInput, camInput, out posInputLocal);
-        posNew.y = Mathf.Clamp(posInputLocal.y+clickOffset, bottomLimit, topLimit);
+        posNew.y = Mathf.Clamp(posInputLocal.y + clickOffset, bottomLimit, topLimit);
         thisRectTransform.localPosition = posNew;
         dummyPlayer.transform.position = thisRectTransform.position;
         //Debug.Log("Object.y: " + posNew.y + " | Upper/Lower: " + topLimit.ToString() + "," + bottomLimit.ToString());
@@ -191,7 +234,8 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         GetComponent<BoxCollider2D>().isTrigger = false;
         dummyPlayer.SetActive(false);
         playerSelector.UpdatePlayerList();
-//        Debug.Log("Dropped: " + refPlayer.playerName);
+        LayoutRebuilder.MarkLayoutForRebuild(GetComponentInParent<RectTransform>());
+        //        Debug.Log("Dropped: " + refPlayer.playerName);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -243,24 +287,25 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     // Puts the focus on this button and then opens the menu
     public void GetFocus()
     {
-/*        if (playerSelector.selectedPlayer == this)
-        {
-            ShowMenu(false);
-            playerSelector.selectedPlayer = null;
-        } else {
-            this.animator.enabled = true;
-            playerSelector.selectedPlayer = this;
-            ShowMenu(true);
-            if (playerController.playerRoster.Count > 0)
-            {
-                SubMenuActivate((int)SubMenu.PlayerRoster);
-            }
-            else
-            {
-                SubMenuActivate((int)SubMenu.CardSets);
-            }
-        }
-*/    }
+        /*        if (playerSelector.selectedPlayer == this)
+                {
+                    ShowMenu(false);
+                    playerSelector.selectedPlayer = null;
+                } else {
+                    this.animator.enabled = true;
+                    playerSelector.selectedPlayer = this;
+                    ShowMenu(true);
+                    if (playerController.playerRoster.Count > 0)
+                    {
+                        SubMenuActivate((int)SubMenu.PlayerRoster);
+                    }
+                    else
+                    {
+                        SubMenuActivate((int)SubMenu.CardSets);
+                    }
+                }
+        */
+    }
 
     // Open the collapsed menu
     public void ShowMenu(bool open)
@@ -269,63 +314,64 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     }
 
     // Set the active submenu
-    public void SubMenuActivate (int subMenuID)
+    public void SubMenuActivate(int subMenuID)
     {
-/*        playerController.activePlayer = refPlayer;
+        /*        playerController.activePlayer = refPlayer;
 
-        foreach (ContextButton button in subMenuButtons)
-        {
-            button.GetComponent<Image>().color = normal;
-        }
+                foreach (ContextButton button in subMenuButtons)
+                {
+                    button.GetComponent<Image>().color = normal;
+                }
 
-        foreach(GameObject _mnu in mnu_SubMenus)
-        {
-            _mnu.SetActive(false);
-        }
+                foreach(GameObject _mnu in mnu_SubMenus)
+                {
+                    _mnu.SetActive(false);
+                }
 
-        switch (subMenuID)
-        {
-            case (int) SubMenu.CardSets:
-                mnu_SubMenus[subMenuID].SetActive(true);
-                subMenuRect.content = mnu_SubMenus[subMenuID].GetComponent<RectTransform>();
-                subMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
-                string locText = LocManager.locManager.GetLocText("str_SelectCardsets");
-                subMenuInfoText.text = locText + " (" + refPlayer.cardSets.Count.ToString() + ")";
-                break;            
-               
-            case (int) SubMenu.PlayerRoster:
-                mnu_SubMenus[subMenuID].SetActive(true);
-                rectTransform = subMenuRect.content;
-                rectTransform = mnu_SubMenus[subMenuID].GetComponent<RectTransform>();
-                subMenuRect.content = rectTransform;
-                subMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
-                locText = LocManager.locManager.GetLocText("str_SelectPlayer");
+                switch (subMenuID)
+                {
+                    case (int) SubMenu.CardSets:
+                        mnu_SubMenus[subMenuID].SetActive(true);
+                        subMenuRect.content = mnu_SubMenus[subMenuID].GetComponent<RectTransform>();
+                        subMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
+                        string locText = LocManager.locManager.GetLocText("str_SelectCardsets");
+                        subMenuInfoText.text = locText + " (" + refPlayer.cardSets.Count.ToString() + ")";
+                        break;            
 
-                if (playerController.playerRoster.Count == 0)
-                    locText = LocManager.locManager.GetLocText("str_NoPlayerData");
+                    case (int) SubMenu.PlayerRoster:
+                        mnu_SubMenus[subMenuID].SetActive(true);
+                        rectTransform = subMenuRect.content;
+                        rectTransform = mnu_SubMenus[subMenuID].GetComponent<RectTransform>();
+                        subMenuRect.content = rectTransform;
+                        subMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
+                        locText = LocManager.locManager.GetLocText("str_SelectPlayer");
 
-                subMenuInfoText.text = locText;
-                break;
+                        if (playerController.playerRoster.Count == 0)
+                            locText = LocManager.locManager.GetLocText("str_NoPlayerData");
 
-            case (int)SubMenu.RemovePlayer:
-                mnu_SubMenus[subMenuID].SetActive(true);
-                subMenuRect.content = mnu_SubMenus[subMenuID].GetComponent<RectTransform>();
-                subMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
+                        subMenuInfoText.text = locText;
+                        break;
 
-                trashPlayer.interactable = false;
-                if (playerController.playerRoster.Contains(refPlayer))
-                    trashPlayer.interactable = true;
+                    case (int)SubMenu.RemovePlayer:
+                        mnu_SubMenus[subMenuID].SetActive(true);
+                        subMenuRect.content = mnu_SubMenus[subMenuID].GetComponent<RectTransform>();
+                        subMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
 
-                locText = LocManager.locManager.GetLocText("str_RemovePlayer");
-                subMenuInfoText.text = locText;
-                break;
+                        trashPlayer.interactable = false;
+                        if (playerController.playerRoster.Contains(refPlayer))
+                            trashPlayer.interactable = true;
 
-            default:
-                locText = LocManager.locManager.GetLocText("str_SelectOption");
-                subMenuInfoText.text = locText;
-                break;
-        }
-*/    }
+                        locText = LocManager.locManager.GetLocText("str_RemovePlayer");
+                        subMenuInfoText.text = locText;
+                        break;
+
+                    default:
+                        locText = LocManager.locManager.GetLocText("str_SelectOption");
+                        subMenuInfoText.text = locText;
+                        break;
+                }
+        */
+    }
 
     public void SetLanguage(int sysLang)
     {
@@ -373,9 +419,9 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     }
 
     // Permanently deletes the player
-    private void DeletePlayerData ()
+    private void DeletePlayerData()
     {
-        if(playerController.playerRoster.Contains(refPlayer))
+        if (playerController.playerRoster.Contains(refPlayer))
             playerController.playerRoster.Remove(refPlayer);
 
         RemovePlayer();
@@ -387,10 +433,10 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         if (playerController.playersActive.Contains(refPlayer))
             playerController.playersActive.Remove(refPlayer);
         Destroy(gameObject);
-        playerSelector.ResizeActivePlayerHolderCollider();
+        playerSelector.ResizePlayerHolders();
     }
 
-    IEnumerator SetScrollVPos (float vPos)
+    IEnumerator SetScrollVPos(float vPos)
     {
         yield return null;
         subMenuRect.verticalNormalizedPosition = vPos;

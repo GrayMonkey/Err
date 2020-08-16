@@ -2,6 +2,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+// Is this ever used?
+
 public class PlayerRosterSelect : MonoBehaviour
 {
 

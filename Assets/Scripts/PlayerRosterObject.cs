@@ -13,13 +13,13 @@ public class PlayerRosterObject : MonoBehaviour
     [SerializeField] private Text playerID;
 
     PlayerController playerController;
-    PlayerRosterSelect playerRosterSelect;
+    //PlayerRosterSelect playerRosterSelect;
 
     // Use this for initialization
     private void Awake()
     {
         playerController = PlayerController.playerController;
-        playerRosterSelect = PlayerRosterSelect.playerRosterSelect;
+        //playerRosterSelect = PlayerRosterSelect.playerRosterSelect;
     }
 
     private void OnEnable()

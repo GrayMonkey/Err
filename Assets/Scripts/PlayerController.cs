@@ -47,6 +47,21 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         playerDataExists = LoadPlayerData();
+
+        // For dev purposes only... comment out for release
+        // or testing...
+        if (!playerDataExists) CreateDummyRoster();
+    }
+
+    private void CreateDummyRoster()
+    {
+        for(int i = 1; i<4; i++)
+        {
+            Player dummyPlayer = new Player();
+            dummyPlayer.playerName = "Roster " + i.ToString();
+            dummyPlayer.playerID = "R" + i.ToString();
+            playerRoster.Add(dummyPlayer);
+        }
     }
 
     public Player AddNewPlayer()
@@ -82,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
         newPlayer.playerID = _id;
 
-        //playersActive.Add(newPlayer);
+        playersActive.Add(newPlayer);
         activePlayer = newPlayer;
         return activePlayer;
     }
@@ -93,11 +108,19 @@ public class PlayerController : MonoBehaviour
         if (checkName == "") { return false; }
         if (checkName == refPlayer.playerName) { return true; }
 
-        Player _player = playerController.playersActive.Find((Player obj) => obj.playerName == checkName);
-        if (_player != null) { return false; }
+        if(playerController.playersActive.Count>0)
+        {
+            Player _player = playerController.playersActive.Find((Player obj) => obj.playerName == checkName);
+            if (_player != null) { return false; }
+        }
 
-        _player = playerController.playerRoster.Find((Player obj) => obj.playerName == checkName);
-        if (_player != null) { return false; }
+        if(playerController.playerRoster.Count>0)
+        {
+            Player _player = playerController.playerRoster.Find((Player obj) => obj.playerName == checkName);
+            if (_player != null) { return false; }
+        }
+
+        return true;
 
         //foreach (Player player in playerController.playersActive)
         //{
@@ -110,7 +133,6 @@ public class PlayerController : MonoBehaviour
         //    if (checkName == player.playerName && checkName
         //        != refPlayer.playerName) { return false; }
         //}
-        return true;
     }
 
     // Set the next player as the active player dependent on if turn order is random or not
@@ -303,6 +325,7 @@ public class PlayerController : MonoBehaviour
     }
 }
 
+// TODO: Why is PlayerData being used to save out players and not Player????
 [System.Serializable]
 class PlayerData
 {
