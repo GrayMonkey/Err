@@ -57,7 +57,7 @@ public class mnu_Options : MonoBehaviour
 
     //public void Btn_Instruction()
     //{
-    //    //uiMenu.ShowMenu(Menus.HowToPlay);
+    //    //uiMenu.OpenSubMenu(Menus.HowToPlay);
     //    uiMenus.CloseMenu(Menus.Options);
     //}
 

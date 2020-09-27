@@ -1,10 +1,7 @@
 ﻿#pragma warning disable 649   // Disable [SerializeField] warnings CS0649
 
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Linq;
@@ -15,15 +12,12 @@ public class PlayerController : MonoBehaviour
     public static PlayerController playerController;
     public GameObject playerPanel;
     public Player activePlayer;
-    //public bool randomTurns = false;
     public List<Player> playersActive;
     public List<Player> playerRoster;
     public int playerMoves = 0;
     public bool playerDataExists = false;
 
     GameManager gameManager;
-    GameObject playerObject;
-    GameOptions gameOptions;
     LocManager locManager;
     MenuHandler uiMenu;
     int randomPlayersCount = 0;
@@ -39,7 +33,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         gameManager = GameManager.gameManager;
-        gameOptions = GameOptions.gameOptions;
         locManager = LocManager.locManager;
         uiMenu = MenuHandler.uiMenus;
     }
@@ -121,18 +114,6 @@ public class PlayerController : MonoBehaviour
         }
 
         return true;
-
-        //foreach (Player player in playerController.playersActive)
-        //{
-        //    if (checkName == player.playerName && checkName
-        //        != refPlayer.playerName) { return false; }
-        //}
-
-        //foreach (Player player in playerController.playerRoster)
-        //{
-        //    if (checkName == player.playerName && checkName
-        //        != refPlayer.playerName) { return false; }
-        //}
     }
 
     // Set the next player as the active player dependent on if turn order is random or not
@@ -182,9 +163,9 @@ public class PlayerController : MonoBehaviour
     public void StartGame()
     {
         gameManager.gameInProgress = true;
-        PlayerObject pObject = PlayerSelector.playerSelector.selectedPlayer;
+        PlayerObject pObject = PlayerSelector.playerSelector.activePlayerObject;
         if (pObject)
-            pObject.ShowMenu(false);
+            pObject.SubMenu(false);
 
         // Update stats for all the players
         foreach (Player player in playersActive)
@@ -202,7 +183,6 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update the activePlayer stats
-    // TODO Should this be in game manager?
     public void UpdatePlayerStats()
     {
         foreach (Player player in playersActive)

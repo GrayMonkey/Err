@@ -13,13 +13,11 @@ public class PlayerRosterObject : MonoBehaviour
     [SerializeField] private Text playerID;
 
     PlayerController playerController;
-    //PlayerRosterSelect playerRosterSelect;
 
     // Use this for initialization
     private void Awake()
     {
         playerController = PlayerController.playerController;
-        //playerRosterSelect = PlayerRosterSelect.playerRosterSelect;
     }
 
     private void OnEnable()
@@ -32,15 +30,5 @@ public class PlayerRosterObject : MonoBehaviour
         refPlayer = playerController.activePlayer ;
         playerName.text = refPlayer.playerName;
         playerID.text = refPlayer.playerID;
-    }
-
-    public void AddPlayerToGame()
-    {
-        PlayerObject playerObject = GetComponentInParent<PlayerObject>();
-        Animator animator = GetComponentInParent<Animator>();
-
-        playerObject.UpdateToRosterPlayer(refPlayer);
-        animator.SetBool("openMenu", false);
-        PlayerSelector.playerSelector.selectedPlayer = null;
     }
 }

@@ -1,56 +1,49 @@
 ﻿#pragma warning disable 649   // Disable [SerializeField] warnings CS0649
 
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using Menu = MenuHandler.MenuOverlay;
-using UnityEngine.Events;
 using System;
-using JetBrains.Annotations;
 
 public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
     // TODO: Still some tidying up of this script, need to remove unneeded variables.
 
     // Main PlayerObject variables
-    public Player refPlayer;
+    public Player thisPlayer;
     public bool subMenuOpen = false;
 
     [SerializeField] private Text playerName;
-    [SerializeField] private Image playerNameBG;
+    //[SerializeField] private Image playerNameBG;
     [SerializeField] private Text playerID;
     [SerializeField] private Text dummyPlayerName;
     [SerializeField] private Text dummyPlayerID;
-    [SerializeField] private Image playerIDBG;
-    [SerializeField] private Image playerIDOL;
     [SerializeField] private GameObject dummyPlayer;
     [SerializeField] private GameObject addRosterPlayerButton;
     [SerializeField] private GameObject moreButton;
     [SerializeField] private GameObject activePlayerHolder;
     [SerializeField] private GameObject rosterPlayerHolder;
+    [SerializeField] private GameObject extraButtons;
+    [SerializeField] private ModalDialog dialogDeletePlayer;
     [SerializeField] private InputField nameInputField;
+    [SerializeField] private Animator animator;
     [SerializeField] private Image buttonImage;
-    [SerializeField] private Button trashPlayer;
-    [SerializeField] private Button[] subMenuButtons;
-    [SerializeField] private Sprite btnReturn;
+    [SerializeField] private Image idImage;
+    [SerializeField] private Sprite btnRemove;
     [SerializeField] private Sprite btnTrash;
     [SerializeField] private Sprite btnCancel;
+    [SerializeField] private Sprite btnConfirm;
 
-    //GameObject dummyPlayer; // to mimic the playerDragged object and also last in heirarchy so draws over other PlayerObjects
-    //GameObject helpButton;
     RectTransform activePlayerRectTransform;
-    ModalDialog dialogDeletePlayer;
-    //PlayerRosterSelect playerRosterSelect;
     PlayerSelector playerSelector;
     PlayerController playerController;
-    MenuHandler uiMenus;
     float lastTap = 0f;
     float delayTap = 0.25f;
     float startTime;
     float clickOffset;
     bool active = false;
+    bool editingName = false;
     bool uniqueName;
     Color darkGreen = new Color(0.0f, 0.9f, 0.0f);
     Color hilightGreen = new Color(0.7f, 1.0f, 0.4f);
@@ -59,33 +52,11 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     Color normal = new Color(1.0f, 1.0f, 1.0f);
     string locText;
 
-    // SubMenus variables
-    public Text subMenuInfoText;
-
-    [SerializeField] Animator animator;
-    [SerializeField] ScrollRect subMenuRect;
-    [SerializeField] GameObject[] mnu_SubMenus;
-
-    enum SubMenu { PlayerRoster, CardSets, RemovePlayer };
-
     private void Awake()
     {
-        uiMenus = MenuHandler.uiMenus;
-        //helpButton = uiMenus.helpButton;
         playerSelector = PlayerSelector.playerSelector;
         playerController = PlayerController.playerController;
-        //playerRosterSelect = PlayerRosterSelect.playerRosterSelect;
         activePlayerRectTransform = activePlayerHolder.GetComponent<RectTransform>();
-    }
-
-    private void Start()
-    {
-        //refPlayer = playerController.activePlayer;
-        //playerName.text = refPlayer.playerName;
-        //playerID.text = refPlayer.playerID;
-        //dummyPlayer = playerSelector.dummyPlayer;
-        //gameObject.name = refPlayer.playerName;
-        //SetContextButton();
     }
 
     private void SetContextButton()
@@ -100,50 +71,24 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void SetPlayer(Player player)
     {
-        playerName.text = player.playerName;
-        playerID.text = player.playerID;
-        gameObject.name = player.playerName;
+        thisPlayer = player;
+        playerName.text = thisPlayer.playerName;
+        playerID.text = thisPlayer.playerID;
+        gameObject.name = thisPlayer.playerName;
         SetContextButton();
     }
 
     #region Player handling
-
-    //public void AddToPlayerList()
-    //{
-    //    if (this.gameObject.activeSelf)
-    //    {
-    //        playerController.playersActive.Add(refPlayer);
-    //    }
-    //}
-
     public void UpdatePlayerName(bool endEdit)
     {
         // Only need to do this if the input field is active fixes
         // bug whereby this function is called when endEdit is true
-        if (!nameInputField.IsActive() || active)
-            return;
-
         string newName = nameInputField.text;
-        bool goodName = playerController.UniqueNameCheck(newName, refPlayer);
+        bool goodName = playerController.UniqueNameCheck(newName, thisPlayer);
+
+        playerID.text = GetPlayerID(newName);
         buttonImage.color = hilightRed;
-
-        // check if the new name is blank and if so reset it to the original name
-        // or if the new name is not unique
-        if (goodName)
-        {
-            buttonImage.color = hilightGreen;
-
-            // Set the new ID tag
-            playerID.fontStyle = FontStyle.BoldAndItalic;
-            int length = Math.Min(newName.Length, 2);           // In case the name only has one character
-            playerID.text = newName.Substring(0, length);
-
-            if (newName.Contains(" "))
-            {
-                int index = newName.IndexOf(" ") + 1;
-                playerID.text = newName.Substring(0, 1) + newName.Substring(index, 1);
-            }
-        }
+        idImage.color = hilightRed;
 
         if (endEdit)
         {
@@ -151,35 +96,63 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             playerName.gameObject.SetActive(true);
             playerID.fontStyle = FontStyle.Bold;
             buttonImage.color = Color.white;
-            nameInputField.text = "";
+            //nameInputField.text = "";
 
             if (goodName)
             {
-                refPlayer.playerName = newName;
-                refPlayer.playerID = playerID.text;
+                thisPlayer.playerName = newName;
+                thisPlayer.playerID = GetPlayerID(newName);
                 playerName.text = newName;
+                gameObject.name = newName;
             }
+            else
+            {
+                playerID.text = thisPlayer.playerID;
+            }
+
+            editingName = false;
+            return;
         }
+
+
+        // check if the new name is blank and if so reset it to the original name
+        // or if the new name is not unique
+        if (goodName)
+        {
+            buttonImage.color = hilightGreen;
+            idImage.color = hilightGreen;
+
+            // Set the new ID tag
+            playerID.fontStyle = FontStyle.BoldAndItalic;
+            playerID.text = GetPlayerID(newName);
+        }
+    }
+
+    private string GetPlayerID(string name)
+    {
+        string id;
+
+        int length = Math.Min(name.Length, 2);           // In case the name only has one character
+        id = name.Substring(0, length);
+
+        if (name.Contains(" ") && name.Substring(name.Length - 1, 1) != " ")
+        {
+            int index = name.IndexOf(" ") + 1;
+            id = name.Substring(0, 1) + name.Substring(index, 1);
+        }
+
+        return id;
     }
 
     public void AddRosterPlayerToGame()
     {
         gameObject.transform.SetParent(activePlayerHolder.transform);
-        //gameObject.transform.parent = activePlayerHolder.transform;
-        //playerSelector.UpdatePlayerList();
+        //playerSelector.CheckPlayerCounts();
+        playerController.playersActive.Add(thisPlayer);
+        if (playerSelector.activePlayerObject != null)
+            playerSelector.activePlayerObject.SubMenu(false);
+        playerSelector.activePlayerObject = this;
         SetContextButton();
-    }
-
-    public void UpdateToRosterPlayer(Player rosterPlayer)
-    {
-        throw new NotImplementedException();
-        //int index = playerController.playersActive.IndexOf(refPlayer);
-        //playerController.playersActive.Insert(index, rosterPlayer);
-        //playerController.playersActive.Remove(refPlayer);
-
-        //refPlayer = rosterPlayer;
-        //playerName.text = refPlayer.playerName;
-        //playerController.activePlayer = refPlayer;
     }
     #endregion
 
@@ -187,10 +160,10 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (active == false)
+        if (!active)
             return;
-
-        playerController.activePlayer = refPlayer;
+        SubMenu(false);
+        playerSelector.activePlayerObject = this;
         playerSelector.playerDragged = gameObject;
         GetComponent<BoxCollider2D>().isTrigger = true;
 
@@ -204,13 +177,13 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         Vector2 offset = new Vector2();
         RectTransformUtility.ScreenPointToLocalPointInRectangle(activePlayerRectTransform, eventData.position, null, out offset);
         clickOffset = transform.localPosition.y - offset.y;
-        // Debug.Log("Dragging: " + refPlayer.playerName);
+        // Debug.Log("Dragging: " + thisPlayer.playerName);
         // Debug.Log("Offset: " + clickOffset.ToString());
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (active == false)
+        if (!active)
             return;
         RectTransform thisRectTransform = this.GetComponent<RectTransform>();
         Vector2 posNew = gameObject.transform.localPosition;
@@ -235,22 +208,22 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         dummyPlayer.SetActive(false);
         playerSelector.UpdatePlayerList();
         LayoutRebuilder.MarkLayoutForRebuild(GetComponentInParent<RectTransform>());
-        //        Debug.Log("Dropped: " + refPlayer.playerName);
+        //Debug.Log("Dropped: " + thisPlayer.playerName);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        playerController.activePlayer = refPlayer;
-
-        // Check if another button has the sub menu open and close it by
-        // forcing this player to take the focus
-        playerSelector.selectedPlayer = this;
+        //playerController.activePlayer = thisPlayer;
+        if (!active)
+            return;
+        playerSelector.activePlayerObject.SubMenu(false);
+        playerSelector.activePlayerObject = this;
 
         // Double tap detected. Can't use tapcount as not supported by Android
         // Change players name
         if (lastTap + delayTap > Time.time)
         {
-            if (playerSelector.selectedPlayer != this)
+            if (playerSelector.activePlayerObject != this)
             {
                 return;
             }
@@ -260,6 +233,8 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             nameInputField.gameObject.SetActive(true);
             nameInputField.Select();
             lastTap = 0f;
+            editingName = true;
+            UpdatePlayerName(false);
         }
         else
         {
@@ -279,134 +254,81 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             playerSelector.playerDragged.transform.SetSiblingIndex(colSibling);
         }
     }
-
     #endregion
 
     #region Menu functions
-
-    // Puts the focus on this button and then opens the menu
-    public void GetFocus()
+    // Activate or deactive the sub menu
+    public void SubMenu(bool open)
     {
-        /*        if (playerSelector.selectedPlayer == this)
-                {
-                    ShowMenu(false);
-                    playerSelector.selectedPlayer = null;
-                } else {
-                    this.animator.enabled = true;
-                    playerSelector.selectedPlayer = this;
-                    ShowMenu(true);
-                    if (playerController.playerRoster.Count > 0)
-                    {
-                        SubMenuActivate((int)SubMenu.PlayerRoster);
-                    }
-                    else
-                    {
-                        SubMenuActivate((int)SubMenu.CardSets);
-                    }
-                }
-        */
+        // Close the previous active playerObject
+        if (playerSelector.activePlayerObject != this)
+            playerSelector.activePlayerObject.SubMenu(false);
+        playerSelector.activePlayerObject = this;
+        animator.SetBool("subMenu", open);
+        //Debug.Log(gameObject.name + ": OpenSubMenu(" + open.ToString() + ")");
     }
 
-    // Open the collapsed menu
-    public void ShowMenu(bool open)
+    public void SetAddPlayerFromRosterButton(bool _active)
     {
-        animator.SetBool("openMenu", open);
-    }
-
-    // Set the active submenu
-    public void SubMenuActivate(int subMenuID)
-    {
-        /*        playerController.activePlayer = refPlayer;
-
-                foreach (ContextButton button in subMenuButtons)
-                {
-                    button.GetComponent<Image>().color = normal;
-                }
-
-                foreach(GameObject _mnu in mnu_SubMenus)
-                {
-                    _mnu.SetActive(false);
-                }
-
-                switch (subMenuID)
-                {
-                    case (int) SubMenu.CardSets:
-                        mnu_SubMenus[subMenuID].SetActive(true);
-                        subMenuRect.content = mnu_SubMenus[subMenuID].GetComponent<RectTransform>();
-                        subMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
-                        string locText = LocManager.locManager.GetLocText("str_SelectCardsets");
-                        subMenuInfoText.text = locText + " (" + refPlayer.cardSets.Count.ToString() + ")";
-                        break;            
-
-                    case (int) SubMenu.PlayerRoster:
-                        mnu_SubMenus[subMenuID].SetActive(true);
-                        rectTransform = subMenuRect.content;
-                        rectTransform = mnu_SubMenus[subMenuID].GetComponent<RectTransform>();
-                        subMenuRect.content = rectTransform;
-                        subMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
-                        locText = LocManager.locManager.GetLocText("str_SelectPlayer");
-
-                        if (playerController.playerRoster.Count == 0)
-                            locText = LocManager.locManager.GetLocText("str_NoPlayerData");
-
-                        subMenuInfoText.text = locText;
-                        break;
-
-                    case (int)SubMenu.RemovePlayer:
-                        mnu_SubMenus[subMenuID].SetActive(true);
-                        subMenuRect.content = mnu_SubMenus[subMenuID].GetComponent<RectTransform>();
-                        subMenuButtons[subMenuID].GetComponent<Image>().color = hilightGreen;
-
-                        trashPlayer.interactable = false;
-                        if (playerController.playerRoster.Contains(refPlayer))
-                            trashPlayer.interactable = true;
-
-                        locText = LocManager.locManager.GetLocText("str_RemovePlayer");
-                        subMenuInfoText.text = locText;
-                        break;
-
-                    default:
-                        locText = LocManager.locManager.GetLocText("str_SelectOption");
-                        subMenuInfoText.text = locText;
-                        break;
-                }
-        */
-    }
-
-    public void SetLanguage(int sysLang)
-    {
-        refPlayer.language = LocManager.locManager.GameLang;
-        locText = LocManager.locManager.GetLocText("str_PlayerLanguage");
-        subMenuInfoText.text = locText + " (" + refPlayer.language.ToString() + ")";
+        // If maxPlayers has been reached make the button non interactive
+        addRosterPlayerButton.GetComponent<Button>().interactable = _active;
     }
 
     public void DeletePlayer()
+    {
+        if (playerController.playerRoster.Contains(thisPlayer))
+        {
+            RemoveRosterPlayer();
+        }
+        else
+        {
+            RemoveCurrentPlayer(true);
+        }
+    }
+
+    private void RemoveRosterPlayer()
+    { 
+        ModalDialogDetails details = new ModalDialogDetails();
+        details.button1Details = new ButtonDetails();
+        details.button2Details = new ButtonDetails();
+        details.buttonCanceldetails = new ButtonDetails();
+
+        locText = thisPlayer.playerName;
+        details.title = locText;
+
+        locText = LocManager.locManager.GetLocText("str_DialogPlayerDelete");
+        details.body = locText;
+
+        details.button1Details.icon = btnRemove;
+        details.button1Details.action = RosterCurrentPlayer;
+
+        details.button2Details.icon = btnTrash;
+        details.button2Details.action = FinalWarning;
+
+        details.buttonCanceldetails.icon = btnCancel;
+
+        dialogDeletePlayer.Show(details);
+    }
+
+    // final warning if trashing the player
+    private void FinalWarning()
     {
         ModalDialogDetails details = new ModalDialogDetails();
         details.button1Details = new ButtonDetails();
         details.button2Details = new ButtonDetails();
         details.buttonCanceldetails = new ButtonDetails();
 
-        locText = LocManager.locManager.GetLocText("str_DialogTitleWarning");
+        locText = thisPlayer.playerName;
         details.title = locText;
 
-        locText = LocManager.locManager.GetLocText("str_DialogPlayerDelete");
-
-        try
-        {
-            locText.Replace("%%PlayerName", refPlayer.playerName);
-        }
-        catch
-        {
-            Debug.Log("str_WarningBody is missing %% PlayerName in localised text!");
-        }
+        locText = LocManager.locManager.GetLocText("str_DialogFinalWarning");
         details.body = locText;
 
         details.button1Details.action = CloseDialog;
-        details.button1Details.icon = btnReturn;
+        details.button1Details.icon = btnCancel;
 
-        details.button2Details.action = DeletePlayerData;
-        details.button2Details.icon = btnTrash;
+        details.button2Details.action = DestroyCurrentPlayer;
+        details.button2Details.icon = btnConfirm;
 
         details.buttonCanceldetails.icon = btnCancel;
 
@@ -418,29 +340,56 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         dialogDeletePlayer.CloseDialog();
     }
 
-    // Permanently deletes the player
-    private void DeletePlayerData()
-    {
-        if (playerController.playerRoster.Contains(refPlayer))
-            playerController.playerRoster.Remove(refPlayer);
 
-        RemovePlayer();
+    // Put the player back in the Roster if necessary
+    private void RosterCurrentPlayer()
+    {
+        RemoveCurrentPlayer(false);
     }
 
-    // Removes the player from the current game
-    public void RemovePlayer()
+    // Trash the player and their data
+    private void DestroyCurrentPlayer()
     {
-        if (playerController.playersActive.Contains(refPlayer))
-            playerController.playersActive.Remove(refPlayer);
-        Destroy(gameObject);
-        playerSelector.ResizePlayerHolders();
+        RemoveCurrentPlayer(true);
     }
 
-    IEnumerator SetScrollVPos(float vPos)
+    private void RemoveCurrentPlayer(bool destroyPlayer)
     {
-        yield return null;
-        subMenuRect.verticalNormalizedPosition = vPos;
+        bool rosteredPlayer = playerController.playerRoster.Contains(thisPlayer);
 
+        // close the modal dialog
+        CloseDialog();
+
+        // if player exists in the roster then send them back to the roster if its not
+        // destoryed, otherwise destory the player
+        if(rosteredPlayer)
+        {
+            gameObject.transform.SetParent(rosterPlayerHolder.transform);
+        }
+        else
+        {
+            destroyPlayer = true;
+        }
+
+        // close the submenu and destroy the player if required
+        SubMenu(false);
+        extraButtons.SetActive(false);
+        moreButton.SetActive(false);
+        addRosterPlayerButton.SetActive(true);
+        if (destroyPlayer)
+        {
+            playerController.playersActive.Remove(thisPlayer);
+            Destroy(gameObject);
+        }
+
+        // if the player has been destroyed and there is at least one player
+        // in the active player list then make the first player in the list
+        // the activePlayerObject
+        for (int i = 0; i < playerSelector.newPlayerCount; i++)
+        {
+            if (activePlayerHolder.transform.GetChild(i).gameObject.TryGetComponent<PlayerObject>(out PlayerObject _playerObject))
+                playerSelector.activePlayerObject = _playerObject;
+        }
     }
     #endregion
 }

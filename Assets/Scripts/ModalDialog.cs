@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 // This class is based around the online training for modal dialogs
 // To use ModalDialog see example at end of this file
-
 public class ModalDialog : MonoBehaviour
 {
     public Text title;
@@ -17,8 +16,7 @@ public class ModalDialog : MonoBehaviour
     public Button buttonCancel;
 
     [SerializeField] private GameObject dialogObject;
-    [SerializeField] private GameObject dialogBG;
-
+ 
     private static ModalDialog modalDialog;
 
     public static ModalDialog Instance()
@@ -35,8 +33,9 @@ public class ModalDialog : MonoBehaviour
 
     public void Show(ModalDialogDetails details)
     {
-        dialogBG.gameObject.SetActive(true);
-        dialogObject.SetActive(true);
+        //dialogBG.gameObject.SetActive(true);
+        if (!this.gameObject.activeInHierarchy)
+            this.gameObject.SetActive(true);
 
         button1.gameObject.SetActive(false);
         button2.gameObject.SetActive(false);
@@ -52,7 +51,7 @@ public class ModalDialog : MonoBehaviour
         }
         button1.onClick.RemoveAllListeners();
         button1.onClick.AddListener(details.button1Details.action);
-        button1.onClick.AddListener(CloseDialog);
+        //button1.onClick.AddListener(CloseDialog);   // If these lines (including below) get added back in it may break the delete player button on PlayerObject
         button1.image.sprite = details.button1Details.icon;
         button1.gameObject.SetActive(true);
 
@@ -60,7 +59,7 @@ public class ModalDialog : MonoBehaviour
         {
             button2.onClick.RemoveAllListeners();
             button2.onClick.AddListener(details.button2Details.action);
-            button2.onClick.AddListener(CloseDialog);
+         //   button2.onClick.AddListener(CloseDialog);
             button2.image.sprite = details.button2Details.icon;
             button2.gameObject.SetActive(true);
         }
@@ -68,7 +67,7 @@ public class ModalDialog : MonoBehaviour
         if (details.button3Details != null)
         {
             button3.onClick.RemoveAllListeners();
-            button3.onClick.AddListener(CloseDialog);
+         //   button3.onClick.AddListener(CloseDialog);
             button3.image.sprite = details.button3Details.icon;
             button3.gameObject.SetActive(true);
         }
@@ -85,7 +84,7 @@ public class ModalDialog : MonoBehaviour
     public void CloseDialog()
     {
         dialogObject.SetActive(false);
-        dialogBG.gameObject.SetActive(false);
+        //dialogBG.gameObject.SetActive(false);
     }
 }
 
@@ -107,3 +106,32 @@ public class ModalDialogDetails
     public ButtonDetails button3Details;
     public ButtonDetails buttonCanceldetails;
 }
+
+/*
+ ====================
+ Modal Dialog Example
+ ====================
+
+        ModalDialogDetails details = new ModalDialogDetails();
+        details.button1Details = new ButtonDetails();
+        details.button2Details = new ButtonDetails();
+        details.buttonCanceldetails = new ButtonDetails();
+        String sTitle;
+        String sBody;
+        Sprite button1;
+        Sprite button2;
+        Sprite cancel;
+
+        details.title = sTitle;
+        details.body = sBody;
+
+        details.button1Details.action = function();
+        details.button1Details.icon = button1;
+
+        details.button2Details.action = function();
+        details.button2Details.icon = button2;
+
+        details.buttonCanceldetails.icon = cancel;
+
+        dialogDeletePlayer.Show(details);
+*/

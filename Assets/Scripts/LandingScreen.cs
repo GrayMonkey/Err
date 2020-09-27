@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class LandingScreen : MonoBehaviour
 {
-    [SerializeField] GameObject welcomeScreen;
     [SerializeField] GameObject mainScreen;
+    [SerializeField] GameObject welcomeScreen;
+    [SerializeField] GameObject touchPanel;
     [SerializeField] GameObject tapText;
     [SerializeField] Toggle dontShowAgain;
-    [SerializeField] string url;
+    [SerializeField] string url = "https://sites.google.com/errgame.com/err/home";
     [SerializeField] RectTransform textPanel;
 
     GameManager gameManager;
@@ -19,21 +20,27 @@ public class LandingScreen : MonoBehaviour
     {
         gameOptions = GameOptions.gameOptions;
         gameManager = GameManager.gameManager;
+        welcomeScreen.SetActive(false);
+        mainScreen.SetActive(true);
+        touchPanel.SetActive(true);
         CanvasGroup canvasGroup = GetComponentInChildren<CanvasGroup>();
         StartCoroutine(CanvasFade(canvasGroup, Time.time, 5.0f));
+        WelcomeScreen(true);
     }
 
-    public void ShowWelcomeScreen()
+    public void WelcomeScreen(bool show)
     {
-        if(gameOptions.welcomeScreen)
+        if (!show)
+        {
+            mainScreen.SetActive(true);
+            welcomeScreen.SetActive(false);
+            return;
+        }
+        else if(gameOptions.welcomeScreen)
         {
             welcomeScreen.SetActive(true);
             mainScreen.SetActive(false);
-            LayoutRebuilder.ForceRebuildLayoutImmediate(textPanel);
-        }
-        else
-        {
-            gameManager.SetGameState(gameManager.gameState.home);
+            //LayoutRebuilder.ForceRebuildLayoutImmediate(textPanel);
         }
     }
 

@@ -67,8 +67,9 @@ str_CardSetsGame,Available CardSets
 str_CardSetsShop,CardSets for Purchase
 str_DefaultCardSet,Set Default CardSet?
 str_DefaultCardSetBody,Do you want you update all players to use this cardset selection?\n\nNote that individual cardsets can still be set for individual players from the Player Select screen.
+str_DialogFinalWarning,Are you sure to want to completely remove this player and all their data?
 str_DialogNoLanguage,At least one language must be selected!
-str_DialogPlayerDelete,This action will delete all of the data for\n\n%%PlayerName\n\nAre you sure you want to continue?
+str_DialogPlayerDelete,Use the Remove Player button to remove this player from the current game.\n\nUse the Trash Player button to also trash their data?
 str_DialogTitleWarning,WARNING!
 str_DoNotShowAgain,Do not show this screen again...
 str_FreePurchase,Free Cardset!

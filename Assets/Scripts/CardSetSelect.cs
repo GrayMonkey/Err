@@ -227,7 +227,7 @@ public class CardSetSelect : MonoBehaviour
                 newCardSets.Add(cardSet);
         }
 
-        // Set the CardSet if refPlayer is set and then reset refPlayer
+        // Set the CardSet if thisPlayer is set and then reset thisPlayer
         // to avoid overwriting. If no refPLayer then set as default
         // cardset
 

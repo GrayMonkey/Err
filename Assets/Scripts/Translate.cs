@@ -32,7 +32,7 @@ public class Translate : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.Log(this.gameObject.name);
+            Debug.Log(this.gameObject.name + "("+key +")");
             Debug.LogException(e, this);
         }
     }
