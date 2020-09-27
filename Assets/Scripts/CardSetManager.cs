@@ -7,13 +7,14 @@ using UnityEngine;
 public class CardSetManager : MonoBehaviour
 {
     public static CardSetManager csManager;
-    public List<CardSet> allCardSets = new List<CardSet>();
+    public CardSet[] allCardSets;
+    //public List<CardSet> allCardSets = new List<CardSet>();
     public List<CardSet> activeCardsets = new List<CardSet>();
 
     private void OnEnable()
     {
         csManager = this;
-        allCardSets.Clear();
+        //allCardSets.Clear();
         string lang = Application.systemLanguage.ToString();
         UpdateCardSets();
         FilterCardSets(lang, true);
@@ -21,6 +22,7 @@ public class CardSetManager : MonoBehaviour
 
     public void UpdateCardSets()
     {
+        allCardSets = FindObjectsOfType<CardSet>();
     }
 
     public void FilterCardSets (string lang, bool active)

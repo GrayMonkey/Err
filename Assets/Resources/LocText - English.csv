@@ -1,3 +1,4 @@
+TextKey,Master Text
 CS_Starter_Desc,Full question starter set of 250 questions
 CS_Starter_Title,Starter Set
 CS_TestA_Desc,Test: 10 Questions with starting with the letter A
@@ -10,6 +11,8 @@ str_AllPlayers,all players
 str_Available,Available
 str_BtnDetailsAddPlayer,Add a player to the current game.
 str_BtnDetailsCardSet,Choose one or more question sets for the player
+str_BtnDetailsCardSetGame,Show the available Questions Sets already purchased and available in the game.
+str_BtnDetailsCardSetShop,Show Question Sets available for purchase from the Shop
 str_BtnDetailsCollapse,Edit the player options. Double tap the button to edit the player's name.
 str_BtnDetailsCorrect,The player got the answer correct. Move on to the next player or declare the winner.
 str_BtnDetailsCredits,Show the credits of who has helped make this game possible.
@@ -37,6 +40,8 @@ str_BtnDetailsTrash,Permanently delete a player and all their saved information.
 str_BtnDetailsWinner,Declare the current player the winner!
 str_BtnHelpAddPlayer,Add Player
 str_BtnHelpCardSet,Question Sets
+str_BtnHelpCardSetGame,Avaiable Question Sets 
+str_BtnHelpCardSetShop,Question Sets for Purchase
 str_BtnHelpCollapse,Player Options
 str_BtnHelpCorrect,Correct Answer
 str_BtnHelpCredits,Credits
@@ -74,7 +79,7 @@ str_DialogTitleWarning,WARNING!
 str_DoNotShowAgain,Do not show this screen again...
 str_FreePurchase,Free Cardset!
 str_FreePurchaseBody,To start you on your Err... journey select a free Starter CardSet in your preferred language.
-str_from,from 
+str_from,from
 str_NoPlayerData,No previous player data is available!\n\nAdd a player with the Add Player button below.
 str_Player,Player
 str_PlayerCount,Player Count

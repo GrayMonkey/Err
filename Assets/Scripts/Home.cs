@@ -39,7 +39,7 @@ public class Home : MonoBehaviour
         cardSetBtnText.text = gameManager.defaultCardSets.Count.ToString();
         playerBtnImage.color = select;
         playerBtnText.text = playerController.playersActive.Count.ToString();
-        //playerSelect.interactable = false;
+        playerSelect.interactable = false;
 
         instructions.text = LocManager.locManager.GetLocText("UI_CardSetSelect");
 

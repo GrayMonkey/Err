@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Xml;
-using UnityEditorInternal;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -21,7 +17,7 @@ public class CardSetSelect : MonoBehaviour
     private GameManager gameManager;
     private Player refPlayer;
     private List<CardSet> activeCardSets = new List<CardSet>();
-    private List<CardSet> allCardSets = new List<CardSet>();
+    private CardSet[] allCardSets;
     private CardSetManager csManager;
     private LocManager locManager;
     private bool showFreeCardsetMessage = true;

@@ -1081,8 +1081,6 @@ GameObject:
   - component: {fileID: 39073415}
   - component: {fileID: 39073420}
   - component: {fileID: 39073419}
-  - component: {fileID: 39073418}
-  - component: {fileID: 39073417}
   - component: {fileID: 39073416}
   m_Layer: 5
   m_Name: ModalDialog
@@ -1134,43 +1132,9 @@ MonoBehaviour:
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
-  m_ChildControlHeight: 1
+  m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
---- !u!114 &39073417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39073414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: 400
-  m_MinHeight: -1
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
---- !u!114 &39073418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39073414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 1
-  m_VerticalFit: 2
 --- !u!114 &39073419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1264,7 +1228,7 @@ MonoBehaviour:
   touchPanel: {fileID: 577799375}
   tapText: {fileID: 2052808905}
   dontShowAgain: {fileID: 2076054492}
-  url: 
+  url: https://www.errgame.com/buy
   textPanel: {fileID: 505006650}
 --- !u!1 &41248540
 GameObject:
@@ -1862,7 +1826,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 67642006}
-  - component: {fileID: 67642007}
   m_Layer: 5
   m_Name: TitlePanel
   m_TagString: Untagged
@@ -1892,26 +1855,6 @@ RectTransform:
   m_AnchoredPosition: {x: 200, y: 0}
   m_SizeDelta: {x: 400, y: 80}
   m_Pivot: {x: 0.5, y: 1}
---- !u!114 &67642007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 67642005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: 500
-  m_MinHeight: 80
-  m_PreferredWidth: 500
-  m_PreferredHeight: 80
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
 --- !u!1 &72812959
 GameObject:
   m_ObjectHideFlags: 0
@@ -14627,8 +14570,8 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   helpButton: {fileID: 1802780201}
-  keyTitle: str_BtnHelpOptions
-  keyDetails: str_BtnDetailsOptions
+  keyTitle: str_BtnHelpCardSetShop
+  keyDetails: str_BtnDetailsCardSetShop
   altImage: {fileID: 0}
 --- !u!114 &648771310
 MonoBehaviour:
@@ -14649,7 +14592,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f7699aba795bbe441b85a17b4adadc3b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 972c25a1598a3444b9a4c27193cd5cdd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19837,8 +19780,6 @@ GameObject:
   m_Component:
   - component: {fileID: 960277731}
   - component: {fileID: 960277735}
-  - component: {fileID: 960277734}
-  - component: {fileID: 960277733}
   - component: {fileID: 960277732}
   m_Layer: 5
   m_Name: BodyPanel
@@ -19893,40 +19834,6 @@ MonoBehaviour:
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
---- !u!114 &960277733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 960277730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 2
-  m_VerticalFit: 2
---- !u!114 &960277734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 960277730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: 400
-  m_MinHeight: 80
-  m_PreferredWidth: 400
-  m_PreferredHeight: -1
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
 --- !u!222 &960277735
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -33258,7 +33165,6 @@ GameObject:
   - component: {fileID: 1346265707}
   - component: {fileID: 1346265710}
   - component: {fileID: 1346265709}
-  - component: {fileID: 1346265708}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -33285,26 +33191,6 @@ RectTransform:
   m_AnchoredPosition: {x: 60, y: -40}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1346265708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1346265706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: -1
-  m_MinHeight: -1
-  m_PreferredWidth: -1
-  m_PreferredHeight: 80
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
 --- !u!114 &1346265709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39201,7 +39087,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd1f7feb1a0e4493abc5e0a7c299690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allCardSets: []
+  allCardSets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   activeCardsets: []
 --- !u!114 &1407768782
 MonoBehaviour:
@@ -39220,7 +39110,7 @@ MonoBehaviour:
   modCards: 1
   sliderLock: 1
   randomTurns: 1
-  welcomeScreen: 0
+  welcomeScreen: 1
 --- !u!114 &1407768783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49218,8 +49108,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   helpButton: {fileID: 1802780201}
-  keyTitle: str_BtnHelpOptions
-  keyDetails: str_BtnDetailsOptions
+  keyTitle: str_BtnHelpCardSetGame
+  keyDetails: str_BtnDetailsCardSetGame
   altImage: {fileID: 0}
 --- !u!114 &1860636616
 MonoBehaviour:
@@ -49240,7 +49130,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e8c8209594212d94383acea754103d05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 399e9bd64c8217d45a18ca3250b1b02a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -52729,8 +52619,6 @@ GameObject:
   - component: {fileID: 1965402759}
   - component: {fileID: 1965402763}
   - component: {fileID: 1965402762}
-  - component: {fileID: 1965402761}
-  - component: {fileID: 1965402760}
   m_Layer: 5
   m_Name: Details
   m_TagString: Untagged
@@ -52757,40 +52645,6 @@ RectTransform:
   m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 220, y: 80}
   m_Pivot: {x: 0.5, y: 1}
---- !u!114 &1965402760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1965402758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 1
-  m_VerticalFit: 0
---- !u!114 &1965402761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1965402758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: 220
-  m_MinHeight: -1
-  m_PreferredWidth: 220
-  m_PreferredHeight: -1
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
 --- !u!114 &1965402762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54529,7 +54383,7 @@ PrefabInstance:
     - target: {fileID: 4709255461733550811, guid: 0a73e6f911b50405ea25fb3e13f34f59,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseFreeScreen
+      value: CloseFreeCardSetScreen
       objectReference: {fileID: 0}
     - target: {fileID: 4709255461733550811, guid: 0a73e6f911b50405ea25fb3e13f34f59,
         type: 3}
