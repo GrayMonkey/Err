@@ -43,13 +43,11 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     float startTime;
     float clickOffset;
     bool active = false;
-    bool editingName = false;
-    bool uniqueName;
     Color darkGreen = new Color(0.0f, 0.9f, 0.0f);
     Color hilightGreen = new Color(0.7f, 1.0f, 0.4f);
     Color lightRed = new Color(1.0f, 0.35f, 0.35f);
     Color hilightRed = new Color(1.0f, 0.6f, 0.6f);
-    Color normal = new Color(1.0f, 1.0f, 1.0f);
+    //Color normal = new Color(1.0f, 1.0f, 1.0f);
     string locText;
 
     private void Awake()
@@ -96,7 +94,6 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             playerName.gameObject.SetActive(true);
             playerID.fontStyle = FontStyle.Bold;
             buttonImage.color = Color.white;
-            //nameInputField.text = "";
 
             if (goodName)
             {
@@ -109,8 +106,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             {
                 playerID.text = thisPlayer.playerID;
             }
-
-            editingName = false;
+            idImage.color = new Color(0.85f, 0.93f, 1.0f);
             return;
         }
 
@@ -233,7 +229,6 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             nameInputField.gameObject.SetActive(true);
             nameInputField.Select();
             lastTap = 0f;
-            editingName = true;
             UpdatePlayerName(false);
         }
         else

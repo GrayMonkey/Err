@@ -14432,11 +14432,9 @@ MonoBehaviour:
   playerGameObject: {fileID: 98386895}
   noActivePlayers: {fileID: 76167309}
   noRosterPlayers: {fileID: 1021172454}
-  rectPlayerContent: {fileID: 0}
   playerCountLabel: {fileID: 2457710}
   addPlayer: {fileID: 536093652}
   startGame: {fileID: 598052767}
-  playerObject: {fileID: 0}
 --- !u!224 &643958235
 RectTransform:
   m_ObjectHideFlags: 0
@@ -47197,7 +47195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.85882354, g: 0.92941177, b: 1, a: 1}
+  m_Color: {r: 0.85, g: 0.93, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
