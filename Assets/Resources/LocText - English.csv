@@ -158,6 +158,7 @@ UI_ShowButtonHints,Show button hints
 UI_ShowLaunchScreen,Show this message at launch?
 UI_SliderLock,Lock answer slider
 UI_Start,Start...
+UI_StartTimerAuto,Auto start timers
 UI_TileRef,Tile Reference
 UI_TileRefAccumulator,Accumulator
 UI_TileRefBlank,Blank

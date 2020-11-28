@@ -165,6 +165,8 @@ public class QuestionCard : MonoBehaviour
         int clueID = lastClueID + 1;
         SetClue(clueID);
         ResetTimers();
+        //Invoke("StartTimer", 5f);
+        StartTimer();
     }
 
     private void ResetTimers()
@@ -191,12 +193,12 @@ public class QuestionCard : MonoBehaviour
         else
             timerID = 4 - gameManager.activeQuestion.maxPoints;
 
-        timers[timerID].StartTimer();
+        timers[timerID].SetTimer();
         timerBtn.interactable = false;
     }
 
     public void SetClue(int clueID)
-    {
+    {        
         // Reset up the last clue to used
         clueTextsEasyRead[lastClueID].gameObject.SetActive(false);
         scale = buttonsEasyRead[lastClueID].transform.localScale;
@@ -242,12 +244,14 @@ public class QuestionCard : MonoBehaviour
         lastClueID = clueID;
 
         ResetTimers();
+        Invoke ("StartTimer",0.1f);
     }
 
     public void Fail()
     {
         gameManager.activeQuestion.maxPoints = 0;
         uiMenus.ShowMenu(Menus.FailAnswer);
+        this.gameObject.SetActive(false);
     }
 
     public void Answer()

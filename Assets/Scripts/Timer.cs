@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
 
     [SerializeField] Button nextClue;
     [SerializeField] Button failQuestion;
-    [SerializeField] Button btnTimer;
+    //[SerializeField] Button btnTimer;
     [SerializeField] bool scaleX;
 
     //CardTrad cardTrad;
@@ -21,7 +21,7 @@ public class Timer : MonoBehaviour
     float guessTimeRemaining;
     float guessTime;
     int timerCount = 0;
- 
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -33,17 +33,12 @@ public class Timer : MonoBehaviour
     {
         activePlayer = playerController.activePlayer;
         guessTime = gameOptions.guessTime;
-//        countdown = btnTimer.GetComponentInChildren<Text>();
+        //countdown = btnTimer.GetComponentInChildren<Text>();
         timerOn = false;
 
         // if the player has a guess time option then use that instead
         // if (activePlayer.guessTime > -1)
         //    guessTimeRemaining = activePlayer.guessTime;
-    }
-
-    private void Start()
-    {
-        thisRect = gameObject.GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
@@ -54,18 +49,25 @@ public class Timer : MonoBehaviour
             guessTimeRemaining -= Time.deltaTime;
             float newScale = 1.0f * (guessTimeRemaining / guessTime);
             ScaleTimer(newScale);
-            countdown.text = guessTimeRemaining.ToString("##");
+            //countdown.text = guessTimeRemaining.ToString("##");
             if (guessTimeRemaining < 0.0f)
                 TimeOver();
         }
             
     }
 
-    public void StartTimer()
+    public void SetTimer()
+    {
+        float delayTimerStart = 5.0f;
+        //btnTimer.interactable = false;
+        guessTimeRemaining = guessTime;
+        ScaleTimer(1.0f);
+        Invoke("StartTimer", delayTimerStart);
+    }
+
+    private void StartTimer()
     {
         timerOn = true;
-        btnTimer.interactable = false;
-        guessTimeRemaining = guessTime;
     }
 
     public void ResetTimer(float guessTime)
@@ -88,14 +90,14 @@ public class Timer : MonoBehaviour
     void TimeOver()
     {
         timerOn = false;
-        btnTimer.interactable = true;
+        //btnTimer.interactable = true;
 
         // Move on the to next clue or pass to the next player if all cluse used up
-        if (nextClue.IsInteractable())
+        if (nextClue.gameObject.activeSelf)
         {
             nextClue.onClick.Invoke();
         }
-        else if (failQuestion.IsInteractable())
+        else if (failQuestion.gameObject.activeSelf)
         {
             failQuestion.onClick.Invoke();
         }
@@ -103,7 +105,9 @@ public class Timer : MonoBehaviour
 
     void ScaleTimer(float scale)
     {
-        if(scaleX)
+        thisRect = gameObject.GetComponent<RectTransform>();
+
+        if (scaleX)
         {
             thisRect.localScale = new Vector3(scale, 1.0f, 1.0f);
         }
@@ -112,4 +116,6 @@ public class Timer : MonoBehaviour
             thisRect.localScale = new Vector3(1.0f, scale, 1.0f);
         }
     }
+
+    
 }

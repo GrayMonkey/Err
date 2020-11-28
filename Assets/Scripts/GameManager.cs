@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
     // public enum GameState { Home, CardSet, Players, Question, EndGame, LandingScreen };
     // public GameObject[] gameStateObject;
 
-    [SerializeField] GameObject cardMod;
-    [SerializeField] GameObject cardTrad;
+    [SerializeField] GameObject qCard;
+    //[SerializeField] GameObject cardTrad;
 
     PlayerController playerController;
     //GameState currGameState;
@@ -129,11 +129,11 @@ public class GameManager : MonoBehaviour
 
     public void PlayGame()
     {
-        GameObject cardType = cardTrad;
+ /*       GameObject cardType = cardTrad;
 
-        if (gameOptions.easyRead) cardType = cardMod;
-
-        SetGameState(cardType);
+        if (gameOptions.easyRead) cardType = qCard;
+ */
+        SetGameState(qCard);
     }
 
     //public void SwitchScreen(GameObject newScreen)
