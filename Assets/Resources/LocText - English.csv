@@ -16,6 +16,7 @@ str_BtnDetailsCardSetShop,Show Question Sets available for purchase from the Sho
 str_BtnDetailsCollapse,Edit the player options. Double tap the button to edit the player's name.
 str_BtnDetailsCorrect,The player got the answer correct. Move on to the next player or declare the winner.
 str_BtnDetailsCredits,Show the credits of who has helped make this game possible.
+str_BtnDetailsFail,Fail this question and move on the the next player.
 str_BtnDetailsGameSetup,Return to the game setup.
 str_BtnDetailsHome,Go to the Home/Start screen.
 str_BtnDetailsInstructions,Show instructions on how to play the game and use the app.
@@ -35,6 +36,7 @@ str_BtnDetailsReturn,Return to the previous screen.
 str_BtnDetailsRoster,Open and load previous players and their data
 str_BtnDetailsSelectPlayers,Select players for a game.
 str_BtnDetailsStart,Start the game.
+str_BtnDetailsTimer,Start the timer.
 str_BtnDetailsTile,Press the button to show the description of this tile.
 str_BtnDetailsTrash,Permanently delete a player and all their saved information.
 str_BtnDetailsWinner,Declare the current player the winner!
@@ -45,6 +47,7 @@ str_BtnHelpCardSetShop,Question Sets for Purchase
 str_BtnHelpCollapse,Player Options
 str_BtnHelpCorrect,Correct Answer
 str_BtnHelpCredits,Credits
+str_BtnHelpFail,Fail Question
 str_BtnHelpGameSetup,Game Setup
 str_BtnHelpHome,Home
 str_BtnHelpInstructions,Instructions
@@ -64,6 +67,7 @@ str_BtnHelpReturn,Return
 str_BtnHelpRoster,Load Player
 str_BtnHelpSelectPlayers,Select Players
 str_BtnHelpStart,Start
+str_BtnHelpTimer,Timer
 str_BtnHelpTile,Board tile description
 str_BtnHelpTrash,Delete
 str_BtnHelpWinner,Winner
@@ -114,7 +118,7 @@ UI_Credits,Credits
 UI_DeclareWinner,Declare winner
 UI_Delete,Delete
 UI_Down,Move down
-UI_EasyRead,Classic mode
+UI_EasyRead,Easy read clues
 UI_EnterName,Enter name
 UI_FailAnswer,Unluckly!
 UI_FailedAnswerText,%%PlayerName stays where they are.\nBetter luck next time!
@@ -173,6 +177,7 @@ UI_TrashPlayer,Permanently delete %%PlayerName and all of their data?
 UI_Up,Move up
 UI_UsingApp,Using this App
 UI_UsingAppDetails,App Details
+UI_WelcomeScreen,Show welcome screen
 UI_Winner,Err... Winner!
 UI_WinningText,Congratulations!!!\n\nYou have been declared the winner of the game!
 UI_YourTurn,You're next!\n\nA question from the deck...

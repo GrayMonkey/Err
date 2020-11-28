@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
         // For dev purposes only... comment out for release
         // or testing...
-        if (!playerDataExists) CreateDummyRoster();
+        //if (!playerDataExists) CreateDummyRoster();
     }
 
     private void CreateDummyRoster()

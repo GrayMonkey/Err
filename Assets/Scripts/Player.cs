@@ -19,6 +19,7 @@ public class Player //: MonoBehaviour
     public int questionsTotal = 0;
     public int answersTotal = 0;
     public int pointsTotal = 0;
+    public int guessTime = -1;
 
     public void ResetData()
     {    

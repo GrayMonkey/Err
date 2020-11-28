@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
+using UnityEditorInternal;
 
 public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
@@ -55,6 +56,25 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         playerSelector = PlayerSelector.playerSelector;
         playerController = PlayerController.playerController;
         activePlayerRectTransform = activePlayerHolder.GetComponent<RectTransform>();
+    }
+
+    private void Update()
+    {
+        // only using this for debug
+        try
+        {
+            PlayerObject player = playerSelector.activePlayerObject;
+        }
+        catch (Exception)
+        {
+            Debug.Log("No active player");
+            throw;
+        }
+        if(playerSelector.activePlayerObject == this)
+        {
+            RectTransform _rect = gameObject.GetComponent<RectTransform>();
+            Debug.LogError(gameObject.name +": " +_rect.position.ToString());
+        }
     }
 
     private void SetContextButton()
@@ -196,6 +216,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         thisRectTransform.localPosition = posNew;
         dummyPlayer.transform.position = thisRectTransform.position;
         //Debug.Log("Object.y: " + posNew.y + " | Upper/Lower: " + topLimit.ToString() + "," + bottomLimit.ToString());
+        //Debug.Log(gameObject.name + " yPos: " + gameObject.transform.position.y.ToString() + " | DummyObject yPos: " + dummyPlayer.transform.position.y.ToString());
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -236,7 +257,6 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             lastTap = Time.time;
         }
     }
-
     public void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log("Collider: " + collision.gameObject.name + " | Trigger: " + gameObject.name);
@@ -247,6 +267,11 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         {
             int colSibling = collision.transform.GetSiblingIndex();
             playerSelector.playerDragged.transform.SetSiblingIndex(colSibling);
+            //Debug.Log("Swapping: " + gameObject.name + "==" + playerSelector.playerDragged.name);
+        }
+        else
+        {
+            //Debug.Log("Not swapping! " + gameObject.name + "<>" + playerSelector.playerDragged.name);
         }
     }
     #endregion
@@ -357,7 +382,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
         // if player exists in the roster then send them back to the roster if its not
         // destoryed, otherwise destory the player
-        if(rosteredPlayer)
+        if (rosteredPlayer)
         {
             gameObject.transform.SetParent(rosterPlayerHolder.transform);
         }
@@ -366,25 +391,28 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             destroyPlayer = true;
         }
 
-        // close the submenu and destroy the player if required
+        // close the submenu
         SubMenu(false);
         extraButtons.SetActive(false);
         moreButton.SetActive(false);
         addRosterPlayerButton.SetActive(true);
+
         if (destroyPlayer)
         {
             playerController.playersActive.Remove(thisPlayer);
             Destroy(gameObject);
         }
 
+
+
         // if the player has been destroyed and there is at least one player
         // in the active player list then make the first player in the list
         // the activePlayerObject
-        for (int i = 0; i < playerSelector.newPlayerCount; i++)
+        /*for (int i = 0; i < playerSelector.newPlayerCount; i++)
         {
             if (activePlayerHolder.transform.GetChild(i).gameObject.TryGetComponent<PlayerObject>(out PlayerObject _playerObject))
                 playerSelector.activePlayerObject = _playerObject;
-        }
+        }*/
     }
     #endregion
 }

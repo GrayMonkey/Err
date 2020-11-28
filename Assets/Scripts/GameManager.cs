@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
         playerController = PlayerController.playerController;
         gameOptions = GameOptions.gameOptions;
         uiMenus = MenuHandler.uiMenus;
-        SetCardType();
+        //SetCardType();
 
         // Turn off all game states
         gameState.landingScreen.SetActive(false);
@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
     {
         GameObject cardType = cardTrad;
 
-        if (gameOptions.modCards) cardType = cardMod;
+        if (gameOptions.easyRead) cardType = cardMod;
 
         SetGameState(cardType);
     }
@@ -217,9 +217,10 @@ public class GameManager : MonoBehaviour
         uiMenus.ShowMenu(Menu.Options,currGameState);
     }
 
+ /*
     public void SetCardType()
     {
-        if(gameOptions.modCards)
+        if(gameOptions.easyReadClues)
         {
             gameState.question = cardMod;
         }
@@ -228,4 +229,5 @@ public class GameManager : MonoBehaviour
             gameState.question = cardTrad;
         }
     }
+*/
 }

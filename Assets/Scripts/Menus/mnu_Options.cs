@@ -2,6 +2,7 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using Menus = MenuHandler.MenuOverlay;
 
 public class mnu_Options : MonoBehaviour
@@ -12,17 +13,23 @@ public class mnu_Options : MonoBehaviour
     MenuHandler uiMenus;
     SystemLanguage tempGameLang;
 
-    [SerializeField] ScrollRect scrollRect;
+    [SerializeField] QuestionCard questionCard;
+    //[SerializeField] ScrollRect scrollRect;
     [SerializeField] Slider timeSlider;
     [SerializeField] Text guessTime;
-    [SerializeField] Toggle showAnswer;
-    [SerializeField] Toggle modCards;
-    [SerializeField] Toggle sliderLock;
-    [SerializeField] Toggle randomTurns;
-    [SerializeField] GameObject modCard;
-    [SerializeField] GameObject tradCard;
+    //[SerializeField] Toggle showAnswer;
+    //[SerializeField] Toggle modCards;
+    //[SerializeField] Toggle sliderLock;
+    //[SerializeField] Toggle randomTurns;
+    //[SerializeField] GameObject modCard;
+    //[SerializeField] GameObject tradCard;
+    [SerializeField] Slider showAnswer;
+    [SerializeField] Slider easyRead;
+    [SerializeField] Slider sliderLock;
+    [SerializeField] Slider randomTurns;
+    [SerializeField] Slider welcomeScreen;
     [SerializeField] GameObject[] langs;
-    [SerializeField] ToggleGroup langsGroup;
+    [SerializeField] Toggle[] langsGroup;
 
     private void Awake()
     {
@@ -36,11 +43,16 @@ public class mnu_Options : MonoBehaviour
     void OnEnable()
     {
         timeSlider.value = gameOptions.guessTime / 5.0f;
-        showAnswer.isOn = gameOptions.showAnswer;
-        modCards.isOn = gameOptions.modCards;
-        sliderLock.isOn = gameOptions.sliderLock;
-        randomTurns.isOn = gameOptions.randomTurns;
-        scrollRect.verticalNormalizedPosition = 1.0f;
+        //showAnswer.isOn = gameOptions.showAnswer;
+        //modCards.isOn = gameOptions.easyReadClues;
+        //sliderLock.isOn = gameOptions.sliderLock;
+        //randomTurns.isOn = gameOptions.randomTurns;
+        //scrollRect.verticalNormalizedPosition = 1.0f;
+        showAnswer.value = System.Convert.ToSingle(gameOptions.showAnswer);
+        sliderLock.value = System.Convert.ToSingle(gameOptions.sliderLock);
+        randomTurns.value = System.Convert.ToSingle(gameOptions.randomTurns);
+        easyRead.value = System.Convert.ToSingle(gameOptions.easyRead);
+        welcomeScreen.value = System.Convert.ToSingle(gameOptions.welcomeScreen);
         SetLanguage(locManager.GameLang);
     }
 
@@ -83,23 +95,29 @@ public class mnu_Options : MonoBehaviour
         {
             // Update the game options
             gameOptions.guessTime = timeSlider.value * 5.0f;
-            gameOptions.showAnswer = showAnswer.isOn;
-            gameOptions.modCards = modCards.isOn;
-            gameOptions.sliderLock = sliderLock.isOn;
-            gameOptions.randomTurns = randomTurns.isOn;
+            //gameOptions.showAnswer = showAnswer.isOn;
+            //gameOptions.easyRead = modCards.isOn;
+            //gameOptions.sliderLock = sliderLock.isOn;
+            //gameOptions.randomTurns = randomTurns.isOn;
+            gameOptions.showAnswer = System.Convert.ToBoolean(showAnswer.value);
+            gameOptions.easyRead = System.Convert.ToBoolean(easyRead.value);
+            gameOptions.sliderLock = System.Convert.ToBoolean(sliderLock.value);
+            gameOptions.randomTurns = System.Convert.ToBoolean(randomTurns.value);
+            gameOptions.welcomeScreen = System.Convert.ToBoolean(welcomeScreen.value);
             locManager.GameLang = tempGameLang;
 
             // Change the question style to match modCards
-            gameManager.SetCardType();
+            //gameManager.SetCardType();
+            questionCard.SetCluePanel();
 
             // Bug Fix: If the card type is changed during a question and 
             // answers correctly, the card would not update correctly to the
             // next question, but would use the old question. This forces an
             // update mid game.
-            if (gameManager.gameInProgress)
-            {
-                gameManager.ForceCardTypeChange();
-            }
+            //if (gameManager.gameInProgress)
+            //{
+            //    gameManager.ForceCardTypeChange();
+            //}
         }
 
         locManager.SetLang(locManager.GameLang);
@@ -108,7 +126,13 @@ public class mnu_Options : MonoBehaviour
 
     public void SetLanguage (SystemLanguage newLang)
     {
-        langsGroup.SetAllTogglesOff();
+        // note: ToggleGroups appear to have stopped working, they lose their
+        // members every disable
+        //langsGroup.SetAllTogglesOff();
+
+        foreach (Toggle toggle in langsGroup)
+            toggle.isOn = false;
+
         switch (newLang)
         {
             case SystemLanguage.French:
@@ -135,4 +159,6 @@ public class mnu_Options : MonoBehaviour
         // Update just in case timer is off
         GuessTime();
     }
+
+
 }

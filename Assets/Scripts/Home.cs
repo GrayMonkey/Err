@@ -7,7 +7,7 @@ public class Home : MonoBehaviour
 {
     [SerializeField] Text instructions;
     [SerializeField] Button playerSelect;
-    [SerializeField] Button cardSetSelect;
+    [SerializeField] Button cardSetSelect = null;
     [SerializeField] Button startGame;
 
     GameManager gameManager;
@@ -17,8 +17,8 @@ public class Home : MonoBehaviour
     Color select = new Color(1.0f, 0.7f, 0.7f);
     Image playerBtnImage;
     Image cardSetBtnImage;
-    Text playerBtnText;
-    Text cardSetBtnText;
+    Text playerBtnCount;
+    Text cardSetBtnCount;
 
     private void Awake()
     {
@@ -26,8 +26,8 @@ public class Home : MonoBehaviour
         playerController = PlayerController.playerController;
         playerBtnImage = playerSelect.GetComponent<Image>();
         cardSetBtnImage = cardSetSelect.GetComponent<Image>();
-        playerBtnText = playerSelect.GetComponentInChildren<Text>();
-        cardSetBtnText = cardSetSelect.GetComponentInChildren<Text>();
+        playerBtnCount = playerSelect.GetComponentInChildren<Text>();
+        cardSetBtnCount = cardSetSelect.GetComponentInChildren<Text>();
     }
 
     void OnEnable()
@@ -36,9 +36,9 @@ public class Home : MonoBehaviour
         bool cardsets = false;
         startGame.interactable = false;
         cardSetBtnImage.color = select;
-        cardSetBtnText.text = gameManager.defaultCardSets.Count.ToString();
+        cardSetBtnCount.text = gameManager.defaultCardSets.Count.ToString();
         playerBtnImage.color = select;
-        playerBtnText.text = playerController.playersActive.Count.ToString();
+        playerBtnCount.text = playerController.playersActive.Count.ToString();
         playerSelect.interactable = false;
 
         instructions.text = LocManager.locManager.GetLocText("UI_CardSetSelect");

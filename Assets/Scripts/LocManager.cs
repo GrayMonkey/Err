@@ -8,7 +8,7 @@ public class LocManager : MonoBehaviour
     public static LocManager locManager;
     public List<LocTextData> locText = new List<LocTextData>();
    
-    private SystemLanguage gameLang;
+    [SerializeField] SystemLanguage gameLang;
     private Translate[] trans;
 
     private void Awake()

@@ -5,8 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
+// Is this ever used outside of PlayerRosterSelect?
+
 public class PlayerRosterObject : MonoBehaviour
-{
+{/*
     public Player refPlayer;
 
     [SerializeField] private Text playerName;
@@ -31,4 +33,4 @@ public class PlayerRosterObject : MonoBehaviour
         playerName.text = refPlayer.playerName;
         playerID.text = refPlayer.playerID;
     }
-}
+*/}

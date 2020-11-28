@@ -9,21 +9,24 @@ using Menus = MenuHandler.MenuOverlay;
 
 public class CardTrad : MonoBehaviour
 {
-    [SerializeField] private GameObject[] clues;
-    [SerializeField] private Image[] numbers;
-    [SerializeField] private GameObject nextBtn;
-    [SerializeField] private GameObject failBtn;
-    [SerializeField] private Text word;
-    [SerializeField] private Text letter;
-    [SerializeField] private Text clue0;
-    [SerializeField] private Text clue1;
-    [SerializeField] private Text clue2;
-    [SerializeField] private Text clue3;
-    [SerializeField] private Text credit;
+    [SerializeField] GameObject[] clues;
+    [SerializeField] Text[] clueTexts;
+    [SerializeField] Image[] numbers;
+    [SerializeField] GameObject nextBtn;
+    [SerializeField] GameObject failBtn;
+    [SerializeField] Button timerBtn;
+    [SerializeField] Timer[] timers;
+    [SerializeField] Text word;
+    [SerializeField] Text letter;
+    [SerializeField] Text clue0;
+    [SerializeField] Text clue1;
+    [SerializeField] Text clue2;
+    [SerializeField] Text clue3;
+    [SerializeField] Text credit;
 
     GameManager gameManager;
     PlayerController playerController;
-    int currentClue;
+    //int currentClue;
     bool showAnswer = false;
     MenuHandler uiMenu;
     Question activeQuestion;
@@ -44,7 +47,7 @@ public class CardTrad : MonoBehaviour
     {
         //activeQuestion = gameManager.activeQuestion;
         showAnswer = GameOptions.gameOptions.showAnswer;
-        currentClue = 4;
+        //currentClue = 4;
         SetUpCard();
     }
 
@@ -54,22 +57,36 @@ public class CardTrad : MonoBehaviour
         activeQuestion = gameManager.activeQuestion;
         nextBtn.SetActive(true);
         failBtn.SetActive(false);
+        timerBtn.interactable = true;
         credit.text = activeQuestion.credit;
-//        gameManager.activeQuestion.maxPoints = 4;
+        //        gameManager.activeQuestion.maxPoints = 4;
 
 
-        // Set the question word values
-        letter.text = activeQuestion.word.Substring(0, 1);
-        clue0.text = activeQuestion.clue4;
-        clue1.text = activeQuestion.clue3;
-        clue2.text = activeQuestion.clue2;
-        clue3.text = activeQuestion.clue1;
+        /*        // Set the question word values
+                letter.text = activeQuestion.word.Substring(0, 1);
+                clue0.text = activeQuestion.clue4;
+                clue1.text = activeQuestion.clue3;
+                clue2.text = activeQuestion.clue2;
+                clue3.text = activeQuestion.clue1;
 
-        // Hide the clues yet to be given
-        clues[0].SetActive(false);
-        clues[1].SetActive(false);
-        clues[2].SetActive(false);
-        clues[3].SetActive(false);
+                // Hide the clues yet to be given
+                clues[0].SetActive(false);
+                clues[1].SetActive(false);
+                clues[2].SetActive(false);
+                clues[3].SetActive(false);
+        */
+        // Set the clue texts
+        clueTexts[0].text = activeQuestion.clue4;
+        clueTexts[1].text = activeQuestion.clue3;
+        clueTexts[2].text = activeQuestion.clue2;
+        clueTexts[3].text = activeQuestion.clue1;
+
+        //Hide the clues yet to be given
+        clueTexts[0].gameObject.SetActive(false);
+        clueTexts[1].gameObject.SetActive(false);
+        clueTexts[2].gameObject.SetActive(false);
+        clueTexts[3].gameObject.SetActive(false);
+
 
         // Recolour the number panels - they are current
         // colour because they are inactive
@@ -91,7 +108,8 @@ public class CardTrad : MonoBehaviour
 
     void ClueUpdate(int clueID)
     {
-        clues[clueID].SetActive(true);
+        //clues[clueID].SetActive(true);
+        clueTexts[clueID].gameObject.SetActive(true);
 
         if (clueID > 0)
         {
@@ -109,7 +127,12 @@ public class CardTrad : MonoBehaviour
         gameManager.activeQuestion.maxPoints--;
         gameManager.activeQuestion.maxPoints = Mathf.Clamp(gameManager.activeQuestion.maxPoints--, 1, 4);
         ClueUpdate(4 - gameManager.activeQuestion.maxPoints);
-    }
+        timerBtn.interactable = true;
+ /*       foreach(Timer timer in timers)
+        {
+            timer.ResetTimer();
+        }
+ */   }
 
     private void ChangeNextFailButtons()
     {
@@ -153,6 +176,13 @@ public class CardTrad : MonoBehaviour
 
         // Toggle showWord for next call
         showAnswer = !showAnswer;
+    }
+
+    public void StartTimer()
+    {
+        int timerID = 4 - gameManager.activeQuestion.maxPoints;
+        timers[timerID].StartTimer();
+        timerBtn.interactable = false;
     }
 
     public void OptionsMenu()

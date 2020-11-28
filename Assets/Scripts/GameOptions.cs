@@ -5,7 +5,7 @@ public class GameOptions : MonoBehaviour
     public static GameOptions gameOptions;
     public float guessTime = 0;
     public bool showAnswer = false;
-    public bool modCards = false;
+    public bool easyRead = false;
     public bool sliderLock = false;
     public bool randomTurns = false;
     public bool welcomeScreen = false;
@@ -15,12 +15,12 @@ public class GameOptions : MonoBehaviour
         gameOptions = this;
     }
 
-    void UpdateOptions (float newTime, bool newShowAnswer, bool newModCards,
+    void UpdateOptions (float newTime, bool newShowAnswer, bool newEasyRead,
                         bool newSliderLock, bool newRandomTurns)
     {
         guessTime = newTime * 5.0f;
         showAnswer = newShowAnswer;
-        modCards = newModCards;
+        easyRead = newEasyRead;
         sliderLock = newSliderLock;
         randomTurns = newRandomTurns;
     }

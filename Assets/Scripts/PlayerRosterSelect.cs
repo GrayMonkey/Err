@@ -5,7 +5,7 @@ using UnityEngine.UI;
 // Is this ever used?
 
 public class PlayerRosterSelect : MonoBehaviour
-{
+{/*
 
     public static PlayerRosterSelect playerRosterSelect;
     //public bool inUse = false;
@@ -69,4 +69,4 @@ public class PlayerRosterSelect : MonoBehaviour
             }
         }
     }
-}
+*/}
