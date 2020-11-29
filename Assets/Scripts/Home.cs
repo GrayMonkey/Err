@@ -70,19 +70,4 @@ public class Home : MonoBehaviour
         this.gameObject.SetActive(false);
         playerController.StartGame();
     }
-
-    //public void SelectPlayers()
-    //{
-    //    gameManager.SetGameState(gameManager.gameState.playerSelect);
-    //}
-
-    //public void SelectCardSets()
-    //{
-    //    gameManager.SetGameState(gameManager.gameState.cardSetSelect);
-    //}
-
-    //public void StartGame()
-    //{
-    //    gameManager.SetGameState(gameManager.gameState.question);
-    //}
 }

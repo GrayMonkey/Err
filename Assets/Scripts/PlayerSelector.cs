@@ -107,6 +107,7 @@ public class PlayerSelector : MonoBehaviour
         GameObject playersRoster = playersRosterContent.transform.parent.gameObject;
         List<Player> playerRoster = playerController.playerRoster;
         playersRoster.SetActive(true);
+        
         if (playerRoster.Count == 0)
         {
             playersRoster.SetActive(false);
@@ -114,9 +115,7 @@ public class PlayerSelector : MonoBehaviour
         else
         {
             foreach (Player rosterPlayer in playerRoster)
-            {
                 CreatePlayerObject(rosterPlayer, playersRosterContent.transform);
-            }
         }
     }
 

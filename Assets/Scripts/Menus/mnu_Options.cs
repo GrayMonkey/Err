@@ -1,8 +1,5 @@
-﻿#pragma warning disable 649   // Disable [SerializeField] warnings CS0649
-
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using Menus = MenuHandler.MenuOverlay;
 
 public class mnu_Options : MonoBehaviour
@@ -14,15 +11,8 @@ public class mnu_Options : MonoBehaviour
     SystemLanguage tempGameLang;
 
     [SerializeField] QuestionCard questionCard;
-    //[SerializeField] ScrollRect scrollRect;
     [SerializeField] Slider timeSlider;
     [SerializeField] Text guessTime;
-    //[SerializeField] Toggle showAnswer;
-    //[SerializeField] Toggle modCards;
-    //[SerializeField] Toggle sliderLock;
-    //[SerializeField] Toggle randomTurns;
-    //[SerializeField] GameObject modCard;
-    //[SerializeField] GameObject tradCard;
     [SerializeField] Slider showAnswer;
     [SerializeField] Slider easyRead;
     [SerializeField] Slider sliderLock;
@@ -43,11 +33,6 @@ public class mnu_Options : MonoBehaviour
     void OnEnable()
     {
         timeSlider.value = gameOptions.guessTime / 5.0f;
-        //showAnswer.isOn = gameOptions.showAnswer;
-        //modCards.isOn = gameOptions.easyReadClues;
-        //sliderLock.isOn = gameOptions.sliderLock;
-        //randomTurns.isOn = gameOptions.randomTurns;
-        //scrollRect.verticalNormalizedPosition = 1.0f;
         showAnswer.value = System.Convert.ToSingle(gameOptions.showAnswer);
         sliderLock.value = System.Convert.ToSingle(gameOptions.sliderLock);
         randomTurns.value = System.Convert.ToSingle(gameOptions.randomTurns);
@@ -66,12 +51,6 @@ public class mnu_Options : MonoBehaviour
         }
         guessTime.text = xTime;
     }
-
-    //public void Btn_Instruction()
-    //{
-    //    //uiMenu.OpenSubMenu(Menus.HowToPlay);
-    //    uiMenus.CloseMenu(Menus.Options);
-    //}
 
     public void Btn_Credits()
     {
@@ -93,12 +72,7 @@ public class mnu_Options : MonoBehaviour
     {
         if (updateOptions)
         {
-            // Update the game options
             gameOptions.guessTime = timeSlider.value * 5.0f;
-            //gameOptions.showAnswer = showAnswer.isOn;
-            //gameOptions.easyRead = modCards.isOn;
-            //gameOptions.sliderLock = sliderLock.isOn;
-            //gameOptions.randomTurns = randomTurns.isOn;
             gameOptions.showAnswer = System.Convert.ToBoolean(showAnswer.value);
             gameOptions.easyRead = System.Convert.ToBoolean(easyRead.value);
             gameOptions.sliderLock = System.Convert.ToBoolean(sliderLock.value);
@@ -107,7 +81,6 @@ public class mnu_Options : MonoBehaviour
             locManager.GameLang = tempGameLang;
 
             // Change the question style to match modCards
-            //gameManager.SetCardType();
             questionCard.SetCluePanel();
 
             // Bug Fix: If the card type is changed during a question and 
@@ -159,6 +132,4 @@ public class mnu_Options : MonoBehaviour
         // Update just in case timer is off
         GuessTime();
     }
-
-
 }

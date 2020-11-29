@@ -5,22 +5,22 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public bool timerOn;
 
     [SerializeField] Button nextClue;
     [SerializeField] Button failQuestion;
-    //[SerializeField] Button btnTimer;
     [SerializeField] bool scaleX;
 
-    //CardTrad cardTrad;
     PlayerController playerController;
     GameOptions gameOptions;
     Player activePlayer;
-    RectTransform thisRect;
-    Text countdown = null;
-    float guessTimeRemaining;
+    QuestionCard qCard;
+    Image timerImg;
+    bool timerOn;
+    bool timerDelayOn;
+    float delayTime = 5.0f;
+    float delayTimeRem;
     float guessTime;
-    int timerCount = 0;
+    float guessTimeRem;
 
     // Start is called before the first frame update
     void Awake()
@@ -31,91 +31,63 @@ public class Timer : MonoBehaviour
 
     private void OnEnable()
     {
+        qCard = gameObject.GetComponentInParent<QuestionCard>();
         activePlayer = playerController.activePlayer;
         guessTime = gameOptions.guessTime;
-        //countdown = btnTimer.GetComponentInChildren<Text>();
+        timerImg = gameObject.GetComponent<Image>();
         timerOn = false;
-
-        // if the player has a guess time option then use that instead
-        // if (activePlayer.guessTime > -1)
-        //    guessTimeRemaining = activePlayer.guessTime;
     }
 
     // Update is called once per frame
     void Update()
     {
+/*        // TODO Ad timerstartdelay to clue number
+        if (timerDelayOn)
+        { }
+*/
+        // Crease the amount of the timer panel until it is finished
         if (timerOn)
         {
-            guessTimeRemaining -= Time.deltaTime;
-            float newScale = 1.0f * (guessTimeRemaining / guessTime);
-            ScaleTimer(newScale);
-            //countdown.text = guessTimeRemaining.ToString("##");
-            if (guessTimeRemaining < 0.0f)
+            //Debug.Log(this.name +": On");
+            guessTimeRem -= Time.deltaTime;
+            timerImg.fillAmount= 1.0f * (guessTimeRem / guessTime);
+            if (guessTimeRem < 0.0f)
                 TimeOver();
         }
-            
     }
 
     public void SetTimer()
     {
-        float delayTimerStart = 5.0f;
-        //btnTimer.interactable = false;
-        guessTimeRemaining = guessTime;
-        ScaleTimer(1.0f);
-        Invoke("StartTimer", delayTimerStart);
+        guessTimeRem = guessTime;
+        timerImg.fillAmount = 1.0f;
+        StartDelayTimer();
+        Invoke("StartTimer", delayTime);
     }
 
+    private void StartDelayTimer()
+    {
+        timerDelayOn = true;
+    }
     private void StartTimer()
     {
         timerOn = true;
     }
 
-    public void ResetTimer(float guessTime)
+    public void ResetTimer()
     {
-//        btnTimer.gameObject.SetActive(false);
-        if (guessTime == 0)
-        {
-            this.gameObject.SetActive(false);
-;       }
-/*        else
-        {
-            btnTimer.gameObject.SetActive(true);
-            countdown.text = guessTime.ToString();
-        }
-*/
+        if (!gameObject.activeInHierarchy)
+            return;
         timerOn = false;
-        ScaleTimer(0.0f);
+        timerImg.fillAmount = 0.0f;
+
+        // In case the timer is reset before Invoke is called in SetTimer()
+        CancelInvoke();
     }
 
     void TimeOver()
     {
+        timerDelayOn = false;
         timerOn = false;
-        //btnTimer.interactable = true;
-
-        // Move on the to next clue or pass to the next player if all cluse used up
-        if (nextClue.gameObject.activeSelf)
-        {
-            nextClue.onClick.Invoke();
-        }
-        else if (failQuestion.gameObject.activeSelf)
-        {
-            failQuestion.onClick.Invoke();
-        }
+        qCard.NextClue();
     }
-
-    void ScaleTimer(float scale)
-    {
-        thisRect = gameObject.GetComponent<RectTransform>();
-
-        if (scaleX)
-        {
-            thisRect.localScale = new Vector3(scale, 1.0f, 1.0f);
-        }
-        else
-        {
-            thisRect.localScale = new Vector3(1.0f, scale, 1.0f);
-        }
-    }
-
-    
 }

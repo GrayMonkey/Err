@@ -15,40 +15,35 @@ public class MenuHandler : MonoBehaviour
 
     [SerializeField] private GameObject backPanel;
     [SerializeField] private GameObject[] menuArray;
-    GameObject lastScreen;
+    // List<MenuOverlay> menuStack; //Not sure if this is going to be needed but useful for returning to previous menus?
 
     private void Awake()
     {
         uiMenus = this;
     }
 
-    public void ShowMenu(MenuOverlay menuID, GameObject currScreen)
+    public void ShowMenu(MenuOverlay newMenu)
     {
-        int iD = (int)menuID;
+        int iD = (int)newMenu;
         menuArray[iD].SetActive(true);
         backPanel.SetActive(true);
-
-        lastScreen = currScreen;
-        currScreen.SetActive(false);
+        //menuStack.Add(newMenu);
     }
 
-    public void ShowMenu(MenuOverlay menuID)
+    public void CloseMenu(MenuOverlay oldMenu)
     {
-        int iD = (int)menuID;
-        menuArray[iD].SetActive(true);
-        backPanel.SetActive(true);
-    }
-
-    public void CloseMenu(MenuOverlay menuID)
-    {
-        int iD = (int)menuID;
+        int iD = (int)oldMenu;
         menuArray[iD].SetActive(false);
         backPanel.SetActive(false);
 
-        if (lastScreen!= null)
+/*        // If there is more than one menu in the stack then presumably
+        // the next oldest menu needs to be displayed
+        menuStack.Remove(oldMenu);
+        if (menuStack.Count>0)
         {
-            lastScreen.SetActive(true);
-            lastScreen = null;
-        }
+            ShowMenu((MenuOverlay)menuStack.Count - 1);
+            menuStack.RemoveAt(menuStack.Count - 1);
+        
+        }*/
     }
 }

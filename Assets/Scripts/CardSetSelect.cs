@@ -8,7 +8,6 @@ public class CardSetSelect : MonoBehaviour
     [SerializeField] Toggle[] langFlags = default;
     [SerializeField] GameObject btnShopCardsets = default;
     [SerializeField] GameObject btnGameCardsets = default;
-    //[SerializeField] Sprite btnOK = default;
     [SerializeField] GameObject freePurchaseScreen;
     [SerializeField] GameObject csGame = default;
     [SerializeField] GameObject csShop = default;

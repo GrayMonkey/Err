@@ -43,8 +43,10 @@ public class mnu_CorrectAnswer : MonoBehaviour
         activePlayer.questionsThisGame++;
         activePlayer.answersThisGame++;
         activePlayer.pointsThisGame += gameManager.activeQuestion.maxPoints;
-        CloseMenu();
         playerController.NextPlayer();
+
+        CloseMenu();
+        uiMenus.ShowMenu(Menus.NewQuestion);
     }
 
     public void Winner()

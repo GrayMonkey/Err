@@ -38,9 +38,7 @@ public class mnu_GameResults : MonoBehaviour
         foreach (Player player in playerController.playersActive)
         {
             if (player.pointsThisGame == maxPoints)
-            {
                 pointNames += "\n" + player.playerName;
-            }
 
             if (player.pointsThisGame > maxPoints)
             {
@@ -53,9 +51,7 @@ public class mnu_GameResults : MonoBehaviour
             float percentage = answers / questions;
 
             if (percentage == maxAnswers)
-            {
                 answerNames += "\n" + player.playerName;
-            }
 
             if (percentage > maxAnswers)
             {
@@ -77,7 +73,7 @@ public class mnu_GameResults : MonoBehaviour
     {
         labelPoints.text = origLabelPoints;
         labelAnswers.text = origLabelAnswers;
-        //gameManager.UpdateGameState(GameManager.GameState.EndGame);
+        gameManager.SetGameState(gameManager.gameState.home);
         MenuHandler.uiMenus.CloseMenu(MenuHandler.MenuOverlay.GameResults);
     }
 }

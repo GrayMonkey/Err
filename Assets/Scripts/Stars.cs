@@ -10,25 +10,6 @@ public class Stars : MonoBehaviour
     int points = -1;
     int starID = 0;
 
-    //void Update()
-    //{
-    //    if(points>-1)
-    //    {
-    //        if (Time.time < lastStar + starDelay) return; 
-
-    //        Animator animator = stars[points].GetComponentInChildren<Animator>();
-    //        animator.SetTrigger("RevealStar");
-
-    //        points--;
-    //        lastStar = Time.time;
-    //    }
-    //}
-    private void Start()
-    {
-        
-    }
-
-
     public void LaunchStars(int x)
     {
         foreach (Star star in stars)
@@ -39,13 +20,7 @@ public class Stars : MonoBehaviour
         points = x;
 
         for (int i = 0; i <= points-1; i++)
-        {
             stars[i].gameObject.SetActive(true);
-            //    Animator anim = stars[i].GetComponentInChildren<Animator>();
-            //    anim.SetTrigger("RevealStar");
-        }
-
-        //lastStar = Time.time;
     }
 
     private void Update()

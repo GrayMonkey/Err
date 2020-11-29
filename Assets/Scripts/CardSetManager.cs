@@ -8,13 +8,11 @@ public class CardSetManager : MonoBehaviour
 {
     public static CardSetManager csManager;
     public CardSet[] allCardSets;
-    //public List<CardSet> allCardSets = new List<CardSet>();
     public List<CardSet> activeCardsets = new List<CardSet>();
 
     private void OnEnable()
     {
         csManager = this;
-        //allCardSets.Clear();
         string lang = Application.systemLanguage.ToString();
         UpdateCardSets();
         FilterCardSets(lang, true);

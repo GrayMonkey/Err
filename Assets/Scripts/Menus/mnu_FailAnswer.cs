@@ -6,6 +6,7 @@ using Menus = MenuHandler.MenuOverlay;
 public class mnu_FailAnswer : MonoBehaviour
 {
     [SerializeField] Text playerName;
+    [SerializeField] GameObject qCard;
 
     PlayerController playerController;
     MenuHandler uiMenus;
@@ -23,14 +24,16 @@ public class mnu_FailAnswer : MonoBehaviour
         playerName.text = activePlayer.playerName;
     }
 
-    public void CloseMenu()
+    public void Return()
     {
+        qCard.SetActive(true);
         uiMenus.CloseMenu(Menus.FailAnswer);
     }
 
     public void NextPlayer()
     {
-        CloseMenu();
+        //Return();
+        uiMenus.CloseMenu(Menus.FailAnswer);
         activePlayer.questionsThisGame++;
         playerController.NextPlayer();
     }

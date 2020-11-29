@@ -8,12 +8,12 @@ using Menu = MenuHandler.MenuOverlay;
 
 public class mnu_NewQuestion : MonoBehaviour
 {
-    PlayerController playerController;
-    GameManager gameManager;
-    MenuHandler uiMenus;
     [SerializeField] Text playerName;
     [SerializeField] Text deckName;
     [SerializeField] Image deckIcon;
+    PlayerController playerController;
+    GameManager gameManager;
+    MenuHandler uiMenus;
 
     private void Awake()
     {

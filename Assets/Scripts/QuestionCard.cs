@@ -20,15 +20,10 @@ public class QuestionCard : MonoBehaviour
     [SerializeField] Text word;
     [SerializeField] Text hiddenWord;
     [SerializeField] Text letter;
-    //[SerializeField] private Text clue4;
-    //[SerializeField] private Text clue3;
-    //[SerializeField] private Text clue2;
-    //[SerializeField] private Text clue1;
     [SerializeField] private Text credit;
 
     GameManager gameManager;
     GameOptions gameOptions;
-    PlayerController playerController;
     MenuHandler uiMenus;
     Question activeQuestion;
     Vector3 scale;
@@ -46,18 +41,16 @@ public class QuestionCard : MonoBehaviour
         gameOptions = GameOptions.gameOptions;
         gameManager = GameManager.gameManager;
         uiMenus = MenuHandler.uiMenus;
-        playerController = PlayerController.playerController;
         activeQuestion = gameManager.activeQuestion;
     }
 
     private void OnEnable()
     {
-        //activeQuestion = gameManager.activeQuestion;
         showAnswer = gameOptions.showAnswer;
         SetUpCard();
     }
 
-    // Set up the card according to the currnt question and game options
+    // Set up the card according to the current question and game options
     public void SetUpCard()
     {
         activeQuestion = gameManager.activeQuestion;
@@ -126,21 +119,6 @@ public class QuestionCard : MonoBehaviour
 
         // Set up the relevant button and clue
         SetClue(0);
-
-        // Iterate through SetClue() if card is changed in options and
-        // activePlayer has already seen clues
-        // Should now be handled with the new clues being set all at once
-        // if (activeQuestion.maxPoints < 4)
-        //{
-        //     for (int i = 0; i < 4 - activeQuestion.maxPoints; i++)
-        //    {
-        //        NextClue();
-        //  }
-        //}
-
-        //Reset the timers
-        ResetTimers();
-
     }
 
     public void SetCluePanel()
@@ -149,52 +127,39 @@ public class QuestionCard : MonoBehaviour
             return;
         goCluesEasyRead.SetActive(gameOptions.easyRead);
         goCluesAllAtOnce.SetActive(!gameOptions.easyRead);
-/*
-        if (gameOptions.easyRead)
-        {
-            goCluesEasyRead.SetActive(true);
-        }
-        else
-        {
-            goCluesAllAtOnce.SetActive(true);
-        }
-  */  }
+    }
 
     public void NextClue()
     {
+        if(lastClueID == 3)
+        {
+            Fail();
+            return;
+        }
+
         int clueID = lastClueID + 1;
         SetClue(clueID);
-        ResetTimers();
-        //Invoke("StartTimer", 5f);
         StartTimer();
     }
 
     private void ResetTimers()
     {
-        float guessTime;
-        guessTime = playerController.activePlayer.guessTime;  // Active player's personal timer should always override game timer
-        if (guessTime == -1.0f)
-            guessTime = gameOptions.guessTime;
-        
         foreach (Timer timer in timers)
-        {
-            timer.ResetTimer(guessTime);
-        }
-        
-        // Reset TimerButton
-       
+            timer.ResetTimer();
     }
 
     public void StartTimer()
     {
         int timerID;
+        timerID = 4 - gameManager.activeQuestion.maxPoints;
+
         if (gameOptions.easyRead)
             timerID = 4;
-        else
-            timerID = 4 - gameManager.activeQuestion.maxPoints;
+        
+        if (timerID > 0)
+            timers[timerID - 1].ResetTimer();
 
         timers[timerID].SetTimer();
-        timerBtn.interactable = false;
     }
 
     public void SetClue(int clueID)
@@ -237,18 +202,15 @@ public class QuestionCard : MonoBehaviour
 
         // Change the Next Button if down to last clue
         if (gameManager.activeQuestion.maxPoints == 1)
-        {
             ChangeNextFailButtons();
-        }
 
         lastClueID = clueID;
-
-        ResetTimers();
-        Invoke ("StartTimer",0.1f);
+        StartTimer();
     }
 
     public void Fail()
     {
+        ResetTimers();
         gameManager.activeQuestion.maxPoints = 0;
         uiMenus.ShowMenu(Menus.FailAnswer);
         this.gameObject.SetActive(false);
@@ -256,7 +218,8 @@ public class QuestionCard : MonoBehaviour
 
     public void Answer()
     {
-        uiMenus.ShowMenu(Menus.CorrectAnswer,this.gameObject);
+        ResetTimers();
+        uiMenus.ShowMenu(Menus.CorrectAnswer);
         this.gameObject.SetActive(false);
     }
 
