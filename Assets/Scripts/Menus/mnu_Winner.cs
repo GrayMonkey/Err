@@ -35,6 +35,7 @@ public class mnu_Winner : MonoBehaviour
             activePlayer.questionsThisGame++;
             activePlayer.answersThisGame++;
             activePlayer.pointsThisGame += gameManager.activeQuestion.maxPoints;
+            playerController.SavePlayerData();
             uiMenu.CloseMenu(Menus.WinningPlayer);
             uiMenu.ShowMenu(Menus.GameResults);
         } else {
