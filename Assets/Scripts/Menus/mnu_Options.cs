@@ -30,7 +30,7 @@ public class mnu_Options : MonoBehaviour
         uiMenus = MenuHandler.uiMenus;
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
         timeSlider.value = gameOptions.guessTime / 5.0f;
         showAnswer.value = System.Convert.ToSingle(gameOptions.showAnswer);
@@ -39,6 +39,7 @@ public class mnu_Options : MonoBehaviour
         easyRead.value = System.Convert.ToSingle(gameOptions.easyRead);
         welcomeScreen.value = System.Convert.ToSingle(gameOptions.welcomeScreen);
         SetLanguage(locManager.GameLang);
+        tempGameLang = locManager.GameLang;
     }
 
     public void GuessTime()
