@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using System;
 using UnityEditorInternal;
 
-public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
+public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler  
 {
     // TODO: Still some tidying up of this script, need to remove unneeded variables.
 
@@ -16,6 +16,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public bool subMenuOpen = false;
 
     [SerializeField] private Text playerName;
+    [SerializeField] private float swipeThreshold = 50.0f;
     //[SerializeField] private Image playerNameBG;
     [SerializeField] private Text playerID;
     [SerializeField] private Text dummyPlayerName;
@@ -39,6 +40,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     RectTransform activePlayerRectTransform;
     PlayerSelector playerSelector;
     PlayerController playerController;
+    Vector2 swipeStart;
     float lastTap = 0f;
     float delayTap = 0.25f;
     float startTime;
@@ -173,59 +175,48 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     #endregion
 
     #region Clicking and dragging functions
-
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (!active)
-            return;
-        SubMenu(false);
-        playerSelector.activePlayerObject = this;
-        playerSelector.playerDragged = gameObject;
-        GetComponent<BoxCollider2D>().isTrigger = true;
-
-        // Turn on the dummyplayer and set it to the position of the playerobject
-        dummyPlayerName.text = playerName.text;
-        dummyPlayerID.text = playerID.text;
-        dummyPlayer.SetActive(true);
-        dummyPlayer.transform.localPosition = gameObject.transform.localPosition;
-
-        // Set the delta between the the gameObejct position and the eventData position
-        Vector2 offset = new Vector2();
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(activePlayerRectTransform, eventData.position, null, out offset);
-        clickOffset = transform.localPosition.y - offset.y;
-        // Debug.Log("Dragging: " + thisPlayer.playerName);
-        // Debug.Log("Offset: " + clickOffset.ToString());
+        swipeStart = eventData.position;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (!active)
-            return;
-        RectTransform thisRectTransform = this.GetComponent<RectTransform>();
-        Vector2 posNew = gameObject.transform.localPosition;
-        Vector2 posInputLocal = new Vector2();
-        Vector2 posInput = eventData.position;
-        Camera camInput = null; // eventData.pressEventCamera; // seems to work better with a null camera
-
-        // Set the lower limits of the player holder, upper limit will not change
-        // bottomLimit is plus the size of the current gameObject height
-        float topLimit = activePlayerRectTransform.sizeDelta.y / 2;
-        float bottomLimit = -topLimit + thisRectTransform.sizeDelta.y;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(activePlayerRectTransform, posInput, camInput, out posInputLocal);
-        posNew.y = Mathf.Clamp(posInputLocal.y + clickOffset, bottomLimit, topLimit);
-        thisRectTransform.localPosition = posNew;
-        dummyPlayer.transform.position = thisRectTransform.position;
-        //Debug.Log("Object.y: " + posNew.y + " | Upper/Lower: " + topLimit.ToString() + "," + bottomLimit.ToString());
-        //Debug.Log(gameObject.name + " yPos: " + gameObject.transform.position.y.ToString() + " | DummyObject yPos: " + dummyPlayer.transform.position.y.ToString());
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        GetComponent<BoxCollider2D>().isTrigger = false;
-        dummyPlayer.SetActive(false);
-        playerSelector.UpdatePlayerList();
-        LayoutRebuilder.MarkLayoutForRebuild(GetComponentInParent<RectTransform>());
-        //Debug.Log("Dropped: " + thisPlayer.playerName);
+        bool _up = true;
+        Vector2 swipeEnd = eventData.position;
+        float _change = swipeEnd.y - swipeStart.y;
+
+        if (_change < 0)
+            _up = false;
+
+        if (Mathf.Abs(_change) > swipeThreshold)
+            ChangeSibilingPosition(_up);
+
+        //Debug.Log("Swipe distance: " + _change.ToString());
+    }
+
+    void ChangeSibilingPosition(bool up)
+    {
+        int _index = transform.GetSiblingIndex();
+        int _maxIndex = transform.parent.childCount -1;
+
+        // Set the move up or down depending on up
+        int _move = -1;
+        if (!up)
+            _move = 1;
+
+        // If the sibiling position is either first or last and the
+        // change pushes is beyond the heirarchy then quit this function
+        if ((_index == 1 && up) || (_index == _maxIndex && !up))
+            return;
+
+        // Change the position according to up or down
+        int _newIndex = _index + _move;
+        transform.SetSiblingIndex(_newIndex);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -257,23 +248,94 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             lastTap = Time.time;
         }
     }
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        //Debug.Log("Collider: " + collision.gameObject.name + " | Trigger: " + gameObject.name);
 
-        // Change the SiblingIndex in the heirarchy to make space
-        // immediately visible for playerDragged
-        if (gameObject == playerSelector.playerDragged)
+    #region Old dragging code
+    /*
+        // This is the old code when used for dragging player objects around.
+        // For some reason this stopped working which is possibly something
+        // to do with the player objects being held in a vertical layout
+        // group. This could possibly be got around (in a similar way to 
+        // the Unity UI Extensions project/plugin) by removing the PlayerObject
+        // from the holding GO and replacing it with a 'fake' blank RectTransform.
+        // In the meantime will just replcing the clicking and dragging 
+        // functionality with a simple swipe up/down to move the PlayerObject up
+        // or down one sibiling level in the heriarchy.
+
+        public void OnBeginDrag(PointerEventData eventData)
         {
-            int colSibling = collision.transform.GetSiblingIndex();
-            playerSelector.playerDragged.transform.SetSiblingIndex(colSibling);
-            //Debug.Log("Swapping: " + gameObject.name + "==" + playerSelector.playerDragged.name);
+            if (!active)
+                return;
+            SubMenu(false);
+            playerSelector.activePlayerObject = this;
+            playerSelector.playerDragged = gameObject;
+            GetComponent<BoxCollider2D>().isTrigger = true;
+
+            // Turn on the dummyplayer and set it to the position of the playerobject
+            dummyPlayerName.text = playerName.text;
+            dummyPlayerID.text = playerID.text;
+            dummyPlayer.SetActive(true);
+            dummyPlayer.transform.localPosition = gameObject.transform.localPosition;
+
+            // Set the delta between the the gameObejct position and the eventData position
+            Vector2 offset = new Vector2();
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(activePlayerRectTransform, eventData.position, null, out offset);
+            clickOffset = transform.localPosition.y - offset.y;
+            // Debug.Log("Dragging: " + thisPlayer.playerName);
+            // Debug.Log("Offset: " + clickOffset.ToString());
         }
-        else
+
+        public void OnDrag(PointerEventData eventData)
         {
-            //Debug.Log("Not swapping! " + gameObject.name + "<>" + playerSelector.playerDragged.name);
+            if (!active)
+                return;
+            RectTransform thisRectTransform = this.GetComponent<RectTransform>();
+            Vector2 posNew = gameObject.transform.localPosition;
+            Vector2 posInputLocal = new Vector2();
+            Vector2 posInput = eventData.position;
+            Camera camInput = null; // eventData.pressEventCamera; // seems to work better with a null camera
+
+            // Set the lower limits of the player holder, upper limit will not change
+            // bottomLimit is plus the size of the current gameObject height
+            float topLimit = activePlayerRectTransform.sizeDelta.y / 2;
+            float bottomLimit = -topLimit + thisRectTransform.sizeDelta.y;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(activePlayerRectTransform, posInput, camInput, out posInputLocal);
+            posNew.y = Mathf.Clamp(posInputLocal.y + clickOffset, bottomLimit, topLimit);
+            thisRectTransform.localPosition = posNew;
+            dummyPlayer.transform.position = thisRectTransform.position;
+            //Debug.Log("Object.y: " + posNew.y + " | Upper/Lower: " + topLimit.ToString() + "," + bottomLimit.ToString());
+            Debug.Log(gameObject.name + " - y pos:" + thisRectTransform.localPosition.y + "(" + posNew.y + ")");
+            //Debug.Log(gameObject.name + " yPos: " + gameObject.transform.position.y.ToString() + " | DummyObject yPos: " + dummyPlayer.transform.position.y.ToString());
         }
-    }
+        
+        public void OnCollisionEnter2D (Collider2D collision)
+        {
+            //Debug.Log("Collider: " + collision.gameObject.name + " | Trigger: " + gameObject.name);
+
+            // Change the SiblingIndex in the heirarchy to make space
+            // immediately visible for playerDragged
+            if (gameObject == playerSelector.playerDragged)
+            {
+                int colSibling = collision.transform.GetSiblingIndex();
+                playerSelector.playerDragged.transform.SetSiblingIndex(colSibling);
+                Debug.Log("Swapping: " + gameObject.name + "==" + playerSelector.playerDragged.name);
+            }
+            else
+            {
+                Debug.Log("Not swapping! " + gameObject.name + "<>" + playerSelector.playerDragged.name);
+            }
+        }
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+        GetComponent<BoxCollider2D>().isTrigger = false;
+        dummyPlayer.SetActive(false);
+        playerSelector.UpdatePlayerList();
+        LayoutRebuilder.MarkLayoutForRebuild(GetComponentInParent<RectTransform>());
+        //Debug.Log("Dropped: " + thisPlayer.playerName);
+        }
+    */
+    #endregion
+
     #endregion
 
     #region Menu functions

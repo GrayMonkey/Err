@@ -213,6 +213,7 @@ public class PlayerController : MonoBehaviour
             PlayerData data = new PlayerData
             {
                 playerName = player.playerName,
+                playerID = player.playerID,
                 language = player.language,
                 gamesTotal = player.gamesTotal,
                 gamesWon = player.gamesWon,
