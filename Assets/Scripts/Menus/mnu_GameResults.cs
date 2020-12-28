@@ -13,6 +13,7 @@ public class mnu_GameResults : MonoBehaviour
 
     PlayerController playerController;
     GameManager gameManager;
+    LocManager locManager;
     string origLabelPoints;
     string origLabelAnswers;
 
@@ -20,6 +21,7 @@ public class mnu_GameResults : MonoBehaviour
     {
         gameManager = GameManager.gameManager;
         playerController = PlayerController.playerController;
+        locManager = LocManager.locManager;
         origLabelPoints = labelPoints.text;
         origLabelAnswers = labelAnswers.text;
     }
@@ -61,10 +63,10 @@ public class mnu_GameResults : MonoBehaviour
 
             // Update the text fields
             playerPoints.text = pointNames;
-            labelPoints.text = origLabelPoints + " (" + maxPoints.ToString() + ")";
+            labelPoints.text = locManager.GetLocText(origLabelPoints) + maxPoints.ToString() + "):";
 
             playerAnswers.text = answerNames;
-            labelAnswers.text = origLabelAnswers + " (" + percentage.ToString("p") + ")";
+            labelAnswers.text = locManager.GetLocText(origLabelAnswers) + percentage.ToString("p0") + "):";
 
         }
     }

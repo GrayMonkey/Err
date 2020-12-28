@@ -110,7 +110,7 @@ UI_CardSetSelect,Select Cardset(s)
 UI_ConfirmNoPlayers,No Players!
 UI_ConfirmTrash,Remove Player Data
 UI_ConfirmTrashText,WARNING!\n\nAll data for\n\n\n\n\n\nwill be removed!\n\nOnce deleted this data cannot be retrieved.
-UI_CorectAnswerSpaces,spaces
+UI_CorrectAnswerSpaces,spaces
 UI_Correct,Correct
 UI_CorrectAnswer,Correct Answer!
 UI_CorrectAnswerText,Well done!\nYou can move...
@@ -125,6 +125,7 @@ UI_FailedAnswerText,%%PlayerName stays where they are.\nBetter luck next time!
 UI_GameInProgress,Quit Current Game?
 UI_GameInstructionsDetail1,
 UI_GameLanguage,Select language
+UI_GameResults,Game Results
 UI_GameRules,Game Rules
 UI_GameRulesDetails,ToDo: Link game instructions and translations from Jonny & Mike
 UI_GuessTime,Timer:
@@ -135,8 +136,8 @@ UI_LaunchMessage,Don't have the board tiles? You'll need them... Find out more a
 UI_LaunchTitle,The Full\n\n\n\n\nExperience!
 UI_LoadPlayers,Load
 UI_LogData,Save data
-UI_MostAnswers,Highest answer percentage: (
-UI_MostPoints,Score most points: (
+UI_MostAnswers,Most correct answers (
+UI_MostPoints,Most points scored (
 UI_NameCheckBad,Player name taken!
 UI_NameCheckGood,Player name availalble
 UI_NewQuestion,New Question!
