@@ -41,13 +41,20 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-/*        // TODO Ad timerstartdelay to clue number
-        if (timerDelayOn)
-        { }
-*/
         // Crease the amount of the timer panel until it is finished
         if (timerOn)
         {
+            if (timerDelayOn)
+            {
+                delayTime = -Time.deltaTime;
+                if (delayTime < 0)
+                {
+                    delayTime = 5.0f;
+                    timerDelayOn = false;
+                }
+                return;
+            }
+
             //Debug.Log(this.name +": On");
             guessTimeRem -= Time.deltaTime;
             timerImg.fillAmount= 1.0f * (guessTimeRem / guessTime);
