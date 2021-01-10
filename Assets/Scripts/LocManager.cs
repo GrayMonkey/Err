@@ -19,8 +19,8 @@ public class LocManager : MonoBehaviour
 
     private void Start()
     {
-        trans = Resources.FindObjectsOfTypeAll<Translate>();
-        SetLang(GameLang);
+//        trans = Resources.FindObjectsOfTypeAll<Translate>();
+        SetDefaultLang(GameLang);
     }
 
     public SystemLanguage GameLang
@@ -33,11 +33,13 @@ public class LocManager : MonoBehaviour
         set
         {
             gameLang = value;
+            SetDefaultLang(gameLang);
         }
     }
 
-    public void SetLang(SystemLanguage lang)
+    private void SetDefaultLang(SystemLanguage lang)
     {
+        trans = FindObjectsOfType<Translate>();
         string m_lang = lang.ToString();
         string file = "LocText - " + m_lang;
         locText.Clear();
@@ -72,6 +74,14 @@ public class LocManager : MonoBehaviour
             data.text = dataValue;
             locText.Add(data);
         }
+
+        // Update the activate Text assests with Translate
+        foreach (Translate _trans in trans)
+        {
+            _trans.UpdateString();
+        }
+
+
     }
 
     public string GetLocText(string key)

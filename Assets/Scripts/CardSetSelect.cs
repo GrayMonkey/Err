@@ -2,29 +2,31 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.UI.Extensions;
 
 public class CardSetSelect : MonoBehaviour
 {
     [SerializeField] Toggle[] langFlags = default;
-    [SerializeField] GameObject btnShopCardsets = default;
-    [SerializeField] GameObject btnGameCardsets = default;
+    [SerializeField] OnOffSlider onOffSlider;
+    [SerializeField] Text txtCSTitle;
+    [SerializeField] Text txtCSDesc;
+    [SerializeField] Button btnCSCost;
+    [SerializeField] HorizontalScrollSnap hss;
+    [SerializeField] Toggle pageToggle;
+    [SerializeField] Transform cardSetsHolder;
     [SerializeField] GameObject freePurchaseScreen;
-    [SerializeField] GameObject csGame = default;
-    [SerializeField] GameObject csShop = default;
-    [SerializeField] Text labelGameShop = default;
 
-    private GameManager gameManager;
     private Player refPlayer;
-    private List<CardSet> activeCardSets = new List<CardSet>();
     private CardSet[] allCardSets;
+    private List<CardSet> csActive = new List<CardSet>();
     private CardSetManager csManager;
     private LocManager locManager;
     private bool showFreeCardsetMessage = true;
     private Langs activeLangs = new Langs();
+    private Toggle[] togPages;
 
     private void Awake()
     {
-        gameManager = GameManager.gameManager;
         csManager = CardSetManager.csManager;
         locManager = LocManager.locManager;
 
@@ -49,12 +51,115 @@ public class CardSetSelect : MonoBehaviour
                 break;
         }
     }
-    
-    private void OnEnable()
+
+    private void Start()
     {
-        allCardSets = csManager.allCardSets;
+        togPages = hss.Pagination.GetComponentsInChildren<Toggle>();
         SetLangFlags();
-        SortCardSets();
+        DisplayCardSets();
+    }
+
+ /*   public void SwitchCardSets()
+    {
+        if (onOffSlider.value == 0)
+        {
+            labelGame.color = Color.black;
+            labelGame.fontStyle = FontStyle.Normal;
+
+            labelShop.color = Color.gray;
+            labelShop.fontStyle = FontStyle.Italic;
+        }
+        else
+        {
+            labelGame.color = Color.gray;
+            labelGame.fontStyle = FontStyle.Italic;
+
+            labelShop.color = Color.black;
+            labelShop.fontStyle = FontStyle.Normal;
+        }
+
+        DisplayCardSets();
+    }
+*/
+    public void DisplayCardSets()
+    {
+        // remove all the active cardsets, if any
+        RectTransform hssContent = hss.GetComponent<ScrollRect>().content;
+        if (hssContent.childCount > 0)
+        {
+            hss.RemoveAllChildren(out GameObject[] childrenRemoved);
+            csActive.Clear();
+
+            foreach (GameObject go in childrenRemoved)
+            {
+                go.transform.SetParent(cardSetsHolder);
+                go.transform.localPosition = new Vector3(0, 0, 0);
+            }
+        }
+
+        // Check to see if the cardsets meeting the current display criteria
+        foreach (CardSet cardSet in csManager.csAll)
+        {
+            bool display = false;
+
+            // Check for languages if the languages are selected
+            if(cardSet.langs.english && activeLangs.english ||
+                cardSet.langs.french && activeLangs.french ||
+                cardSet.langs.german && activeLangs.german ||
+                cardSet.langs.italian && activeLangs.italian ||
+                cardSet.langs.spanish && activeLangs.spanish)
+                display = true;
+
+            // display the gameObject accordingly
+            if (display)
+            {
+                hss.AddChild(cardSet.gameObject);
+                csActive.Add(cardSet);
+            }
+        }
+
+        // Set up the pagination toggles to be displayed
+        for (int i = 0; i < togPages.Length; i++)
+            if(i < hssContent.GetComponentsInChildren<CardSet>().Length)
+                togPages[i].gameObject.SetActive(true);
+            else
+                togPages[i].gameObject.SetActive(false);
+
+        // Remove the pagination if only one item is present
+        if (hssContent.childCount == 1)
+            togPages[0].gameObject.SetActive(false);
+
+        hss.UpdateLayout();
+        SetCardSetInfo(true);
+    }
+
+    public void SetCardSetInfo(bool setInfo)
+    {
+        if(!setInfo)
+        {
+            txtCSTitle.text = "";
+            txtCSDesc.text = "";
+            btnCSCost.gameObject.SetActive(false);
+            return;
+        }
+        else
+        {
+            CardSet[] content = hss.GetComponent<ScrollRect>().content.GetComponentsInChildren<CardSet>();
+            CardSet csActive = content[hss.CurrentPage];
+
+            txtCSTitle.text = locManager.GetLocText(csActive.cardSetTitleKey);
+            txtCSDesc.text = locManager.GetLocText(csActive.cardSetDescKey);
+            btnCSCost.gameObject.SetActive(true);
+            Text btnText = btnCSCost.GetComponentInChildren<Text>();
+
+            if(csActive.purchased)
+            {
+                btnText.text = "Select";
+            } else
+            {
+                btnText.text = "£9.99";
+            }
+        }
     }
 
     private void SetLangFlags()
@@ -82,94 +187,10 @@ public class CardSetSelect : MonoBehaviour
         }
     }
 
-    public void SortCardSets()
-    {
-        List<CardSet> filteredCardSets = new List<CardSet>();
-        bool freeCardSet = true;
-
-        // Turn off CardSets that aren't relevant for the selected languages
-        foreach (CardSet cardset in allCardSets)
-        {
-            cardset.gameObject.SetActive(false);
-
-            if (cardset.langs.english && activeLangs.english ||
-                cardset.langs.french && activeLangs.french ||
-                cardset.langs.german && activeLangs.german ||
-                cardset.langs.italian && activeLangs.italian ||
-                cardset.langs.spanish && activeLangs.spanish)
-            {
-                cardset.gameObject.SetActive(true);
-                filteredCardSets.Add(cardset);
-
-                // Sort the cardset in to the correct store
-                cardset.transform.SetParent(csShop.transform);
-
-                if (cardset.purchased)
-                {
-                    cardset.transform.SetParent(csGame.transform);
-                    freeCardSet = false;
-                }
-            }
-        }
-
-        // Only allow Free Purchase cardsets if no cardsets have been purchased
-        if (freeCardSet)
-        {
-            foreach (CardSet freecardset in filteredCardSets)
-            {
-                if (!freecardset.freePurchase)
-                    freecardset.gameObject.SetActive(false);
-            }
-
-            if (showFreeCardsetMessage)
-            {
-                freePurchaseScreen.SetActive(true);
-                showFreeCardsetMessage = false;
-            }
-        }
-
-    }
-    
-    public void ShowShop(bool showShop)
-    {
-        btnGameCardsets.SetActive(false);
-        btnShopCardsets.SetActive(true);
-        csGame.SetActive(true);
-        csShop.SetActive(false);
-
-        string _labelGameShop;
-        string _player;
-
-        _labelGameShop = locManager.GetLocText("str_CardSetsGame");
-
-        if (refPlayer == null)
-        {
-            _player = locManager.GetLocText("str_AllPlayers");
-        }
-        else
-        {
-            _player = refPlayer.playerName;
-        }
-
-        _labelGameShop += " " + _player;
-
-        labelGameShop.text = _labelGameShop;
-
-        if (showShop)
-        {
-            btnGameCardsets.SetActive(true);
-            btnShopCardsets.SetActive(false);
-            csGame.SetActive(false);
-            csShop.SetActive(true);
-
-            labelGameShop.text = locManager.GetLocText("str_CardSetsShop");
-        }
-    }
-
     public void LangToggle()
     {
         // What was the country flag that was just toggled
-        Toggle lastFlag = EventSystem.current.currentSelectedGameObject.GetComponent<Toggle>();        
+        Toggle lastFlag = EventSystem.current.currentSelectedGameObject.GetComponent<Toggle>();
 
         // Set languages according to the flag toggle and also check that at least one language is selected
         bool noLang = true;
@@ -209,7 +230,7 @@ public class CardSetSelect : MonoBehaviour
         }
 
         activeLangs = newLangs;
-        SortCardSets();
+        DisplayCardSets();
     }
 
     public void SetCardSets(Player player)
@@ -236,63 +257,5 @@ public class CardSetSelect : MonoBehaviour
         }
 
         refPlayer = null;
-    }
-
-    // The Confirm button has two different roles depending on
-    // if the player has the GameCardSets or ShopCardSets active
-    public void ConfirmButton()
-    {
-        // If the GameCardsets is active then add the selected
-        // Cardsets to selectedCardSets
-        if (csGame.activeInHierarchy)
-        {
-            Toggle[] cardSets = csGame.GetComponentsInChildren<Toggle>();
-            activeCardSets.Clear();
-            foreach (Toggle cardSet in cardSets)
-            {
-                if (cardSet.isOn && cardSet.gameObject.activeInHierarchy)
-                    activeCardSets.Add(cardSet.GetComponent<CardSet>());
-            }
-
-            // Set the default card set or player card set and return to 
-            // the Home screen or player select...
-            if (refPlayer == null)
-            {
-                gameManager.defaultCardSets = activeCardSets;
-                gameManager.SetGameState(gameManager.gameState.home);
-            }
-            else
-            {
-                refPlayer.cardSets = activeCardSets;
-                gameManager.SetGameState(gameManager.gameState.playerSelect);
-            }
-        }
-
-        // Otherwise purchase the selected Cardsets and add them
-        // to the GameCardSets
-        else
-        {
-            Toggle[] cardSets = csShop.GetComponentsInChildren<Toggle>();
-            foreach (Toggle cardSet in cardSets)
-            {
-                if(cardSet.isOn && cardSet.gameObject.activeInHierarchy)
-                {
-                    // TODO Add purchases in to the platform store
-                    Debug.Log("Need to activate purchasing of cards!!!");
-                    cardSet.GetComponent<CardSet>().purchased = true;
-
-                    // If there are no default cardsets then added the recently
-                    // purchase cardset as the default cardset
-                    
-                }
-            }
-            SortCardSets();
-        }
-    }
-
-    public void CloseFreeCardSetScreen()
-    {
-        freePurchaseScreen.SetActive(false);
-        ShowShop(true);
     }
 }

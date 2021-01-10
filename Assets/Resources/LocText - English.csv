@@ -98,8 +98,8 @@ str_SelectOption,Select option...
 str_SelectPlayer,Select player...
 str_SplashText,A game of definition and meaning!
 str_TaptoContinue,Tap to continue...
-str_WelcomeBody1,Thank you for purchasing Err... The incredible word game of meanings and strategy.\n\n If you are not in possession of the board game tiles click on the button below...
-str_WelcomeBody2,"If at any time it is unclear how to use this app then press and hold a button for some contextual help.  Further instructions on game play, tile information and the app are available from the options menu."
+str_WelcomeBody1,Thank you for purchasing Err... The incredible word game of meanings and strategy.\n\n If you do not have the board game please click on the button below for more information...
+str_WelcomeBody2,"Further instructions on game play, tile information and the app are available from the options menu."
 str_WelcomeTitle,Welcome to Err...
 UI_60s,60s
 UI_AddPlayer,Add Player...
@@ -107,6 +107,8 @@ UI_AppInfo,App Information
 UI_AppInfoDetails,To Do: The Err App how to use. Is this needed any more with the context buttons?
 UI_AppTitle,This app...
 UI_CardSetSelect,Select Cardset(s)
+UI_CardSetsGame,Game
+UI_CardSetsShop,Shop
 UI_ConfirmNoPlayers,No Players!
 UI_ConfirmTrash,Remove Player Data
 UI_ConfirmTrashText,WARNING!\n\nAll data for\n\n\n\n\n\nwill be removed!\n\nOnce deleted this data cannot be retrieved.
@@ -123,7 +125,6 @@ UI_EnterName,Enter name
 UI_FailAnswer,Unluckly!
 UI_FailedAnswerText,%%PlayerName stays where they are.\nBetter luck next time!
 UI_GameInProgress,Quit Current Game?
-UI_GameInstructionsDetail1,
 UI_GameLanguage,Select language
 UI_GameResults,Game Results
 UI_GameRules,Game Rules
@@ -183,3 +184,12 @@ UI_WelcomeScreen,Show welcome screen
 UI_Winner,Err... Winner!
 UI_WinningText,Congratulations!!!\n\nYou have been declared the winner of the game!
 UI_YourTurn,You're next!\n\nA question from the deck...
+str_LanguageSetupTitle,Language Setup
+str_English,English
+str_French,French
+str_German,German
+str_Italian,Italian
+str_Spanish,Spanish
+str_LanguageSetupBody1,Your default language is set to...
+str_LanguageSetupBody2,If you wish to change this please set your desired language below. Please note that your free set of Questions will also be in this language...
+str_LanguageSetupPreferred,Preferred Language: 

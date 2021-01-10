@@ -38,7 +38,7 @@ public class mnu_Options : MonoBehaviour
         randomTurns.value = System.Convert.ToSingle(gameOptions.randomTurns);
         easyRead.value = System.Convert.ToSingle(gameOptions.easyRead);
         welcomeScreen.value = System.Convert.ToSingle(gameOptions.welcomeScreen);
-        SetLanguage(locManager.GameLang);
+        //SetLanguage(locManager.GameLang);
         tempGameLang = locManager.GameLang;
     }
 
@@ -94,7 +94,7 @@ public class mnu_Options : MonoBehaviour
             //}
         }
 
-        locManager.SetLang(locManager.GameLang);
+        //locManager.SetDefaultLang(locManager.GameLang);
         uiMenus.CloseMenu(Menus.Options);
     }
 
@@ -128,7 +128,7 @@ public class mnu_Options : MonoBehaviour
         }
 
         // Reset all text in scene
-        locManager.SetLang(tempGameLang);
+        locManager.GameLang = tempGameLang;
 
         // Update just in case timer is off
         GuessTime();

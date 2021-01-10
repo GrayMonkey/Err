@@ -32,24 +32,29 @@ public class Home : MonoBehaviour
 
     void OnEnable()
     {
-        bool players = false;
-        bool cardsets = false;
         startGame.interactable = false;
         cardSetBtnImage.color = select;
         cardSetBtnCount.text = gameManager.defaultCardSets.Count.ToString();
         playerBtnImage.color = select;
         playerBtnCount.text = playerController.playersActive.Count.ToString();
         playerSelect.interactable = false;
+    }
 
-        instructions.text = LocManager.locManager.GetLocText("UI_CardSetSelect");
+    private void Start()
+    {
+        bool players = false;
+        bool cardsets = false;
+
+        instructions.text = "UI_CardSetSelect";
 
         if (gameManager.defaultCardSets.Count > 0)
         {
             cardSetBtnImage.color = proceed;
             cardsets = true;
-            instructions.text = LocManager.locManager.GetLocText("str_BtnHelpSelectPlayers");
+            instructions.text = "str_BtnHelpSelectPlayers";
             playerSelect.interactable = true;
         }
+        instructions.GetComponent<Translate>().UpdateString();
 
         if (playerController.playersActive.Count > 1 && cardsets)
         {

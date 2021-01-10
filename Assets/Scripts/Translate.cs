@@ -6,22 +6,24 @@ using System;
 
 public class Translate : MonoBehaviour
 {
-    public string key;
-    public Text text;
+    [SerializeField] string key;
+    [SerializeField] Text text;
 
     private void Awake()
     {
         text = gameObject.GetComponent<Text>();
+        if (text == null)
+            Debug.Log("No text component found for: " + gameObject.name);
+
         key = text.text;
         if (key == "")
-        {
-            Debug.Log("No text component found for: " + gameObject.name);
-        }
+            Debug.Log("No key component found for: " + gameObject.name);
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        if (key != "") UpdateString();
+        if (key != "") 
+            UpdateString();
     }
 
     public void UpdateString()
@@ -32,7 +34,7 @@ public class Translate : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.Log(this.gameObject.name + "("+key +")");
+            Debug.Log(this.gameObject.name + " (Unknown Key)");
             Debug.LogException(e, this);
         }
     }

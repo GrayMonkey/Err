@@ -7,11 +7,11 @@ public class LandingScreen : MonoBehaviour
 {
     [SerializeField] GameObject mainScreen;
     [SerializeField] GameObject welcomeScreen;
+    [SerializeField] GameObject languageScreen;
     [SerializeField] GameObject touchPanel;
     [SerializeField] GameObject tapText;
     [SerializeField] Toggle dontShowAgain;
     [SerializeField] string url = "https://sites.google.com/errgame.com/err/home";
-    [SerializeField] RectTransform textPanel;
 
     GameManager gameManager;
     GameOptions gameOptions;
@@ -40,7 +40,19 @@ public class LandingScreen : MonoBehaviour
         {
             welcomeScreen.SetActive(true);
             mainScreen.SetActive(false);
-            //LayoutRebuilder.ForceRebuildLayoutImmediate(textPanel);
+        }
+    }
+
+    public void InitialSetUp()
+    {
+        if (gameManager.defaultCardSets.Count != 0)
+        {
+            gameManager.SetGameState(gameManager.gameState.home);
+        }
+        else
+        {
+            mainScreen.SetActive(false);
+            languageScreen.SetActive(true);
         }
     }
 
@@ -48,12 +60,6 @@ public class LandingScreen : MonoBehaviour
     {
         gameOptions.welcomeScreen = !dontShowAgain.isOn;
     }
-
-    //public void ShowHomeScreen()
-    //{
-    //    //gameManager.UpdateGameState(GameManager.GameState.Home);
-    //    gameManager.SetGameState(gameManager.gameState.home);
-    //}
 
     public void BuyGame()
     {

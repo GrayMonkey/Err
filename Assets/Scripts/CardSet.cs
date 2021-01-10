@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class CardSet : MonoBehaviour 
 {
-    public string cardSetNameKey;
+    public string cardSetTitleKey;
+    //public string cardSetProductID;
     public string cardSetDescKey;
     public Image cardSetIcon;
+    //public string cardSetCost;
     //public GameObject cardSetLangs;
     public bool purchased;
     public bool freePurchase;

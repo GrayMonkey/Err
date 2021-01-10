@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager gameManager;
     public static GameOptions gameOptions;
+    public GameObject currGameState;
     public GameState gameState;
     public Question activeQuestion;
     public CardSet activeCardSet;
@@ -29,7 +30,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject qCard;
 
-    GameObject currGameState;
     GameObject prevGameState;
     MenuHandler uiMenus;
 
