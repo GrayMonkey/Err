@@ -12,6 +12,7 @@ public class LandingScreen : MonoBehaviour
     [SerializeField] GameObject tapText;
     [SerializeField] Toggle dontShowAgain;
     [SerializeField] string url = "https://sites.google.com/errgame.com/err/home";
+    [SerializeField] CardSet csStarter;
 
     GameManager gameManager;
     GameOptions gameOptions;
@@ -34,12 +35,14 @@ public class LandingScreen : MonoBehaviour
         {
             mainScreen.SetActive(true);
             welcomeScreen.SetActive(false);
+            languageScreen.SetActive(false);
             return;
         }
         else if(gameOptions.welcomeScreen)
         {
             welcomeScreen.SetActive(true);
             mainScreen.SetActive(false);
+            languageScreen.SetActive(false);
         }
     }
 
@@ -64,6 +67,13 @@ public class LandingScreen : MonoBehaviour
     public void BuyGame()
     {
         Application.OpenURL(url);
+    }
+
+    public void InitiateFreePurchase()
+    {
+        // ToDo - Link this in to the correct purchase from the store
+        gameManager.defaultCardSets.Add(csStarter);
+        WelcomeScreen(false);
     }
 
     IEnumerator CanvasFade(CanvasGroup canvasGroup, float startTime, float fadeTime)
