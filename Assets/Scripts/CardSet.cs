@@ -5,15 +5,18 @@ using UnityEngine.UI;
 
 public class CardSet : MonoBehaviour 
 {
+    [Header ("CardSet Info")]
+    [SerializeField] string jsonFile;           // JSON file for reading data
+    public string cardSetProductID;   // Unique ID to identify the CardSet
+    [Space (10)]
+
     public string cardSetTitleKey;
-    //public string cardSetProductID;
     public string cardSetDescKey;
     public Image cardSetIcon;
     //public string cardSetCost;
     //public GameObject cardSetLangs;
     public bool purchased;
     public bool freePurchase;
-    [SerializeField] string jsonFile;           // JSON file for reading data
 
     //    public bool english;
     //    public bool french;

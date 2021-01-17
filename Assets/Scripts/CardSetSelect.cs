@@ -14,7 +14,6 @@ public class CardSetSelect : MonoBehaviour
     [SerializeField] HorizontalScrollSnap hss;
     [SerializeField] Toggle pageToggle;
     [SerializeField] Transform cardSetsHolder;
-    [SerializeField] GameObject freePurchaseScreen;
 
     private Player refPlayer;
     private CardSet[] allCardSets;
@@ -24,6 +23,7 @@ public class CardSetSelect : MonoBehaviour
     private bool showFreeCardsetMessage = true;
     private Langs activeLangs = new Langs();
     private Toggle[] togPages;
+    private Text btnText;
 
     private void Awake()
     {
@@ -55,6 +55,7 @@ public class CardSetSelect : MonoBehaviour
     private void Start()
     {
         togPages = hss.Pagination.GetComponentsInChildren<Toggle>();
+        btnText = btnCSCost.GetComponentInChildren<Text>();
         SetLangFlags();
         DisplayCardSets();
     }
@@ -150,11 +151,10 @@ public class CardSetSelect : MonoBehaviour
             txtCSTitle.text = locManager.GetLocText(csActive.cardSetTitleKey);
             txtCSDesc.text = locManager.GetLocText(csActive.cardSetDescKey);
             btnCSCost.gameObject.SetActive(true);
-            Text btnText = btnCSCost.GetComponentInChildren<Text>();
 
             if(csActive.purchased)
             {
-                btnText.text = "Select";
+                btnText.text = locManager.GetLocText("str_Select");
             } else
             {
                 btnText.text = "£9.99";
@@ -257,5 +257,38 @@ public class CardSetSelect : MonoBehaviour
         }
 
         refPlayer = null;
+    }
+
+    public void CardSetPurchaseOrSelect()
+    {
+        // ToDo: Link this to actual purchasing
+        CardSet _csPurchase = hss.CurrentPageObject().GetComponent<CardSet>();
+        
+        if (_csPurchase == null)
+        {
+            Debug.Log("Purchase failed");
+            return;
+        }
+
+        if (_csPurchase.purchased)
+        {
+            Toggle _toggle = _csPurchase.GetComponent<Toggle>();
+            _toggle.isOn = !_toggle.isOn;
+
+            if (_toggle.isOn)
+                btnText.text = locManager.GetLocText("str_Unselect");
+            else
+                btnText.text = locManager.GetLocText("str_Select");
+        }
+        else
+        {
+            string _purchase = _csPurchase.cardSetTitleKey;
+            string _purchaseID = _csPurchase.cardSetProductID;
+            _purchaseID = " (" + _purchaseID + ")";
+
+            Debug.Log("Purchasing: " + _purchase + _purchaseID);
+            _csPurchase.purchased = true;
+        }
+
     }
 }

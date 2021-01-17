@@ -1,0 +1,2004 @@
+{
+  "Family02-EN": [
+    {
+      "word": "about",
+      "clue4": "the subject in question",
+      "clue3": "nautical term for the opposite tack",
+      "clue2": "to turn around",
+      "clue1": "approximate cost",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "above",
+      "clue4": "upstream",
+      "clue3": "more than",
+      "clue2": "higher in rank",
+      "clue1": "preceeding items",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "absent",
+      "clue4": "not present",
+      "clue3": "a truant",
+      "clue2": "withdraw",
+      "clue1": "elsewhere",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "absolute",
+      "clue4": "the lowest temperature",
+      "clue3": "unrestricted power",
+      "clue2": "unconditional",
+      "clue1": "perfect pitch",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "abstract",
+      "clue4": "an odd theory",
+      "clue3": "a group of shapes and colours",
+      "clue2": "non recogniseable artwork",
+      "clue1": "not reality",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "accent",
+      "clue4": "to highlight a musical note",
+      "clue3": "to emphasize a word",
+      "clue2": "to pronounce words in a certain way",
+      "clue1": "of an upper class voice",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "act",
+      "clue4": "to follow orders",
+      "clue3": "to take action",
+      "clue2": "to perform",
+      "clue1": "pretence",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "add",
+      "clue4": "to attach",
+      "clue3": "to tot up",
+      "clue2": "amount to",
+      "clue1": "plus",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "address",
+      "clue4": "to speak publicly",
+      "clue3": "formal residence",
+      "clue2": "to deal with",
+      "clue1": "home",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "ado",
+      "clue4": "a kerfuffle",
+      "clue3": "a song and dance",
+      "clue2": "palaver",
+      "clue1": "hassle",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "adore",
+      "clue4": "to be devoted to",
+      "clue3": "hold in high regard",
+      "clue2": "be very fond of",
+      "clue1": "love dearly",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "advance",
+      "clue4": "press on",
+      "clue3": "to move forwards",
+      "clue2": "a down payment",
+      "clue1": "a breakthrough",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "affair",
+      "clue4": "a business",
+      "clue3": "financial matters",
+      "clue2": "a daliance",
+      "clue1": "an event",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "age",
+      "clue4": "an era",
+      "clue3": "a long time",
+      "clue2": "advancing years",
+      "clue1": "how old someone is",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "agree",
+      "clue4": "concur",
+      "clue3": "to reach an agreement",
+      "clue2": "consent",
+      "clue1": "to be of the same opinion",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "aid",
+      "clue4": "succour",
+      "clue3": "assistance",
+      "clue2": "financial support",
+      "clue1": "to help",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "aim",
+      "clue4": "the object of the excercise",
+      "clue3": "an intention",
+      "clue2": "zero in on",
+      "clue1": "point towards",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "air",
+      "clue4": "a traditional scottish tune",
+      "clue3": "express ones veiw",
+      "clue2": "ventilate",
+      "clue1": "atmosphere",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "alarm",
+      "clue4": "to signal danger",
+      "clue3": "a warning sound",
+      "clue2": "to be in a state of fright",
+      "clue1": "a warning device",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "alien",
+      "clue4": "a strange landscape",
+      "clue3": "foreign",
+      "clue2": "not native",
+      "clue1": "extraterrestrial",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "alight",
+      "clue4": "to get off a train",
+      "clue3": "burning",
+      "clue2": "radiant",
+      "clue1": "anything ablaze",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "alive",
+      "clue4": "to keep an idea going",
+      "clue3": "vim and vigour",
+      "clue2": "full of life",
+      "clue1": "living",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "allow",
+      "clue4": "to permit",
+      "clue3": "to give the go ahead",
+      "clue2": "to accept",
+      "clue1": "enable",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "back",
+      "clue4": "the lumbar region",
+      "clue3": "to finance",
+      "clue2": "vote for",
+      "clue1": "opposite to front",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "bad",
+      "clue4": "unacceptable",
+      "clue3": "morally wrong",
+      "clue2": "a terrible decision",
+      "clue1": "rotten food",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "baffle",
+      "clue4": "a device to reduce noise",
+      "clue3": "to bemuse",
+      "clue2": "to flummox",
+      "clue1": "confuse",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "bail",
+      "clue4": "security",
+      "clue3": "to help out finacially",
+      "clue2": "to exit quickly",
+      "clue1": "to scoop water from a boat",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "balance",
+      "clue4": "an old set of scales",
+      "clue3": "both sides of an argument",
+      "clue2": "fairness",
+      "clue1": "weigh up",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "ball",
+      "clue4": "a dinner and dance",
+      "clue3": "to have a good time",
+      "clue2": "a globe",
+      "clue1": "a sphere",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "ban",
+      "clue4": "to prohibit",
+      "clue3": "exclusion",
+      "clue2": "to take away the right",
+      "clue1": "drive out",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "band",
+      "clue4": "a gang",
+      "clue3": "a circular strap",
+      "clue2": "a troupe",
+      "clue1": "a group of musicians",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "bang",
+      "clue4": "a noisy explosion",
+      "clue3": "a door slamming shut",
+      "clue2": "to knock something",
+      "clue1": "a load thump",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "bar",
+      "clue4": "an iron rod",
+      "clue3": "to exclude",
+      "clue2": "sand across ariver",
+      "clue1": "inside a pub",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "base",
+      "clue4": "the starting point",
+      "clue3": "sordid",
+      "clue2": "headquarters",
+      "clue1": "foundation",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "bear",
+      "clue4": "to support weight",
+      "clue3": "a large mammal",
+      "clue2": "deliver",
+      "clue1": "carry",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "beat",
+      "clue4": "to rain blows on",
+      "clue3": "forge into a shape",
+      "clue2": "the rythm of a song",
+      "clue1": "to whisk food",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "best",
+      "clue4": "the very finest",
+      "clue3": "to outwit another",
+      "clue2": "second to none",
+      "clue1": "the greatest",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "bitch",
+      "clue4": "slang to moan about someone",
+      "clue3": "not a nice lady",
+      "clue2": "complain bitterly",
+      "clue1": "a female dog",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "blind",
+      "clue4": "unintellegent",
+      "clue3": "a window covering",
+      "clue2": "unwavering faith",
+      "clue1": "to lose sight",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "book",
+      "clue4": "to reserve a table",
+      "clue3": "details taken by the police",
+      "clue2": "a novel",
+      "clue1": "to write in at school",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "box",
+      "clue4": "to fight",
+      "clue3": "a carton",
+      "clue2": "an area to view sport",
+      "clue1": "to pack something",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "call",
+      "clue4": "a phone conversation",
+      "clue3": "to visit someone",
+      "clue2": "to holler",
+      "clue1": "cry out",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "case",
+      "clue4": "a jacket",
+      "clue3": "a police investigation",
+      "clue2": "a container",
+      "clue1": "a full box of wine",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "cast",
+      "clue4": "to toss a stone",
+      "clue3": "to record a vote",
+      "clue2": "to make something from a mould",
+      "clue1": "to throw away",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "catch",
+      "clue4": "to seize",
+      "clue3": "for a fire to light",
+      "clue2": "to get the bus",
+      "clue1": "to stop a ball with the hand",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "charge",
+      "clue4": "a military onslaught",
+      "clue3": "accused of a crime",
+      "clue2": "to power a battery",
+      "clue1": "demand money for goods",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "chip",
+      "clue4": "a gambling token",
+      "clue3": "a small amout of damage",
+      "clue2": "make a contribution",
+      "clue1": "a fried potato",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "clash",
+      "clue4": "a confrontation",
+      "clue3": "mismatched colours",
+      "clue2": "disagree",
+      "clue1": "a conflict",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "clean",
+      "clue4": "drug free",
+      "clue3": "unmarked",
+      "clue2": "laundered",
+      "clue1": "spotless",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "club",
+      "clue4": "pool resources",
+      "clue3": "a wooden baton",
+      "clue2": "an organization",
+      "clue1": "a football team",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "common",
+      "clue4": "a general use brick",
+      "clue3": "a piece of land for grazing",
+      "clue2": "ordinary people",
+      "clue1": "standard",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "composition",
+      "clue4": "a structure",
+      "clue3": "a work of art",
+      "clue2": "the creation of a poem",
+      "clue1": "a school essay",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "conquer",
+      "clue4": "to take over another country",
+      "clue3": "to scale a mountain",
+      "clue2": "to master",
+      "clue1": "to triumph over",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "cool",
+      "clue4": "stylish or chic",
+      "clue3": "in control",
+      "clue2": "to lower the temperature",
+      "clue1": "chilly",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "cost",
+      "clue4": "asking price",
+      "clue3": "a value",
+      "clue2": "expenditure",
+      "clue1": "a quotation",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "cover",
+      "clue4": "to conceal",
+      "clue3": "to stand in for someone",
+      "clue2": "to report a story",
+      "clue1": "to insure something",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "crash",
+      "clue4": "to collide with",
+      "clue3": "financial collapse",
+      "clue2": "waves against the shore",
+      "clue1": "a car accident",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "crush",
+      "clue4": "to squeeze",
+      "clue3": "an infatuation",
+      "clue2": "a crowd of people",
+      "clue1": "to smash up",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "cut",
+      "clue4": "reduce expenditure",
+      "clue3": "the end of a film sequence",
+      "clue2": "to slash with a knife",
+      "clue1": "to shorten",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "dab",
+      "clue4": "a small fish",
+      "clue3": "a spot of glue",
+      "clue2": "gently clean a wound",
+      "clue1": "pat dry",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "dark",
+      "clue4": "negative thoughts",
+      "clue3": "evil acts",
+      "clue2": "swarthy skin",
+      "clue1": "pitch black",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "date",
+      "clue4": "to meet romantically",
+      "clue3": "the fruit of a palm tree",
+      "clue2": "a monent in time",
+      "clue1": "when something was built",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "dead",
+      "clue4": "a cable with no power",
+      "clue3": "to finish at exactly the same time",
+      "clue2": "emotionless",
+      "clue1": "no longer living",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "deal",
+      "clue4": "to dish out playing cards",
+      "clue3": "to be in stocks and shares",
+      "clue2": "an arrangement",
+      "clue1": "to buy and sell",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "decline",
+      "clue4": "reduction in profits",
+      "clue3": "to turn down",
+      "clue2": "decay",
+      "clue1": "to dismiss",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "deep",
+      "clue4": "a heavy sleep",
+      "clue3": "cavernous",
+      "clue2": "a low voice",
+      "clue1": "a long way down",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "deliver",
+      "clue4": "to make a speech",
+      "clue3": "a cricket bowl",
+      "clue2": "to provide",
+      "clue1": "to bring to a house",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "desert",
+      "clue4": "a barren wasteland",
+      "clue3": "to abandon someone",
+      "clue2": "a pudding",
+      "clue1": "to run away",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "detail",
+      "clue4": "a military unit",
+      "clue3": "in depth",
+      "clue2": "fine points",
+      "clue1": "thorough",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "dim",
+      "clue4": "indistinct",
+      "clue3": "low light",
+      "clue2": "faint",
+      "clue1": "not bright",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "discharge",
+      "clue4": "to remove from military service",
+      "clue3": "to fire a weapon",
+      "clue2": "to release from prison",
+      "clue1": "to empty a liquid",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "dispatch",
+      "clue4": "to kill",
+      "clue3": "send off",
+      "clue2": "report news",
+      "clue1": "post",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "dock",
+      "clue4": "to shorten",
+      "clue3": "to stop wages",
+      "clue2": "the meeting of spacecraft",
+      "clue1": "a harbour",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "draw",
+      "clue4": "to pull a gun",
+      "clue3": "a sweepstake",
+      "clue2": "equal scores at the end of a game",
+      "clue1": "take money from a bank account",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "dress",
+      "clue4": "fertilize soil",
+      "clue3": "cover a wound",
+      "clue2": "to embellish",
+      "clue1": "a special uniform",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "drink",
+      "clue4": "nautical term for the sea",
+      "clue3": "imbibe",
+      "clue2": "general term for alcohol",
+      "clue1": "to swallow",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "dump",
+      "clue4": "to break up with someone",
+      "clue3": "to jettison",
+      "clue2": "a hovel",
+      "clue1": "a rubbish tip",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "easy",
+      "clue4": "promiscuous",
+      "clue3": "an unhurried pace",
+      "clue2": "uncomplicated",
+      "clue1": "not difficult",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "enter",
+      "clue4": "put forward a plea in court",
+      "clue3": "put in your password",
+      "clue2": "go into a competition",
+      "clue1": "gain access",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "escape",
+      "clue4": "a distraction",
+      "clue3": "a gas leak",
+      "clue2": "jail break",
+      "clue1": "to get away",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "even",
+      "clue4": "to get ones revenge",
+      "clue3": "uniform",
+      "clue2": "to make flat and level",
+      "clue1": "balanced",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "exit",
+      "clue4": "departure",
+      "clue3": "portal",
+      "clue2": "turning off a roundabout",
+      "clue1": "escape route",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "extend",
+      "clue4": "offer ones thanks",
+      "clue3": "a hand of friendship",
+      "clue2": "make a house bigger",
+      "clue1": "expand",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "eye",
+      "clue4": "the middle of a storm",
+      "clue3": "the loop at the end of a needle",
+      "clue2": "to watch",
+      "clue1": "organ of sight",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "face",
+      "clue4": "to look in a certain direction",
+      "clue3": "meet a challenge head on",
+      "clue2": "a dial",
+      "clue1": "the front",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "fade",
+      "clue4": "to dwindle",
+      "clue3": "to grow faint",
+      "clue2": "bleached out",
+      "clue1": "discolour",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "fail",
+      "clue4": "to stop working",
+      "clue3": "to be unsuccessful",
+      "clue2": "to let someone down",
+      "clue1": "not pass an exam",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "fair",
+      "clue4": "to be treated honestly",
+      "clue3": "resonable",
+      "clue2": "even handed",
+      "clue1": "a country fete",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "fall",
+      "clue4": "US for autumn",
+      "clue3": "the end of an empire",
+      "clue2": "to lose your balance",
+      "clue1": "a decline in prices",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "fancy",
+      "clue4": "to fall for a partner",
+      "clue3": "ornamental",
+      "clue2": "a real urge",
+      "clue1": "desire",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "fast",
+      "clue4": "eat nothing",
+      "clue3": "a stable colour",
+      "clue2": "stuck down",
+      "clue1": "high speed",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "fat",
+      "clue4": "blubber",
+      "clue3": "lard",
+      "clue2": "a sizeable salary",
+      "clue1": "overweight",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "fate",
+      "clue4": "preordained",
+      "clue3": "to be doomed",
+      "clue2": "future destiny",
+      "clue1": "karma",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "fault",
+      "clue4": "a break in a system",
+      "clue3": "a defect",
+      "clue2": "a gremlin",
+      "clue1": "blame",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "favour",
+      "clue4": "approval",
+      "clue3": "good will",
+      "clue2": "kindness",
+      "clue1": "to prefer",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "feature",
+      "clue4": "to give prominence to",
+      "clue3": "the main film",
+      "clue2": "the trademark",
+      "clue1": "characteristic",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "feeling",
+      "clue4": "understanding",
+      "clue3": "an opinion",
+      "clue2": "public sentiment",
+      "clue1": "sense of touch",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "fence",
+      "clue4": "a sword fight",
+      "clue3": "receiver of stolen goods",
+      "clue2": "to confine",
+      "clue1": "a barrier",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "fight",
+      "clue4": "to oppose a decision",
+      "clue3": "to rid the body of infection",
+      "clue2": "a boxing match",
+      "clue1": "common assault",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "firm",
+      "clue4": "a company",
+      "clue3": "close friends",
+      "clue2": "secure",
+      "clue1": "hard",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "get",
+      "clue4": "to contract an illness",
+      "clue3": "to acquire something",
+      "clue2": "to fetch",
+      "clue1": "purchase",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "give",
+      "clue4": "flexibility",
+      "clue3": "produce",
+      "clue2": "to donate",
+      "clue1": "hand over",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "good",
+      "clue4": "kind hearted",
+      "clue3": "virtuous",
+      "clue2": "magnificent",
+      "clue1": "fine",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "grant",
+      "clue4": "a scholarship",
+      "clue3": "to admit",
+      "clue2": "permit",
+      "clue1": "a gift",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "great",
+      "clue4": "prominent",
+      "clue3": "huge",
+      "clue2": "imposing",
+      "clue1": "first class",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "green",
+      "clue4": "unhealthy looking",
+      "clue3": "inexperienced",
+      "clue2": "brand new",
+      "clue1": "unripe",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "gross",
+      "clue4": "boorish behaviour",
+      "clue3": "seroiously overweight",
+      "clue2": "unsophisticated",
+      "clue1": "the whole lot",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "habit",
+      "clue4": "compulsive repetative behaviour",
+      "clue3": "addiction",
+      "clue2": "a daily routine",
+      "clue1": "a monks dress",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "hail",
+      "clue4": "to salute",
+      "clue3": "to flag down",
+      "clue2": "a volley of bullets",
+      "clue1": "icey rain",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "hand",
+      "clue4": "someone to help",
+      "clue3": "a round of applause",
+      "clue2": "to give",
+      "clue1": "pointers on a clock face",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "hang",
+      "clue4": "send to the gallows",
+      "clue3": "to put up a painting",
+      "clue2": "festoon",
+      "clue1": "to put a coat on a hook",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "hard",
+      "clue4": "back breaking work",
+      "clue3": "difficult",
+      "clue2": "tough financial times",
+      "clue1": "like rock",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "head",
+      "clue4": "to go towards something",
+      "clue3": "the leader of an organisation",
+      "clue2": "the start of a river",
+      "clue1": "the cranium",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "heavy",
+      "clue4": "a substantial meal",
+      "clue3": "stormy weather",
+      "clue2": "torrential rain",
+      "clue1": "overweight",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "hide",
+      "clue4": "camouflage",
+      "clue3": "conceal",
+      "clue2": "an animal skin",
+      "clue1": "cover up",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "high",
+      "clue4": "rotting meat",
+      "clue3": "intoxicated",
+      "clue2": "a piercing note",
+      "clue1": "expensive",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "hit",
+      "clue4": "a best seller",
+      "clue3": "an impact",
+      "clue2": "to strike a ball",
+      "clue1": "punch",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "hold",
+      "clue4": "to wait on a phone call",
+      "clue3": "storage on a ship or plane",
+      "clue2": "to have a senior post",
+      "clue1": "a grip",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "homely",
+      "clue4": "hospitable",
+      "clue3": "comfortable",
+      "clue2": "congenial",
+      "clue1": "snug and warm",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "honour",
+      "clue4": "respect someone",
+      "clue3": "fulfil a contract",
+      "clue2": "an award",
+      "clue1": "integrity",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "hot",
+      "clue4": "very fashionable",
+      "clue3": "stolen goods",
+      "clue2": "fresh news",
+      "clue1": "pungent",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "idle",
+      "clue4": "to leave an engine running",
+      "clue3": "an empty threat",
+      "clue2": "time wasting",
+      "clue1": "lazy",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "immense",
+      "clue4": "humongous",
+      "clue3": "ginourmous",
+      "clue2": "massive",
+      "clue1": "colossal",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "indecent",
+      "clue4": "obscene photographs",
+      "clue3": "innappropriate",
+      "clue2": "salacious gossip",
+      "clue1": "revealing clothes",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "induce",
+      "clue4": "to set in motion",
+      "clue3": "persuade",
+      "clue2": "cajole",
+      "clue1": "to bring about",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "inferior",
+      "clue4": "shoddy",
+      "clue3": "poor quality",
+      "clue2": "unsatisfactory",
+      "clue1": "rubbish",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "insane",
+      "clue4": "a crazy idea",
+      "clue3": "barking mad",
+      "clue2": "deranged",
+      "clue1": "mentally ill",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "instantly",
+      "clue4": "like a flash",
+      "clue3": "instantaneously",
+      "clue2": "straight away",
+      "clue1": "immediately",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "intellectual",
+      "clue4": "a rocket scientist",
+      "clue3": "a theoretical argument",
+      "clue2": "an academic",
+      "clue1": "brainy",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "interrupt",
+      "clue4": "to block a view",
+      "clue3": "to suspend a project",
+      "clue2": "punctuate",
+      "clue1": "butt in",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "invest",
+      "clue4": "admit to office",
+      "clue3": "provide capital for",
+      "clue2": "speculate",
+      "clue1": "put money in",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "iron",
+      "clue4": "a soldering tool",
+      "clue3": "for smoothing cloth",
+      "clue2": "ferrous metal",
+      "clue1": "can be cast into shape",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "issue",
+      "clue4": "release of a new edition",
+      "clue3": "the matter in question",
+      "clue2": "bone of contention",
+      "clue1": "the point",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "jam",
+      "clue4": "traffic congestion",
+      "clue3": "to get stuck",
+      "clue2": "immobilise",
+      "clue1": "fruit preserve",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "join",
+      "clue4": "to drive onto major road",
+      "clue3": "to become a member",
+      "clue2": "to get involved",
+      "clue1": "to bond two things",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "jump",
+      "clue4": "get a move on",
+      "clue3": "act prematurely",
+      "clue2": "to start one car from another",
+      "clue1": "hop over",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "just",
+      "clue4": "nrearly",
+      "clue3": "no more than",
+      "clue2": "exactly",
+      "clue1": "fair minded",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "keen",
+      "clue4": "to mourn",
+      "clue3": "passionate",
+      "clue2": "a harsh wind",
+      "clue1": "eager",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "keep",
+      "clue4": "board and lodging",
+      "clue3": "to provide for",
+      "clue2": "have in stock",
+      "clue1": "to hold onto",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "kick",
+      "clue4": "pungency",
+      "clue3": "stimulant effect",
+      "clue2": "a thrill",
+      "clue1": "to boot something out",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "kill",
+      "clue4": "to waste time",
+      "clue3": "to vote down",
+      "clue2": "to muffle noise",
+      "clue1": "destroy",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "kit",
+      "clue4": "personal effects",
+      "clue3": "accoutrements",
+      "clue2": "to furnish",
+      "clue1": "sports wear",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "land",
+      "clue4": "to catch a fish",
+      "clue3": "to punch",
+      "clue2": "to dock a ship",
+      "clue1": "to touch down a plane",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "lapse",
+      "clue4": "revert to",
+      "clue3": "decline",
+      "clue2": "deteriorate",
+      "clue1": "expire",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "lash",
+      "clue4": "to strike out",
+      "clue3": "to spend lavishly",
+      "clue2": "to critisize",
+      "clue1": "horse whip",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "lead",
+      "clue4": "to show the way",
+      "clue3": "the principal character",
+      "clue2": "a tip off",
+      "clue1": "a cable",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "lead",
+      "clue4": "a soft metal flashing",
+      "clue3": "a leash",
+      "clue2": "guide",
+      "clue1": "to be in front",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "lean",
+      "clue4": "slender",
+      "clue3": "to threaten",
+      "clue2": "to gravitate",
+      "clue1": "a slant",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "leave",
+      "clue4": "bequeath",
+      "clue3": "to resign",
+      "clue2": "abandon",
+      "clue1": "depart",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "level",
+      "clue4": "to even up",
+      "clue3": "to be genuine",
+      "clue2": "raze",
+      "clue1": "height",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "licence",
+      "clue4": "free rein",
+      "clue3": "franchise",
+      "clue2": "permission",
+      "clue1": "authorisation",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "life",
+      "clue4": "vital force",
+      "clue3": "the way things are",
+      "clue2": "zest",
+      "clue1": "living",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "light",
+      "clue4": "flimsy",
+      "clue3": "a bright room",
+      "clue2": "of little weight",
+      "clue1": "illuminate",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "like",
+      "clue4": "much the same",
+      "clue3": "to appreciate",
+      "clue2": "enjoy",
+      "clue1": "to have a soft spot for",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "line",
+      "clue4": "to arrange",
+      "clue3": "to queue",
+      "clue2": "ancestry",
+      "clue1": "cable",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "lodge",
+      "clue4": "to deposit",
+      "clue3": "to be stuck",
+      "clue2": "to accomodate",
+      "clue1": "a den",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "mad",
+      "clue4": "frenzied",
+      "clue3": "to be wild about",
+      "clue2": "fanatical",
+      "clue1": "idiotic",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "make",
+      "clue4": "to brew tea",
+      "clue3": "prepare",
+      "clue2": "to pressurise",
+      "clue1": "construct",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "make",
+      "clue4": "to give a speech",
+      "clue3": "to earn money",
+      "clue2": "to appoint someone",
+      "clue1": "to change the bed",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "man",
+      "clue4": "a flunkey",
+      "clue3": "to occupy",
+      "clue2": "a husband",
+      "clue1": "a male",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "many",
+      "clue4": "the great unwashed",
+      "clue3": "a copious amount",
+      "clue2": "numerous",
+      "clue1": "crowds of people",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "mark",
+      "clue4": "to assess course work",
+      "clue3": "to celebrate",
+      "clue2": "a smudge",
+      "clue1": "an impression",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "mass",
+      "clue4": "the common people",
+      "clue3": "the majority",
+      "clue2": "a large crowd",
+      "clue1": "the holy communion",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "match",
+      "clue4": "to be equal to",
+      "clue3": "a union",
+      "clue2": "to correspond",
+      "clue1": "a contest",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "mean",
+      "clue4": "unpleasant",
+      "clue3": "middle ground",
+      "clue2": "to suggest",
+      "clue1": "intend",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "means",
+      "clue4": "to have sufficient wealth",
+      "clue3": "affluence",
+      "clue2": "financial resourses",
+      "clue1": "method of achievement",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "meeting",
+      "clue4": "an audience",
+      "clue3": "a sporting event",
+      "clue2": "an assembly",
+      "clue1": "a gathering",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "mess",
+      "clue4": "a military canteen",
+      "clue3": "clutter",
+      "clue2": "to create disorder",
+      "clue1": "a muddle",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "mind",
+      "clue4": "pay attention to",
+      "clue3": "attend to",
+      "clue2": "intellect",
+      "clue1": "brains",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "miserable",
+      "clue4": "wretched",
+      "clue3": "unpleasant weather",
+      "clue2": "grumpy",
+      "clue1": "sad",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "miss",
+      "clue4": "to leave out",
+      "clue3": "to pine for",
+      "clue2": "a young woman",
+      "clue1": "fail to hit",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "monitor",
+      "clue4": "to observe",
+      "clue3": "a prefect",
+      "clue2": "a detector",
+      "clue1": "a screen",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "mood",
+      "clue4": "the right frame of mind",
+      "clue3": "general ambience",
+      "clue2": "atmosphere",
+      "clue1": "the blues",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "narrow",
+      "clue4": "a very small margin",
+      "clue3": "to have a limited opinion",
+      "clue2": "a confined space",
+      "clue1": "slight",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "nasty",
+      "clue4": "vulgar",
+      "clue3": "repugnant",
+      "clue2": "a bad wound",
+      "clue1": "unpleasant smell",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "nose",
+      "clue4": "a narrow victory",
+      "clue3": "to investigate",
+      "clue2": "the smell of wine",
+      "clue1": "on the dot",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "note",
+      "clue4": "bear in mind",
+      "clue3": "to record",
+      "clue2": "an indication",
+      "clue1": "paper money",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "obscure",
+      "clue4": "indistinct",
+      "clue3": "puzzling",
+      "clue2": "opaque",
+      "clue1": "unclear",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "obviuosly",
+      "clue4": "needless to say",
+      "clue3": "patently",
+      "clue2": "self evident",
+      "clue1": "crystal clear",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "occupation",
+      "clue4": "take over of another country",
+      "clue3": "residence",
+      "clue2": "profession",
+      "clue1": "a job",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "off",
+      "clue4": "to cancel a game",
+      "clue3": "to be unfriendly",
+      "clue2": "rotten food",
+      "clue1": "not at work",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "open",
+      "clue4": "arguable debate",
+      "clue3": "receptive to ideas",
+      "clue2": "to unlock a door",
+      "clue1": "unfastened",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "order",
+      "clue4": "a direct instruction",
+      "clue3": "lawfulness",
+      "clue2": "a religious group",
+      "clue1": "a sequence",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "out",
+      "clue4": "unconscious",
+      "clue3": "in full flower",
+      "clue2": "to reveal a secret",
+      "clue1": "to go to a social event",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "pack",
+      "clue4": "to stow things away",
+      "clue3": "a group of dogs",
+      "clue2": "a box",
+      "clue1": "to load up a suitcase",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "pale",
+      "clue4": "decrease in importance",
+      "clue3": "lose colour",
+      "clue2": "fence stakes",
+      "clue1": "washed out",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "peep",
+      "clue4": "not a sound",
+      "clue3": "a quick look",
+      "clue2": "a shrill noise",
+      "clue1": "a secret look",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "pen",
+      "clue4": "an animal enclosure",
+      "clue3": "to write an article",
+      "clue2": "to compose",
+      "clue1": "a writing implement",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "permit",
+      "clue4": "authorization",
+      "clue3": "certification",
+      "clue2": "to allow",
+      "clue1": "give permission",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "pick",
+      "clue4": "to harvest fruit",
+      "clue3": "to eat small amounts",
+      "clue2": "to choose",
+      "clue1": "to single out",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "pile",
+      "clue4": "driven posts",
+      "clue3": "slang for a lot of money",
+      "clue2": "a stately home",
+      "clue1": "a heap",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "pinch",
+      "clue4": "to steal",
+      "clue3": "squeeze",
+      "clue2": "tweak the skin",
+      "clue1": "a small amount of salt",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "pitch",
+      "clue4": "a bitumen coating",
+      "clue3": "a bid in an auction",
+      "clue2": "the gradient of a roof",
+      "clue1": "a playing field",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "place",
+      "clue4": "a table setting",
+      "clue3": "a country or region",
+      "clue2": "to know ones position",
+      "clue1": "set down carefully",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "plain",
+      "clue4": "flat grassland",
+      "clue3": "unfussy",
+      "clue2": "straightforward",
+      "clue1": "obvious",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "play",
+      "clue4": "stall for time",
+      "clue3": "a theatrical performance",
+      "clue2": "to compete against",
+      "clue1": "to make music",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "polish",
+      "clue4": "to shine shoes",
+      "clue3": "a native of Poland",
+      "clue2": "to finish off food",
+      "clue1": "to perfect something",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "pose",
+      "clue4": "to pretend to be another",
+      "clue3": "to behave affectedly",
+      "clue2": "to model for an artist",
+      "clue1": "pretence",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "power",
+      "clue4": "to have control",
+      "clue3": "a country or nation",
+      "clue2": "considerable force",
+      "clue1": "energy",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "present",
+      "clue4": "to host a show",
+      "clue3": "a gift",
+      "clue2": "to hand over",
+      "clue1": "right now",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "press",
+      "clue4": "a printing device",
+      "clue3": "apply pressure",
+      "clue2": "to flatten clothes",
+      "clue1": "the media",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "prime",
+      "clue4": "to have a gun ready to shoot",
+      "clue3": "absolutely first class",
+      "clue2": "to be in pristine condition",
+      "clue1": "the main reason",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "private",
+      "clue4": "in secret",
+      "clue3": "non state owned company",
+      "clue2": "low ranking soldier",
+      "clue1": "personal",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "pure",
+      "clue4": "single breed dogs",
+      "clue3": "fresh clean air",
+      "clue2": "unadulterated",
+      "clue1": "clean crisp air",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "race",
+      "clue4": "a fast beating heart",
+      "clue3": "to compete in a competition",
+      "clue2": "people of different backgrounds",
+      "clue1": "to run against others",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "range",
+      "clue4": "a large farmhouse cooker",
+      "clue3": "a selection of products",
+      "clue2": "to hike",
+      "clue1": "a collection of mountains",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "rank",
+      "clue4": "offensive smell",
+      "clue3": "a military grading",
+      "clue2": "status or standing",
+      "clue1": "class",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "raw",
+      "clue4": "intense passion",
+      "clue3": "untrained recruits",
+      "clue2": "unprocessed materials",
+      "clue1": "uncooked food",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "record",
+      "clue4": "to document",
+      "clue3": "a vinyl disc",
+      "clue2": "written accounts",
+      "clue1": "previous criminal convictions",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "render",
+      "clue4": "to return",
+      "clue3": "a mortar finish to a wall",
+      "clue2": "to deliver",
+      "clue1": "to melt down",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "report",
+      "clue4": "to take minutes of a meeting",
+      "clue3": "to sign in",
+      "clue2": "feedback",
+      "clue1": "to announce",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "reserve",
+      "clue4": "reticence",
+      "clue3": "a substitute",
+      "clue2": "a safe haven for animals",
+      "clue1": "to hold back",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "rest",
+      "clue4": "the remainder",
+      "clue3": "a temorary support",
+      "clue2": "a vacation",
+      "clue1": "relax",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "reverse",
+      "clue4": "turn inside out",
+      "clue3": "the back side",
+      "clue2": "swap round",
+      "clue1": "go backwards",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "rich",
+      "clue4": "preposterous",
+      "clue3": "a resonant voice",
+      "clue2": "fertile soil",
+      "clue1": "full bodied wine",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "rig",
+      "clue4": "to manipulate",
+      "clue3": "full trappings",
+      "clue2": "assemble",
+      "clue1": "radio apparatus",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "rough",
+      "clue4": "to sketch out an idea",
+      "clue3": "boorish behaviour",
+      "clue2": "a draft",
+      "clue1": "choppy seas",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "savage",
+      "clue4": "to severely critisize",
+      "clue3": "to attack",
+      "clue2": "primitive",
+      "clue1": "ferocious",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "score",
+      "clue4": "to scratch",
+      "clue3": "to get the better of",
+      "clue2": "a grievance",
+      "clue1": "a rating",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "scrap",
+      "clue4": "a brawl",
+      "clue3": "to decommission",
+      "clue2": "to throw away",
+      "clue1": "recycle",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "secure",
+      "clue4": "to place a deposit on something",
+      "clue3": "a safe area",
+      "clue2": "to obtain",
+      "clue1": "to fasten",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "settle",
+      "clue4": "of sediment to sink to the bottom",
+      "clue3": "to colonize",
+      "clue2": "to put down roots",
+      "clue1": "to resolve a dispute",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "sharp",
+      "clue4": "precisely",
+      "clue3": "smart dress",
+      "clue2": "qick witted",
+      "clue1": "on the ball",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "shift",
+      "clue4": "a change of opinion",
+      "clue3": "a spell of work",
+      "clue2": "movement",
+      "clue1": "to get rid of",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "skip",
+      "clue4": "a portable rubbish container",
+      "clue3": "to flick through something quickly",
+      "clue2": "to play truant",
+      "clue1": "to give something a miss",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "sound",
+      "clue4": "a water channel",
+      "clue3": "to measure water depth",
+      "clue2": "financially solvent",
+      "clue1": "solid",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "strike",
+      "clue4": "to take down a structure",
+      "clue3": "to discover gold",
+      "clue2": "to take industrial action",
+      "clue1": "to hit",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "support",
+      "clue4": "a prop",
+      "clue3": "financial assistance",
+      "clue2": "to give your backing",
+      "clue1": "encouragement",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "tart",
+      "clue4": "to re decorate",
+      "clue3": "acidic food",
+      "clue2": "to titivate",
+      "clue1": "slang for a prostitute",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "tender",
+      "clue4": "to offer ones resignation",
+      "clue3": "to bid",
+      "clue2": "am impressionable age",
+      "clue1": "a gentle kiss",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "tender",
+      "clue4": "a smaller supply boat",
+      "clue3": "an offer",
+      "clue2": "sensitive to pain",
+      "clue1": "not tough",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "thick",
+      "clue4": "a strong accent",
+      "clue3": "a semi solid paste",
+      "clue2": "a dense fog",
+      "clue1": "broad",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "throw",
+      "clue4": "to get rid of",
+      "clue3": "to squander a lead in sport",
+      "clue2": "to host a party",
+      "clue1": "to put clay on a wheel",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "tie",
+      "clue4": "a family bond",
+      "clue3": "a restriction",
+      "clue2": "a dead heat",
+      "clue1": "to lace up",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "tone",
+      "clue4": "timbre",
+      "clue3": "to soften a colour",
+      "clue2": "a feel or flavour",
+      "clue1": "sound quality",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "touch",
+      "clue4": "a nice deatail",
+      "clue3": "a trace",
+      "clue2": "to fiddle",
+      "clue1": "to be in contact",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "trail",
+      "clue4": "to fade away",
+      "clue3": "to cascade",
+      "clue2": "to be behind in a race",
+      "clue1": "a footpath",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "trim",
+      "clue4": "edging or piping",
+      "clue3": "a svelte figure",
+      "clue2": "to shorten something",
+      "clue1": "a light haircutt",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "trouble",
+      "clue4": "to have difficulty",
+      "clue3": "to be of some concern",
+      "clue2": "malfunction",
+      "clue1": "crowd disturbance",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "trust",
+      "clue4": "to presume",
+      "clue3": "safe keeping",
+      "clue2": "to have confidence in",
+      "clue1": "faith",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "underground",
+      "clue4": "clandestine",
+      "clue3": "undercover organisation",
+      "clue2": "subterranean",
+      "clue1": "a tube train",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "understanding",
+      "clue4": "compassionate",
+      "clue3": "to come to an agreement",
+      "clue2": "to beleive in something",
+      "clue1": "mastery of a subject",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "utter",
+      "clue4": "out and out",
+      "clue3": "complete",
+      "clue2": "unqualified",
+      "clue1": "verbalize",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "vision",
+      "clue4": "a beautiful sight",
+      "clue3": "creativity",
+      "clue2": "forsight",
+      "clue1": "imagination",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "wad",
+      "clue4": "a plug of chewing tobacco",
+      "clue3": "a bankroll",
+      "clue2": "a clump or mass",
+      "clue1": "a lump of cotton wool",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "walk",
+      "clue4": "to desert someone",
+      "clue3": "to win easily",
+      "clue2": "to promenade",
+      "clue1": "excercise the dog",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "wash",
+      "clue4": "the trail behind a boat",
+      "clue3": "a colour tint",
+      "clue2": "water erosion",
+      "clue1": "to get clean",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "whet",
+      "clue4": "to hone a blade",
+      "clue3": "to stimulate your appetite",
+      "clue2": "to stimulate",
+      "clue1": "sharpen",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "word",
+      "clue4": "an order or command",
+      "clue3": "information",
+      "clue2": "a promise",
+      "clue1": "news",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "yeild",
+      "clue4": "to flex",
+      "clue3": "surrender",
+      "clue2": "to back down",
+      "clue1": "produce",
+      "credit": "the Err Team"
+    }
+  ]
+}
