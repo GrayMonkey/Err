@@ -38,9 +38,9 @@ public class QuestionCard : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        gameOptions = GameOptions.gameOptions;
-        gameManager = GameManager.gameManager;
-        uiMenus = MenuHandler.uiMenus;
+        gameOptions = GameOptions.instance;
+        gameManager = GameManager.instance;
+        uiMenus = MenuHandler.instance;
         activeQuestion = gameManager.activeQuestion;
     }
 

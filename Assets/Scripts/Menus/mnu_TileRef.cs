@@ -40,7 +40,7 @@ public class mnu_TileRef : MonoBehaviour
         Sprite tileIcon = tileButton.GetComponentInChildren<Image>().sprite;
 
         tileDetailsTitle.text = tileTitle;
-        tileDetailsBody.text = LocManager.locManager.GetLocText(tileBody);
+        tileDetailsBody.text = LocManager.instance.GetLocText(tileBody);
         tileDetailsIcon.sprite = tileIcon;
 
         ToggleDescription(false);

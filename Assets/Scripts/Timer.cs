@@ -25,8 +25,8 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        gameOptions = GameOptions.gameOptions;
-        playerController = PlayerController.playerController;
+        gameOptions = GameOptions.instance;
+        playerController = PlayerController.instance;
     }
 
     private void OnEnable()

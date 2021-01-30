@@ -6,7 +6,15 @@ using UnityEngine;
 // Card Set Manager component
 public class CardSetManager : MonoBehaviour
 {
-    public static CardSetManager csManager;
+    public static CardSetManager instance;
+
+    // Only list support Languages with active cardsets
+    [Header("Defaults Language CardSets")]
+    [SerializeField] CardSet csDefault_EN;
+    [SerializeField] CardSet csDefault_FR;
+    [Space(10)]
+
+    public CardSet csDefault;
     public List<CardSet> csAll = new List<CardSet>();
     public List<CardSet> csGame = new List<CardSet>();
     public List<CardSet> csShop = new List<CardSet>();
@@ -14,7 +22,36 @@ public class CardSetManager : MonoBehaviour
 
     private void OnEnable()
     {
-        csManager = this;
-        string lang = Application.systemLanguage.ToString();
+        instance = this;
+        SetDefaultCardSet();
+        UpdateCardSets();
+    }
+
+    public void SetDefaultCardSet()
+    {
+        switch (LocManager.instance.GameLang)
+        {
+            case SystemLanguage.French:
+                csDefault = csDefault_FR;
+                break;
+
+            default:
+                csDefault = csDefault_EN;
+                break;
+        }
+    }
+    
+    public void UpdateCardSets()
+    {
+        csGame.Clear();
+        csShop.Clear();
+
+        foreach (CardSet _cs in csAll)
+        {
+            if (_cs.purchased)
+                csGame.Add(_cs);
+            else
+                csShop.Add(_cs);
+        }
     }
 }

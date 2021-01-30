@@ -45,7 +45,7 @@ public class SliderMod : MonoBehaviour
     {
         slider.value = Mathf.Round(slider.value);   // Snap slider to On or Off
 
-        sliderLock = GameOptions.gameOptions.sliderLock;
+        sliderLock = GameOptions.instance.sliderLock;
         if(!sliderLock)
         {
             slider.value = 0f;

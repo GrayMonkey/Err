@@ -14,8 +14,8 @@ public class mnu_FailAnswer : MonoBehaviour
 
     private void Awake()
     {
-        playerController = PlayerController.playerController;
-        uiMenus = MenuHandler.uiMenus;
+        playerController = PlayerController.instance;
+        uiMenus = MenuHandler.instance;
     }
 
     private void OnEnable()

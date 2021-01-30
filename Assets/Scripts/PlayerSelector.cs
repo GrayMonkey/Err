@@ -8,7 +8,7 @@ using Menus = MenuHandler.MenuOverlay;
 
 public class PlayerSelector : MonoBehaviour
 {
-    public static PlayerSelector playerSelector;
+    public static PlayerSelector instance;
     public GameObject playerDragged;
     public GameObject dummyPlayer;
     public PlayerObject activePlayerObject;
@@ -30,13 +30,13 @@ public class PlayerSelector : MonoBehaviour
 
     private void Awake()
     {
-        playerSelector = this;
+        instance = this;
     }
 
     // Use this for initialization
     private void Start()
     {
-        playerController = PlayerController.playerController;
+        playerController = PlayerController.instance;
         AddRosterPlayers();
     }
 
@@ -73,7 +73,7 @@ public class PlayerSelector : MonoBehaviour
         }
 
         // Update the player count
-        updateCount = LocManager.locManager.GetLocText("str_PlayerCount");
+        updateCount = LocManager.instance.GetLocText("str_PlayerCount");
         updateCount += ": " + _playerCount.Length.ToString() + "/" + maxPlayers.ToString();
         playerCountLabel.text = updateCount;
         newPlayerCount = _playerCount.Length;

@@ -13,7 +13,7 @@ public class LangToggle : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
-        locManager = LocManager.locManager;
+        locManager = LocManager.instance;
     }
 
     public void OnPointerClick (PointerEventData data)

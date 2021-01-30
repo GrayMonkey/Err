@@ -5,7 +5,7 @@ using System.IO;
 
 public class LocManager : MonoBehaviour
 {
-    public static LocManager locManager;
+    public static LocManager instance;
     public List<LocTextData> locText = new List<LocTextData>();
    
     [SerializeField] SystemLanguage gameLang;
@@ -13,7 +13,7 @@ public class LocManager : MonoBehaviour
 
     private void Awake()
     {
-        locManager = this;
+        instance = this;
         GameLang = Application.systemLanguage;
     }
 
@@ -100,7 +100,7 @@ public class LocManager : MonoBehaviour
             string returnString = text.text;
             if(returnString.Contains("%%PlayerName"))
                 {
-                string playerName = PlayerController.playerController.activePlayer.playerName;
+                string playerName = PlayerController.instance.activePlayer.playerName;
                 returnString = returnString.Replace("%%PlayerName", playerName);
                 }
             return returnString;

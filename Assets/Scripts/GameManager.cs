@@ -19,8 +19,8 @@ public class GameManager : MonoBehaviour
         public GameObject endGame;
     }
 
-    public static GameManager gameManager;
-    public static GameOptions gameOptions;
+    public static GameManager instance;
+    public GameOptions gameOptions;
     public GameObject currGameState;
     public GameState gameState;
     public Question activeQuestion;
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        gameManager = this;
+        instance = this;
     }
 
     private void OnApplicationQuit()
@@ -47,8 +47,8 @@ public class GameManager : MonoBehaviour
     // TODO Read in save game data
     void Start()
     {
-        gameOptions = GameOptions.gameOptions;
-        uiMenus = MenuHandler.uiMenus;
+        gameOptions = GameOptions.instance;
+        uiMenus = MenuHandler.instance;
 
         // Turn off all game states
         gameState.landingScreen.SetActive(false);

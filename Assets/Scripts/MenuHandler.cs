@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class MenuHandler : MonoBehaviour 
 {
-    public static MenuHandler uiMenus;
+    public static MenuHandler instance;
     public GameObject helpButton;
     public enum MenuOverlay { Options, FailAnswer, CorrectAnswer, NewQuestion, WinningPlayer, 
         GameResults, QuitGame, Instructions, Credits }; // RemovePlayer, PlayerStats, PlayerInfo
@@ -19,7 +19,7 @@ public class MenuHandler : MonoBehaviour
 
     private void Awake()
     {
-        uiMenus = this;
+        instance = this;
     }
 
     public void ShowMenu(MenuOverlay newMenu)

@@ -36,8 +36,8 @@ public class ContextToggle : Toggle
         Sprite helpSprite = helpPanel.helpImage.sprite;
 
         helpPanel.helpImage.sprite = this.image.sprite;
-        helpPanel.keyTitle.text = LocManager.locManager.GetLocText(keyTitle);
-        helpPanel.keyDetails.text = LocManager.locManager.GetLocText(keyDetails);
+        helpPanel.keyTitle.text = LocManager.instance.GetLocText(keyTitle);
+        helpPanel.keyDetails.text = LocManager.instance.GetLocText(keyDetails);
         helpPanel.gameObject.SetActive(true);
 
         //Debug.Log("Image: " + helpButtonPanel.helpImage.sprite.name);

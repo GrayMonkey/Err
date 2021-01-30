@@ -17,9 +17,9 @@ public class mnu_NewQuestion : MonoBehaviour
 
     private void Awake()
     {
-        playerController = PlayerController.playerController;
-        gameManager = GameManager.gameManager;
-        uiMenus = MenuHandler.uiMenus;
+        playerController = PlayerController.instance;
+        gameManager = GameManager.instance;
+        uiMenus = MenuHandler.instance;
     }
 
     private void OnEnable()

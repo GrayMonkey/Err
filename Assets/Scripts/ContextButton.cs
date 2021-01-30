@@ -35,8 +35,8 @@ public class ContextButton : Button
         //Debug.Log("Showing help");
         HelpPanel helpPanel = helpButton.GetComponent<HelpPanel>();
        
-        helpPanel.keyTitle.text = LocManager.locManager.GetLocText(keyTitle);
-        helpPanel.keyDetails.text = LocManager.locManager.GetLocText(keyDetails);
+        helpPanel.keyTitle.text = LocManager.instance.GetLocText(keyTitle);
+        helpPanel.keyDetails.text = LocManager.instance.GetLocText(keyDetails);
 
         // If altIamge is used then override helpSprite
         if (altImage)

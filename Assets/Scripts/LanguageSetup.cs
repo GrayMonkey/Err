@@ -21,7 +21,7 @@ public class LanguageSetup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        locManager = LocManager.locManager;
+        locManager = LocManager.instance;
         prefLang = locManager.GameLang;
 
         switch (prefLang)

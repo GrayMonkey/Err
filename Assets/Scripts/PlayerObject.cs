@@ -55,8 +55,8 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     private void Awake()
     {
-        playerSelector = PlayerSelector.playerSelector;
-        playerController = PlayerController.playerController;
+        playerSelector = PlayerSelector.instance;
+        playerController = PlayerController.instance;
         activePlayerRectTransform = activePlayerHolder.GetComponent<RectTransform>();
     }
 
@@ -378,7 +378,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         locText = thisPlayer.playerName;
         details.title = locText;
 
-        locText = LocManager.locManager.GetLocText("str_DialogPlayerDelete");
+        locText = LocManager.instance.GetLocText("str_DialogPlayerDelete");
         details.body = locText;
 
         details.button1Details.icon = btnRemove;
@@ -403,7 +403,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         locText = thisPlayer.playerName;
         details.title = locText;
 
-        locText = LocManager.locManager.GetLocText("str_DialogFinalWarning");
+        locText = LocManager.instance.GetLocText("str_DialogFinalWarning");
         details.body = locText;
 
         details.button1Details.action = CloseDialog;

@@ -30,7 +30,7 @@ public class Translate : MonoBehaviour
     {
         try
         {
-            text.text = LocManager.locManager.GetLocText(key);
+            text.text = LocManager.instance.GetLocText(key);
         }
         catch (Exception e)
         {

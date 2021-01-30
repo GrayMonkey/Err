@@ -9,7 +9,7 @@ using Menu = MenuHandler.MenuOverlay;
 
 public class PlayerController : MonoBehaviour
 {
-    public static PlayerController playerController;
+    public static PlayerController instance;
     public GameObject playerPanel;
     public Player activePlayer;
     public List<Player> playersActive;
@@ -25,16 +25,16 @@ public class PlayerController : MonoBehaviour
     // Create a singleton of PlayerController
     private void Awake()
     {
-        playerController = this;
+        instance = this;
         playerRoster = new List<Player>();
         playersActive = new List<Player>();
     }
 
     private void Start()
     {
-        gameManager = GameManager.gameManager;
-        locManager = LocManager.locManager;
-        uiMenu = MenuHandler.uiMenus;
+        gameManager = GameManager.instance;
+        locManager = LocManager.instance;
+        uiMenu = MenuHandler.instance;
     }
 
     private void OnEnable()
@@ -101,15 +101,15 @@ public class PlayerController : MonoBehaviour
         if (checkName == "") { return false; }
         if (checkName == refPlayer.playerName) { return true; }
 
-        if(playerController.playersActive.Count>0)
+        if(instance.playersActive.Count>0)
         {
-            Player _player = playerController.playersActive.Find((Player obj) => obj.playerName == checkName);
+            Player _player = instance.playersActive.Find((Player obj) => obj.playerName == checkName);
             if (_player != null) { return false; }
         }
 
-        if(playerController.playerRoster.Count>0)
+        if(instance.playerRoster.Count>0)
         {
-            Player _player = playerController.playerRoster.Find((Player obj) => obj.playerName == checkName);
+            Player _player = instance.playerRoster.Find((Player obj) => obj.playerName == checkName);
             if (_player != null) { return false; }
         }
 
@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
 
             // If turn order is random set i to a random number
             int i = 0;
-            if (GameManager.gameOptions.randomTurns)
+            if (GameOptions.instance.randomTurns)
             {
                 i = UnityEngine.Random.Range(0, randomPlayersLeft);
             }
@@ -159,7 +159,7 @@ public class PlayerController : MonoBehaviour
     public void StartGame()
     {
         gameManager.gameInProgress = true;
-        PlayerObject pObject = PlayerSelector.playerSelector.activePlayerObject;
+        PlayerObject pObject = PlayerSelector.instance.activePlayerObject;
         if (pObject)
             pObject.SubMenu(false);
 

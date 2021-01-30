@@ -13,8 +13,8 @@ public class mnu_QuitGame : MonoBehaviour
 
     private void Start()
     {
-        gameManager = GameManager.gameManager;
-        uiMenus = MenuHandler.uiMenus;
+        gameManager = GameManager.instance;
+        uiMenus = MenuHandler.instance;
     }
 
     public void QuitCurrentGame (bool quit)

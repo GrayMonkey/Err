@@ -22,8 +22,8 @@ public class Home : MonoBehaviour
 
     private void Awake()
     {
-        gameManager = GameManager.gameManager;
-        playerController = PlayerController.playerController;
+        gameManager = GameManager.instance;
+        playerController = PlayerController.instance;
         playerBtnImage = playerSelect.GetComponent<Image>();
         cardSetBtnImage = cardSetSelect.GetComponent<Image>();
         playerBtnCount = playerSelect.GetComponentInChildren<Text>();

@@ -15,7 +15,7 @@ public class mnu_Instructions : MonoBehaviour
     // Use this for initialization
     void Start () 
     {
-        uiMenus = MenuHandler.uiMenus;
+        uiMenus = MenuHandler.instance;
     }
 
     private void OnEnable()

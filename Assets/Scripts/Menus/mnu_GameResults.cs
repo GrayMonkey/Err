@@ -19,9 +19,9 @@ public class mnu_GameResults : MonoBehaviour
 
     private void Awake()
     {
-        gameManager = GameManager.gameManager;
-        playerController = PlayerController.playerController;
-        locManager = LocManager.locManager;
+        gameManager = GameManager.instance;
+        playerController = PlayerController.instance;
+        locManager = LocManager.instance;
         origLabelPoints = labelPoints.text;
         origLabelAnswers = labelAnswers.text;
     }
@@ -76,6 +76,6 @@ public class mnu_GameResults : MonoBehaviour
         labelPoints.text = origLabelPoints;
         labelAnswers.text = origLabelAnswers;
         gameManager.SetGameState(gameManager.gameState.home);
-        MenuHandler.uiMenus.CloseMenu(MenuHandler.MenuOverlay.GameResults);
+        MenuHandler.instance.CloseMenu(MenuHandler.MenuOverlay.GameResults);
     }
 }

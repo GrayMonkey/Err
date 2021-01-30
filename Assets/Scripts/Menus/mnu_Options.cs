@@ -23,11 +23,11 @@ public class mnu_Options : MonoBehaviour
 
     private void Awake()
     {
-        gameManager = GameManager.gameManager;
-        gameOptions = GameOptions.gameOptions;
-        locManager = LocManager.locManager;
+        gameManager = GameManager.instance;
+        gameOptions = GameOptions.instance;
+        locManager = LocManager.instance;
 
-        uiMenus = MenuHandler.uiMenus;
+        uiMenus = MenuHandler.instance;
     }
 
     private void OnEnable()

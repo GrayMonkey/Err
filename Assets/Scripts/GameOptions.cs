@@ -2,7 +2,7 @@
 
 public class GameOptions : MonoBehaviour
 {
-    public static GameOptions gameOptions;
+    public static GameOptions instance;
     public float guessTime = 0;
     public bool showAnswer = false;
     public bool easyRead = false;
@@ -12,7 +12,7 @@ public class GameOptions : MonoBehaviour
 
     void Awake()
     {
-        gameOptions = this;
+        instance = this;
     }
 
     void UpdateOptions (float newTime, bool newShowAnswer, bool newEasyRead,
