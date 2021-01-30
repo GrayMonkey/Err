@@ -7,7 +7,6 @@ public class LandingScreen : MonoBehaviour
 {
     [SerializeField] GameObject mainScreen;
     [SerializeField] GameObject welcomeScreen;
-    [SerializeField] GameObject languageScreen;
     [SerializeField] GameObject touchPanel;
     [SerializeField] GameObject tapText;
     [SerializeField] Toggle dontShowAgain;
@@ -19,34 +18,23 @@ public class LandingScreen : MonoBehaviour
 
     void Start()
     {
-        gameOptions = GameOptions.gameOptions;
-        gameManager = GameManager.gameManager;
+        gameOptions = GameOptions.instance;
+        gameManager = GameManager.instance;
         welcomeScreen.SetActive(false);
         mainScreen.SetActive(true);
         touchPanel.SetActive(true);
         CanvasGroup canvasGroup = GetComponentInChildren<CanvasGroup>();
         StartCoroutine(CanvasFade(canvasGroup, Time.time, 5.0f));
-        WelcomeScreen(true);
+        WelcomeScreen(gameOptions.welcomeScreen);
     }
 
     public void WelcomeScreen(bool show)
     {
-        if (!show)
-        {
-            mainScreen.SetActive(true);
-            welcomeScreen.SetActive(false);
-            languageScreen.SetActive(false);
-            return;
-        }
-        else if(gameOptions.welcomeScreen)
-        {
-            welcomeScreen.SetActive(true);
-            mainScreen.SetActive(false);
-            languageScreen.SetActive(false);
-        }
+        mainScreen.SetActive(!show);
+        welcomeScreen.SetActive(show);
     }
 
-    public void InitialSetUp()
+/*    public void InitialSetUp()
     {
         if (gameManager.defaultCardSets.Count != 0)
         {
@@ -55,10 +43,9 @@ public class LandingScreen : MonoBehaviour
         else
         {
             mainScreen.SetActive(false);
-            languageScreen.SetActive(true);
         }
     }
-
+*/
     public void SetGameOptionWelcome()
     {
         gameOptions.welcomeScreen = !dontShowAgain.isOn;
