@@ -1,3 +1,14 @@
+## [2.2.6] - 2020-01-14
+
+### Changed
+- GooglePlay - OnSetupFailed called immediately when Unity IAP fails to connect to the underlying service. To handle users who are logged-out of Google Play we stop the initialization process quickly.
+
+### Fixed
+- GooglePlay - ConfirmPendingPurchase failed to acknowledge purchases after purchase and app restart.
+- GooglePlay - ProcessPurchase unexpectely called when player backgrounded and foregrounded app before the initialization phase finished.
+- GooglePlay - Initialization incorrectly reported as failing, while race-condition returned fetched product metadata simultaneously.
+- Apple - "ArgumentOutOfRangeException: Not a valid calendar for the given culture" during Apple receipt validation (`CrossPlatformValidator.Validate` > `AppleValidator.Validate` > `AppleReceiptParser.Parse`) on devices set to Thai locale.
+
 ## [2.2.5] - 2020-12-14
 
 ### Fixed
