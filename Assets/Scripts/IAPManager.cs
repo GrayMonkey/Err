@@ -24,10 +24,10 @@ public class IAPManager : MonoBehaviour, IStoreListener
         var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
 
         //Step 2 choose if your product is a consumable or non consumable
-        builder.AddProduct("cs_Family00_EN", ProductType.NonConsumable);
-        builder.AddProduct("cs_Family01_EN", ProductType.NonConsumable);
-        builder.AddProduct("cs_Family02_EN", ProductType.NonConsumable);
-        builder.AddProduct("cs_Family00_FR", ProductType.NonConsumable);
+        builder.AddProduct("com.errgamesltd.errgame.cs_Family00_EN", ProductType.NonConsumable);
+        builder.AddProduct("com.errgamesltd.errgame.cs_Family01_EN", ProductType.NonConsumable);
+        builder.AddProduct("com.errgamesltd.errgame.cs_Family02_EN", ProductType.NonConsumable);
+        builder.AddProduct("com.errgamesltd.errgame.cs_Family00_FR", ProductType.NonConsumable);
 
 
         UnityPurchasing.Initialize(this, builder);
@@ -52,8 +52,8 @@ public class IAPManager : MonoBehaviour, IStoreListener
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
     {
         string productID = args.purchasedProduct.definition.id;
-        productID = productID.Replace("cs_", "");
-        CardSet csPurchased = csManager.csAll.Find(x => x.name == productID);
+        //productID = productID.Replace("cs_", "");
+        CardSet csPurchased = csManager.csAll.Find(x => x.cardSetProductID == productID);
 
         if (csPurchased != null)
             csPurchased.purchased = true;
