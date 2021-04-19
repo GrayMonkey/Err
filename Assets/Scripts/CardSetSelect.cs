@@ -7,28 +7,31 @@ using UnityEngine.UI.Extensions;
 public class CardSetSelect : MonoBehaviour
 {
     [SerializeField] Toggle[] langFlags = default;
-    [SerializeField] OnOffSlider onOffSlider;
+    // [SerializeField] OnOffSlider onOffSlider;
+    [SerializeField] GameObject[] csFlags;
     [SerializeField] Text txtCSTitle;
     [SerializeField] Text txtCSDesc;
-    [SerializeField] Button btnCSCost;
+    [SerializeField] Image imgSelected;
+    [SerializeField] GameObject btnCSCost;
     [SerializeField] HorizontalScrollSnap hss;
-    [SerializeField] Toggle pageToggle;
+    //[SerializeField] Toggle pageToggle;
     [SerializeField] Transform cardSetsHolder;
 
     private Player refPlayer;
-    private CardSet[] allCardSets;
-    private List<CardSet> csActive = new List<CardSet>();
+    private List<CardSet> csActiveList = new List<CardSet>();
     private CardSetManager csManager;
     private LocManager locManager;
-    private bool showFreeCardsetMessage = true;
+    //private IAPManager iapManager;
+    private CardSet csActive;
+    //private bool showFreeCardsetMessage = true;
     private Langs activeLangs = new Langs();
     private Toggle[] togPages;
-    private Text btnText;
 
     private void Awake()
     {
-        csManager = CardSetManager.csManager;
-        locManager = LocManager.locManager;
+        csManager = CardSetManager.instance;
+        locManager = LocManager.instance;
+        //iapManager = IAPManager.instance;
 
         // Add the system language to the active languages
         // If the system language isn't supported then default to English
@@ -55,33 +58,10 @@ public class CardSetSelect : MonoBehaviour
     private void Start()
     {
         togPages = hss.Pagination.GetComponentsInChildren<Toggle>();
-        btnText = btnCSCost.GetComponentInChildren<Text>();
         SetLangFlags();
         DisplayCardSets();
     }
 
- /*   public void SwitchCardSets()
-    {
-        if (onOffSlider.value == 0)
-        {
-            labelGame.color = Color.black;
-            labelGame.fontStyle = FontStyle.Normal;
-
-            labelShop.color = Color.gray;
-            labelShop.fontStyle = FontStyle.Italic;
-        }
-        else
-        {
-            labelGame.color = Color.gray;
-            labelGame.fontStyle = FontStyle.Italic;
-
-            labelShop.color = Color.black;
-            labelShop.fontStyle = FontStyle.Normal;
-        }
-
-        DisplayCardSets();
-    }
-*/
     public void DisplayCardSets()
     {
         // remove all the active cardsets, if any
@@ -89,7 +69,7 @@ public class CardSetSelect : MonoBehaviour
         if (hssContent.childCount > 0)
         {
             hss.RemoveAllChildren(out GameObject[] childrenRemoved);
-            csActive.Clear();
+            csActiveList.Clear();
 
             foreach (GameObject go in childrenRemoved)
             {
@@ -115,7 +95,7 @@ public class CardSetSelect : MonoBehaviour
             if (display)
             {
                 hss.AddChild(cardSet.gameObject);
-                csActive.Add(cardSet);
+                csActiveList.Add(cardSet);
             }
         }
 
@@ -131,34 +111,53 @@ public class CardSetSelect : MonoBehaviour
             togPages[0].gameObject.SetActive(false);
 
         hss.UpdateLayout();
+        // Resize objects in hss as these are scaling on iPhone each time
+        // the language selection is hit
+        foreach (GameObject gameObject in hss.ChildObjects)
+        {
+            gameObject.transform.localScale = new Vector3(1.0f,1.0f,1.0f);
+        }
+
         SetCardSetInfo(true);
     }
 
     public void SetCardSetInfo(bool setInfo)
     {
-        if(!setInfo)
+
+        if (!setInfo)
         {
+            csFlags[0].SetActive(false);
+            csFlags[1].SetActive(false);
+            csFlags[2].SetActive(false);
+            csFlags[3].SetActive(false);
+            csFlags[4].SetActive(false);
             txtCSTitle.text = "";
             txtCSDesc.text = "";
-            btnCSCost.gameObject.SetActive(false);
+            btnCSCost.SetActive(false);
             return;
         }
         else
         {
             CardSet[] content = hss.GetComponent<ScrollRect>().content.GetComponentsInChildren<CardSet>();
-            CardSet csActive = content[hss.CurrentPage];
+            csActive = content[hss.CurrentPage];
+            Toggle csToggle = csActive.GetComponent<Toggle>();
 
+            // Set the langs supported by the card set
+            csFlags[0].SetActive(csActive.langs.english);
+            csFlags[1].SetActive(csActive.langs.french);
+            csFlags[2].SetActive(csActive.langs.german);
+            csFlags[3].SetActive(csActive.langs.italian);
+            csFlags[4].SetActive(csActive.langs.spanish);
+
+            // Set the remaining CardSet info
             txtCSTitle.text = locManager.GetLocText(csActive.cardSetTitleKey);
             txtCSDesc.text = locManager.GetLocText(csActive.cardSetDescKey);
             btnCSCost.gameObject.SetActive(true);
 
-            if(csActive.purchased)
-            {
-                btnText.text = locManager.GetLocText("str_Select");
-            } else
-            {
-                btnText.text = "£9.99";
-            }
+            // Switch the purchase button on if csActive is not purchased
+            btnCSCost.GetComponentInChildren<Text>().text = "GetFromStore"; // TODO: Update from the store
+            btnCSCost.SetActive(!csActive.purchased);
+            csActive.CheckPurchaseFromStore();
         }
     }
 
@@ -237,7 +236,7 @@ public class CardSetSelect : MonoBehaviour
     {
         List<CardSet> newCardSets = new List<CardSet>();
 
-        foreach (CardSet cardSet in allCardSets)
+        foreach (CardSet cardSet in csManager.csAll)
         {
             if (cardSet.GetComponent<Toggle>().isOn)
                 newCardSets.Add(cardSet);
@@ -253,13 +252,24 @@ public class CardSetSelect : MonoBehaviour
         }
         else
         {
-            GameManager.gameManager.defaultCardSets = newCardSets;
+            GameManager.instance.defaultCardSets = newCardSets;
         }
 
         refPlayer = null;
     }
 
-    public void CardSetPurchaseOrSelect()
+    public void SetCardSetSelected(bool selected)
+    {
+        imgSelected.gameObject.SetActive(selected);
+    }
+
+    public void PurchaseCardSet()
+    {
+        string productID = csActive.cardSetProductID;
+        //iapManager.BuyProduct(productID);
+    }
+
+/*    public void CardSetPurchaseOrSelect()
     {
         // ToDo: Link this to actual purchasing
         CardSet _csPurchase = hss.CurrentPageObject().GetComponent<CardSet>();
@@ -276,9 +286,9 @@ public class CardSetSelect : MonoBehaviour
             _toggle.isOn = !_toggle.isOn;
 
             if (_toggle.isOn)
-                btnText.text = locManager.GetLocText("str_Unselect");
+                btnPurchase.text = locManager.GetLocText("str_Unselect");
             else
-                btnText.text = locManager.GetLocText("str_Select");
+                btnPurchase.text = locManager.GetLocText("str_Select");
         }
         else
         {
@@ -290,5 +300,6 @@ public class CardSetSelect : MonoBehaviour
             _csPurchase.purchased = true;
         }
 
-    }
+    }*/
+
 }

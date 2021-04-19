@@ -7,7 +7,7 @@ public class Home : MonoBehaviour
 {
     [SerializeField] Text instructions;
     [SerializeField] Button playerSelect;
-    [SerializeField] Button cardSetSelect = null;
+    [SerializeField] Button cardSetSelect;
     [SerializeField] Button startGame;
 
     GameManager gameManager;

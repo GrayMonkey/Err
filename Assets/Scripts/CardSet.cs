@@ -2,28 +2,22 @@
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UI.Extensions;
 
 public class CardSet : MonoBehaviour 
 {
-    [Header ("CardSet Info")]
-    [SerializeField] string jsonFile;           // JSON file for reading data
+    [Header ("CardSet Store Info")]
+    [SerializeField] string jsonFile; // JSON file for reading data
     public string cardSetProductID;   // Unique ID to identify the CardSet
     [Space (10)]
 
     public string cardSetTitleKey;
     public string cardSetDescKey;
     public Image cardSetIcon;
-    //public string cardSetCost;
-    //public GameObject cardSetLangs;
-    public bool purchased;
-    public bool freePurchase;
-
-    //    public bool english;
-    //    public bool french;
-    //    public bool german;
-    //    public bool italian;
-    //    public bool spanish;
+    public bool purchased = false;
     public Langs langs;
+    public Toggle selectable;
+    [SerializeField] HorizontalScrollSnap hss;
 
     private List<Question> questionList;
     private Question activeQuestion;
@@ -34,8 +28,29 @@ public class CardSet : MonoBehaviour
 	void Start () 
 	{
         setupData();
-        UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
+        CheckPurchaseFromStore();
+        Random.InitState((int)System.DateTime.Now.Ticks);
 	}
+
+    private void Update()
+    {
+/*        // Scale the CardSet depending on how far it is form the centre
+        // This doesn't work due to the anchors not being set centrally on the cardset when
+        // automatically placed as a child of the Horizontal Scroll Snap content.
+        RectTransform _content =transform.parent.GetComponentInParent<RectTransform>();
+        if(_content.name == "Content")
+        {
+            TryGetComponent<RectTransform>(out RectTransform _csRect);
+            float _csPos = _csRect.localPosition.x + _csRect.rect.height / 2;
+            //float _step = 312.5f;
+            float _contentPos = _content.localPosition.x;
+            var _scale = 1.0f - (0.5f*(Mathf.Abs((_csPos + _contentPos) / hssStep)));   // Don't ask - it works!
+
+            transform.localScale = new Vector3(_scale, _scale, 1.0f);
+
+            Debug.Log("Content Pos: " + _content.localPosition.x.ToString() + " > " + gameObject.name + "_pos: " + _csPos.ToString() + " > Scale: " + _scale.ToString());
+        }
+*/    }
 
     // Set up the card set questions from csvFile
     void setupData()
@@ -56,9 +71,6 @@ public class CardSet : MonoBehaviour
 
             cardRange = questionList.Count; // maximum range is exclusive on int - see Unity random.range 
         }
-
-        // Set the CardSetIcon
-        cardSetIcon = GetComponentInParent<Image>();
     }
 
 	public void setQuestion()
@@ -80,8 +92,16 @@ public class CardSet : MonoBehaviour
         // to the end of the list
         activeQuestion = questionList[cardRange - 1];
         activeQuestion.maxPoints = 4;
-        GameManager.gameManager.activeCardSet = this;
-        GameManager.gameManager.activeQuestion = activeQuestion;
+        GameManager.instance.activeCardSet = this;
+        GameManager.instance.activeQuestion = activeQuestion;
+    }
+
+    public void CheckPurchaseFromStore()
+    {
+        // ToDO: get purchase data from store
+        //purchased = data from store
+        Toggle _toggle = GetComponent<Toggle>();
+        _toggle.enabled = purchased;
     }
 }
 

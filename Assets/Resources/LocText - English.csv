@@ -1,4 +1,16 @@
 TextKey,Master Text
+CS_Family00_Title,Family Starter Set
+CS_Family00_Desc,250 word definitions for the whole family
+CS_Family01_Title,Family Set vol. II
+CS_Family01_Desc,An additional 250 word definitions for the whole family
+CS_Family02_Title,Family Set vol. III
+CS_Family02_Desc,An additional 250 word definitions for the whole family
+CS_Genius00_Title,Genius Set vol. I
+CS_Genius00_Desc,250 harder word definitions for the vocabulary valiant
+CS_Genius01_Title,Genius Set vol. II
+CS_Genius01_Desc,An additional 250 harder word definitions for the vocabulary valiant
+CS_Slang00_Title,Slang Set vol. I
+CS_Slang00_Desc,250 slang word definitions, not for the faint hearted
 CS_Starter_Desc,Full question starter set of 250 questions
 CS_Starter_Title,Starter Set
 CS_TestA_Desc,Test: 10 Questions with starting with the letter A
@@ -195,3 +207,4 @@ str_LanguageSetupBody2,If you wish to change this please set your desired langua
 str_LanguageSetupPreferred,Preferred Language: 
 str_Select,Select
 str_Unselect,Unselect
+str_RestorePurchases,Restore Purchases
