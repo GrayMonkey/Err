@@ -125,6 +125,7 @@ public class QuestionCard : MonoBehaviour
     {
         if (gameOptions == null)
             return;
+
         goCluesEasyRead.SetActive(gameOptions.easyRead);
         goCluesAllAtOnce.SetActive(!gameOptions.easyRead);
     }
