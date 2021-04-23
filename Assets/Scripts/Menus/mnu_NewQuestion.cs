@@ -29,7 +29,7 @@ public class mnu_NewQuestion : MonoBehaviour
 
         //fill the menu
         playerName.text = playerController.activePlayer.playerName;
-        deckName.text = gameManager.activeCardSet.name;
+        deckName.text = LocManager.instance.GetLocText(gameManager.activeCardSet.cardSetTitleKey);
         deckIcon.sprite = gameManager.activeCardSet.cardSetIcon.sprite;
     }
 

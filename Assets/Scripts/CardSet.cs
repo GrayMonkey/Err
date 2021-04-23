@@ -59,7 +59,7 @@ public class CardSet : MonoBehaviour
     {
         // Add the .json file extension and combine the whole filepath name
         string jsonFileName = jsonFile + ".json";
-        string filePath = Path.Combine(Application.streamingAssetsPath + "/CardSets/", jsonFileName);
+        string filePath = Path.Combine(Application.dataPath + "/CardSets/", jsonFileName);
 
         if (File.Exists(filePath))
         {
