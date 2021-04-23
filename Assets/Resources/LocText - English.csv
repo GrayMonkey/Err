@@ -118,7 +118,7 @@ UI_AddPlayer,Add Player...
 UI_AppInfo,App Information
 UI_AppInfoDetails,To Do: The Err App how to use. Is this needed any more with the context buttons?
 UI_AppTitle,This app...
-UI_CardSetSelect,Select Cardset(s)
+UI_CardSetSelect,Select Cardset(s) & Player(s)
 UI_CardSetsGame,Game
 UI_CardSetsShop,Shop
 UI_ConfirmNoPlayers,No Players!
@@ -208,3 +208,6 @@ str_LanguageSetupPreferred,Preferred Language:
 str_Select,Select
 str_Unselect,Unselect
 str_RestorePurchases,Restore Purchases
+str_PurchaseDesc,Purchase this CardSet from the store
+str_SelectDesc,Select this CardSet for play
+str_UnselectDesc,Remove this CardSet from play

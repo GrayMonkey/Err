@@ -18,13 +18,12 @@ public class CardSetManager : MonoBehaviour
     public List<CardSet> csAll = new List<CardSet>();
     public List<CardSet> csGame = new List<CardSet>();
     public List<CardSet> csShop = new List<CardSet>();
-    public List<CardSet> csActive = new List<CardSet>();
+    public List<CardSet> activeCardSets = new List<CardSet>();
 
     private void OnEnable()
     {
         instance = this;
         SetDefaultCardSet();
-        UpdateCardSets();
     }
 
     public void SetDefaultCardSet()
@@ -39,19 +38,8 @@ public class CardSetManager : MonoBehaviour
                 csDefault = csDefault_EN;
                 break;
         }
-    }
-    
-    public void UpdateCardSets()
-    {
-        csGame.Clear();
-        csShop.Clear();
 
-        foreach (CardSet _cs in csAll)
-        {
-            if (_cs.purchased)
-                csGame.Add(_cs);
-            else
-                csShop.Add(_cs);
-        }
+        if(!activeCardSets.Contains(csDefault))
+            activeCardSets.Add(csDefault);
     }
 }

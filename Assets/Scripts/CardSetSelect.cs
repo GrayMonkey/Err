@@ -16,6 +16,7 @@ public class CardSetSelect : MonoBehaviour
     [SerializeField] HorizontalScrollSnap hss;
     //[SerializeField] Toggle pageToggle;
     [SerializeField] Transform cardSetsHolder;
+    [SerializeField] Text txtPurchaseButton;
 
     private Player refPlayer;
     private List<CardSet> csActiveList = new List<CardSet>();
@@ -155,9 +156,11 @@ public class CardSetSelect : MonoBehaviour
             btnCSCost.gameObject.SetActive(true);
 
             // Switch the purchase button on if csActive is not purchased
-            btnCSCost.GetComponentInChildren<Text>().text = "GetFromStore"; // TODO: Update from the store
-            btnCSCost.SetActive(!csActive.purchased);
-            csActive.CheckPurchaseFromStore();
+            //btnCSCost.GetComponentInChildren<Text>().text = "GetFromStore"; // TODO: Update from the store
+            //btnCSCost.SetActive(!csActive.purchased);
+            //csActive.CheckPurchaseFromStore();
+            txtPurchaseButton.text = locManager.GetLocText("str_Unselect");
+            PurchaseSelectButton(true);
         }
     }
 
@@ -232,32 +235,6 @@ public class CardSetSelect : MonoBehaviour
         DisplayCardSets();
     }
 
-    public void SetCardSets(Player player)
-    {
-        List<CardSet> newCardSets = new List<CardSet>();
-
-        foreach (CardSet cardSet in csManager.csAll)
-        {
-            if (cardSet.GetComponent<Toggle>().isOn)
-                newCardSets.Add(cardSet);
-        }
-
-        // Set the CardSet if thisPlayer is set and then reset thisPlayer
-        // to avoid overwriting. If no refPLayer then set as default
-        // cardset
-
-        if (refPlayer != null)
-        {
-            player.cardSets = newCardSets;
-        }
-        else
-        {
-            GameManager.instance.defaultCardSets = newCardSets;
-        }
-
-        refPlayer = null;
-    }
-
     public void SetCardSetSelected(bool selected)
     {
         imgSelected.gameObject.SetActive(selected);
@@ -269,37 +246,98 @@ public class CardSetSelect : MonoBehaviour
         //iapManager.BuyProduct(productID);
     }
 
-/*    public void CardSetPurchaseOrSelect()
+    public void PurchaseSelectButton (bool setup)
     {
-        // ToDo: Link this to actual purchasing
-        CardSet _csPurchase = hss.CurrentPageObject().GetComponent<CardSet>();
-        
-        if (_csPurchase == null)
+        List<CardSet> activeCardSets = CardSetManager.instance.activeCardSets;
+        if (csActive.purchased)
         {
-            Debug.Log("Purchase failed");
-            return;
-        }
-
-        if (_csPurchase.purchased)
-        {
-            Toggle _toggle = _csPurchase.GetComponent<Toggle>();
-            _toggle.isOn = !_toggle.isOn;
-
-            if (_toggle.isOn)
-                btnPurchase.text = locManager.GetLocText("str_Unselect");
+            if (activeCardSets.Contains(csActive))
+            {
+                txtPurchaseButton.text = locManager.GetLocText("str_Unselect");
+                if (!setup)
+                {
+                    txtPurchaseButton.text = locManager.GetLocText("str_Select");
+                    activeCardSets.Remove(csActive);
+                }
+            }
             else
-                btnPurchase.text = locManager.GetLocText("str_Select");
+            {
+                txtPurchaseButton.text = locManager.GetLocText("str_Select");
+                if(!setup)
+                {
+                    txtPurchaseButton.text = locManager.GetLocText("str_Unselect");
+                    activeCardSets.Add(csActive);
+                }
+            }
         }
         else
         {
-            string _purchase = _csPurchase.cardSetTitleKey;
-            string _purchaseID = _csPurchase.cardSetProductID;
-            _purchaseID = " (" + _purchaseID + ")";
+            // TODO Add in actual purchasing
+            // Debug, currently CardSets are added automatically when purchased
+            if (setup)
+            {
+                txtPurchaseButton.text = "£2.49";
+                return;
+            }
 
-            Debug.Log("Purchasing: " + _purchase + _purchaseID);
-            _csPurchase.purchased = true;
+            txtPurchaseButton.text = locManager.GetLocText("str_Unselect");
+            csActive.purchased = true;
+            activeCardSets.Add(csActive);
         }
 
-    }*/
+        csActive.selectedIcon.SetActive(activeCardSets.Contains(csActive));
+        CardSetManager.instance.activeCardSets = activeCardSets;
+
+
+
+        /*
+                if (txtPurchaseButton.text == locManager.GetLocText("str_Unselect"))
+                {
+                    if (activeCardSets.Contains(csActive))
+                        activeCardSets.Remove(csActive);
+                    csActive.selectedIcon.SetActive(false);
+                    txtPurchaseButton.text = locManager.GetLocText("str_Select");
+                }
+                else
+                {
+                    if(!activeCardSets.Contains(csActive))
+                        activeCardSets.Add(csActive);
+                    csActive.selectedIcon.SetActive(true);
+                    txtPurchaseButton.text = locManager.GetLocText("str_Unselect");
+                }*/
+    }
+
+    /*    public void CardSetPurchaseOrSelect()
+        {
+            // ToDo: Link this to actual purchasing
+            CardSet _csPurchase = hss.CurrentPageObject().GetComponent<CardSet>();
+
+            if (_csPurchase == null)
+            {
+                Debug.Log("Purchase failed");
+                return;
+            }
+
+            if (_csPurchase.purchased)
+            {
+                Toggle _toggle = _csPurchase.GetComponent<Toggle>();
+                _toggle.isOn = !_toggle.isOn;
+
+                if (_toggle.isOn)
+                    btnPurchase.text = locManager.GetLocText("str_Unselect");
+                else
+                    btnPurchase.text = locManager.GetLocText("str_Select");
+            }
+            else
+            {
+                string _purchase = _csPurchase.cardSetTitleKey;
+                string _purchaseID = _csPurchase.cardSetProductID;
+                _purchaseID = " (" + _purchaseID + ")";
+
+                Debug.Log("Purchasing: " + _purchase + _purchaseID);
+                _csPurchase.purchased = true;
+            }
+
+        }*/
 
 }

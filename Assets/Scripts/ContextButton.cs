@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Collections;
 
 // Extends the button class and overrides some of the pointer events
 // to create a contextual help when the button is held for touchTime

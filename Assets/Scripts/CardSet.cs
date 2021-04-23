@@ -16,8 +16,9 @@ public class CardSet : MonoBehaviour
     public Image cardSetIcon;
     public bool purchased = false;
     public Langs langs;
-    public Toggle selectable;
+    //public Toggle selectable;
     [SerializeField] HorizontalScrollSnap hss;
+    public GameObject selectedIcon;
 
     private List<Question> questionList;
     private Question activeQuestion;
@@ -30,6 +31,7 @@ public class CardSet : MonoBehaviour
         setupData();
         CheckPurchaseFromStore();
         Random.InitState((int)System.DateTime.Now.Ticks);
+        SelectCardSet(false);
 	}
 
     private void Update()
@@ -73,7 +75,7 @@ public class CardSet : MonoBehaviour
         }
     }
 
-	public void setQuestion()
+	public void GetQuestion()
 	{
         // if all of the cards have been used reset the deck
         if (cardsUsed > cardRange)
@@ -100,8 +102,13 @@ public class CardSet : MonoBehaviour
     {
         // ToDO: get purchase data from store
         //purchased = data from store
-        Toggle _toggle = GetComponent<Toggle>();
-        _toggle.enabled = purchased;
+        // Toggle _toggle = GetComponent<Toggle>();
+        // _toggle.enabled = purchased;
+    }
+
+    public void SelectCardSet (bool selected)
+    {
+        selectedIcon.SetActive(selected);
     }
 }
 

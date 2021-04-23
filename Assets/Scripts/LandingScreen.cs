@@ -11,7 +11,6 @@ public class LandingScreen : MonoBehaviour
     [SerializeField] GameObject tapText;
     [SerializeField] Toggle dontShowAgain;
     [SerializeField] string url = "https://sites.google.com/errgame.com/err/home";
-    [SerializeField] CardSet csStarter;
 
     GameManager gameManager;
     GameOptions gameOptions;
@@ -59,7 +58,7 @@ public class LandingScreen : MonoBehaviour
     public void InitiateFreePurchase()
     {
         // ToDo - Link this in to the correct purchase from the store
-        gameManager.defaultCardSets.Add(csStarter);
+        // gameManager.defaultCardSets.Add(csStarter);
         WelcomeScreen(false);
     }
 

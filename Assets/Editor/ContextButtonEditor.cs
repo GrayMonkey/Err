@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
-using System.Collections;
+//using System.Collections;
 
 [CustomEditor(typeof(ContextButton))]
 public class ContextButtonEditor : UnityEditor.UI.ButtonEditor
@@ -14,7 +14,7 @@ public class ContextButtonEditor : UnityEditor.UI.ButtonEditor
         EditorUtility.SetDirty(target);
         base.OnInspectorGUI();
 
-        component.helpButton = (GameObject)EditorGUILayout.ObjectField("Help Panel", 
+        component.helpButton = (GameObject)EditorGUILayout.ObjectField("Help Panel",
             component.helpButton, typeof(GameObject), true);
         component.altImage = (Image)EditorGUILayout.ObjectField("Alternative Image",
             component.altImage, typeof(Image), true);

@@ -10,7 +10,7 @@ public class Home : MonoBehaviour
     [SerializeField] Button cardSetSelect;
     [SerializeField] Button startGame;
 
-    GameManager gameManager;
+    CardSetManager cardSetManager;
     PlayerController playerController;
     
     Color proceed = new Color(0.7f, 1.0f, 0.4f);
@@ -22,7 +22,7 @@ public class Home : MonoBehaviour
 
     private void Awake()
     {
-        gameManager = GameManager.instance;
+        cardSetManager = CardSetManager.instance;
         playerController = PlayerController.instance;
         playerBtnImage = playerSelect.GetComponent<Image>();
         cardSetBtnImage = cardSetSelect.GetComponent<Image>();
@@ -32,42 +32,43 @@ public class Home : MonoBehaviour
 
     void OnEnable()
     {
-        startGame.interactable = false;
-        cardSetBtnImage.color = select;
-        cardSetBtnCount.text = gameManager.defaultCardSets.Count.ToString();
-        playerBtnImage.color = select;
-        playerBtnCount.text = playerController.playersActive.Count.ToString();
-        playerSelect.interactable = false;
+        startGame.interactable = CheckGameStart();
     }
 
-    private void Start()
+    private bool CheckGameStart()
     {
         bool players = false;
         bool cardsets = false;
+        bool start = false;
 
-        instructions.text = "UI_CardSetSelect";
+        playerSelect.interactable = false;
 
-        if (gameManager.defaultCardSets.Count > 0)
+        cardSetBtnImage.color = select;
+        playerBtnImage.color = select;
+
+        if (cardSetManager.activeCardSets.Count > 0)
         {
             cardSetBtnImage.color = proceed;
             cardsets = true;
-            instructions.text = "str_BtnHelpSelectPlayers";
             playerSelect.interactable = true;
         }
+
         instructions.GetComponent<Translate>().UpdateString();
 
         if (playerController.playersActive.Count > 1 && cardsets)
         {
-            if (playerController.playersActive.Count > 1) 
+            if (playerController.playersActive.Count > 1)
                 playerBtnImage.color = proceed;
             players = true;
         }
 
+        cardSetBtnCount.text = cardSetManager.activeCardSets.Count.ToString();
+        playerBtnCount.text = playerController.playersActive.Count.ToString();
+
         if (players && cardsets)
-        {
-            instructions.text = "";
-            startGame.interactable = true;
-        }
+            start = true;
+
+        return start;
     }
 
     public void StartGame()

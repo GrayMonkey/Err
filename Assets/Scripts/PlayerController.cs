@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public bool playerDataExists = false;
 
     GameManager gameManager;
+    CardSetManager cardSetManager;
     LocManager locManager;
     MenuHandler uiMenu;
     int randomPlayersCount = 0;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         gameManager = GameManager.instance;
+        cardSetManager = CardSetManager.instance;
         locManager = LocManager.instance;
         uiMenu = MenuHandler.instance;
     }
@@ -71,7 +73,7 @@ public class PlayerController : MonoBehaviour
 
         newPlayer.playerName = newPlayerName;
         newPlayer.language = locManager.GameLang;
-        newPlayer.cardSets = gameManager.defaultCardSets;
+        newPlayer.cardSets = cardSetManager.activeCardSets;
 
         // Define the player ID using the first two characters or the first character
         // of each word if a space is in the name
@@ -153,7 +155,7 @@ public class PlayerController : MonoBehaviour
 
         int i = UnityEngine.Random.Range(0, activePlayer.cardSets.Count()-1);
         questionSet = activePlayer.cardSets[i];
-        questionSet.setQuestion();
+        questionSet.GetQuestion();
     }
 
     public void StartGame()
@@ -172,7 +174,7 @@ public class PlayerController : MonoBehaviour
 
             //Set the default card set for the player if cardSets is 0
             if (player.cardSets.Count == 0)
-                player.cardSets = gameManager.defaultCardSets;
+                player.cardSets = cardSetManager.activeCardSets;
         }
 
         NextPlayer();

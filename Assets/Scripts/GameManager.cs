@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
     public Question activeQuestion;
     public CardSet activeCardSet;
-    public List<CardSet> defaultCardSets;
+    //public List<CardSet> defaultCardSets;
     public bool gameInProgress = false;
 
     [SerializeField] GameObject qCard;
