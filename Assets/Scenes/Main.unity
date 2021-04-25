@@ -2237,7 +2237,7 @@ PrefabInstance:
     - target: {fileID: 224509499679978106, guid: b5831aa82bd534050acd68b5f2220819,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224509499679978106, guid: b5831aa82bd534050acd68b5f2220819,
         type: 3}
@@ -3393,9 +3393,6 @@ MonoBehaviour:
   playerName: {fileID: 1332359638}
   swipeThreshold: 0
   playerID: {fileID: 1625762466}
-  dummyPlayerName: {fileID: 0}
-  dummyPlayerID: {fileID: 0}
-  dummyPlayer: {fileID: 0}
   addRosterPlayerButton: {fileID: 767976618}
   moreButton: {fileID: 1937368498}
   activePlayerHolder: {fileID: 1681488486}

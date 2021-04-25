@@ -16,11 +16,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     [SerializeField] Text playerName;
     [SerializeField] float swipeThreshold = 50.0f;
-    //[SerializeField] private Image playerNameBG;
     [SerializeField] Text playerID;
-    [SerializeField] Text dummyPlayerName;
-    [SerializeField] Text dummyPlayerID;
-    [SerializeField] GameObject dummyPlayer;
     [SerializeField] GameObject addRosterPlayerButton;
     [SerializeField] GameObject moreButton;
     [SerializeField] GameObject activePlayerHolder;
@@ -178,17 +174,11 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         playerController.activePlayer = thisPlayer;
         swipeStart = eventData.position;
-        dummyPlayer.SetActive(true);
-        dummyPlayer.transform.SetAsLastSibling();
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-/*        Vector3 newPosition = dummyPlayer.transform.position;
-        newPosition.y = eventData.position.y;
-        dummyPlayer.transform.position = newPosition;
-        this.transform.position = newPosition;
-*/    }
+    }
 
     public void OnEndDrag(PointerEventData eventData)
     {

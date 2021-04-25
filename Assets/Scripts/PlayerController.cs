@@ -48,9 +48,9 @@ public class PlayerController : MonoBehaviour
         //if (!playerDataExists) CreateDummyRoster();
     }
 
-/*    private void CreateDummyRoster()
+    private void CreateDummyRoster()
     {
-        for(int i = 1; i<4; i++)
+        for (int i = 1; i < 4; i++)
         {
             Player dummyPlayer = new Player();
             dummyPlayer.playerName = "Roster " + i.ToString();
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
             playerRoster.Add(dummyPlayer);
         }
     }
-*/
+
     public Player AddNewPlayer()
     {
         Player newPlayer = new Player();
@@ -103,13 +103,13 @@ public class PlayerController : MonoBehaviour
         if (checkName == "") { return false; }
         if (checkName == refPlayer.playerName) { return true; }
 
-        if(instance.playersActive.Count>0)
+        if (instance.playersActive.Count > 0)
         {
             Player _player = instance.playersActive.Find((Player obj) => obj.playerName == checkName);
             if (_player != null) { return false; }
         }
 
-        if(instance.playerRoster.Count>0)
+        if (instance.playerRoster.Count > 0)
         {
             Player _player = instance.playerRoster.Find((Player obj) => obj.playerName == checkName);
             if (_player != null) { return false; }
@@ -119,7 +119,6 @@ public class PlayerController : MonoBehaviour
     }
 
     // Set the next player as the active player dependent on if turn order is random or not
-    // TODO redo this function so that if that is not random that the random number is 0 - Done???
     public void NextPlayer()
     {
         if (playersActive.Count > 0)
@@ -145,7 +144,7 @@ public class PlayerController : MonoBehaviour
             playersActive.RemoveAt(i);
         }
 
-        // show the next playter menu
+        // show the next player menu
         uiMenu.ShowMenu(Menu.NewQuestion);
     }
 
@@ -153,7 +152,7 @@ public class PlayerController : MonoBehaviour
     {
         CardSet questionSet;
 
-        int i = UnityEngine.Random.Range(0, activePlayer.cardSets.Count()-1);
+        int i = UnityEngine.Random.Range(0, activePlayer.cardSets.Count() - 1);
         questionSet = activePlayer.cardSets[i];
         questionSet.GetQuestion();
     }
@@ -193,8 +192,7 @@ public class PlayerController : MonoBehaviour
 
     public void SavePlayerData()
     {
-        List<PlayerData> playersData = new List<PlayerData>();
-
+        List<SaveData> playerData = new List<SaveData>();
         foreach (Player player in playersActive)
         {
             player.gamesTotal++;
@@ -212,7 +210,8 @@ public class PlayerController : MonoBehaviour
 
         foreach (Player player in playerRoster)
         {
-            PlayerData data = new PlayerData
+            //SaveData data = new SaveData
+            SaveData data = new SaveData
             {
                 playerName = player.playerName,
                 playerID = player.playerID,
@@ -221,49 +220,50 @@ public class PlayerController : MonoBehaviour
                 gamesWon = player.gamesWon,
                 questionsTotal = player.questionsTotal,
                 answersTotal = player.answersTotal,
-                pointsTotal = player.pointsTotal
+                pointsTotal = player.pointsTotal,
             };
 
-            foreach (CardSet cardSet in player.cardSets)
-            {
-                data.cardSets.Add(cardSet.gameObject.name);
-            }
 
-            playersData.Add(data);
+            foreach (CardSet cardSet in player.cardSets)
+                data.cardSetList.Add(cardSet.name);
+
+            playerData.Add(data);
         }
 
         // Create/write playerRoster to the save file
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream saveFile = File.OpenWrite(Application.persistentDataPath + "/PlayerData.dat");
-        bf.Serialize(saveFile, playersData);
+        FileStream saveFile = File.OpenWrite(Application.persistentDataPath + "/SaveData.dat");
+        bf.Serialize(saveFile, playerData);
         saveFile.Close();
-        playerDataExists = LoadPlayerData();
     }
 
     public bool LoadPlayerData()
     {
-        if (File.Exists(Application.persistentDataPath + "/PlayerData.dat"))
+        if (File.Exists(Application.persistentDataPath + "/SaveData.dat"))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream loadFile = File.Open(Application.persistentDataPath + "/PlayerData.dat", FileMode.Open);
-            List<PlayerData> playersData = (List<PlayerData>)bf.Deserialize(loadFile);
-
+            FileStream loadFile = File.Open(Application.persistentDataPath + "/SaveData.dat", FileMode.Open);
+            List<SaveData> playerData = (List<SaveData>)bf.Deserialize(loadFile);
             playerRoster.Clear();
 
-            foreach (PlayerData data in playersData)
+            //foreach (SaveData data in playersData)
+            foreach (SaveData data in playerData)
             {
                 // Read in each player
-                Player player = new Player(); ;
-                player.playerName = data.playerName;
-                player.playerID = data.playerID;
-                player.language = data.language;
-                player.gamesTotal = data.gamesTotal;
-                player.gamesWon = data.gamesWon;
-                player.questionsTotal = data.questionsTotal;
-                player.answersTotal = data.answersTotal;
-                player.pointsTotal = data.pointsTotal;
+                Player player = new Player()
+                {
+                    playerName = data.playerName,
+                    playerID = data.playerID,
+                    language = data.language,
+                    gamesTotal = data.gamesTotal,
+                    gamesWon = data.gamesWon,
+                    questionsTotal = data.questionsTotal,
+                    answersTotal = data.answersTotal,
+                    pointsTotal = data.pointsTotal,
+                    cardSetList = data.cardSetList
+                };
 
-                foreach (string cardSetName in data.cardSets)
+                foreach (string cardSetName in data.cardSetList)
                 {
                     GameObject obj = GameObject.Find(cardSetName);
                     if (obj != null)
@@ -291,23 +291,12 @@ public class PlayerController : MonoBehaviour
         }
         return false;
     }
-
-    public void RemovePlayerData(Player deletePlayer)
-    {
-        if (playerRoster.Count > 0)
-        {
-            int index = playerRoster.FindIndex((Player obj) => obj.playerName.Equals(deletePlayer.playerName));
-            if (index > 0)
-            {
-                playerRoster.RemoveAt(index);
-            }
-        }
-    }
 }
 
-// TODO: Why is PlayerData being used to save out players and not Player????
+// TODO: Why is SaveData being used to save out players and not Player????
+// Answer: Cannot Serialize List<CardSet>() for binary write! Possibly use scriptableobjects instead?
 [System.Serializable]
-class PlayerData
+class SaveData
 {
     public string playerName;
     public string playerID;
@@ -317,5 +306,5 @@ class PlayerData
     public int questionsTotal;
     public int answersTotal;
     public int pointsTotal;
-    public List<string> cardSets = new List<string>();
+    public List<string> cardSetList = new List<string>();
 }
