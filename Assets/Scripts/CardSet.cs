@@ -6,8 +6,7 @@ using UnityEngine.UI.Extensions;
 
 public class CardSet : MonoBehaviour 
 {
-    [Header ("CardSet Store Info")]
-    [SerializeField] string jsonFile; // JSON file for reading data
+    [Header("CardSet Store Info")]
     public string cardSetProductID;   // Unique ID to identify the CardSet
     [Space (10)]
 
@@ -16,10 +15,11 @@ public class CardSet : MonoBehaviour
     public Image cardSetIcon;
     public bool purchased = false;
     public Langs langs;
-    //public Toggle selectable;
     [SerializeField] HorizontalScrollSnap hss;
     public GameObject selectedIcon;
 
+    private string jsonFile;
+    private string jsonName;
     private List<Question> questionList;
     private Question activeQuestion;
     private int cardRange;
@@ -28,50 +28,32 @@ public class CardSet : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+        jsonName = this.gameObject.name;
+        jsonFile = jsonName + ".json";
         setupData();
         CheckPurchaseFromStore();
         Random.InitState((int)System.DateTime.Now.Ticks);
         SelectCardSet(false);
 	}
 
-    private void Update()
-    {
-/*        // Scale the CardSet depending on how far it is form the centre
-        // This doesn't work due to the anchors not being set centrally on the cardset when
-        // automatically placed as a child of the Horizontal Scroll Snap content.
-        RectTransform _content =transform.parent.GetComponentInParent<RectTransform>();
-        if(_content.name == "Content")
-        {
-            TryGetComponent<RectTransform>(out RectTransform _csRect);
-            float _csPos = _csRect.localPosition.x + _csRect.rect.height / 2;
-            //float _step = 312.5f;
-            float _contentPos = _content.localPosition.x;
-            var _scale = 1.0f - (0.5f*(Mathf.Abs((_csPos + _contentPos) / hssStep)));   // Don't ask - it works!
-
-            transform.localScale = new Vector3(_scale, _scale, 1.0f);
-
-            Debug.Log("Content Pos: " + _content.localPosition.x.ToString() + " > " + gameObject.name + "_pos: " + _csPos.ToString() + " > Scale: " + _scale.ToString());
-        }
-*/    }
-
-    // Set up the card set questions from csvFile
+    // Set up the card set questions from jsonFile
     void setupData()
     {
         // Add the .json file extension and combine the whole filepath name
-        string jsonFileName = jsonFile + ".json";
-        string filePath = Path.Combine(Application.dataPath + "/CardSets/", jsonFileName);
+        //string jsonFileName = jsonFile + ".json";
+        string filePath = Path.Combine(Application.streamingAssetsPath, jsonFile);
 
         if (File.Exists(filePath))
         {
             // read the json file in to a string and fix the string for use with JsonHelper
             // then replace the file name in the string with "dataset"
             string dataAsJson = File.ReadAllText(filePath);
-            dataAsJson = dataAsJson.Replace(jsonFile, "dataset");
+            dataAsJson = dataAsJson.Replace(jsonName, "dataset");
 
             // pass the string through JsonHelper class and generate a list from JSON string
             questionList = JsonHelper.FromJsonList<Question>(dataAsJson);
 
-            cardRange = questionList.Count; // maximum range is exclusive on int - see Unity random.range 
+            cardRange = questionList.Count-1; // maximum range is exclusive on int - see Unity random.range 
         }
     }
 
@@ -92,7 +74,7 @@ public class CardSet : MonoBehaviour
 
         // returns cardRange because the chosen question has been moved
         // to the end of the list
-        activeQuestion = questionList[cardRange - 1];
+        activeQuestion = questionList[cardRange];
         activeQuestion.maxPoints = 4;
         GameManager.instance.activeCardSet = this;
         GameManager.instance.activeQuestion = activeQuestion;
