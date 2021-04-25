@@ -23,9 +23,9 @@ public class GameManager : MonoBehaviour
     public GameOptions gameOptions;
     public GameObject currGameState;
     public GameState gameState;
-    public Question activeQuestion;
+/*    public Question activeQuestion;
     public CardSet activeCardSet;
-    //public List<CardSet> defaultCardSets;
+*/    //public List<CardSet> defaultCardSets;
     public bool gameInProgress = false;
 
     [SerializeField] GameObject qCard;

@@ -8,14 +8,14 @@ public class mnu_Winner : MonoBehaviour
 {
     [SerializeField] Text winningPlayer;
 
-    GameManager gameManager;
+    QuestionManager questionManager;
     PlayerController playerController;
     MenuHandler uiMenu;
     Player activePlayer;
 
     private void Awake()
     {
-        gameManager = GameManager.instance;
+        questionManager = QuestionManager.instance;
         playerController = PlayerController.instance;
         uiMenu = MenuHandler.instance;
     }
@@ -34,7 +34,7 @@ public class mnu_Winner : MonoBehaviour
             activePlayer.gamesWon++;
             activePlayer.questionsThisGame++;
             activePlayer.answersThisGame++;
-            activePlayer.pointsThisGame += gameManager.activeQuestion.maxPoints;
+            activePlayer.pointsThisGame += questionManager.activeQuestion.maxPoints;
             playerController.SavePlayerData();
             uiMenu.CloseMenu(Menus.WinningPlayer);
             uiMenu.ShowMenu(Menus.GameResults);

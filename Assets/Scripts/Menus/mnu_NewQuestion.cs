@@ -11,26 +11,28 @@ public class mnu_NewQuestion : MonoBehaviour
     [SerializeField] Text playerName;
     [SerializeField] Text deckName;
     [SerializeField] Image deckIcon;
-    PlayerController playerController;
     GameManager gameManager;
+    PlayerController playerController;
+    QuestionManager questionManager;
     MenuHandler uiMenus;
 
     private void Awake()
     {
-        playerController = PlayerController.instance;
         gameManager = GameManager.instance;
+        playerController = PlayerController.instance;
+        questionManager = QuestionManager.instance;
         uiMenus = MenuHandler.instance;
     }
 
     private void OnEnable()
     {
         //set the next question
-        playerController.GetNewQuestion();
+        questionManager.GetNewQuestion();
 
         //fill the menu
         playerName.text = playerController.activePlayer.playerName;
-        deckName.text = LocManager.instance.GetLocText(gameManager.activeCardSet.cardSetTitleKey);
-        deckIcon.sprite = gameManager.activeCardSet.cardSetIcon.sprite;
+        deckName.text = LocManager.instance.GetLocText(questionManager.activeCardSet.cardSetTitleKey);
+        deckIcon.sprite = questionManager.activeCardSet.cardSetIcon.sprite;
     }
 
     public void CloseMenu()

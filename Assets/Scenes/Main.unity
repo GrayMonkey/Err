@@ -3379,6 +3379,7 @@ MonoBehaviour:
     playerName: 
     playerID: 
     cardSets: []
+    cardSetList: []
     language: 0
     questionsThisGame: 0
     answersThisGame: 0
@@ -63963,11 +63964,11 @@ GameObject:
   - component: {fileID: 1407768784}
   - component: {fileID: 1407768783}
   - component: {fileID: 1407768782}
-  - component: {fileID: 1407768781}
   - component: {fileID: 1407768780}
   - component: {fileID: 1407768785}
   - component: {fileID: 1407768787}
   - component: {fileID: 1407768786}
+  - component: {fileID: 1407768781}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -63997,7 +63998,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1407768779}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fd1f7feb1a0e4493abc5e0a7c299690, type: 3}
+  m_Script: {fileID: 11500000, guid: 5139a7bd6d60e6b4fa7afd8044a307e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   csDefault_EN: {fileID: 1415560593}
@@ -64011,9 +64012,16 @@ MonoBehaviour:
   - {fileID: 845841472}
   - {fileID: 1588298720}
   - {fileID: 1122043608}
-  csGame: []
-  csShop: []
-  activeCardSets: []
+  activeQuestion:
+    word: 
+    clue4: 
+    clue3: 
+    clue2: 
+    clue1: 
+    credit: 
+    maxPoints: 0
+  activeCardSet: {fileID: 0}
+  playableCardSets: []
 --- !u!114 &1407768782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64053,15 +64061,6 @@ MonoBehaviour:
     playerSelect: {fileID: 643958233}
     question: {fileID: 1654273692}
     endGame: {fileID: 2096966718}
-  activeQuestion:
-    word: 
-    clue4: 
-    clue3: 
-    clue2: 
-    clue1: 
-    credit: 
-    maxPoints: 0
-  activeCardSet: {fileID: 0}
   gameInProgress: 0
   qCard: {fileID: 0}
 --- !u!4 &1407768784
@@ -64114,6 +64113,7 @@ MonoBehaviour:
     playerName: 
     playerID: 
     cardSets: []
+    cardSetList: []
     language: 0
     questionsThisGame: 0
     answersThisGame: 0

@@ -12,21 +12,21 @@ public class mnu_CorrectAnswer : MonoBehaviour
     [SerializeField] Stars stars;
     [SerializeField] int points = 0;
 
-    GameManager gameManager;
+    QuestionManager questionManager;
     PlayerController playerController;
     MenuHandler uiMenus;
     Player activePlayer;
 
     private void Awake()
     {
-        gameManager = GameManager.instance;
         playerController = PlayerController.instance;
+        questionManager = QuestionManager.instance;
         uiMenus = MenuHandler.instance;
     }
 
     private void OnEnable()
     {
-        points = gameManager.activeQuestion.maxPoints; //comment out for debug only
+        points = questionManager.activeQuestion.maxPoints; //comment out for debug only
         moves.text = points.ToString();
         activePlayer = playerController.activePlayer;
         playerName.text = activePlayer.playerName;
@@ -42,7 +42,7 @@ public class mnu_CorrectAnswer : MonoBehaviour
     {
         activePlayer.questionsThisGame++;
         activePlayer.answersThisGame++;
-        activePlayer.pointsThisGame += gameManager.activeQuestion.maxPoints;
+        activePlayer.pointsThisGame += questionManager.activeQuestion.maxPoints;
         playerController.NextPlayer();
 
         CloseMenu();

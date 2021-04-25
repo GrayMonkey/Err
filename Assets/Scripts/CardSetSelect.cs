@@ -20,7 +20,7 @@ public class CardSetSelect : MonoBehaviour
 
     private Player refPlayer;
     private List<CardSet> csActiveList = new List<CardSet>();
-    private CardSetManager csManager;
+    private QuestionManager questionManager;
     private LocManager locManager;
     //private IAPManager iapManager;
     private CardSet csActive;
@@ -30,7 +30,7 @@ public class CardSetSelect : MonoBehaviour
 
     private void Awake()
     {
-        csManager = CardSetManager.instance;
+        questionManager = QuestionManager.instance;
         locManager = LocManager.instance;
         //iapManager = IAPManager.instance;
 
@@ -80,7 +80,7 @@ public class CardSetSelect : MonoBehaviour
         }
 
         // Check to see if the cardsets meeting the current display criteria
-        foreach (CardSet cardSet in csManager.csAll)
+        foreach (CardSet cardSet in questionManager.csAll)
         {
             bool display = false;
 
@@ -248,16 +248,16 @@ public class CardSetSelect : MonoBehaviour
 
     public void PurchaseSelectButton (bool setup)
     {
-        List<CardSet> activeCardSets = CardSetManager.instance.activeCardSets;
+        List<CardSet> playableCardSets = questionManager.playableCardSets;
         if (csActive.purchased)
         {
-            if (activeCardSets.Contains(csActive))
+            if (playableCardSets.Contains(csActive))
             {
                 txtPurchaseButton.text = locManager.GetLocText("str_Unselect");
                 if (!setup)
                 {
                     txtPurchaseButton.text = locManager.GetLocText("str_Select");
-                    activeCardSets.Remove(csActive);
+                    playableCardSets.Remove(csActive);
                 }
             }
             else
@@ -266,7 +266,7 @@ public class CardSetSelect : MonoBehaviour
                 if(!setup)
                 {
                     txtPurchaseButton.text = locManager.GetLocText("str_Unselect");
-                    activeCardSets.Add(csActive);
+                    playableCardSets.Add(csActive);
                 }
             }
         }
@@ -282,26 +282,26 @@ public class CardSetSelect : MonoBehaviour
 
             txtPurchaseButton.text = locManager.GetLocText("str_Unselect");
             csActive.purchased = true;
-            activeCardSets.Add(csActive);
+            playableCardSets.Add(csActive);
         }
 
-        csActive.selectedIcon.SetActive(activeCardSets.Contains(csActive));
-        CardSetManager.instance.activeCardSets = activeCardSets;
+        csActive.selectedIcon.SetActive(playableCardSets.Contains(csActive));
+        questionManager.playableCardSets = playableCardSets;
 
 
 
         /*
                 if (txtPurchaseButton.text == locManager.GetLocText("str_Unselect"))
                 {
-                    if (activeCardSets.Contains(csActive))
-                        activeCardSets.Remove(csActive);
+                    if (csInPlay.Contains(csActive))
+                        csInPlay.Remove(csActive);
                     csActive.selectedIcon.SetActive(false);
                     txtPurchaseButton.text = locManager.GetLocText("str_Select");
                 }
                 else
                 {
-                    if(!activeCardSets.Contains(csActive))
-                        activeCardSets.Add(csActive);
+                    if(!csInPlay.Contains(csActive))
+                        csInPlay.Add(csActive);
                     csActive.selectedIcon.SetActive(true);
                     txtPurchaseButton.text = locManager.GetLocText("str_Unselect");
                 }*/

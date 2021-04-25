@@ -4,9 +4,9 @@ using UnityEngine;
 
 // CardSets should be added to the Manager game object under the
 // Card Set Manager component
-public class CardSetManager : MonoBehaviour
+public class QuestionManager : MonoBehaviour
 {
-    public static CardSetManager instance;
+    public static QuestionManager instance;
 
     // Only list support Languages with active cardsets
     [Header("Defaults Language CardSets")]
@@ -16,14 +16,35 @@ public class CardSetManager : MonoBehaviour
 
     public CardSet csDefault;
     public List<CardSet> csAll = new List<CardSet>();
-    public List<CardSet> csGame = new List<CardSet>();
+/*    public List<CardSet> csGame = new List<CardSet>();
     public List<CardSet> csShop = new List<CardSet>();
-    public List<CardSet> activeCardSets = new List<CardSet>();
+*/    public Question activeQuestion;
+    public CardSet activeCardSet;
+    public List<CardSet> playableCardSets = new List<CardSet>();
+
+    PlayerController playerController;
+
 
     private void OnEnable()
     {
         instance = this;
         SetDefaultCardSet();
+    }
+
+    private void Start()
+    {
+        playerController = PlayerController.instance;
+    }
+
+
+    public void GetNewQuestion()
+    {
+        CardSet questionSet;
+        Player activePlayer = playerController.activePlayer;
+
+        int i = UnityEngine.Random.Range(0, activePlayer.cardSets.Count-1);
+        questionSet = activePlayer.cardSets[i];
+        questionSet.GetQuestion();
     }
 
     public void SetDefaultCardSet()
@@ -39,7 +60,8 @@ public class CardSetManager : MonoBehaviour
                 break;
         }
 
-        if(!activeCardSets.Contains(csDefault))
-            activeCardSets.Add(csDefault);
+        if (!playableCardSets.Contains(csDefault))
+            playableCardSets.Add(csDefault);
     }
+
 }

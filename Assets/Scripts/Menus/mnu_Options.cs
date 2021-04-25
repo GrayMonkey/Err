@@ -88,9 +88,9 @@ public class mnu_Options : MonoBehaviour
             // answers correctly, the card would not update correctly to the
             // next question, but would use the old question. This forces an
             // update mid game.
-            //if (gameManager.gameInProgress)
+            //if (questionManager.gameInProgress)
             //{
-            //    gameManager.ForceCardTypeChange();
+            //    questionManager.ForceCardTypeChange();
             //}
         }
 

@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     public bool playerDataExists = false;
 
     GameManager gameManager;
-    CardSetManager cardSetManager;
+    QuestionManager cardSetManager;
     LocManager locManager;
     MenuHandler uiMenu;
     int randomPlayersCount = 0;
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         gameManager = GameManager.instance;
-        cardSetManager = CardSetManager.instance;
+        cardSetManager = QuestionManager.instance;
         locManager = LocManager.instance;
         uiMenu = MenuHandler.instance;
     }
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
 
         newPlayer.playerName = newPlayerName;
         newPlayer.language = locManager.GameLang;
-        newPlayer.cardSets = cardSetManager.activeCardSets;
+        newPlayer.cardSets = cardSetManager.playableCardSets;
 
         // Define the player ID using the first two characters or the first character
         // of each word if a space is in the name
@@ -148,15 +148,6 @@ public class PlayerController : MonoBehaviour
         uiMenu.ShowMenu(Menu.NewQuestion);
     }
 
-    public void GetNewQuestion()
-    {
-        CardSet questionSet;
-
-        int i = UnityEngine.Random.Range(0, activePlayer.cardSets.Count() - 1);
-        questionSet = activePlayer.cardSets[i];
-        questionSet.GetQuestion();
-    }
-
     public void StartGame()
     {
         gameManager.gameInProgress = true;
@@ -170,10 +161,11 @@ public class PlayerController : MonoBehaviour
             player.answersThisGame = 0;
             player.questionsThisGame = 0;
             player.pointsThisGame = 0;
+            player.cardSets = QuestionManager.instance.playableCardSets;
 
             //Set the default card set for the player if cardSets is 0
             if (player.cardSets.Count == 0)
-                player.cardSets = cardSetManager.activeCardSets;
+                player.cardSets = cardSetManager.playableCardSets;
         }
 
         NextPlayer();

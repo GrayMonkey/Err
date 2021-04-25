@@ -18,6 +18,7 @@ public class CardSet : MonoBehaviour
     [SerializeField] HorizontalScrollSnap hss;
     public GameObject selectedIcon;
 
+    private QuestionManager questionManager;
     private string jsonFile;
     private string jsonName;
     private List<Question> questionList;
@@ -28,6 +29,7 @@ public class CardSet : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+        questionManager = QuestionManager.instance;
         jsonName = this.gameObject.name;
         jsonFile = jsonName + ".json";
         setupData();
@@ -76,8 +78,8 @@ public class CardSet : MonoBehaviour
         // to the end of the list
         activeQuestion = questionList[cardRange];
         activeQuestion.maxPoints = 4;
-        GameManager.instance.activeCardSet = this;
-        GameManager.instance.activeQuestion = activeQuestion;
+        questionManager.activeCardSet = this;
+        questionManager.activeQuestion = activeQuestion;
     }
 
     public void CheckPurchaseFromStore()

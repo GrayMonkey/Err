@@ -10,7 +10,7 @@ public class Home : MonoBehaviour
     [SerializeField] Button cardSetSelect;
     [SerializeField] Button startGame;
 
-    CardSetManager cardSetManager;
+    QuestionManager cardSetManager;
     PlayerController playerController;
     
     Color proceed = new Color(0.7f, 1.0f, 0.4f);
@@ -22,7 +22,7 @@ public class Home : MonoBehaviour
 
     private void Awake()
     {
-        cardSetManager = CardSetManager.instance;
+        cardSetManager = QuestionManager.instance;
         playerController = PlayerController.instance;
         playerBtnImage = playerSelect.GetComponent<Image>();
         cardSetBtnImage = cardSetSelect.GetComponent<Image>();
@@ -46,7 +46,7 @@ public class Home : MonoBehaviour
         cardSetBtnImage.color = select;
         playerBtnImage.color = select;
 
-        if (cardSetManager.activeCardSets.Count > 0)
+        if (cardSetManager.playableCardSets.Count > 0)
         {
             cardSetBtnImage.color = proceed;
             cardsets = true;
@@ -62,7 +62,7 @@ public class Home : MonoBehaviour
             players = true;
         }
 
-        cardSetBtnCount.text = cardSetManager.activeCardSets.Count.ToString();
+        cardSetBtnCount.text = cardSetManager.playableCardSets.Count.ToString();
         playerBtnCount.text = playerController.playersActive.Count.ToString();
 
         if (players && cardsets)

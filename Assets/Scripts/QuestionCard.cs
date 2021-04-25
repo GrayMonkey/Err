@@ -22,7 +22,7 @@ public class QuestionCard : MonoBehaviour
     [SerializeField] Text letter;
     [SerializeField] private Text credit;
 
-    GameManager gameManager;
+    QuestionManager questionManager;
     GameOptions gameOptions;
     MenuHandler uiMenus;
     Question activeQuestion;
@@ -39,9 +39,9 @@ public class QuestionCard : MonoBehaviour
     void Awake()
     {
         gameOptions = GameOptions.instance;
-        gameManager = GameManager.instance;
+        questionManager = QuestionManager.instance;
         uiMenus = MenuHandler.instance;
-        activeQuestion = gameManager.activeQuestion;
+        activeQuestion = questionManager.activeQuestion;
     }
 
     private void OnEnable()
@@ -53,13 +53,13 @@ public class QuestionCard : MonoBehaviour
     // Set up the card according to the current question and game options
     public void SetUpCard()
     {
-        activeQuestion = gameManager.activeQuestion;
+        activeQuestion = questionManager.activeQuestion;
         nextBtn.SetActive(true);
         failBtn.SetActive(false);
         lastClueID = 0;
         word.text = activeQuestion.word;
         hiddenWord.text = new string('*', activeQuestion.word.Length);
-        credit.text = gameManager.activeQuestion.credit;
+        credit.text = questionManager.activeQuestion.credit;
 
         SetCluePanel();
 
@@ -152,7 +152,7 @@ public class QuestionCard : MonoBehaviour
     public void StartTimer()
     {
         int timerID;
-        timerID = 4 - gameManager.activeQuestion.maxPoints;
+        timerID = 4 - questionManager.activeQuestion.maxPoints;
 
         if (gameOptions.easyRead)
             timerID = 4;
@@ -196,13 +196,13 @@ public class QuestionCard : MonoBehaviour
         buttonsAllAtOnce[clueID].transform.GetComponentInChildren<Text>().fontStyle = FontStyle.Normal;
 
         // Update moves if the clue is easier
-        if (gameManager.activeQuestion.maxPoints > 4 - clueID)
+        if (questionManager.activeQuestion.maxPoints > 4 - clueID)
         {
-            gameManager.activeQuestion.maxPoints = 4 - clueID;
+            questionManager.activeQuestion.maxPoints = 4 - clueID;
         }
 
         // Change the Next Button if down to last clue
-        if (gameManager.activeQuestion.maxPoints == 1)
+        if (questionManager.activeQuestion.maxPoints == 1)
             ChangeNextFailButtons();
 
         lastClueID = clueID;
@@ -212,7 +212,7 @@ public class QuestionCard : MonoBehaviour
     public void Fail()
     {
         ResetTimers();
-        gameManager.activeQuestion.maxPoints = 0;
+        questionManager.activeQuestion.maxPoints = 0;
         uiMenus.ShowMenu(Menus.FailAnswer);
         this.gameObject.SetActive(false);
     }

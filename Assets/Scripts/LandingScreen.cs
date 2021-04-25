@@ -35,9 +35,9 @@ public class LandingScreen : MonoBehaviour
 
 /*    public void InitialSetUp()
     {
-        if (gameManager.defaultCardSets.Count != 0)
+        if (questionManager.defaultCardSets.Count != 0)
         {
-            gameManager.SetGameState(gameManager.gameState.home);
+            questionManager.SetGameState(questionManager.gameState.home);
         }
         else
         {
@@ -58,7 +58,7 @@ public class LandingScreen : MonoBehaviour
     public void InitiateFreePurchase()
     {
         // ToDo - Link this in to the correct purchase from the store
-        // gameManager.defaultCardSets.Add(csStarter);
+        // questionManager.defaultCardSets.Add(csStarter);
         WelcomeScreen(false);
     }
 
