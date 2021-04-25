@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         //if (!playerDataExists) CreateDummyRoster();
     }
 
-    private void CreateDummyRoster()
+/*    private void CreateDummyRoster()
     {
         for(int i = 1; i<4; i++)
         {
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
             playerRoster.Add(dummyPlayer);
         }
     }
-
+*/
     public Player AddNewPlayer()
     {
         Player newPlayer = new Player();
@@ -255,6 +255,7 @@ public class PlayerController : MonoBehaviour
                 // Read in each player
                 Player player = new Player(); ;
                 player.playerName = data.playerName;
+                player.playerID = data.playerID;
                 player.language = data.language;
                 player.gamesTotal = data.gamesTotal;
                 player.gamesWon = data.gamesWon;

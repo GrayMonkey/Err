@@ -14,27 +14,27 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public Player thisPlayer;
     public bool subMenuOpen = false;
 
-    [SerializeField] private Text playerName;
-    [SerializeField] private float swipeThreshold = 50.0f;
+    [SerializeField] Text playerName;
+    [SerializeField] float swipeThreshold = 50.0f;
     //[SerializeField] private Image playerNameBG;
-    [SerializeField] private Text playerID;
-    [SerializeField] private Text dummyPlayerName;
-    [SerializeField] private Text dummyPlayerID;
-    [SerializeField] private GameObject dummyPlayer;
-    [SerializeField] private GameObject addRosterPlayerButton;
-    [SerializeField] private GameObject moreButton;
-    [SerializeField] private GameObject activePlayerHolder;
-    [SerializeField] private GameObject rosterPlayerHolder;
-    [SerializeField] private GameObject extraButtons;
-    [SerializeField] private ModalDialog dialogDeletePlayer;
-    [SerializeField] private InputField nameInputField;
-    [SerializeField] private Animator animator;
-    [SerializeField] private Image buttonImage;
-    [SerializeField] private Image idImage;
-    [SerializeField] private Sprite btnRemove;
-    [SerializeField] private Sprite btnTrash;
-    [SerializeField] private Sprite btnCancel;
-    [SerializeField] private Sprite btnConfirm;
+    [SerializeField] Text playerID;
+    [SerializeField] Text dummyPlayerName;
+    [SerializeField] Text dummyPlayerID;
+    [SerializeField] GameObject dummyPlayer;
+    [SerializeField] GameObject addRosterPlayerButton;
+    [SerializeField] GameObject moreButton;
+    [SerializeField] GameObject activePlayerHolder;
+    [SerializeField] GameObject rosterPlayerHolder;
+    [SerializeField] GameObject extraButtons;
+    [SerializeField] ModalDialog dialogDeletePlayer;
+    [SerializeField] InputField nameInputField;
+    [SerializeField] Animator animator;
+    [SerializeField] Image buttonImage;
+    [SerializeField] Image idImage;
+    [SerializeField] Sprite btnRemove;
+    [SerializeField] Sprite btnTrash;
+    [SerializeField] Sprite btnCancel;
+    [SerializeField] Sprite btnConfirm;
 
     RectTransform activePlayerRectTransform;
     PlayerSelector playerSelector;
@@ -45,12 +45,12 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     float startTime;
     float clickOffset;
     bool active = false;
+    string locText;
     Color darkGreen = new Color(0.0f, 0.9f, 0.0f);
     Color hilightGreen = new Color(0.7f, 1.0f, 0.4f);
     Color lightRed = new Color(1.0f, 0.35f, 0.35f);
     Color hilightRed = new Color(1.0f, 0.6f, 0.6f);
     //Color normal = new Color(1.0f, 1.0f, 1.0f);
-    string locText;
 
     private void Awake()
     {
@@ -176,12 +176,19 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     #region Clicking and dragging functions
     public void OnBeginDrag(PointerEventData eventData)
     {
+        playerController.activePlayer = thisPlayer;
         swipeStart = eventData.position;
+        dummyPlayer.SetActive(true);
+        dummyPlayer.transform.SetAsLastSibling();
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-    }
+/*        Vector3 newPosition = dummyPlayer.transform.position;
+        newPosition.y = eventData.position.y;
+        dummyPlayer.transform.position = newPosition;
+        this.transform.position = newPosition;
+*/    }
 
     public void OnEndDrag(PointerEventData eventData)
     {
@@ -461,6 +468,7 @@ public class PlayerObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         if (destroyPlayer)
         {
             playerController.playersActive.Remove(thisPlayer);
+            playerController.playerRoster.Remove(thisPlayer);
             Destroy(gameObject);
         }
 

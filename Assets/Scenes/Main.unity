@@ -5321,8 +5321,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 235, y: -117}
-  m_SizeDelta: {x: 470, y: 107}
+  m_AnchoredPosition: {x: 235, y: -116}
+  m_SizeDelta: {x: 470, y: 106}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &166372507
 MonoBehaviour:
@@ -15035,6 +15035,7 @@ GameObject:
   m_Component:
   - component: {fileID: 290383250}
   - component: {fileID: 290383251}
+  - component: {fileID: 290383252}
   m_Layer: 5
   m_Name: Star (1)
   m_TagString: Untagged
@@ -15076,7 +15077,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starBody: {fileID: 163684866}
-  anim: {fileID: 163684868}
+  anim: {fileID: 290383252}
+--- !u!95 &290383252
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290383249}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d631883af4d1c7469b0b2210ac380fc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &291588064
 GameObject:
   m_ObjectHideFlags: 0
@@ -16574,6 +16594,7 @@ GameObject:
   m_Component:
   - component: {fileID: 330616160}
   - component: {fileID: 330616161}
+  - component: {fileID: 330616162}
   m_Layer: 5
   m_Name: Star (2)
   m_TagString: Untagged
@@ -16615,7 +16636,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starBody: {fileID: 1765344917}
-  anim: {fileID: 1765344919}
+  anim: {fileID: 330616162}
+--- !u!95 &330616162
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330616159}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d631883af4d1c7469b0b2210ac380fc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &342707170
 GameObject:
   m_ObjectHideFlags: 0
@@ -26084,7 +26124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72543717774dd4eceb411865d174e05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile: Family01-EN
   cardSetProductID: com.errgamesltd.errgame.cs_Family01_EN
   cardSetTitleKey: CS_Family01_Title
   cardSetDescKey: CS_Family01_Desc
@@ -26774,7 +26813,6 @@ RectTransform:
   - {fileID: 752300406}
   - {fileID: 186988461}
   - {fileID: 98386896}
-  - {fileID: 1249321219}
   m_Father: {fileID: 672775890}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27034,7 +27072,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72543717774dd4eceb411865d174e05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile: Family00-FR
   cardSetProductID: com.errgamesltd.errgame.cs_Family00_FR
   cardSetTitleKey: CS_Family00_Title
   cardSetDescKey: CS_Family00_Desc
@@ -35062,7 +35099,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72543717774dd4eceb411865d174e05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile: Test A
   cardSetProductID: CardSet_TestA
   cardSetTitleKey: CS_TestA_Title
   cardSetDescKey: CS_TestA_Desc
@@ -35578,7 +35614,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 235, y: -82}
+  m_AnchoredPosition: {x: 235, y: -81}
   m_SizeDelta: {x: 450, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &769029196
@@ -36963,7 +36999,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72543717774dd4eceb411865d174e05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile: Test C
   cardSetProductID: CardSet_TestC
   cardSetTitleKey: CS_TestC_Title
   cardSetDescKey: CS_TestC_Desc
@@ -37741,6 +37776,7 @@ GameObject:
   m_Component:
   - component: {fileID: 843003378}
   - component: {fileID: 843003379}
+  - component: {fileID: 843003380}
   m_Layer: 5
   m_Name: Star
   m_TagString: Untagged
@@ -37782,7 +37818,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starBody: {fileID: 203758530}
-  anim: {fileID: 203758532}
+  anim: {fileID: 843003380}
+--- !u!95 &843003380
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843003377}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d631883af4d1c7469b0b2210ac380fc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &844134884
 GameObject:
   m_ObjectHideFlags: 0
@@ -38044,7 +38099,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72543717774dd4eceb411865d174e05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile: Genius00-EN
   cardSetProductID: com.errgamesltd.errgame.cs_Genius00_EN
   cardSetTitleKey: CS_Genius00_Title
   cardSetDescKey: CS_Genius00_Desc
@@ -40315,7 +40369,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72543717774dd4eceb411865d174e05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile: Family02-EN
   cardSetProductID: com.errgamesltd.errgame.cs_Family02_EN
   cardSetTitleKey: CS_Family02_Title
   cardSetDescKey: CS_Family02_Desc
@@ -47921,7 +47974,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: str_PlayersActiveNone
+  m_Text: str_PlayersRosterNone
 --- !u!222 &1021172458
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -50899,7 +50952,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72543717774dd4eceb411865d174e05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile: Slang00-EN
   cardSetProductID: com.errgamesltd.errgame.cs_Slang00_EN
   cardSetTitleKey: CS_Slang00_Title
   cardSetDescKey: CS_Slang00_Desc
@@ -54802,13 +54854,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1249321219}
+  - component: {fileID: 1249321220}
   m_Layer: 5
   m_Name: DummyPlayerObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1249321219
 RectTransform:
   m_ObjectHideFlags: 0
@@ -54822,14 +54875,28 @@ RectTransform:
   m_Children:
   - {fileID: 1244018585}
   - {fileID: 1303983641}
-  m_Father: {fileID: 643958235}
-  m_RootOrder: 4
+  m_Father: {fileID: 1681488487}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -400, y: -400}
+  m_AnchoredPosition: {x: -495, y: -133.00003}
   m_SizeDelta: {x: 450, y: 100}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1249321220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249321218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51fe9ee27ede82c47ae5ddef231c9472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: {fileID: 766384031}
+  playerID: {fileID: 356518639}
 --- !u!1 &1255662611
 GameObject:
   m_ObjectHideFlags: 0
@@ -64830,7 +64897,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72543717774dd4eceb411865d174e05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile: Family00-EN
   cardSetProductID: com.errgamesltd.errgame.cs_Family00_EN
   cardSetTitleKey: CS_Family00_Title
   cardSetDescKey: CS_Family00_Desc
@@ -65875,7 +65941,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -110, y: 224}
+  m_SizeDelta: {x: -110, y: 222}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1459133284
 GameObject:
@@ -68071,6 +68137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1530615673}
   - component: {fileID: 1530615672}
+  - component: {fileID: 1530615674}
   m_Layer: 5
   m_Name: Star (3)
   m_TagString: Untagged
@@ -68091,7 +68158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starBody: {fileID: 475532837}
-  anim: {fileID: 475532838}
+  anim: {fileID: 1530615674}
 --- !u!224 &1530615673
 RectTransform:
   m_ObjectHideFlags: 0
@@ -68113,6 +68180,25 @@ RectTransform:
   m_AnchoredPosition: {x: 37.5, y: -37.5}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1530615674
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530615671}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d631883af4d1c7469b0b2210ac380fc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1538725638
 GameObject:
   m_ObjectHideFlags: 0
@@ -69711,7 +69797,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72543717774dd4eceb411865d174e05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile: Genius01-EN
   cardSetProductID: com.errgamesltd.errgame.cs_Genius01_EN
   cardSetTitleKey: CS_Genius01_Title
   cardSetDescKey: CS_Genius01_Desc
@@ -72876,12 +72961,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 76167312}
+  - {fileID: 1249321219}
   m_Father: {fileID: 2141242447}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 235, y: -82}
+  m_AnchoredPosition: {x: 235, y: -81}
   m_SizeDelta: {x: 450, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1681488489
@@ -75660,7 +75746,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72543717774dd4eceb411865d174e05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile: Starter
   cardSetProductID: CardSet_Starter_English
   cardSetTitleKey: CS_Starter_Title
   cardSetDescKey: CS_Starter_Desc
@@ -75957,7 +76042,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72543717774dd4eceb411865d174e05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile: Test B
   cardSetProductID: CardSet_TestB
   cardSetTitleKey: CS_TestB_Title
   cardSetDescKey: CS_TestB_Desc
@@ -78711,8 +78795,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 235, y: -33.5}
-  m_SizeDelta: {x: 450, y: 27}
+  m_AnchoredPosition: {x: 235, y: -33}
+  m_SizeDelta: {x: 450, y: 26.000002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1891100540
 MonoBehaviour:
@@ -79819,8 +79903,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 235, y: -33.5}
-  m_SizeDelta: {x: 450, y: 27}
+  m_AnchoredPosition: {x: 235, y: -33}
+  m_SizeDelta: {x: 450, y: 26.000002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1922851511
 MonoBehaviour:
@@ -86781,7 +86865,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500.00003, y: -15}
+  m_AnchoredPosition: {x: 500, y: -15}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2107256589
@@ -92848,7 +92932,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 235, y: 0}
-  m_SizeDelta: {x: 470, y: 107}
+  m_SizeDelta: {x: 470, y: 106}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2141242448
 MonoBehaviour:
