@@ -1,5 +1,5 @@
 {
-  "Genius00-EN": [
+  "Genius02-EN": [
     {
       "word": "abandon",
       "clue4": "dispense with",
@@ -938,18 +938,18 @@
     },
     {
       "word": "hold",
-      "clue4": "the ability to take alcohol",
-      "clue3": "to remain unbroken",
-      "clue2": "to keep or reserve",
-      "clue1": "a strong grip",
-      "credit": "the Err Team"
-    },
-    {
-      "word": "hold",
       "clue4": "cargo storage",
       "clue3": "to have stock",
       "clue2": "to lock up",
       "clue1": "to take another by the hand",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "hold",
+      "clue4": "the ability to take alcohol",
+      "clue3": "to remain unbroken",
+      "clue2": "to keep or reserve",
+      "clue1": "a strong grip",
       "credit": "the Err Team"
     },
     {
@@ -1506,18 +1506,18 @@
     },
     {
       "word": "set",
-      "clue4": "to place something in a certain position",
-      "clue3": "adjust the hands on a clock",
-      "clue2": "to arrange damp hair to dry in a certain way",
-      "clue1": "the sun disappearing below the horizon",
-      "credit": "the Err Team"
-    },
-    {
-      "word": "set",
       "clue4": "to establish a record",
       "clue3": "to give the teeth of a saw outward inclination",
       "clue2": "insert a jewel in a ring",
       "clue1": "to plant a seed",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "set",
+      "clue4": "to place something in a certain position",
+      "clue3": "adjust the hands on a clock",
+      "clue2": "to arrange damp hair to dry in a certain way",
+      "clue1": "the sun disappearing below the horizon",
       "credit": "the Err Team"
     },
     {

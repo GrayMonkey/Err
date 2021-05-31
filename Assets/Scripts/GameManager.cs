@@ -12,9 +12,7 @@ public class GameManager : MonoBehaviour
     public struct GameState
     {
         public GameObject landingScreen;
-        public GameObject home;
         public GameObject cardSetSelect;
-        public GameObject playerSelect;
         public GameObject question;
         public GameObject endGame;
     }
@@ -27,6 +25,7 @@ public class GameManager : MonoBehaviour
     public CardSet activeCardSet;
 */    //public List<CardSet> defaultCardSets;
     public bool gameInProgress = false;
+    public GameObject bgParticles;
 
     [SerializeField] GameObject qCard;
 
@@ -52,9 +51,7 @@ public class GameManager : MonoBehaviour
 
         // Turn off all game states
         gameState.landingScreen.SetActive(false);
-        gameState.home.SetActive(false);
         gameState.endGame.SetActive(false);
-        gameState.playerSelect.SetActive(false);
         gameState.question.SetActive(false);
         gameState.cardSetSelect.SetActive(false);
 

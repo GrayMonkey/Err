@@ -54,8 +54,8 @@ public class QuestionCard : MonoBehaviour
     public void SetUpCard()
     {
         activeQuestion = questionManager.activeQuestion;
-        nextBtn.SetActive(true);
-        failBtn.SetActive(false);
+        //nextBtn.SetActive(true);
+        //failBtn.SetActive(false);
         lastClueID = 0;
         word.text = activeQuestion.word;
         hiddenWord.text = new string('*', activeQuestion.word.Length);
@@ -118,7 +118,9 @@ public class QuestionCard : MonoBehaviour
         }
 
         // Set up the relevant button and clue
-        SetClue(0);
+        // No longer called, clue buttons must be touched to activate clue. This has been added
+        // to support One Shot questions
+        // SetClue(0);
     }
 
     public void SetCluePanel()
@@ -130,7 +132,8 @@ public class QuestionCard : MonoBehaviour
         goCluesAllAtOnce.SetActive(!gameOptions.easyRead);
     }
 
-    public void NextClue()
+/*    // Removed as clues now manually started
+ *    public void NextClue()
     {
         if(lastClueID == 3)
         {
@@ -142,17 +145,17 @@ public class QuestionCard : MonoBehaviour
         SetClue(clueID);
         StartTimer();
     }
-
+*/
     private void ResetTimers()
     {
         foreach (Timer timer in timers)
             timer.ResetTimer();
     }
 
-    public void StartTimer()
+    public void StartTimer(int clueID)
     {
-        int timerID;
-        timerID = 4 - questionManager.activeQuestion.maxPoints;
+        int timerID = clueID;
+        //timerID = 4 - questionManager.activeQuestion.maxPoints;
 
         if (gameOptions.easyRead)
             timerID = 4;
@@ -164,7 +167,11 @@ public class QuestionCard : MonoBehaviour
     }
 
     public void SetClue(int clueID)
-    {        
+    {
+        // Rest all timers in case one is currently running when clue is activated
+        foreach (Timer timer in timers)
+            timer.ResetTimer();
+        
         // Reset up the last clue to used
         clueTextsEasyRead[lastClueID].gameObject.SetActive(false);
         scale = buttonsEasyRead[lastClueID].transform.localScale;
@@ -201,12 +208,12 @@ public class QuestionCard : MonoBehaviour
             questionManager.activeQuestion.maxPoints = 4 - clueID;
         }
 
-        // Change the Next Button if down to last clue
+/*        // Change the Next Button if down to last clue
         if (questionManager.activeQuestion.maxPoints == 1)
             ChangeNextFailButtons();
-
+*/
         lastClueID = clueID;
-        StartTimer();
+        StartTimer(clueID);
     }
 
     public void Fail()
@@ -224,12 +231,12 @@ public class QuestionCard : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    private void ChangeNextFailButtons()
+/*    private void ChangeNextFailButtons()
     {
         nextBtn.SetActive(false);
         failBtn.SetActive(true);
     }
-
+*/
     public void OptionsMenu()
     {
         uiMenus.ShowMenu(Menus.Options);

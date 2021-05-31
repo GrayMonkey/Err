@@ -2,9 +2,8 @@
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UI.Extensions;
 
-public class CardSet : MonoBehaviour 
+public class CardSet : MonoBehaviour
 {
     [Header("CardSet Store Info")]
     public string cardSetProductID;   // Unique ID to identify the CardSet
@@ -15,27 +14,34 @@ public class CardSet : MonoBehaviour
     public Image cardSetIcon;
     public bool purchased = false;
     public Langs langs;
-    [SerializeField] HorizontalScrollSnap hss;
-    public GameObject selectedIcon;
+    [SerializeField] Text cardsetTitle;
+    [SerializeField] Text cardsetDescription;
+    [SerializeField] Text cardsetPrice;
+    [SerializeField] GameObject playable;
 
-    private QuestionManager questionManager;
-    private string jsonFile;
-    private string jsonName;
-    private List<Question> questionList;
-    private Question activeQuestion;
-    private int cardRange;
-    private int cardsUsed = 0;
+    QuestionManager questionManager;
+    CardSetCollection csSelect;
+    string jsonFile;
+    string jsonName;
+    List<Question> questionList;
+    Question activeQuestion;
+    int cardRange;
+    int cardsUsed = 0;
 
-	// Use this for initialization
-	void Start () 
-	{
+    // Use this for initialization
+    private void Awake()
+    {
         questionManager = QuestionManager.instance;
+        csSelect = CardSetCollection.instance;
+    }
+
+    void Start () 
+	{
         jsonName = this.gameObject.name;
         jsonFile = jsonName + ".json";
         setupData();
         CheckPurchaseFromStore();
         Random.InitState((int)System.DateTime.Now.Ticks);
-        SelectCardSet(false);
 	}
 
     // Set up the card set questions from jsonFile
@@ -55,8 +61,13 @@ public class CardSet : MonoBehaviour
             // pass the string through JsonHelper class and generate a list from JSON string
             questionList = JsonHelper.FromJsonList<Question>(dataAsJson);
 
-            cardRange = questionList.Count-1; // maximum range is exclusive on int - see Unity random.range 
+            cardRange = questionList.Count-1;           // maximum range is exclusive on int - see Unity random.range 
         }
+
+        //Set the CardSet information
+        cardsetTitle.text = LocManager.instance.GetLocText(cardSetTitleKey);
+        cardsetDescription.text = LocManager.instance.GetLocText(cardSetDescKey);
+        cardsetPrice.text = "£2.49";                    // TODO: Get price from relevant shop.      
     }
 
 	public void GetQuestion()
@@ -90,10 +101,29 @@ public class CardSet : MonoBehaviour
         // _toggle.enabled = purchased;
     }
 
-    public void SelectCardSet (bool selected)
+    public void SetState()
     {
-        selectedIcon.SetActive(selected);
+        cardsetPrice.gameObject.SetActive(!purchased);
+        playable.SetActive(purchased);
+        playable.GetComponent<Toggle>().isOn = questionManager.playableCardSets.Contains(this);
     }
+
+    public void Purchase()
+    {
+        purchased = true;
+        csSelect.UpdateCardSets();
+    }
+
+    public void SelectForPlay()
+    {
+        Toggle toggle = playable.GetComponent<Toggle>();
+
+        if (toggle.isOn)
+            questionManager.playableCardSets.Add(this);
+        else
+            questionManager.playableCardSets.Remove(this);
+    }
+    
 }
 
 [System.Serializable]

@@ -1,5 +1,5 @@
 {
-  "Slang00-EN": [
+  "Slang01-EN": [
     {
       "word": "ace",
       "clue4": "first class",
@@ -42,18 +42,18 @@
     },
     {
       "word": "arse",
-      "clue4": "to mess around",
-      "clue3": "the back end of something",
-      "clue2": "an idiot",
-      "clue1": "the buttocks",
-      "credit": "the Err Team"
-    },
-    {
-      "word": "arse",
       "clue4": "Khyber Pass",
       "clue3": "rusty bullet hole",
       "clue2": "an idiot",
       "clue1": "the shitter",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "arse",
+      "clue4": "to mess around",
+      "clue3": "the back end of something",
+      "clue2": "an idiot",
+      "clue1": "the buttocks",
       "credit": "the Err Team"
     },
     {
@@ -226,18 +226,18 @@
     },
     {
       "word": "bollocks",
-      "clue4": "to talk nonsense",
-      "clue3": "often used with the dogs",
-      "clue2": "the testicles",
-      "clue1": "an insulting retort",
-      "credit": "the Err Team"
-    },
-    {
-      "word": "bollocks",
       "clue4": "Johnny Rollocks",
       "clue3": "the testies",
       "clue2": "spoken nonsense",
       "clue1": "balls",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "bollocks",
+      "clue4": "to talk nonsense",
+      "clue3": "often used with the dogs",
+      "clue2": "the testicles",
+      "clue1": "an insulting retort",
       "credit": "the Err Team"
     },
     {
@@ -298,18 +298,18 @@
     },
     {
       "word": "bum",
-      "clue4": "to scrounge",
-      "clue3": "a down and out",
-      "clue2": "anal sex",
-      "clue1": "the anus",
-      "credit": "the Err Team"
-    },
-    {
-      "word": "bum",
       "clue4": "big bass drum",
       "clue3": "US fanny",
       "clue2": "derriere",
       "clue1": "deaf and dumb",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "bum",
+      "clue4": "to scrounge",
+      "clue3": "a down and out",
+      "clue2": "anal sex",
+      "clue1": "the anus",
       "credit": "the Err Team"
     },
     {
@@ -658,18 +658,18 @@
     },
     {
       "word": "fart",
-      "clue4": "raspberry tart",
-      "clue3": "parp",
-      "clue2": "break wind",
-      "clue1": "trump",
-      "credit": "the Err Team"
-    },
-    {
-      "word": "fart",
       "clue4": "billy smart",
       "clue3": "fluff",
       "clue2": "trump",
       "clue1": "US gas",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "fart",
+      "clue4": "raspberry tart",
+      "clue3": "parp",
+      "clue2": "break wind",
+      "clue1": "trump",
       "credit": "the Err Team"
     },
     {
@@ -738,18 +738,18 @@
     },
     {
       "word": "gay",
-      "clue4": "in bad taste",
-      "clue3": "generally happy",
-      "clue2": "same sex lovers",
-      "clue1": "not hetrosexual",
-      "credit": "the Err Team"
-    },
-    {
-      "word": "gay",
       "clue4": "doris day",
       "clue3": "nancy boy",
       "clue2": "perry como",
       "clue1": "poofter",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "gay",
+      "clue4": "in bad taste",
+      "clue3": "generally happy",
+      "clue2": "same sex lovers",
+      "clue1": "not hetrosexual",
       "credit": "the Err Team"
     },
     {
@@ -850,18 +850,18 @@
     },
     {
       "word": "heart",
-      "clue4": "jam tart",
-      "clue3": "ticker",
-      "clue2": "strawberry tart",
-      "clue1": "stop and start",
-      "credit": "the Err Team"
-    },
-    {
-      "word": "heart",
       "clue4": "horse and cart",
       "clue3": "strawberry",
       "clue2": "jam tart",
       "clue1": "ticker",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "heart",
+      "clue4": "jam tart",
+      "clue3": "ticker",
+      "clue2": "strawberry tart",
+      "clue1": "stop and start",
       "credit": "the Err Team"
     },
     {
@@ -970,18 +970,18 @@
     },
     {
       "word": "jack",
-      "clue4": "nothing",
-      "clue3": "to inject a drug",
-      "clue2": "to quit a job",
-      "clue1": "to rob someone in their car",
-      "credit": "the Err Team"
-    },
-    {
-      "word": "jack",
       "clue4": "beat the meat",
       "clue3": "take yourself in hand",
       "clue2": "crack one off",
       "clue1": "wank",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "jack",
+      "clue4": "nothing",
+      "clue3": "to inject a drug",
+      "clue2": "to quit a job",
+      "clue1": "to rob someone in their car",
       "credit": "the Err Team"
     },
     {
@@ -1034,18 +1034,18 @@
     },
     {
       "word": "knob",
-      "clue4": "to have sex",
-      "clue3": "considered upper class",
-      "clue2": "an idiot",
-      "clue1": "the penis",
-      "credit": "the Err Team"
-    },
-    {
-      "word": "knob",
       "clue4": "dingle dangle",
       "clue3": "dicky",
       "clue2": "ding a ling",
       "clue1": "dong",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "knob",
+      "clue4": "to have sex",
+      "clue3": "considered upper class",
+      "clue2": "an idiot",
+      "clue1": "the penis",
       "credit": "the Err Team"
     },
     {
@@ -1210,18 +1210,18 @@
     },
     {
       "word": "pee",
-      "clue4": "Southend on Sea",
-      "clue3": "a slash",
-      "clue2": "piddle",
-      "clue1": "urinate",
-      "credit": "the Err Team"
-    },
-    {
-      "word": "pee",
       "clue4": "slash",
       "clue3": "urinate",
       "clue2": "piss",
       "clue1": "wee",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "pee",
+      "clue4": "Southend on Sea",
+      "clue3": "a slash",
+      "clue2": "piddle",
+      "clue1": "urinate",
       "credit": "the Err Team"
     },
     {
@@ -1230,14 +1230,6 @@
       "clue3": "Nuremberg trials",
       "clue2": "Nobby Stiles",
       "clue1": "haemorrhoids",
-      "credit": "the Err Team"
-    },
-    {
-      "word": "piss",
-      "clue4": "nonsense",
-      "clue3": "to thoroughly defeat",
-      "clue2": "weak beer",
-      "clue1": "to urinate",
       "credit": "the Err Team"
     },
     {
@@ -1254,6 +1246,14 @@
       "clue3": "slash",
       "clue2": "gypsy's kiss",
       "clue1": "pee",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "piss",
+      "clue4": "nonsense",
+      "clue3": "to thoroughly defeat",
+      "clue2": "weak beer",
+      "clue1": "to urinate",
       "credit": "the Err Team"
     },
     {
@@ -1658,18 +1658,18 @@
     },
     {
       "word": "stiff",
-      "clue4": "to kill",
-      "clue3": "a corpse",
-      "clue2": "a strong drink",
-      "clue1": "an erection",
-      "credit": "the Err Team"
-    },
-    {
-      "word": "stiff",
       "clue4": "to attack someone",
       "clue3": "a smuggled banknote",
       "clue2": "to have sex with",
       "clue1": "rough treatment",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "stiff",
+      "clue4": "to kill",
+      "clue3": "a corpse",
+      "clue2": "a strong drink",
+      "clue1": "an erection",
       "credit": "the Err Team"
     },
     {
@@ -1746,18 +1746,18 @@
     },
     {
       "word": "testicles",
-      "clue4": "nuts",
-      "clue3": "to be brave",
-      "clue2": "balls",
-      "clue1": "bollocks",
-      "credit": "the Err Team"
-    },
-    {
-      "word": "testicles",
       "clue4": "cods",
       "clue3": "knackers",
       "clue2": "nuts",
       "clue1": "balls",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "testicles",
+      "clue4": "nuts",
+      "clue3": "to be brave",
+      "clue2": "balls",
+      "clue1": "bollocks",
       "credit": "the Err Team"
     },
     {
@@ -1882,14 +1882,6 @@
     },
     {
       "word": "vagina",
-      "clue4": "stench trench",
-      "clue3": "vadge",
-      "clue2": "fanny",
-      "clue1": "cunt",
-      "credit": "the Err Team"
-    },
-    {
-      "word": "vagina",
       "clue4": "beaver",
       "clue3": "beef",
       "clue2": "clout",
@@ -1902,6 +1894,14 @@
       "clue3": "pussy",
       "clue2": "beef curtains",
       "clue1": "vadge",
+      "credit": "the Err Team"
+    },
+    {
+      "word": "vagina",
+      "clue4": "stench trench",
+      "clue3": "vadge",
+      "clue2": "fanny",
+      "clue1": "cunt",
       "credit": "the Err Team"
     },
     {

@@ -285,7 +285,7 @@ public class CardSetSelect : MonoBehaviour
             playableCardSets.Add(csActive);
         }
 
-        csActive.selectedIcon.SetActive(playableCardSets.Contains(csActive));
+        //csActive.selectedIcon.SetActive(playableCardSets.Contains(csActive));
         questionManager.playableCardSets = playableCardSets;
 
 

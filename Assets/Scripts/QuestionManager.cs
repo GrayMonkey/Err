@@ -25,9 +25,13 @@ public class QuestionManager : MonoBehaviour
     PlayerController playerController;
 
 
-    private void OnEnable()
+    private void Awake()
     {
         instance = this;
+    }
+
+    private void OnEnable()
+    {
         SetDefaultCardSet();
     }
 

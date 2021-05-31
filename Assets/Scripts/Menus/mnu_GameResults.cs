@@ -75,7 +75,7 @@ public class mnu_GameResults : MonoBehaviour
     {
         labelPoints.text = origLabelPoints;
         labelAnswers.text = origLabelAnswers;
-        gameManager.SetGameState(gameManager.gameState.home);
+        gameManager.SetGameState(gameManager.gameState.cardSetSelect);
         MenuHandler.instance.CloseMenu(MenuHandler.MenuOverlay.GameResults);
     }
 }

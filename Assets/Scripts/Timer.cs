@@ -95,6 +95,8 @@ public class Timer : MonoBehaviour
     {
         timerDelayOn = false;
         timerOn = false;
-        qCard.NextClue();
+        
+        // Removed as clues now need to be manually started
+        // qCard.NextClue();
     }
 }

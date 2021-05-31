@@ -33,18 +33,6 @@ public class LandingScreen : MonoBehaviour
         welcomeScreen.SetActive(show);
     }
 
-/*    public void InitialSetUp()
-    {
-        if (questionManager.defaultCardSets.Count != 0)
-        {
-            questionManager.SetGameState(questionManager.gameState.home);
-        }
-        else
-        {
-            mainScreen.SetActive(false);
-        }
-    }
-*/
     public void SetGameOptionWelcome()
     {
         gameOptions.welcomeScreen = !dontShowAgain.isOn;
@@ -73,5 +61,11 @@ public class LandingScreen : MonoBehaviour
 
         canvasGroup.gameObject.SetActive(false);
         tapText.SetActive(true);
+    }
+
+    public void StartGame(GameObject gameObject)
+    {
+        gameManager.SetGameState(gameObject);
+        gameManager.bgParticles.SetActive(false);
     }
 }
