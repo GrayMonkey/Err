@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class mnu_GameResults : MonoBehaviour
 {
+    //ToDo: Is this class required anymore?
+    
     [SerializeField] Text playerWinner;
     [SerializeField] Text labelPoints;
     [SerializeField] Text playerPoints;
@@ -75,7 +77,7 @@ public class mnu_GameResults : MonoBehaviour
     {
         labelPoints.text = origLabelPoints;
         labelAnswers.text = origLabelAnswers;
-        gameManager.SetGameState(gameManager.gameState.cardSetSelect);
-        MenuHandler.instance.CloseMenu(MenuHandler.MenuOverlay.GameResults);
+        gameManager.SetGameState(gameManager.gameState.cardSetCollection);
+        //MenuHandler.instance.CloseMenu(MenuHandler.MenuOverlay.GameResults);
     }
 }

@@ -7,19 +7,21 @@ using Menus = MenuHandler.MenuOverlay;
 
 public class mnu_CorrectAnswer : MonoBehaviour
 {
-    [SerializeField] Text playerName;
-    [SerializeField] Text moves;
+    //ToDo: Is this class required anymore?
+    
+    [SerializeField] Text score;
     [SerializeField] Stars stars;
     [SerializeField] int points = 0;
 
+    GameManager gameManager;
+    CardSetCollection csCollection;
     QuestionManager questionManager;
-    PlayerController playerController;
     MenuHandler uiMenus;
-    Player activePlayer;
 
     private void Awake()
     {
-        playerController = PlayerController.instance;
+        gameManager = GameManager.instance;
+        csCollection = CardSetCollection.instance;
         questionManager = QuestionManager.instance;
         uiMenus = MenuHandler.instance;
     }
@@ -27,31 +29,19 @@ public class mnu_CorrectAnswer : MonoBehaviour
     private void OnEnable()
     {
         points = questionManager.activeQuestion.maxPoints; //comment out for debug only
-        moves.text = points.ToString();
-        activePlayer = playerController.activePlayer;
-        playerName.text = activePlayer.playerName;
+        score.text = points.ToString();
         stars.LaunchStars(points);
     }
 
-    public void CloseMenu()
+        public void Home()
     {
-        uiMenus.CloseMenu(Menus.CorrectAnswer);
+        gameManager.SetGameState(gameManager.gameState.cardSetCollection);
+//        uiMenus.CloseMenu(Menus.CorrectAnswer);
     }
 
-    public void NextPlayer()
+    public void NextQuestion()
     {
-        activePlayer.questionsThisGame++;
-        activePlayer.answersThisGame++;
-        activePlayer.pointsThisGame += questionManager.activeQuestion.maxPoints;
-        playerController.NextPlayer();
-
-        CloseMenu();
-        uiMenus.ShowMenu(Menus.NewQuestion);
-    }
-
-    public void Winner()
-    {
-        CloseMenu();
-        uiMenus.ShowMenu(Menus.WinningPlayer);
+//        csCollection.SelectCardSet(); ;
+//        uiMenus.CloseMenu(Menus.CorrectAnswer);
     }
 }

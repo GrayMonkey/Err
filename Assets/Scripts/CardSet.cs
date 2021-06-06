@@ -11,10 +11,10 @@ public class CardSet : MonoBehaviour
 
     public string cardSetTitleKey;
     public string cardSetDescKey;
+    public Text cardsetTitle;
     public Image cardSetIcon;
     public bool purchased = false;
     public Langs langs;
-    [SerializeField] Text cardsetTitle;
     [SerializeField] Text cardsetDescription;
     [SerializeField] Text cardsetPrice;
     [SerializeField] GameObject playable;
@@ -32,19 +32,29 @@ public class CardSet : MonoBehaviour
     private void Awake()
     {
         questionManager = QuestionManager.instance;
-        csSelect = CardSetCollection.instance;
-    }
-
-    void Start () 
-	{
+        //csSelect = CardSetCollection.instance;
         jsonName = this.gameObject.name;
         jsonFile = jsonName + ".json";
         setupData();
         CheckPurchaseFromStore();
         Random.InitState((int)System.DateTime.Now.Ticks);
-	}
+    }
 
-    // Set up the card set questions from jsonFile
+    private void OnEnable()
+    {
+        
+    }
+    /*
+        void Start () 
+        {
+            jsonName = this.gameObject.name;
+            jsonFile = jsonName + ".json";
+            setupData();
+            CheckPurchaseFromStore();
+            Random.InitState((int)System.DateTime.Now.Ticks);
+        }
+
+    */    // Set up the card set questions from jsonFile
     void setupData()
     {
         // Add the .json file extension and combine the whole filepath name
@@ -80,9 +90,11 @@ public class CardSet : MonoBehaviour
 
         // get a random question and copy the question to the end of the list
         // and remove it from it's orginal position
-        int i = UnityEngine.Random.Range(0, cardRange - cardsUsed);
+        int selectRange = cardRange - cardsUsed;
+        int i = Random.Range(0, selectRange);
         questionList.Add(questionList[i]);
         questionList.Remove(questionList[i]);
+        string cardNo = " (" + i.ToString() + "/" + (selectRange+1).ToString() + ")";
         cardsUsed++;
 
         // returns cardRange because the chosen question has been moved
@@ -91,6 +103,9 @@ public class CardSet : MonoBehaviour
         activeQuestion.maxPoints = 4;
         questionManager.activeCardSet = this;
         questionManager.activeQuestion = activeQuestion;
+        questionManager.currentQuestionCorrect = false;
+
+        Debug.Log("New question: " + this.name + ": " + activeQuestion.word + cardNo);
     }
 
     public void CheckPurchaseFromStore()
@@ -111,7 +126,7 @@ public class CardSet : MonoBehaviour
     public void Purchase()
     {
         purchased = true;
-        csSelect.UpdateCardSets();
+        CardSetCollection.instance.UpdateCardSets();
     }
 
     public void SelectForPlay()

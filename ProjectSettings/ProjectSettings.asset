@@ -150,7 +150,7 @@ PlayerSettings:
     iPhone: com.ErrGamesLtd.ErrGame
   buildNumber:
     Standalone: 0
-    iPhone: 2104250002
+    iPhone: 210604003
     tvOS: 0
   overrideDefaultApplicationIdentifier: 0
   AndroidBundleVersionCode: 1
@@ -262,7 +262,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: b991470a77404443ab45f7395ee2496a, type: 3}
+      m_Icon: {fileID: 2800000, guid: dd99482130bf15c4fbe2124734782fb0, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

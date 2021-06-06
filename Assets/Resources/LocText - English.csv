@@ -1,16 +1,20 @@
 TextKey,Master Text
-CS_Family00_Title,Family Starter Set
-CS_Family00_Desc,250 word definitions for the whole family
-CS_Family01_Title,Family Set vol. II
-CS_Family01_Desc,An additional 250 word definitions for the whole family
-CS_Family02_Title,Family Set vol. III
-CS_Family02_Desc,An additional 250 word definitions for the whole family
-CS_Genius00_Title,Genius Set vol. I
-CS_Genius00_Desc,250 harder word definitions for the vocabulary valiant
-CS_Genius01_Title,Genius Set vol. II
-CS_Genius01_Desc,An additional 250 harder word definitions for the vocabulary valiant
-CS_Slang00_Title,Slang Set vol. I
-CS_Slang00_Desc,250 slang word definitions, not for the faint hearted
+CS_Family01_EN_Title,English Family 1
+CS_Family01_EN_Desc,250 word definitions for the whole family (UK English)
+CS_Family02_EN_Title,English Family 2
+CS_Family02_EN_Desc,An additional 250 word definitions for the whole family (UK English)
+CS_Family03_EN_Title,English Family 3
+CS_Family03_EN_Desc,An additional 250 word definitions for the whole family (UK English)
+CS_Family01_FR_Title,French Family 1
+CS_Family01_FR_Desc,250 word definitions for the whole family (French)
+CS_Family01_US_Title,American Family 1
+CS_Family01_US_Desc,250 word definitions for the whole family (US English)
+CS_Genius01_EN_Title,English Genius 1
+CS_Genius01_EN_Desc,250 harder word definitions for the vocabulary valiant (UK English)
+CS_Genius02_EN_Title,English Genius 2
+CS_Genius02_EN_Desc,An additional 250 harder word definitions for the vocabulary valiant (UK English)
+CS_Slang01_EN_Title,English Slang 1
+CS_Slang01_EN_Desc,"250 slang word definitions,  not for the faint hearted! (UK English)"
 CS_Starter_Desc,Full question starter set of 250 questions
 CS_Starter_Title,Starter Set
 CS_TestA_Desc,Test: 10 Questions with starting with the letter A
@@ -118,26 +122,27 @@ UI_AddPlayer,Add Player...
 UI_AppInfo,App Information
 UI_AppInfoDetails,To Do: The Err App how to use. Is this needed any more with the context buttons?
 UI_AppTitle,This app...
-UI_CardSetSelect,Select Cardset(s) & Player(s)
+UI_CardSetSelect,Play with CardSet(s)
+UI_CardSetPurchase, Purchase CardSet(s)
 UI_CardSetsGame,Game
 UI_CardSetsShop,Shop
 UI_ConfirmNoPlayers,No Players!
 UI_ConfirmTrash,Remove Player Data
 UI_ConfirmTrashText,WARNING!\n\nAll data for\n\n\n\n\n\nwill be removed!\n\nOnce deleted this data cannot be retrieved.
-UI_CorrectAnswerSpaces,spaces
+UI_CorrectAnswerSpaces,points...
 UI_Correct,Correct
 UI_CorrectAnswer,Correct Answer!
-UI_CorrectAnswerText,Well done!\nYou can move...
+UI_CorrectAnswerText,Well done!\nYou scored...
 UI_Credits,Credits
 UI_DeclareWinner,Declare winner
 UI_Delete,Delete
 UI_Down,Move down
 UI_EasyRead,Easy read clues
 UI_EnterName,Enter name
-UI_FailAnswer,Unluckly!
-UI_FailedAnswerText,%%PlayerName stays where they are.\nBetter luck next time!
+UI_FailAnswer,Unlucky!
+UI_FailedAnswerText,Better luck next time!
 UI_GameInProgress,Quit Current Game?
-UI_GameLanguage,Select language
+UI_GameLanguage,Select default game language
 UI_GameResults,Game Results
 UI_GameRules,Game Rules
 UI_GameRulesDetails,ToDo: Link game instructions and translations from Jonny & Mike
@@ -154,7 +159,7 @@ UI_MostPoints,Most points scored (
 UI_NameCheckBad,Player name taken!
 UI_NameCheckGood,Player name availalble
 UI_NewQuestion,New Question!
-UI_Next,Next
+UI_NextQuestion,Next Question
 UI_NextPlayer,Next player
 UI_NoPlayersText,No players have been added to the player list. \n\n Do you wish to continue and play the game with no players and no game scores will be held?
 UI_Off,Off
@@ -210,4 +215,14 @@ str_Unselect,Unselect
 str_RestorePurchases,Restore Purchases
 str_PurchaseDesc,Purchase this CardSet from the store
 str_SelectDesc,Select this CardSet for play
+str_SelectCardSet,Select a CardSet for the next question...
 str_UnselectDesc,Remove this CardSet from play
+UI_Shop,Shop
+UI_ShopDesc,CardSets available for purchasing
+UI_Game,Game
+UI_GameDesc,CardSets available for playing
+UI_ShopEmptyTitle,Out of Stock!
+UI_ShopEmptyDesc,You've purchased all available CardSets, thank you!\n\nPlease check back soon for new CardSets...
+UI_SelectCardSet,Select the CardSet for the next question...
+UI_RandomCardSet,Select a random CardSet
+UI_FilterCardSetLanguages,Filter CardSets by language

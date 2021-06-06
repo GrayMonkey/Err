@@ -6,6 +6,8 @@ using Menus = MenuHandler.MenuOverlay;
 
 public class mnu_Winner : MonoBehaviour 
 {
+    //ToDo: Is this class required anymore?
+    
     [SerializeField] Text winningPlayer;
 
     QuestionManager questionManager;
@@ -36,11 +38,11 @@ public class mnu_Winner : MonoBehaviour
             activePlayer.answersThisGame++;
             activePlayer.pointsThisGame += questionManager.activeQuestion.maxPoints;
             playerController.SavePlayerData();
-            uiMenu.CloseMenu(Menus.WinningPlayer);
-            uiMenu.ShowMenu(Menus.GameResults);
+//            uiMenu.CloseMenu(Menus.WinningPlayer);
+//            uiMenu.ShowMenu(Menus.GameResults);
         } else {
-            uiMenu.CloseMenu(Menus.WinningPlayer);
-            uiMenu.ShowMenu(Menus.CorrectAnswer);
+//            uiMenu.CloseMenu(Menus.WinningPlayer);
+//            uiMenu.ShowMenu(Menus.CorrectAnswer);
         }
     }
 }

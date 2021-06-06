@@ -5,36 +5,28 @@ using Menus = MenuHandler.MenuOverlay;
 
 public class mnu_FailAnswer : MonoBehaviour
 {
-    [SerializeField] Text playerName;
-    [SerializeField] GameObject qCard;
-
-    PlayerController playerController;
+    //ToDo: Is this class required anymore?
+    
+    GameManager gameManager;
+    CardSetCollection csCollection;
     MenuHandler uiMenus;
-    Player activePlayer;
 
     private void Awake()
     {
-        playerController = PlayerController.instance;
+        gameManager = GameManager.instance;
+        csCollection = CardSetCollection.instance;
         uiMenus = MenuHandler.instance;
     }
 
-    private void OnEnable()
+    public void Home()
     {
-        activePlayer = playerController.activePlayer;
-        playerName.text = activePlayer.playerName;
+        gameManager.SetGameState(gameManager.gameState.cardSetCollection);
+//        uiMenus.CloseMenu(Menus.FailAnswer);
     }
 
-    public void Return()
+    public void NextQuestion()
     {
-        qCard.SetActive(true);
-        uiMenus.CloseMenu(Menus.FailAnswer);
-    }
-
-    public void NextPlayer()
-    {
-        //Return();
-        uiMenus.CloseMenu(Menus.FailAnswer);
-        activePlayer.questionsThisGame++;
-        playerController.NextPlayer();
+//        csCollection.SelectCardSet();
+//        uiMenus.CloseMenu(Menus.FailAnswer);
     }
 }

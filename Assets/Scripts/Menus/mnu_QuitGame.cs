@@ -6,6 +6,8 @@ using Menu = MenuHandler.MenuOverlay;
 
 public class mnu_QuitGame : MonoBehaviour 
 {
+    //ToDo: Is this class required anymore?
+    
     //[SerializeField] Button homeButton; NLR
     //[SerializeField] Button returnButton; NLR
     GameManager gameManager;
@@ -26,6 +28,6 @@ public class mnu_QuitGame : MonoBehaviour
             uiMenus.CloseMenu(Menu.Options);
         }
 
-        uiMenus.CloseMenu(Menu.QuitGame);
+        //uiMenus.CloseMenu(Menu.QuitGame);
     }
 }

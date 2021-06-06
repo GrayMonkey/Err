@@ -38,7 +38,6 @@ public class mnu_Options : MonoBehaviour
         randomTurns.value = System.Convert.ToSingle(gameOptions.randomTurns);
         easyRead.value = System.Convert.ToSingle(gameOptions.easyRead);
         welcomeScreen.value = System.Convert.ToSingle(gameOptions.welcomeScreen);
-        //SetLanguage(locManager.GameLang);
         tempGameLang = locManager.GameLang;
     }
 
@@ -55,7 +54,7 @@ public class mnu_Options : MonoBehaviour
 
     public void Btn_Credits()
     {
-        uiMenus.ShowMenu(Menus.Credits);
+        //uiMenus.ShowMenu(Menus.Credits);
         uiMenus.CloseMenu(Menus.Options);
     }
 
@@ -63,7 +62,7 @@ public class mnu_Options : MonoBehaviour
     {
         if (gameManager.gameInProgress)
         {
-            uiMenus.ShowMenu(Menus.QuitGame);
+//            uiMenus.ShowMenu(Menus.QuitGame);
             return;
         }
         uiMenus.CloseMenu(Menus.Options);

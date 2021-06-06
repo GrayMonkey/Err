@@ -145,7 +145,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // show the next player menu
-        uiMenu.ShowMenu(Menu.NewQuestion);
+//        uiMenu.ShowMenu(Menu.NewQuestion);
     }
 
     public void StartGame()

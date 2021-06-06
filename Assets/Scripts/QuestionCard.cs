@@ -6,29 +6,32 @@ using Menus = MenuHandler.MenuOverlay;
 
 public class QuestionCard : MonoBehaviour
 {
+    public static QuestionCard instance;
+    public Button btnCorrect;
+
     [SerializeField] Text[] clueTextsEasyRead;
     [SerializeField] Text[] clueTextsAllAtOnce;
     [SerializeField] GameObject goCluesEasyRead;
     [SerializeField] GameObject goCluesAllAtOnce;
-    [SerializeField] Timer[] timers;               // 0-3 should be AllAtOnce timers, 4 should be EasyRead timer
-    [SerializeField] GameObject nextBtn;
-    [SerializeField] GameObject failBtn;
-    [SerializeField] Button[] buttonsEasyRead;
-    [SerializeField] Button[] buttonsAllAtOnce;
-    [SerializeField] Button timerBtn;
-    [SerializeField] Slider wordSlider;
     [SerializeField] Text word;
     [SerializeField] Text hiddenWord;
     [SerializeField] Text letter;
-    [SerializeField] private Text credit;
+    [SerializeField] Timer[] timers;               // 0-3 should be AllAtOnce timers, 4 should be EasyRead timer
+    [SerializeField] Button[] buttonsEasyRead;
+    [SerializeField] Button[] buttonsAllAtOnce;
+    [SerializeField] Slider wordSlider;
+    [SerializeField] Button btnFail;
+    [SerializeField] Text cardSet;
+    [SerializeField] Text credit;
 
+    GameManager gameManager;
     QuestionManager questionManager;
     GameOptions gameOptions;
     MenuHandler uiMenus;
     Question activeQuestion;
     Vector3 scale;
+    bool[] timerActivated = new bool[4];
     int lastClueID;
-    bool showAnswer = false;
 
     Color unused = new Color(0.8f, 0.9f, 1.0f);
     Color unusedText = new Color(0.4f, 0.4f, 0.4f);
@@ -38,32 +41,68 @@ public class QuestionCard : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        instance = this;
+        gameManager = GameManager.instance;
         gameOptions = GameOptions.instance;
         questionManager = QuestionManager.instance;
         uiMenus = MenuHandler.instance;
-        activeQuestion = questionManager.activeQuestion;
+//        activeQuestion = questionManager.activeQuestion;
+    }
+
+    private void Start()
+    {
+        //SetCluePanel();
+        //NextQuestion();
     }
 
     private void OnEnable()
     {
-        showAnswer = gameOptions.showAnswer;
+        for (int i = 0; i < timerActivated.Length; i++)
+            timerActivated[i] = false;
         SetUpCard();
     }
 
-    // Set up the card according to the current question and game options
+/*    public void NextQuestion()
+    {
+        ClearCard();
+        uiMenus.ShowMenu(Menus.NextQuestion);
+        //questionManager.GetNewQuestion();
+        //SetUpCard();
+    }
+*/
+/*    private void ClearCard()
+    {
+        word.text = "";
+        hiddenWord.text = "";
+        letter.text = "";
+
+        clueTextsEasyRead[0].text = "";
+
+        clueTextsEasyRead[0].text = "";
+        clueTextsEasyRead[1].text = "";
+        clueTextsEasyRead[2].text = "";
+        clueTextsEasyRead[3].text = "";
+
+        clueTextsAllAtOnce[0].text = "";
+        clueTextsAllAtOnce[1].text = "";
+        clueTextsAllAtOnce[2].text = "";
+        clueTextsAllAtOnce[3].text = "";
+    }
+*/
     public void SetUpCard()
     {
         activeQuestion = questionManager.activeQuestion;
-        //nextBtn.SetActive(true);
-        //failBtn.SetActive(false);
+        btnCorrect.interactable = false;
+        btnFail.interactable = false;
         lastClueID = 0;
-        word.text = activeQuestion.word;
-        hiddenWord.text = new string('*', activeQuestion.word.Length);
+        cardSet.text = questionManager.activeCardSet.cardsetTitle.text;
         credit.text = questionManager.activeQuestion.credit;
 
         SetCluePanel();
 
         // Set the question word values
+        word.text = activeQuestion.word;
+        hiddenWord.text = new string('*', activeQuestion.word.Length);
         letter.text = activeQuestion.word.Substring(0, 1);
 
         clueTextsEasyRead[0].text = activeQuestion.clue4;
@@ -117,6 +156,13 @@ public class QuestionCard : MonoBehaviour
             wordSlider.value = 1.0f;
         }
 
+        // Turn off all timers
+        foreach (Timer timer in timers)
+            timer.gameObject.SetActive(false);
+
+        // Mark the clue as being activated
+
+
         // Set up the relevant button and clue
         // No longer called, clue buttons must be touched to activate clue. This has been added
         // to support One Shot questions
@@ -146,13 +192,13 @@ public class QuestionCard : MonoBehaviour
         StartTimer();
     }
 */
-    private void ResetTimers()
+/*    private void ResetTimers()
     {
         foreach (Timer timer in timers)
             timer.ResetTimer();
     }
 
-    public void StartTimer(int clueID)
+*/    public void StartTimer(int clueID)
     {
         int timerID = clueID;
         //timerID = 4 - questionManager.activeQuestion.maxPoints;
@@ -160,18 +206,23 @@ public class QuestionCard : MonoBehaviour
         if (gameOptions.easyRead)
             timerID = 4;
         
-        if (timerID > 0)
+/*        if (timerID > 0)
             timers[timerID - 1].ResetTimer();
-
-        timers[timerID].SetTimer();
+*/
+        timers[timerID].gameObject.SetActive(true);
     }
 
     public void SetClue(int clueID)
     {
-        // Rest all timers in case one is currently running when clue is activated
+/*        // Diabsle the last clue timer
+        timers[4].gameObject.SetActive(false);  // If easy read clues are on
+        //if (lastClueID != null)
+            timers[lastClueID].gameObject.SetActive(false);
+        
+*//*        // Rest all timers in case one is currently running when clue is activated
         foreach (Timer timer in timers)
             timer.ResetTimer();
-        
+*/        
         // Reset up the last clue to used
         clueTextsEasyRead[lastClueID].gameObject.SetActive(false);
         scale = buttonsEasyRead[lastClueID].transform.localScale;
@@ -202,39 +253,48 @@ public class QuestionCard : MonoBehaviour
         buttonsAllAtOnce[clueID].transform.GetComponentInChildren<Text>().color = Color.black;
         buttonsAllAtOnce[clueID].transform.GetComponentInChildren<Text>().fontStyle = FontStyle.Normal;
 
-        // Update moves if the clue is easier
-        if (questionManager.activeQuestion.maxPoints > 4 - clueID)
+        // If the clue has already been read then don't run the timer
+        if (timerActivated[clueID] == false)
         {
-            questionManager.activeQuestion.maxPoints = 4 - clueID;
+            timerActivated[clueID] = true;
+            // Update the score if the clue is easier and start the timer
+            int maxPoints = 4 - clueID;
+            if (questionManager.activeQuestion.maxPoints > maxPoints)
+                questionManager.activeQuestion.maxPoints = maxPoints;
+            if (gameOptions.easyRead)
+                timers[4].gameObject.SetActive(true);
+            else
+                timers[clueID].gameObject.SetActive(true);
         }
 
-/*        // Change the Next Button if down to last clue
-        if (questionManager.activeQuestion.maxPoints == 1)
-            ChangeNextFailButtons();
-*/
+        /*        // Change the Next Button if down to last clue
+                if (questionManager.activeQuestion.maxPoints == 1)
+                    ChangeNextFailButtons();
+        */
+        // Activate the fail and correct buttons
+        btnCorrect.interactable = true;
+        btnFail.interactable = true;
+
         lastClueID = clueID;
-        StartTimer(clueID);
     }
 
-    public void Fail()
+    public void SetAnswer(bool correct)
     {
-        ResetTimers();
-        questionManager.activeQuestion.maxPoints = 0;
-        uiMenus.ShowMenu(Menus.FailAnswer);
-        this.gameObject.SetActive(false);
+        if(!correct)
+            questionManager.activeQuestion.maxPoints = 0;
+        gameManager.SetGameState(gameManager.gameState.questionResult);
+    }
+/*    public void AnswerCorrect()
+    {
+        //ResetTimers();
+//        uiMenus.ShowMenu(Menus.CorrectAnswer);
+        gameObject.SetActive(false);
     }
 
-    public void Answer()
+    public void AnswerWrong()
     {
-        ResetTimers();
-        uiMenus.ShowMenu(Menus.CorrectAnswer);
-        this.gameObject.SetActive(false);
-    }
-
-/*    private void ChangeNextFailButtons()
-    {
-        nextBtn.SetActive(false);
-        failBtn.SetActive(true);
+//        uiMenus.ShowMenu(Menus.FailAnswer);
+        gameObject.SetActive(false);
     }
 */
     public void OptionsMenu()

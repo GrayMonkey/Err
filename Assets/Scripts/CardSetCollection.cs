@@ -30,9 +30,15 @@ public class CardSetCollection : MonoBehaviour
         instance = this;
     }
 
-    // Start is called before the first frame update
+/*    private void OnEnable()
+    {
+        SetDefaultLanguage();
+    }
+
+ */   // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.instance;
         questionManager = QuestionManager.instance;
         locManager = LocManager.instance;
         SetDefaultLanguage();
@@ -80,7 +86,6 @@ public class CardSetCollection : MonoBehaviour
         UpdateCardSets();
     }
 
-    
     public void UpdateCardSets()
     {
         int activeChildren = 0;

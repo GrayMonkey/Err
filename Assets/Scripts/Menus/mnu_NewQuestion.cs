@@ -8,6 +8,8 @@ using Menu = MenuHandler.MenuOverlay;
 
 public class mnu_NewQuestion : MonoBehaviour
 {
+    //ToDo: Is this class required anymore?
+    
     [SerializeField] Text playerName;
     [SerializeField] Text deckName;
     [SerializeField] Image deckIcon;
@@ -27,7 +29,7 @@ public class mnu_NewQuestion : MonoBehaviour
     private void OnEnable()
     {
         //set the next question
-        questionManager.GetNewQuestion();
+//        questionManager.GetNewQuestion();
 
         //fill the menu
         playerName.text = playerController.activePlayer.playerName;
@@ -35,9 +37,9 @@ public class mnu_NewQuestion : MonoBehaviour
         deckIcon.sprite = questionManager.activeCardSet.cardSetIcon.sprite;
     }
 
-    public void CloseMenu()
+/*    public void CloseMenu()
     {
         uiMenus.CloseMenu(Menu.NewQuestion);
         gameManager.SetGameState(gameManager.gameState.question);
     }
-}
+*/}

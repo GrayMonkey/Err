@@ -12,9 +12,11 @@ public class GameManager : MonoBehaviour
     public struct GameState
     {
         public GameObject landingScreen;
-        public GameObject cardSetSelect;
-        public GameObject question;
-        public GameObject endGame;
+        public GameObject cardSetCollection;
+        public GameObject selectCardSet;
+        public GameObject questionCard;
+        public GameObject questionResult;
+        //public GameObject endGame;
     }
 
     public static GameManager instance;
@@ -27,9 +29,9 @@ public class GameManager : MonoBehaviour
     public bool gameInProgress = false;
     public GameObject bgParticles;
 
-    [SerializeField] GameObject qCard;
-
-    GameObject prevGameState;
+//    [SerializeField] GameObject qCard;
+    [SerializeField] GameObject prevGameState;
+    
     MenuHandler uiMenus;
 
     private void Awake()
@@ -49,11 +51,15 @@ public class GameManager : MonoBehaviour
         gameOptions = GameOptions.instance;
         uiMenus = MenuHandler.instance;
 
-        // Turn off all game states
+        // Turn off all relevant game states
         gameState.landingScreen.SetActive(false);
-        gameState.endGame.SetActive(false);
-        gameState.question.SetActive(false);
-        gameState.cardSetSelect.SetActive(false);
+        gameState.questionCard.SetActive(false);
+        gameState.cardSetCollection.SetActive(false);
+        gameState.selectCardSet.SetActive(false);
+        //        gameState.endGame.SetActive(false);
+
+        // Turn off all relevant menus
+        uiMenus.DisableMenus();
 
         currGameState = gameState.landingScreen;
         SetGameState(currGameState);
@@ -66,16 +72,17 @@ public class GameManager : MonoBehaviour
     // Called when card type is changed via options during a game
     public void ForceCardTypeChange()
     {
-        SetGameState(gameState.question);
+        SetGameState(gameState.questionCard);
     }
 
-    public void SetGameState(GameObject newGameState)
+/*    public void SetGameState(GameObject newGameState)
     {
         //Debug.Log(currGameState.name + " > " + newGameState.name);
         if (currGameState != newGameState)
         {
+            currGameState.SetActive(false);
+            Debug.Log(currGameState.name + " deactivated");
             prevGameState = currGameState;
-            prevGameState.SetActive(false);
         }
         else
         {
@@ -83,7 +90,17 @@ public class GameManager : MonoBehaviour
         }
 
         currGameState = newGameState;
-        currGameState.SetActive(true);
+        newGameState.SetActive(true);
+        Debug.Log(newGameState.name + " activated");
+    }*/
+
+    public void SetGameState(GameObject newgameState)
+    {
+        currGameState.SetActive(false);
+        Debug.Log(currGameState + " deactivated");
+        newgameState.SetActive(true);
+        Debug.Log(newgameState + " activated");
+        currGameState = newgameState;
     }
 
     public void ShowInstructions()
