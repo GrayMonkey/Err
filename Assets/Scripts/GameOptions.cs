@@ -7,7 +7,7 @@ public class GameOptions : MonoBehaviour
     public bool showAnswer = false;
     public bool easyRead = false;
     public bool sliderLock = false;
-    public bool randomTurns = false;
+    public bool randomCardSets = false;
     public bool welcomeScreen = false;
 
     void Awake()
@@ -16,13 +16,13 @@ public class GameOptions : MonoBehaviour
     }
 
     void UpdateOptions (float newTime, bool newShowAnswer, bool newEasyRead,
-                        bool newSliderLock, bool newRandomTurns)
+                        bool newSliderLock, bool newRandomCardSets)
     {
         guessTime = newTime * 5.0f;
         showAnswer = newShowAnswer;
         easyRead = newEasyRead;
         sliderLock = newSliderLock;
-        randomTurns = newRandomTurns;
+        randomCardSets = newRandomCardSets;
     }
 }
 

@@ -39,7 +39,7 @@ public class MenuHandler : MonoBehaviour
         gameState.SetActive(false);
         int iD = (int)newMenu;
         menuArray[iD].SetActive(true);
-        backPanel.SetActive(true);
+        //backPanel.SetActive(true);
         //menuStack.Add(newMenu);
     }
 

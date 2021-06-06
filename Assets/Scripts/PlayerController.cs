@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
 
             // If turn order is random set i to a random number
             int i = 0;
-            if (GameOptions.instance.randomTurns)
+            if (GameOptions.instance.randomCardSets)
             {
                 i = UnityEngine.Random.Range(0, randomPlayersLeft);
             }

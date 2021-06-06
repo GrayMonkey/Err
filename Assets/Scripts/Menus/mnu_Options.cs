@@ -35,7 +35,7 @@ public class mnu_Options : MonoBehaviour
         timeSlider.value = gameOptions.guessTime / 5.0f;
         showAnswer.value = System.Convert.ToSingle(gameOptions.showAnswer);
         sliderLock.value = System.Convert.ToSingle(gameOptions.sliderLock);
-        randomTurns.value = System.Convert.ToSingle(gameOptions.randomTurns);
+        randomTurns.value = System.Convert.ToSingle(gameOptions.randomCardSets);
         easyRead.value = System.Convert.ToSingle(gameOptions.easyRead);
         welcomeScreen.value = System.Convert.ToSingle(gameOptions.welcomeScreen);
         tempGameLang = locManager.GameLang;
@@ -76,7 +76,7 @@ public class mnu_Options : MonoBehaviour
             gameOptions.showAnswer = System.Convert.ToBoolean(showAnswer.value);
             gameOptions.easyRead = System.Convert.ToBoolean(easyRead.value);
             gameOptions.sliderLock = System.Convert.ToBoolean(sliderLock.value);
-            gameOptions.randomTurns = System.Convert.ToBoolean(randomTurns.value);
+            gameOptions.randomCardSets = System.Convert.ToBoolean(randomTurns.value);
             gameOptions.welcomeScreen = System.Convert.ToBoolean(welcomeScreen.value);
             locManager.GameLang = tempGameLang;
 

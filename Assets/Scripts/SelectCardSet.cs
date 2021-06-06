@@ -35,8 +35,10 @@ public class SelectCardSet : MonoBehaviour
         foreach(CardSet cardSet in questionManager.csAll)
         {
             GameObject newIconObject = Instantiate(this.csIcon);
-            newIconObject.SetActive(true);
             newIconObject.transform.SetParent(csIconParent);
+            newIconObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            newIconObject.SetActive(true);
+
 
             CardSetIcon csIcon = newIconObject.GetComponent<CardSetIcon>();
             csIcon.SetUp(cardSet);
