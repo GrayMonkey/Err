@@ -80,6 +80,14 @@ public class mnu_Options : MonoBehaviour
             gameOptions.welcomeScreen = System.Convert.ToBoolean(welcomeScreen.value);
             locManager.GameLang = tempGameLang;
 
+            // Write the preferences out to PlayerPrefs
+            PlayerPrefs.SetFloat("timer", gameOptions.guessTime);
+            PlayerPrefs.SetInt("answer", System.Convert.ToInt16(gameOptions.showAnswer));
+            PlayerPrefs.SetInt("easyread", System.Convert.ToInt16(gameOptions.easyRead));
+            PlayerPrefs.SetInt("randomcardsets", System.Convert.ToInt16(gameOptions.randomCardSets));
+            PlayerPrefs.SetInt("welcomescreen", System.Convert.ToInt16(gameOptions.welcomeScreen));
+            PlayerPrefs.SetInt("gamelang", System.Convert.ToInt16(tempGameLang));
+
             // Change the question style to match modCards
             questionCard.SetCluePanel();
 

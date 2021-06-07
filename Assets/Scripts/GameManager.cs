@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Menu = MenuHandler.MenuOverlay;
@@ -16,20 +17,15 @@ public class GameManager : MonoBehaviour
         public GameObject selectCardSet;
         public GameObject questionCard;
         public GameObject questionResult;
-        //public GameObject endGame;
     }
 
     public static GameManager instance;
     public GameOptions gameOptions;
     public GameObject currGameState;
     public GameState gameState;
-/*    public Question activeQuestion;
-    public CardSet activeCardSet;
-*/    //public List<CardSet> defaultCardSets;
     public bool gameInProgress = false;
     public GameObject bgParticles;
 
-//    [SerializeField] GameObject qCard;
     [SerializeField] GameObject prevGameState;
     
     MenuHandler uiMenus;
@@ -37,11 +33,18 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        GetPlayerPrefs();
     }
 
-    private void OnApplicationQuit()
+    private void GetPlayerPrefs()
     {
-        // TODO Save Game and/or update player info
+        // Get the game options from PlayerPrefs
+        gameOptions.guessTime = PlayerPrefs.GetFloat("timer");
+        gameOptions.showAnswer = System.Convert.ToBoolean(PlayerPrefs.GetInt("answer"));
+        gameOptions.easyRead = System.Convert.ToBoolean(PlayerPrefs.GetInt("easyread"));
+        gameOptions.randomCardSets = System.Convert.ToBoolean(PlayerPrefs.GetInt("randomcardsets"));
+        gameOptions.welcomeScreen = System.Convert.ToBoolean(PlayerPrefs.GetInt("welcomescreen"));
+        LocManager.instance.GameLang = (SystemLanguage)PlayerPrefs.GetInt("gamelang");
     }
 
     // Use this for initialization
@@ -75,24 +78,30 @@ public class GameManager : MonoBehaviour
         SetGameState(gameState.questionCard);
     }
 
-/*    public void SetGameState(GameObject newGameState)
+    private void OnApplicationQuit()
     {
-        //Debug.Log(currGameState.name + " > " + newGameState.name);
-        if (currGameState != newGameState)
-        {
-            currGameState.SetActive(false);
-            Debug.Log(currGameState.name + " deactivated");
-            prevGameState = currGameState;
-        }
-        else
-        {
-            prevGameState = null;
-        }
+        // write out playerprefs
+        PlayerPrefs.Save();
+    }
 
-        currGameState = newGameState;
-        newGameState.SetActive(true);
-        Debug.Log(newGameState.name + " activated");
-    }*/
+    /*    public void SetGameState(GameObject newGameState)
+        {
+            //Debug.Log(currGameState.name + " > " + newGameState.name);
+            if (currGameState != newGameState)
+            {
+                currGameState.SetActive(false);
+                Debug.Log(currGameState.name + " deactivated");
+                prevGameState = currGameState;
+            }
+            else
+            {
+                prevGameState = null;
+            }
+
+            currGameState = newGameState;
+            newGameState.SetActive(true);
+            Debug.Log(newGameState.name + " activated");
+        }*/
 
     public void SetGameState(GameObject newgameState)
     {
