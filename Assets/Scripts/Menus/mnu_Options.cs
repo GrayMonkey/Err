@@ -16,7 +16,7 @@ public class mnu_Options : MonoBehaviour
     [SerializeField] Slider showAnswer;
     [SerializeField] Slider easyRead;
     [SerializeField] Slider sliderLock;
-    [SerializeField] Slider randomTurns;
+    [SerializeField] Slider randomCardSets;
     [SerializeField] Slider welcomeScreen;
     [SerializeField] GameObject[] langs;
     [SerializeField] Toggle[] langsGroup;
@@ -35,7 +35,7 @@ public class mnu_Options : MonoBehaviour
         timeSlider.value = gameOptions.guessTime / 5.0f;
         showAnswer.value = System.Convert.ToSingle(gameOptions.showAnswer);
         sliderLock.value = System.Convert.ToSingle(gameOptions.sliderLock);
-        randomTurns.value = System.Convert.ToSingle(gameOptions.randomCardSets);
+        randomCardSets.value = System.Convert.ToSingle(gameOptions.randomCardSets);
         easyRead.value = System.Convert.ToSingle(gameOptions.easyRead);
         welcomeScreen.value = System.Convert.ToSingle(gameOptions.welcomeScreen);
         tempGameLang = locManager.GameLang;
@@ -76,7 +76,7 @@ public class mnu_Options : MonoBehaviour
             gameOptions.showAnswer = System.Convert.ToBoolean(showAnswer.value);
             gameOptions.easyRead = System.Convert.ToBoolean(easyRead.value);
             gameOptions.sliderLock = System.Convert.ToBoolean(sliderLock.value);
-            gameOptions.randomCardSets = System.Convert.ToBoolean(randomTurns.value);
+            gameOptions.randomCardSets = System.Convert.ToBoolean(randomCardSets.value);
             gameOptions.welcomeScreen = System.Convert.ToBoolean(welcomeScreen.value);
             locManager.GameLang = tempGameLang;
 
