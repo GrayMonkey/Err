@@ -128,7 +128,7 @@ public class CardSetCollection : MonoBehaviour
         langFlags.italian.isOn = false;
         langFlags.spanish.isOn = false;
 
-        switch (LocManager.instance.GameLang)
+        switch (LocManager.instance.gameLang)
         {
             case SystemLanguage.French:
                 langFlags.french.isOn = true;

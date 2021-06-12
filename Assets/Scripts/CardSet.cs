@@ -75,8 +75,8 @@ public class CardSet : MonoBehaviour
         }
 
         //Set the CardSet information
-        cardsetTitle.text = LocManager.instance.GetLocText(cardSetTitleKey);
-        cardsetDescription.text = LocManager.instance.GetLocText(cardSetDescKey);
+        cardsetTitle.text = cardSetTitleKey;
+        cardsetDescription.text = cardSetDescKey;
         cardsetPrice.text = "£2.49";                    // TODO: Get price from relevant shop.      
     }
 

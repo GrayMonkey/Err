@@ -17,7 +17,6 @@ public class SelectCardSet : MonoBehaviour
     List<CardSetIcon> csIcons = new List<CardSetIcon>();
     List<CardSetIcon> csIconsActive = new List<CardSetIcon>();
 
-
     private void Awake()
     {
         instance = this;
@@ -35,13 +34,13 @@ public class SelectCardSet : MonoBehaviour
         foreach(CardSet cardSet in questionManager.csAll)
         {
             GameObject newIconObject = Instantiate(this.csIcon);
+            CardSetIcon csIcon = newIconObject.GetComponent<CardSetIcon>();
+
             newIconObject.transform.SetParent(csIconParent);
             newIconObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             newIconObject.SetActive(true);
 
-
-            CardSetIcon csIcon = newIconObject.GetComponent<CardSetIcon>();
-            csIcon.SetUp(cardSet);
+            csIcon.UpdateCardSet(cardSet);
             csIcons.Add(csIcon);
         }
     }
@@ -61,5 +60,13 @@ public class SelectCardSet : MonoBehaviour
             if (questionManager.playableCardSets.Contains(csIcon.cardSet))
                 csIcon.gameObject.SetActive(true);
         }
+    }
+
+    public void RandomiseCardSet (bool alwaysOn)
+    {
+        questionManager.randomCardSets = alwaysOn;
+        CardSet cardSet = questionManager.playableCardSets[Random.Range(0, questionManager.playableCardSets.Count)];
+        Debug.Log("Setting new question with " + cardSet.name); 
+        questionManager.SetNewQuestion(cardSet);
     }
 }

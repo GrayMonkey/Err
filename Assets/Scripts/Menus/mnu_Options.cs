@@ -38,7 +38,7 @@ public class mnu_Options : MonoBehaviour
         randomCardSets.value = System.Convert.ToSingle(gameOptions.randomCardSets);
         easyRead.value = System.Convert.ToSingle(gameOptions.easyRead);
         welcomeScreen.value = System.Convert.ToSingle(gameOptions.welcomeScreen);
-        tempGameLang = locManager.GameLang;
+        SetLanguage(gameOptions.gameLang);
     }
 
     public void GuessTime()
@@ -72,36 +72,17 @@ public class mnu_Options : MonoBehaviour
     {
         if (updateOptions)
         {
-            gameOptions.guessTime = timeSlider.value * 5.0f;
-            gameOptions.showAnswer = System.Convert.ToBoolean(showAnswer.value);
-            gameOptions.easyRead = System.Convert.ToBoolean(easyRead.value);
-            gameOptions.sliderLock = System.Convert.ToBoolean(sliderLock.value);
-            gameOptions.randomCardSets = System.Convert.ToBoolean(randomCardSets.value);
-            gameOptions.welcomeScreen = System.Convert.ToBoolean(welcomeScreen.value);
-            locManager.GameLang = tempGameLang;
-
-            // Write the preferences out to PlayerPrefs
-            PlayerPrefs.SetFloat("timer", gameOptions.guessTime);
-            PlayerPrefs.SetInt("answer", System.Convert.ToInt16(gameOptions.showAnswer));
-            PlayerPrefs.SetInt("easyread", System.Convert.ToInt16(gameOptions.easyRead));
-            PlayerPrefs.SetInt("randomcardsets", System.Convert.ToInt16(gameOptions.randomCardSets));
-            PlayerPrefs.SetInt("welcomescreen", System.Convert.ToInt16(gameOptions.welcomeScreen));
-            PlayerPrefs.SetInt("gamelang", System.Convert.ToInt16(tempGameLang));
-
-            // Change the question style to match modCards
-            questionCard.SetCluePanel();
-
-            // Bug Fix: If the card type is changed during a question and 
-            // answers correctly, the card would not update correctly to the
-            // next question, but would use the old question. This forces an
-            // update mid game.
-            //if (questionManager.gameInProgress)
-            //{
-            //    questionManager.ForceCardTypeChange();
-            //}
+            gameOptions.UpdateOptions(
+                timeSlider.value * 5.0f,
+                System.Convert.ToBoolean(showAnswer.value),
+                System.Convert.ToBoolean(easyRead.value),
+                System.Convert.ToBoolean(sliderLock.value),
+                System.Convert.ToBoolean(randomCardSets.value),
+                System.Convert.ToBoolean(welcomeScreen.value),
+                tempGameLang
+                );
         }
 
-        //locManager.SetDefaultLang(locManager.GameLang);
         uiMenus.CloseMenu(Menus.Options);
     }
 
@@ -135,7 +116,7 @@ public class mnu_Options : MonoBehaviour
         }
 
         // Reset all text in scene
-        locManager.GameLang = tempGameLang;
+        locManager.gameLang = tempGameLang;
 
         // Update just in case timer is off
         GuessTime();

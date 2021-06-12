@@ -1,45 +1,41 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using System.IO;
 
 public class LocManager : MonoBehaviour
 {
     public static LocManager instance;
     public List<LocTextData> locText = new List<LocTextData>();
-    public SystemLanguage gameLang;
-    
-    private Translate[] trans;
+
+    GameOptions gameOptions;
+    SystemLanguage lang;
+    Translate[] trans;
 
     private void Awake()
     {
         instance = this;
-        GameLang = Application.systemLanguage;
     }
 
     private void Start()
     {
-//        trans = Resources.FindObjectsOfTypeAll<Translate>();
-        SetDefaultLang(GameLang);
+        trans = Resources.FindObjectsOfTypeAll<Translate>();
     }
 
-    public SystemLanguage GameLang
+    public SystemLanguage gameLang
     {
         get
         {
-            return gameLang;
+            return lang;
         }
 
         set
         {
-            gameLang = value;
-            SetDefaultLang(gameLang);
+            lang = value;
+            SetDefaultLang(lang);
         }
     }
 
     private void SetDefaultLang(SystemLanguage lang)
     {
-        trans = FindObjectsOfType<Translate>();
         string m_lang = lang.ToString();
         string file = "LocText - " + m_lang;
         locText.Clear();
@@ -80,24 +76,30 @@ public class LocManager : MonoBehaviour
         {
             _trans.UpdateString();
         }
-
-
     }
 
     public string GetLocText(string key)
     {
-        LocTextData text = locText.Find(x => x.key == key);
-        if (text == null)
+        if(key == "")
         {
-            return ("Key for text not found!");
+            Debug.LogWarning("GetLocText is trying to process a blank key");
+            return null;
         }
-        else if (text.text == null)
+        
+        LocTextData transText = locText.Find(x => x.key == key);
+        if (transText == null)
         {
-            return ("Translation not found");
+            Debug.LogWarning(key + ": Key component for translation not found");
+            return "Missing key : " + lang;
+        }
+        else if (transText.text == null)
+        {
+            Debug.LogWarning(key + ": Key found but translation missing");
+            return "Missing translation";
         }
         else
         {
-            string returnString = text.text;
+            string returnString = transText.text;
             if(returnString.Contains("%%PlayerName"))
                 {
                 string playerName = PlayerController.instance.activePlayer.playerName;

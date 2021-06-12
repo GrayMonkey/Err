@@ -36,7 +36,7 @@ public class CardSetSelect : MonoBehaviour
 
         // Add the system language to the active languages
         // If the system language isn't supported then default to English
-        switch (locManager.GameLang)
+        switch (locManager.gameLang)
         {
             case SystemLanguage.French:
                 activeLangs.french = true;

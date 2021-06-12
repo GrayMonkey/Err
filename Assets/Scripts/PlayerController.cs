@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
         }
 
         newPlayer.playerName = newPlayerName;
-        newPlayer.language = locManager.GameLang;
+        newPlayer.language = locManager.gameLang;
         newPlayer.cardSets = cardSetManager.playableCardSets;
 
         // Define the player ID using the first two characters or the first character

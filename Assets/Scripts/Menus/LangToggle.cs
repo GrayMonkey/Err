@@ -23,6 +23,6 @@ public class LangToggle : MonoBehaviour, IPointerClickHandler
         if (options.gameObject.activeInHierarchy)
             options.SetLanguage(lang);
         else
-            locManager.GameLang = lang;
+            locManager.gameLang = lang;
     }
 }

@@ -20,6 +20,7 @@ public class QuestionManager : MonoBehaviour
     public CardSet activeCardSet;
     public List<CardSet> playableCardSets = new List<CardSet>();
     public bool currentQuestionCorrect = false;
+    public bool randomCardSets = false;
 
     private MenuHandler uiMenus;
     private GameManager gameManager;
@@ -33,13 +34,21 @@ public class QuestionManager : MonoBehaviour
     {
         gameManager = GameManager.instance;
         uiMenus = MenuHandler.instance;
+        CheckCardSets();
         SetDefaultCardSet();
+    }
+
+    void CheckCardSets()
+    {
+        for (int i = 0; i < csAll.Count; i++)
+            if (csAll[i] == null)
+                Debug.LogError("Missing CardSet reference from QuestionManager.csAll");
     }
 
     public void SetDefaultCardSet()
     {
         // Only two languages with CardSets at the moment is French and English
-        switch (LocManager.instance.GameLang)
+        switch (GameOptions.instance.gameLang)
         {
             case SystemLanguage.French:
                 csDefault = csDefault_FR;
@@ -70,6 +79,11 @@ public class QuestionManager : MonoBehaviour
     {
         if (playableCardSets.Count == 1)
             SetNewQuestion(playableCardSets[0]);
+        else if (randomCardSets)
+        {
+            int i = Random.Range(0, playableCardSets.Count);
+            SetNewQuestion(playableCardSets[i]);
+        }
         else
             gameManager.SetGameState(gameManager.gameState.selectCardSet);
     }
@@ -79,7 +93,5 @@ public class QuestionManager : MonoBehaviour
         cardSet.GetQuestion();
         gameManager.SetGameState(gameManager.gameState.questionCard);
     }
-
-
 }
 

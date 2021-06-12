@@ -48,6 +48,7 @@ public class QuestionResult : MonoBehaviour
     public void Home()
     {
         gameManager.SetGameState(gameManager.gameState.cardSetCollection);
+        questionManager.randomCardSets = false;
     }
 
     public void NextQuestion()

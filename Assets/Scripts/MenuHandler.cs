@@ -22,6 +22,10 @@ public class MenuHandler : MonoBehaviour
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
         gameManager = GameManager.instance;
     }
 

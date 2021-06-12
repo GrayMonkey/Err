@@ -10,37 +10,27 @@ public class CardSetIcon : MonoBehaviour
     [SerializeField] GameObject selectCardSet;
     [SerializeField] Text title;
     [SerializeField] Image icon;
-    [SerializeField] bool csRandom = false;
+//    [SerializeField] bool csRandom = false;
 
     QuestionManager questionManager;
 
     private void Start()
     {
         questionManager = QuestionManager.instance;
-
-        if (csRandom)
-            SetUp(null);
     }
 
-    public void SetUp(CardSet cs)
+    public void UpdateCardSet(CardSet newCardSet)
     {
-        if(csRandom)
-        {
-            title.text = LocManager.instance.GetLocText("UI_RandomCardSet");
-        }
-        else
-        {
-            cardSet = cs;
-            title.text = cs.cardsetTitle.text;
-            icon.sprite = cs.cardSetIcon.sprite;
-        }
+        cardSet = newCardSet;
+        title.text = cardSet.cardSetTitleKey;
+        icon.sprite = cardSet.cardSetIcon.sprite;
+
+        Translate _trans = title.GetComponent<Translate>();
+        _trans.UpdateKey();
     }
 
-    public void SetCardSet()
+    public void ChooseCardSet()
     {
-        if (csRandom)
-            cardSet = questionManager.playableCardSets[Random.Range(0,questionManager.playableCardSets.Count)];
-
         Debug.Log("Setting new question with " + cardSet.name);
         questionManager.SetNewQuestion(cardSet);
         selectCardSet.SetActive(false);

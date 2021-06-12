@@ -36,6 +36,7 @@ public class LandingScreen : MonoBehaviour
     public void SetGameOptionWelcome()
     {
         gameOptions.welcomeScreen = !dontShowAgain.isOn;
+        PlayerPrefs.SetInt("welcomescreen", System.Convert.ToInt32(gameOptions.welcomeScreen));
     }
 
     public void BuyGame()

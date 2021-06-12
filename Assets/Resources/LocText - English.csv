@@ -226,3 +226,6 @@ UI_ShopEmptyDesc,You've purchased all available CardSets, thank you!\n\nPlease c
 UI_SelectCardSet,Select the CardSet for the next question...
 UI_RandomCardSet,Select a random CardSet
 UI_FilterCardSetLanguages,Filter CardSets by language
+UI_Randomise,Select a random CardSet?
+UI_SingleRandom,Once
+UI_AllRandom,Always

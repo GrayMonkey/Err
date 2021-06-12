@@ -214,15 +214,15 @@ public class QuestionCard : MonoBehaviour
 
     public void SetClue(int clueID)
     {
-/*        // Diabsle the last clue timer
+        // Diabsle the last clue timer
         timers[4].gameObject.SetActive(false);  // If easy read clues are on
         //if (lastClueID != null)
             timers[lastClueID].gameObject.SetActive(false);
         
-*//*        // Rest all timers in case one is currently running when clue is activated
+/*        // Rest all timers in case one is currently running when clue is activated
         foreach (Timer timer in timers)
             timer.ResetTimer();
-*/        
+*/
         // Reset up the last clue to used
         clueTextsEasyRead[lastClueID].gameObject.SetActive(false);
         scale = buttonsEasyRead[lastClueID].transform.localScale;

@@ -21,7 +21,7 @@ public class LanguageSetup : MonoBehaviour
     void Start()
     {
         locManager = LocManager.instance;
-        prefLang = locManager.GameLang;
+        prefLang = locManager.gameLang;
 
         switch (prefLang)
         {
@@ -59,7 +59,7 @@ public class LanguageSetup : MonoBehaviour
         langToggles[toggleID].isOn = true;
     }
 
-    public void SetPrefLangInfo(int toggle)
+/*    public void SetPrefLangInfo(int toggle)
     {
         // Set the prefLang
 
@@ -86,21 +86,20 @@ public class LanguageSetup : MonoBehaviour
                 break;
         }
 
-        locManager.GameLang = prefLang;
+        locManager.gameLang = prefLang;
 
-        /*        // Set the preferred language toggle
+        *//*        // Set the preferred language toggle
                 foreach (Toggle _toggle in langToggles)
                     _toggle.isOn = false;
                 langToggles[toggleID].isOn = true;
-        */
+        *//*
         // Set up the preferred language string
         string newText1 = locManager.GetLocText("str_LanguageSetupPreferred");
         string newText2 = locManager.GetLocText("str_" + prefLang);
         prefLangName.text = newText1 + newText2;
         //prefLangName.GetComponent<Translate>().UpdateString();
+    }*/
 
-        
-    }
 /*
     public void TogglePrefLang()
     {
