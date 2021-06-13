@@ -1,3 +1,19 @@
+CS_Family01_EN_Desc,[SP] 250 word definitions for the whole family (UK English)
+CS_Family01_EN_Title,[SP] English Family 1
+CS_Family01_FR_Desc,[SP] 250 word definitions for the whole family (French)
+CS_Family01_FR_Title,[SP] French Family 1
+CS_Family01_US_Desc,[SP] 250 word definitions for the whole family (US English)
+CS_Family01_US_Title,[SP] American Family 1
+CS_Family02_EN_Desc,[SP] An additional 250 word definitions for the whole family (UK English)
+CS_Family02_EN_Title,[SP] English Family 2
+CS_Family03_EN_Desc,[SP] An additional 250 word definitions for the whole family (UK English)
+CS_Family03_EN_Title,[SP] English Family 3
+CS_Genius01_EN_Desc,[SP] 250 harder word definitions for the vocabulary valiant (UK English)
+CS_Genius01_EN_Title,[SP] English Genius 1
+CS_Genius02_EN_Desc,[SP] An additional 250 harder word definitions for the vocabulary valiant (UK English)
+CS_Genius02_EN_Title,[SP] English Genius 2
+CS_Slang01_EN_Desc,"[SP] ""250 slang word definitions,  not for the faint hearted! (UK English)"""
+CS_Slang01_EN_Title,[SP] English Slang 1
 CS_Starter_Desc,[SP] Full question starter set of 250 questions
 CS_Starter_Title,[SP] Starter Set
 CS_TestA_Desc,[SP] Test: 10 Questions with starting with the letter A
@@ -10,14 +26,18 @@ str_AllPlayers,[SP] all players
 str_Available,[SP] Available
 str_BtnDetailsAddPlayer,[SP] Add a player to the current game.
 str_BtnDetailsCardSet,[SP] Choose one or more question sets for the player
+str_BtnDetailsCardSetGame,[SP] Show the available Questions Sets already purchased and available in the game.
+str_BtnDetailsCardSetShop,[SP] Show Question Sets available for purchase from the Shop
 str_BtnDetailsCollapse,[SP] Edit the player options. Double tap the button to edit the player's name.
 str_BtnDetailsCorrect,[SP] The player got the answer correct. Move on to the next player or declare the winner.
 str_BtnDetailsCredits,[SP] Show the credits of who has helped make this game possible.
+str_BtnDetailsFail,[SP] Fail this question and move on the the next player.
 str_BtnDetailsGameSetup,[SP] Return to the game setup.
 str_BtnDetailsHome,[SP] Go to the Home/Start screen.
 str_BtnDetailsInstructions,[SP] Show instructions on how to play the game and use the app.
 str_BtnDetailsLanguage,[SP] Select the chosen language for the player
 str_BtnDetailsLoadPlayer,[SP] Load previously saved player information.
+str_BtnDetailsMore,[SP] Additional options for the player.
 str_BtnDetailsNext,[SP] Progress to the next screen.
 str_BtnDetailsNextPage,[SP] Go to the next page of information.
 str_BtnDetailsNextPlayer,[SP] Pass play to the next player.
@@ -32,18 +52,23 @@ str_BtnDetailsRoster,[SP] Open and load previous players and their data
 str_BtnDetailsSelectPlayers,[SP] Select players for a game.
 str_BtnDetailsStart,[SP] Start the game.
 str_BtnDetailsTile,[SP] Press the button to show the description of this tile.
+str_BtnDetailsTimer,[SP] Start the timer.
 str_BtnDetailsTrash,[SP] Permanently delete a player and all their saved information.
 str_BtnDetailsWinner,[SP] Declare the current player the winner!
 str_BtnHelpAddPlayer,[SP] Add Player
 str_BtnHelpCardSet,[SP] Question Sets
+str_BtnHelpCardSetGame,[SP] Avaiable Question Sets
+str_BtnHelpCardSetShop,[SP] Question Sets for Purchase
 str_BtnHelpCollapse,[SP] Player Options
 str_BtnHelpCorrect,[SP] Correct Answer
 str_BtnHelpCredits,[SP] Credits
+str_BtnHelpFail,[SP] Fail Question
 str_BtnHelpGameSetup,[SP] Game Setup
 str_BtnHelpHome,[SP] Home
 str_BtnHelpInstructions,[SP] Instructions
 str_BtnHelpLanguage,[SP] Language
 str_BtnHelpLoadPlayer,[SP] Load Player
+str_BtnHelpMore,[SP] More
 str_BtnHelpNext,[SP] Next
 str_BtnHelpNextPage,[SP] Next Page
 str_BtnHelpNextPlayer,[SP] Next Player
@@ -58,56 +83,86 @@ str_BtnHelpRoster,[SP] Load Player
 str_BtnHelpSelectPlayers,[SP] Select Players
 str_BtnHelpStart,[SP] Start
 str_BtnHelpTile,[SP] Board tile description
+str_BtnHelpTimer,[SP] Timer
 str_BtnHelpTrash,[SP] Delete
 str_BtnHelpWinner,[SP] Winner
 str_BuyTheGame,[SP] Buy the Game!
-str_CardSetsGame,[SP] CardSets available for
-str_CardSetsShop,[SP] CardSets available to purchase...
+str_CardSetsGame,[SP] Available CardSets
+str_CardSetsShop,[SP] CardSets for Purchase
 str_DefaultCardSet,[SP] Set Default CardSet?
 str_DefaultCardSetBody,[SP] Do you want you update all players to use this cardset selection?\n\nNote that individual cardsets can still be set for individual players from the Player Select screen.
+str_DialogFinalWarning,[SP] Are you sure to want to completely remove this player and all their data?
 str_DialogNoLanguage,[SP] At least one language must be selected!
-str_DialogPlayerDelete,[SP] This action will delete all of the data for\n\n%%PlayerName\n\nAre you sure you want to continue?
+str_DialogPlayerDelete,[SP] Use the Remove Player button to remove this player from the current game.\n\nUse the Trash Player button to also trash their data?
 str_DialogTitleWarning,[SP] WARNING!
 str_DoNotShowAgain,[SP] Do not show this screen again...
-str_from,[SP] from 
-str_NoPlayerData,[SP] No player data is available!
+str_English,[SP] English
+str_FreePurchase,[SP] Free Cardset!
+str_FreePurchaseBody,[SP] To start you on your Err... journey select a free Starter CardSet in your preferred language.
+str_French,[SP] French
+str_from,[SP] from
+str_German,[SP] German
+str_Italian,[SP] Italian
+str_LanguageSetupBody1,[SP] Your default language is set to...
+str_LanguageSetupBody2,[SP] If you wish to change this please set your desired language below. Please note that your free set of Questions will also be in this language...
+str_LanguageSetupPreferred,[SP] Preferred Language:
+str_LanguageSetupTitle,[SP] Language Setup
+str_NoPlayerData,[SP] No previous player data is available!\n\nAdd a player with the Add Player button below.
 str_Player,[SP] Player
 str_PlayerCount,[SP] Player Count
 str_PlayerLanguage,[SP] Select player language...
+str_PlayersActive,[SP] Active Players
+str_PlayersActiveNone,[SP] No active players!
+str_PlayersRoster,[SP] Player Roster
+str_PlayersRosterNone,[SP] No saved players!
 str_Purchase,[SP] Buy additional CardSets!
+str_PurchaseDesc,[SP] Purchase this CardSet from the store
 str_RemovePlayer,[SP] Remove player...
-str_SelectCardsets,[SP] Select CardSet(s)...
+str_RestorePurchases,[SP] Restore Purchases
+str_Select,[SP] Select
+str_SelectCardSet,[SP] Select a CardSet for the next question...
+str_SelectDesc,[SP] Select this CardSet for play
 str_SelectOption,[SP] Select option...
 str_SelectPlayer,[SP] Select player...
+str_Spanish,[SP] Spanish
 str_SplashText,[SP] A game of definition and meaning!
 str_TaptoContinue,[SP] Tap to continue...
-str_WelcomeBody1,[SP] Thank you for purchasing Err... The incredible word game of meanings and strategy.\n\n If you are not in possession of the board game tiles click on the button below...
-str_WelcomeBody2,"[SP] If at any time it is unclear how to use this app then press and hold a button for some contextual help. Access the Options menu for further details on how the game, tiles and app plays."
+str_Unselect,[SP] Unselect
+str_UnselectDesc,[SP] Remove this CardSet from play
+str_WelcomeBody1,[SP] Thank you for purchasing Err... The incredible word game of meanings and strategy.\n\n If you do not have the board game please click on the button below for more information...
+str_WelcomeBody2,"[SP] ""Further instructions on game play, tile information and the app are available from the options menu."""
 str_WelcomeTitle,[SP] Welcome to Err...
 UI_60s,[SP] 60s
 UI_AddPlayer,[SP] Add Player...
+UI_AllRandom,[SP] Always
 UI_AppInfo,[SP] App Information
-UI_AppInfoDetails,[SP] The Err App
+UI_AppInfoDetails,[SP] To Do: The Err App how to use. Is this needed any more with the context buttons?
 UI_AppTitle,[SP] This app...
-UI_CardSetSelect,[SP] Select Cardset(s)
+UI_CardSetPurchase,[SP]  Purchase CardSet(s)
+UI_CardSetSelect,[SP] Play with CardSet(s)
+UI_CardSetsGame,[SP] Game
+UI_CardSetsShop,[SP] Shop
 UI_ConfirmNoPlayers,[SP] No Players!
 UI_ConfirmTrash,[SP] Remove Player Data
 UI_ConfirmTrashText,[SP] WARNING!\n\nAll data for\n\n\n\n\n\nwill be removed!\n\nOnce deleted this data cannot be retrieved.
-UI_CorectAnswerSpaces,[SP] spaces
 UI_Correct,[SP] Correct
 UI_CorrectAnswer,[SP] Correct Answer!
-UI_CorrectAnswerText,[SP] Well done!\nYou can move...
+UI_CorrectAnswerSpaces,[SP] points...
+UI_CorrectAnswerText,[SP] Well done!\nYou scored...
 UI_Credits,[SP] Credits
 UI_DeclareWinner,[SP] Declare winner
 UI_Delete,[SP] Delete
 UI_Down,[SP] Move down
-UI_EasyRead,[SP] Classic mode
+UI_EasyRead,[SP] Easy read clues
 UI_EnterName,[SP] Enter name
-UI_FailAnswer,[SP] Unluckly!
-UI_FailedAnswerText,[SP] %%PlayerName stays where they are.\nBetter luck next time!
+UI_FailAnswer,[SP] Unlucky!
+UI_FailedAnswerText,[SP] Better luck next time!
+UI_FilterCardSetLanguages,[SP] Filter CardSets by language
+UI_Game,[SP] Game
+UI_GameDesc,[SP] CardSets available for playing
 UI_GameInProgress,[SP] Quit Current Game?
-UI_GameInstructionsDetail1,[SP] 
-UI_GameLanguage,[SP] Select language
+UI_GameLanguage,[SP] Select default game language
+UI_GameResults,[SP] Game Results
 UI_GameRules,[SP] Game Rules
 UI_GameRulesDetails,[SP] ToDo: Link game instructions and translations from Jonny & Mike
 UI_GuessTime,[SP] Timer:
@@ -118,41 +173,49 @@ UI_LaunchMessage,[SP] Don't have the board tiles? You'll need them... Find out m
 UI_LaunchTitle,[SP] The Full\n\n\n\n\nExperience!
 UI_LoadPlayers,[SP] Load
 UI_LogData,[SP] Save data
-UI_MostAnswers,[SP] Highest answer percentage: (
-UI_MostPoints,[SP] Score most points: (
+UI_MostAnswers,[SP] Most correct answers (
+UI_MostPoints,[SP] Most points scored (
 UI_NameCheckBad,[SP] Player name taken!
 UI_NameCheckGood,[SP] Player name availalble
 UI_NewQuestion,[SP] New Question!
-UI_Next,[SP] Next
 UI_NextPlayer,[SP] Next player
+UI_NextQuestion,[SP] Next Question
 UI_NoPlayersText,[SP] No players have been added to the player list. \n\n Do you wish to continue and play the game with no players and no game scores will be held?
 UI_Off,[SP] Off
 UI_Options,[SP] Options
 UI_Pass,[SP] Pass
-UI_PlayerCount,[SP] %%PlayerCount / %%MaxPlayers
-UI_Players,[SP] Player List
+UI_Players,[SP] Select Players
 UI_QuitGameText,[SP] A game is currently in progress.\n\nReturning Home will quit the current game and remove all current game data and scores for each active player!\n\nDo you wish to return to the Home screen or return to the game?
+UI_RandomCardSet,[SP] Select a random CardSet
+UI_Randomise,[SP] Select a random CardSet?
 UI_RandomOrder,[SP] Random player turns
 UI_RefTitle,[SP] Reference...
 UI_RemovePlayer,[SP] Remove %%PlayerName from this game?
 UI_Return,[SP] Return
 UI_RulesTitle,[SP] Rules...
+UI_SelectCardSet,[SP] Select the CardSet for the next question...
+UI_Shop,[SP] Shop
+UI_ShopDesc,[SP] CardSets available for purchasing
+UI_ShopEmptyDesc,"[SP] You've purchased all available CardSets, thank you!\n\nPlease check back soon for new CardSets..."
+UI_ShopEmptyTitle,[SP] Out of Stock!
 UI_ShowAnswer,[SP] Auto-display answer
 UI_ShowButtonHints,[SP] Show button hints
 UI_ShowLaunchScreen,[SP] Show this message at launch?
+UI_SingleRandom,[SP] Once
 UI_SliderLock,[SP] Lock answer slider
 UI_Start,[SP] Start...
+UI_StartTimerAuto,[SP] Auto start timers
 UI_TileRef,[SP] Tile Reference
-UI_TileRefAccum,[SP] Accumulator
+UI_TileRefAccumulator,[SP] Accumulator
 UI_TileRefBlank,[SP] Blank
 UI_TileRefController,[SP] Controller
-UI_TileRefDetailsAccum,"[SP] When the active player STARTS their turn on this tile they take their turn as normal. If they get the answer correct they can choose to either keep their score and move or answer an additional question. However, for additional questions the active player nominates the level of difficulty of the clue. If they get the answer correct to the additional question the clue amount is added to the move score they already have. A maximum of four additional questions can be asked. If at any time during the additional questions the player gets the answer wrong then they can no longer take additional questions and move a total of their accumulated score."
+UI_TileRefDetailsAccumulator,"[SP] ""When the active player STARTS their turn on this tile they take their turn as normal. If they get the answer correct they can choose to either keep their score and move or answer an additional question. However, for additional questions the active player nominates the level of difficulty of the clue. If they get the answer correct to the additional question the clue amount is added to the move score they already have. A maximum of four additional questions can be asked. If at any time during the additional questions the player gets the answer wrong then they can no longer take additional questions and move a total of their accumulated score."""
 UI_TileRefDetailsBlank,[SP] The blank tile has no special affect and is counted as one move.
-UI_TileRefDetailsController,"[SP] When the active player STARTS their turn on this tile not only do they move normally but they can also move other players to a total equal to their move, i.e. if they scored a move of three then they can move another player three spaces, two players one and two spaces respectively, or three players a single space each."
+UI_TileRefDetailsController,"[SP] ""When the active player STARTS their turn on this tile not only do they move normally but they can also move other players to a total equal to their move, i.e. if they scored a move of three then they can move another player three spaces, two players one and two spaces respectively, or three players a single space each."""
 UI_TileRefDetailsDoubler,[SP] When the active player STARTS their turn on this tile whatever they score is doubled and the player moves that amount of spaces.
 UI_TileRefDetailsOneShot,[SP] When the active player ENDS their turn on this tile they can take an extra turn but only with one clue given. If they get the answer right they continue to move the according number of spaces for that clue only.
 UI_TileRefDetailsOpen,[SP] When the active player STARTS on this tile they essentially lose their turn and asks their opposing players the question as normal. If an opposing player guesses correctly they move the relevant number of spaces. The active player is the judge in any answers called out simultaneously! The active player is only penalised once and continues their game as normal on their next turn.
-UI_TileRefDetailsSplitter,"[SP] When the active player STARTS their turn on this tile they take their turn as normal. If they get the answer correct they can choose to either keep their score and move or answer an additional question. However, for additional questions the active player nominates the level of difficulty of the clue. If they get the answer correct to the additional question the clue amount is added to the move score they already have. A maximum of four additional questions can be asked. If at any time during the additional questions the player gets the answer wrong then they can no longer take additional questions and move a total of their accumulated score."
+UI_TileRefDetailsSplitter,"[SP] ""When the active player STARTS their turn on this tile they take their turn as normal. If they get the answer correct they can choose to either keep their score and move or answer an additional question. However, for additional questions the active player nominates the level of difficulty of the clue. If they get the answer correct to the additional question the clue amount is added to the move score they already have. A maximum of four additional questions can be asked. If at any time during the additional questions the player gets the answer wrong then they can no longer take additional questions and move a total of their accumulated score."""
 UI_TileRefDoubler,[SP] Doubler
 UI_TileRefOneShot,[SP] One Shot
 UI_TileRefOpen,[SP] Open
@@ -161,6 +224,7 @@ UI_TrashPlayer,[SP] Permanently delete %%PlayerName and all of their data?
 UI_Up,[SP] Move up
 UI_UsingApp,[SP] Using this App
 UI_UsingAppDetails,[SP] App Details
+UI_WelcomeScreen,[SP] Show welcome screen
 UI_Winner,[SP] Err... Winner!
 UI_WinningText,[SP] Congratulations!!!\n\nYou have been declared the winner of the game!
 UI_YourTurn,[SP] You're next!\n\nA question from the deck...

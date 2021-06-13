@@ -8,13 +8,13 @@ public class QuestionManager : MonoBehaviour
 {
     public static QuestionManager instance;
 
-    // Only list support Languages with active cardsets
+/*    // Only list support Languages with active cardsets
     [Header("Defaults Language CardSets")]
     [SerializeField] CardSet csDefault_EN;
     [SerializeField] CardSet csDefault_FR;
     [Space(10)]
-
-    public CardSet csDefault;
+*/
+//    public CardSet csDefault;
     public List<CardSet> csAll = new List<CardSet>();
     public Question activeQuestion;
     public CardSet activeCardSet;
@@ -35,7 +35,7 @@ public class QuestionManager : MonoBehaviour
         gameManager = GameManager.instance;
         uiMenus = MenuHandler.instance;
         CheckCardSets();
-        SetDefaultCardSet();
+//        SetDefaultCardSet();
     }
 
     void CheckCardSets()
@@ -45,7 +45,7 @@ public class QuestionManager : MonoBehaviour
                 Debug.LogError("Missing CardSet reference from QuestionManager.csAll");
     }
 
-    public void SetDefaultCardSet()
+/*    public void SetDefaultCardSet()
     {
         // Only two languages with CardSets at the moment is French and English
         switch (GameOptions.instance.gameLang)
@@ -62,7 +62,7 @@ public class QuestionManager : MonoBehaviour
         if (!playableCardSets.Contains(csDefault))
             playableCardSets.Add(csDefault);
     }
-
+*/
     /*    public void GetNewQuestion()
         {
             *//*        CardSet questionSet;
@@ -78,14 +78,18 @@ public class QuestionManager : MonoBehaviour
     public void GetNewQuestion()
     {
         if (playableCardSets.Count == 1)
+        {
             SetNewQuestion(playableCardSets[0]);
+        }
         else if (randomCardSets)
         {
             int i = Random.Range(0, playableCardSets.Count);
             SetNewQuestion(playableCardSets[i]);
         }
         else
+        {
             gameManager.SetGameState(gameManager.gameState.selectCardSet);
+        }
     }
     
     public void SetNewQuestion(CardSet cardSet)

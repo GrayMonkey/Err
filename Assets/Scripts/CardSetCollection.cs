@@ -24,6 +24,7 @@ public class CardSetCollection : MonoBehaviour
     [SerializeField] GameObject shopEmpty;
 
     CardSet activeCardSet;
+    Translate titleTrans;
 
     private void Awake()
     {
@@ -41,6 +42,8 @@ public class CardSetCollection : MonoBehaviour
         gameManager = GameManager.instance;
         questionManager = QuestionManager.instance;
         locManager = LocManager.instance;
+        titleTrans = title.GetComponent<Translate>();
+
         SetDefaultLanguage();
         ToggleShop(shopActive);
     }
@@ -65,7 +68,7 @@ public class CardSetCollection : MonoBehaviour
 
         if(onShop)
         {
-            title.text = locManager.GetLocText("UI_CardSetPurchase");
+            titleTrans.UpdateKey("UI_CardSetPurchase");
             cardSetsShop.color = Color.black;
             cardSetsShop.fontStyle = FontStyle.Normal;
             cardSetsGame.color = Color.grey;
@@ -73,7 +76,7 @@ public class CardSetCollection : MonoBehaviour
         }
         else
         {
-            title.text = locManager.GetLocText("UI_CardSetSelect");
+            titleTrans.UpdateKey("UI_CardSetSelect");
             cardSetsShop.color = Color.grey;
             cardSetsShop.fontStyle = FontStyle.Italic;
             cardSetsGame.color = Color.black;

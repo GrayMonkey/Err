@@ -6,50 +6,50 @@ using System;
 
 public class Translate : MonoBehaviour
 {
-    [SerializeField] string key;
-    [SerializeField] Text text;
+    LocManager locManager;
+    string key;
+    Text text;
 
     private void Awake()
     {
+        locManager = LocManager.instance;
         text = GetComponent<Text>();
-        try
-        {
-            key = text.text;
-        }
-        catch (Exception)
-        {
-            Debug.Log("No text object found for: " + gameObject.name);
-            throw;
-        }
-    }
-
-    private void Start()
-    {
-        /*        if (text == null)
-                    Debug.Log("No text component found for: " + gameObject.name);
-
-                key = text.text;
-                if (key == "")
-                    Debug.Log("No key component found for: " + gameObject.name + GetPath(transform));
-                else
-                    UpdateString();
-        */
-        UpdateString();
-    }
-
-    public void UpdateKey()
-    {
         key = text.text;
+    }
+
+    private void OnEnable()
+    {
         UpdateString();
+    }
+
+    public void UpdateKey(string newKey)
+    {
+        key = newKey;
+        GetTranslation();
     }
 
     public void UpdateString()
     {
-        if (key == "") return;
+        if (text == null)
+            return;
+
+        if (key == "")
+        {
+            if (text.text == "")
+                return;
+            else
+                key = text.text;
+        }
+
+        GetTranslation();
+    }
+
+    private void GetTranslation()
+    {
         try
         {
-            text.text = LocManager.instance.GetLocText(key);
-            if(text.text == "")
+            text.text = locManager.GetLocText(key);
+            if (text.text == "")
                 Debug.Log(this.gameObject.name + " (blank translation) >" + GetPath(transform));
         }
         catch (Exception e)

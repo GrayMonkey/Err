@@ -22,11 +22,8 @@ public class CardSetIcon : MonoBehaviour
     public void UpdateCardSet(CardSet newCardSet)
     {
         cardSet = newCardSet;
-        title.text = cardSet.cardSetTitleKey;
+        title.GetComponent<Translate>().UpdateKey(cardSet.cardSetTitleKey);
         icon.sprite = cardSet.cardSetIcon.sprite;
-
-        Translate _trans = title.GetComponent<Translate>();
-        _trans.UpdateKey();
     }
 
     public void ChooseCardSet()

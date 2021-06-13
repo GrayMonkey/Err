@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
 public class LocManager : MonoBehaviour
@@ -74,8 +75,9 @@ public class LocManager : MonoBehaviour
         // Update the activate Text assests with Translate
         foreach (Translate _trans in trans)
         {
-            _trans.UpdateString();
-        }
+            if(_trans.gameObject.activeInHierarchy)
+                _trans.UpdateString();
+        }   
     }
 
     public string GetLocText(string key)

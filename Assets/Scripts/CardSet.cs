@@ -33,6 +33,15 @@ public class CardSet : MonoBehaviour
     {
         questionManager = QuestionManager.instance;
         //csSelect = CardSetCollection.instance;
+    }
+
+    private void OnEnable()
+    {
+        
+    }
+
+    void Start () 
+    {
         jsonName = this.gameObject.name;
         jsonFile = jsonName + ".json";
         setupData();
@@ -40,21 +49,7 @@ public class CardSet : MonoBehaviour
         Random.InitState((int)System.DateTime.Now.Ticks);
     }
 
-    private void OnEnable()
-    {
-        
-    }
-    /*
-        void Start () 
-        {
-            jsonName = this.gameObject.name;
-            jsonFile = jsonName + ".json";
-            setupData();
-            CheckPurchaseFromStore();
-            Random.InitState((int)System.DateTime.Now.Ticks);
-        }
-
-    */    // Set up the card set questions from jsonFile
+    // Set up the card set questions from jsonFile
     void setupData()
     {
         // Add the .json file extension and combine the whole filepath name
@@ -75,9 +70,13 @@ public class CardSet : MonoBehaviour
         }
 
         //Set the CardSet information
-        cardsetTitle.text = cardSetTitleKey;
-        cardsetDescription.text = cardSetDescKey;
-        cardsetPrice.text = "£2.49";                    // TODO: Get price from relevant shop.      
+        cardsetTitle.GetComponent<Translate>().UpdateKey(cardSetTitleKey);
+        cardsetDescription.GetComponent<Translate>().UpdateKey(cardSetDescKey);
+        cardsetPrice.text = "£2.49";                    // TODO: Get price from relevant shop.
+                                                        
+
+        // Don't show the CardSet unless its in QuestionManager.csAll
+        gameObject.SetActive(questionManager.csAll.Contains(this));
     }
 
 	public void GetQuestion()
