@@ -30,6 +30,13 @@ public class mnu_Options : MonoBehaviour
         uiMenus = MenuHandler.instance;
     }
 
+    private void Start()
+    {
+#if DEBUG
+Debug.Log("Debug build identified");
+#endif
+    }
+
     private void OnEnable()
     {
         timeSlider.value = gameOptions.guessTime / 5.0f;
