@@ -185,6 +185,7 @@ UI_Off,[SP] Off
 UI_Options,[SP] Options
 UI_Pass,[SP] Pass
 UI_Players,[SP] Select Players
+UI_PointsScored,[SP] points(s) scored
 UI_QuitGameText,[SP] A game is currently in progress.\n\nReturning Home will quit the current game and remove all current game data and scores for each active player!\n\nDo you wish to return to the Home screen or return to the game?
 UI_RandomCardSet,[SP] Select a random CardSet
 UI_Randomise,[SP] Select a random CardSet?
